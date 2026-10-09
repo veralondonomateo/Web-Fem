@@ -49,10 +49,10 @@
                                   <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256">
                                     <path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"></path>
                                   </svg></span></article
-                              ><span aria-hidden="true"><img class="fem-view-video__sizer" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27500%27%20height=%27281.25%27/%3e"></span
+                              ><span aria-hidden="true"><img width="500" height="281" class="fem-view-video__sizer" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27500%27%20height=%27281.25%27/%3e"></span
                             ></div>
                           {%- else -%}
-                            <img alt="{{ media.alt }}" src="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1280 }}{%- endif -%}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1080 }} 1080w, {{ media | image_url: width: 828 }} 828w, {{ media | image_url: width: 750 }} 750w, {{ media | image_url: width: 640 }} 640w, {{ media | image_url: width: 360 }} 360w, {{ media | image_url: width: 1280 }} 1280w{%- endif -%}" data-fem-dynamic-content-source="REPEATER" decoding="async" loading="eager" fetchpriority="high" class="fem-view-media fem-view-image fem-view-image__main" data-fem-repeater-id="L7jRrvWRJIu6Uqx2" data-fem-repeater-index="{{ repeater_index_L7jRrvWRJIu6Uqx2 }}">
+                            <img width="{{ media.preview_image.width | default: media.width }}" height="{{ media.preview_image.height | default: media.height }}" alt="{{ media.alt }}" src="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1280 }}{%- endif -%}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1080 }} 1080w, {{ media | image_url: width: 828 }} 828w, {{ media | image_url: width: 750 }} 750w, {{ media | image_url: width: 640 }} 640w, {{ media | image_url: width: 360 }} 360w, {{ media | image_url: width: 1280 }} 1280w{%- endif -%}" data-fem-dynamic-content-source="REPEATER" decoding="async" loading="eager" fetchpriority="high" class="fem-view-media fem-view-image fem-view-image__main" data-fem-repeater-id="L7jRrvWRJIu6Uqx2" data-fem-repeater-index="{{ repeater_index_L7jRrvWRJIu6Uqx2 }}">
                           {%- endif -%}</div
                       ></div>
                     {%- endif -%}
@@ -88,10 +88,10 @@
                                   <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 256 256">
                                     <path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"></path>
                                   </svg></span></article
-                              ><span aria-hidden="true"><img class="fem-view-video__sizer" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27500%27%20height=%27281.25%27/%3e"></span
+                              ><span aria-hidden="true"><img width="500" height="281" class="fem-view-video__sizer" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27500%27%20height=%27281.25%27/%3e"></span
                             ></div>
                           {%- else -%}
-                            <img alt="{{ media.alt }}" src="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1280 }}{%- endif -%}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1080 }} 1080w, {{ media | image_url: width: 828 }} 828w, {{ media | image_url: width: 750 }} 750w, {{ media | image_url: width: 640 }} 640w, {{ media | image_url: width: 360 }} 360w, {{ media | image_url: width: 1280 }} 1280w{%- endif -%}" data-fem-dynamic-content-source="REPEATER" decoding="async" loading="eager" fetchpriority="high" class="fem-view-media fem-view-image fem-view-image__main" data-fem-repeater-id="JfsUiXG8L0Fd5LxD" data-fem-repeater-index="{{ repeater_index_JfsUiXG8L0Fd5LxD }}">
+                            <img width="{{ media.preview_image.width | default: media.width }}" height="{{ media.preview_image.height | default: media.height }}" alt="{{ media.alt }}" src="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1280 }}{%- endif -%}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1080 }} 1080w, {{ media | image_url: width: 828 }} 828w, {{ media | image_url: width: 750 }} 750w, {{ media | image_url: width: 640 }} 640w, {{ media | image_url: width: 360 }} 360w, {{ media | image_url: width: 1280 }} 1280w{%- endif -%}" data-fem-dynamic-content-source="REPEATER" decoding="async" loading="eager" fetchpriority="high" class="fem-view-media fem-view-image fem-view-image__main" data-fem-repeater-id="JfsUiXG8L0Fd5LxD" data-fem-repeater-index="{{ repeater_index_JfsUiXG8L0Fd5LxD }}">
                           {%- endif -%}
                         </button>
                         {%- assign fem_view_lightbox_z_index = 1000 -%}
@@ -309,7 +309,7 @@
               ><div data-fem-type="text" class="fem-view-rich-text irLtCjVEIPu83DmE9"><p>De 3 a 7 días hábiles para la entrega sin contar festivos </p></div></div
             ></div
           ><div class="iG4HLBdewVEAKrpLg" data-fem-type="container"
-            ><a conditionals="" class="iQ4E4Go0doVX0GSQY" data-fem-type="container" href="https://checkoutfem.com/checkout?product=combo-fem-x-ovulos" rel="noopener noreferrer">
+            ><button conditionals="" class="iQ4E4Go0doVX0GSQY" data-fem-type="container" type="button" data-fem-cart-add data-fem-cart-product-handle="combo-fem-x-ovulos" aria-label="Agregar al carrito">
               {%- liquid
                 assign style = ''
                 assign quantity_available = product.selected_or_first_available_variant.inventory_quantity
@@ -385,7 +385,7 @@
               <div data-fem-type="icon" class="i9rirUatYehCj1kag" {{- style -}} data-fem-conditional="true">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
                   <title>shopping-cart</title><path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM180,192a12,12,0,1,1-12,12A12,12,0,0,1,180,192Zm-96,0a12,12,0,1,1-12,12A12,12,0,0,1,84,192Z"></path>
-                </svg></div></a></div
+                </svg></div></button></div
           ><div class="iomAzQGeyCF1aRRna" data-fem-type="accordion-container" data-is-first-open="true" data-is-multi-open-enabled="false"
             ><div data-state="open" class="ibfP1cZoEEdzeHigg" data-fem-type="accordion-item"
               ><button class="iuqi4YJxfvcGVeyFu" data-fem-type="accordion-header" type="button"
@@ -529,12 +529,12 @@
                 </svg></div
               ><div data-fem-type="text" class="fem-view-rich-text ig4x5p9MRMNRBo0cT"><p>Sin contraindicaciones</p></div></div
             ></div
-          ><a class="iDiZbE7NGV3OQJKv7" data-fem-type="container" href="https://checkoutfem.com/checkout?product=combo-fem-x-ovulos" rel="noopener noreferrer"
-            ><div data-fem-type="text" class="fem-view-rich-text idKFxhxjIZ74bs0Gy"><p>Quiero mi duo Fem</p></div
+          ><button class="iDiZbE7NGV3OQJKv7" data-fem-type="container"
+             type="button" data-fem-cart-add data-fem-cart-product-handle="combo-fem-x-ovulos" aria-label="Agregar al carrito"><div data-fem-type="text" class="fem-view-rich-text idKFxhxjIZ74bs0Gy"><p>Quiero mi duo Fem</p></div
             ><div data-fem-type="icon" class="iIzAZrzFPOVxmslui">
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
                 <title>shopping-cart</title><path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM180,192a12,12,0,1,1-12,12A12,12,0,0,1,180,192Zm-96,0a12,12,0,1,1-12,12A12,12,0,0,1,84,192Z"></path>
-              </svg></div></a></div></div
+              </svg></div></button></div></div
     ></div>
     {%- liquid
       assign product_KbQYSnFDch0ng4JD_handle = 'probiotico-vaginal-en-capsulas-x100-unidades'
@@ -767,9 +767,8 @@
             ><div data-fem-type="text" class="fem-view-rich-text ikKdXNSSUdjDDRI3w"><p>$ 149.900</p></div
             ><div data-fem-type="text" class="fem-view-rich-text idUOcoXITn2H08A18"><p>$ 189.900</p></div></div
           ><div class="ioEvUGOsgPVZbNLze" data-fem-type="container"
-            ><a class="ioY2ElUG3QANAByfn" data-fem-type="container" href="https://checkoutfem.com/checkout?product=combo-fem-x-ovulos" rel="noopener noreferrer"
-              ><div data-fem-type="text" class="fem-view-rich-text izhlVN96pzmMs1Ddz"><p>ENVÍO GRATIS →</p></div></a
-            ><div data-fem-type="text" class="fem-view-rich-text ifvcczznX9MUjdw5s"><p>Combo probióticos + óvulos</p></div></div
+            ><button class="ioY2ElUG3QANAByfn" data-fem-type="container"
+               type="button" data-fem-cart-add data-fem-cart-product-handle="combo-fem-x-ovulos" aria-label="Agregar al carrito"><div data-fem-type="text" class="fem-view-rich-text izhlVN96pzmMs1Ddz"><p>ENVÍO GRATIS →</p></div></button><div data-fem-type="text" class="fem-view-rich-text ifvcczznX9MUjdw5s"><p>Combo probióticos + óvulos</p></div></div
           ></div
         ></div
       ></div

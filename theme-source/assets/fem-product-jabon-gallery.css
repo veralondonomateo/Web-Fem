@@ -1,0 +1,93 @@
+.fem-view.iyllIvKHIw2ISoa1k .iJNH3gC4RPxZDxENY {
+  padding:144px 24px 40px;
+}
+.fem-view.iyllIvKHIw2ISoa1k .iuFoQk80fIswruNtK {
+  width:100%;
+  max-width:1080px;
+  margin:0 auto;
+  column-gap:26px;
+  align-items:flex-start;
+}
+.fem-view.iyllIvKHIw2ISoa1k .i7MQX7rWs97XAFTCB {
+  position:relative;
+  top:auto;
+  row-gap:16px;
+}
+.fem-view.iyllIvKHIw2ISoa1k .ickxTifoqixpsan2C {
+  flex-direction:column-reverse;
+  row-gap:14px;
+}
+.fem-view.iyllIvKHIw2ISoa1k .iMbfF8bM1pcixXnZU {
+  width:100%;
+  position:relative;
+}
+.fem-view.iyllIvKHIw2ISoa1k #iQW4kGOdwH1oVIEjX {
+  width:100%;
+  aspect-ratio:1;
+  border-radius:6px;
+}
+.fem-view.iyllIvKHIw2ISoa1k #ihNxwwT6P4jhoDtpo {
+  width:100%;
+}
+.fem-view.iyllIvKHIw2ISoa1k #ihNxwwT6P4jhoDtpo .fem-view-slider-slide {
+  aspect-ratio:1;
+  border:1px solid transparent;
+  border-radius:6px;
+  overflow:hidden;
+  cursor:pointer;
+}
+.fem-view.iyllIvKHIw2ISoa1k #ihNxwwT6P4jhoDtpo .fem-view-slider-thumb-active {
+  border-color:#f17e7e;
+}
+.fem-view.iyllIvKHIw2ISoa1k #ihNxwwT6P4jhoDtpo img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.fem-view.iyllIvKHIw2ISoa1k .ibtGb80SNuRpSbU2D {
+  width:100%;
+  padding:8px;
+  border-radius:8px;
+  background:#f17e7e;
+}
+.fem-view.iyllIvKHIw2ISoa1k .ix1YSY5VOqH0fl2NI {
+  font-size:16px;
+  line-height:20px;
+}
+.fem-view.iyllIvKHIw2ISoa1k .iyYwBL2RjUjQ8lmvJ {
+  font-size:34px;
+  font-weight:800;
+  line-height:1.27;
+}
+.fem-view.iyllIvKHIw2ISoa1k .iN5QhMUBHty8QffLt p,
+.fem-view.iyllIvKHIw2ISoa1k [data-fem-type="accordion-content"] .fem-view-rich-text {
+  font-size:12px;
+  line-height:1.6;
+}
+.fem-view.iyllIvKHIw2ISoa1k .iN5QhMUBHty8QffLt [data-fem-cart-add] {
+  min-height:40px;
+  padding:8px 12px;
+}
+.fem-view.iyllIvKHIw2ISoa1k .iN5QhMUBHty8QffLt [data-fem-cart-add] p {
+  font-size:14px;
+  line-height:1.2;
+}
+.fem-view.iyllIvKHIw2ISoa1k .iRx7woH6sLzc2F286 [data-fem-dynamic-content-source="PRICE"],
+.fem-view.iyllIvKHIw2ISoa1k .iRx7woH6sLzc2F286 [data-fem-dynamic-content-source="PRICE"] p {
+  font-size:28px;
+  font-weight:800;
+  line-height:1.2;
+}
+.fem-view.iyllIvKHIw2ISoa1k .iRx7woH6sLzc2F286 [data-fem-dynamic-content-source="COMPARE_AT"],
+.fem-view.iyllIvKHIw2ISoa1k .iRx7woH6sLzc2F286 [data-fem-dynamic-content-source="COMPARE_AT"] p {
+  font-size:18px;
+  line-height:1.2;
+}
+@media(max-width:768px) {
+  .fem-view.iyllIvKHIw2ISoa1k .iJNH3gC4RPxZDxENY { padding:120px 20px 32px; }
+  .fem-view.iyllIvKHIw2ISoa1k .iuFoQk80fIswruNtK { flex-direction:column; row-gap:24px; }
+  .fem-view.iyllIvKHIw2ISoa1k .iyYwBL2RjUjQ8lmvJ { font-size:26px; }
+  .fem-view.iyllIvKHIw2ISoa1k .ix1YSY5VOqH0fl2NI { font-size:14px; }
+  .fem-view.iyllIvKHIw2ISoa1k .iN5QhMUBHty8QffLt p,
+  .fem-view.iyllIvKHIw2ISoa1k [data-fem-type="accordion-content"] .fem-view-rich-text { font-size:14px; }
+}

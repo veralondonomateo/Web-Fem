@@ -172,6 +172,23 @@ export function enhanceCartDrawer():void {
     const quantity=Number(fields.get('quantity')||scope?.querySelector<HTMLInputElement>('input[name="quantity"]')?.value||1);
     return addItemFromFields(id,quantity,fields.entries());
   };
+  const productForm=(handle:string)=>[...document.querySelectorAll<HTMLElement>('form[data-fem-form-product-url]')].find(form=>new URL(form.dataset.femFormProductUrl!,location.href).pathname===`/products/${handle}`);
+  async function addProduct(control:HTMLElement,handle:string,explicit?:string|null):Promise<void>{
+    if(busy&&!refreshing||control.matches('[disabled],[aria-disabled="true"],[data-fem-disabled="true"]'))return;
+    const own=control.closest<HTMLElement>('form[data-fem-form-product-url]');
+    const form=own&&new URL(own.dataset.femFormProductUrl!,location.href).pathname===`/products/${handle}`?own:productForm(handle);
+    if(form?.getAttribute('aria-busy')==='true')return;
+    if(form){try{await add(itemFrom(form));}catch(reason){show();fail(reason);}return;}
+    show();await refreshing;
+    if(busy)return;
+    error.hidden=true;lock(true);
+    try{
+      const product=await api.json<CartProduct>(`products/${encodeURIComponent(handle)}.js`);
+      const variant=explicit?product.variants.find(v=>String(v.id)===explicit):product.variants.find(v=>v.available);
+      if(!variant?.available)throw new Error('Esta opción no está disponible. Revisa el producto.');
+      render(await api.add({id:variant.id,quantity:1}));
+    }catch(reason){fail(reason);}finally{lock(false);}
+  }
   window.addEventListener('click',event=>{
     const target=event.target instanceof Element?event.target:null;
     const opener=target?.closest<HTMLElement>('[data-fem-cart-open],[data-fem-action-type="open-cart"]');
@@ -180,28 +197,12 @@ export function enhanceCartDrawer():void {
     const destination=external?new URL(external.href,location.href):null;
     if(destination?.hostname==='checkoutfem.com' && destination.pathname==='/checkout' && destination.searchParams.get('product')){
       event.preventDefault();event.stopImmediatePropagation();
-      if(busy || external?.matches('[aria-disabled="true"],[data-fem-disabled="true"]'))return;
-      const handle=destination.searchParams.get('product')!;
-      const form=[...document.querySelectorAll<HTMLElement>('form[data-fem-form-product-url]')].find(form=>new URL(form.dataset.femFormProductUrl!,location.href).pathname===`/products/${handle}`);
-      if(form?.getAttribute('aria-busy')==='true')return;
-      if(form){try{void add(itemFrom(form));}catch(reason){show();fail(reason);}return;}
-      show();
-      void (async()=>{
-        await refreshing;
-        if(busy)return;
-        error.hidden=true;lock(true);
-        try{
-          const product=await api.json<CartProduct>(`products/${encodeURIComponent(handle)}.js`);
-          const explicit=destination.searchParams.get('variant');
-          const variant=explicit?product.variants.find(v=>String(v.id)===explicit):product.variants.find(v=>v.available);
-          if(!variant?.available)throw new Error('Esta opción no está disponible. Revisa el producto.');
-          render(await api.add({id:variant.id,quantity:1}));
-        }catch(reason){fail(reason);}finally{lock(false);}
-      })();
+      void addProduct(external!,destination.searchParams.get('product')!,destination.searchParams.get('variant'));
       return;
     }
     const control=target?.closest<HTMLElement>('[data-fem-cart-add],[data-fem-action-type="add-to-cart"]');if(!control)return;
     event.preventDefault();event.stopImmediatePropagation();if(busy&&!refreshing||control.matches('[disabled],[aria-disabled="true"],[data-fem-disabled="true"]')||control.closest('form[aria-busy="true"]'))return;
+    if(control.dataset.femCartProductHandle){void addProduct(control,control.dataset.femCartProductHandle,control.dataset.variantId);return;}
     try{void add(itemFrom(control));}catch(reason){show();fail(reason);}
   },true);
   window.addEventListener('submit',event=>{

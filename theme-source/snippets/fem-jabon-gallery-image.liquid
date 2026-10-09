@@ -1,0 +1,35 @@
+{% doc %}
+Renders the five supplied soap photographs in their approved order.
+@param {number} index - Photo position, from 1 through 5.
+@param {string} repeater_id - Gallery identifier.
+@param {number} repeater_index - Zero-based photo position.
+@param {string} image_role - Main, thumbnail, or zoom image.
+{% enddoc %}
+{%- liquid
+  assign image_width = 619
+  assign image_height = 619
+  case index
+    when 1
+      assign image_width = 1641
+      assign image_height = 1642
+      assign image_alt = 'Jabón íntimo pH neutro — presentación del producto'
+    when 2
+      assign image_alt = 'Jabón íntimo pH neutro — limpieza suave y pH natural'
+    when 3
+      assign image_alt = 'Jabón íntimo pH neutro — ingredientes'
+    when 4
+      assign image_alt = 'Jabón íntimo pH neutro — comparación con otras marcas'
+    when 5
+      assign image_alt = 'Jabón íntimo pH neutro — reseñas de clientas'
+  endcase
+  assign image_asset = 'fem-jabon-gallery-' | append: index | append: '.webp'
+  assign image_loading = 'lazy'
+  assign image_priority = 'auto'
+  if image_role == 'thumbnail'
+    assign image_loading = 'eager'
+  elsif image_role == 'main' and index == 1
+    assign image_loading = 'eager'
+    assign image_priority = 'high'
+  endif
+-%}
+<img src="{{ image_asset | asset_url }}" alt="{{ image_alt | escape }}" width="{{ image_width }}" height="{{ image_height }}" loading="{{ image_loading }}" fetchpriority="{{ image_priority }}" decoding="async" class="fem-view-media fem-view-image fem-view-image__main" data-fem-dynamic-content-source="REPEATER" data-fem-repeater-id="{{ repeater_id }}" data-fem-repeater-index="{{ repeater_index }}">

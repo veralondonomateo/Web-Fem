@@ -6,7 +6,7 @@
 </symbol>
 </defs>
 </svg>
-<div class="fem-native fem-header" data-section-id="{{ section.id }}">
+<div class="fem-native fem-header" data-fem-header-theme="default" data-section-id="{{ section.id }}">
   {%- liquid
     assign preload = true
     if section.location == 'footer'
@@ -16,6 +16,7 @@
     endif
   -%}
   {{ 'fem-header.css' | asset_url | stylesheet_tag: preload: preload -}}
+  {{ 'fem-fonts.css' | asset_url | stylesheet_tag -}}
   <style>
     @font-face {
       font-family: 'Grift';

@@ -9,13 +9,14 @@ test('Internal URLs retain query and anchors, external payment paths stay extern
  assert.equal(localHref('https://femprobiotics.co/products/a?variant=123#details'),'/products/a?variant=123#details');
  for(const url of ['https://checkoutfem.com/checkout?variant=123','https://femprobiotics.co/account','mailto:pqrs@grupomsm.co'])assert.equal(localHref(url),url);
 });
-test('All audited documents lose broken links without changing product content or external checkout destinations',()=>{
+test('Audited documents keep product content and other payment links while product CTAs open the cart',()=>{
  const inventory=JSON.parse(readFileSync('tests/fixtures/navigation.json','utf8')) as {html:string;url:string}[];
  for(const page of inventory){
   const source=page.html;const original=load(source);const transformed=load(transformStorefront(source));
   assert.equal(transformed('a[href="null"],a[href="undefined"],a[href=""]').length,0,page.url);
-  const external=(html:typeof original)=>html('a[href^="https://checkoutfem.com"]').map((_,el)=>html(el).attr('href')).get();
+  const external=(html:typeof original)=>html('a[href^="https://checkoutfem.com"]').filter((_,el)=>!html(el).closest('[data-instant-layout="PRODUCT_TEMPLATE"],[data-fem-layout="PRODUCT_TEMPLATE"]').length).map((_,el)=>html(el).attr('href')).get();
   assert.deepEqual(external(transformed),external(original),page.url);
+  assert.equal(transformed('[data-fem-layout="PRODUCT_TEMPLATE"] a[href^="https://checkoutfem.com"]').length,0,page.url);
   assert.deepEqual(transformed('main h1,main h2,main h3').map((_,el)=>transformed(el).text()).get(),original('main h1,main h2,main h3').map((_,el)=>original(el).text()).get(),page.url);
  }
 });

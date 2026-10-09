@@ -22,25 +22,11 @@
 .fem-home-hero__benefits svg { width:28px; height:28px; flex-shrink:0; color:var(--hero-accent,#f17e7e); }
 .fem-home-hero__media { display:flex; align-items:center; justify-content:center; min-width:0; }
 .fem-home .fem-home-hero__image { display:block; width:360px; max-width:100%; height:auto; object-fit:contain; }
-body:has(.fem-home-hero) .fem-native.fem-header .fem-header__layout { padding:18px 17px; }
-body:has(.fem-home-hero) .fem-native.fem-header .fem-header__layout-2 { min-height:66px; background:#fff7f7; border:0; box-shadow:0 3px 6px #bd3e3422; }
-body:has(.fem-home-hero) .fem-native.fem-header .fem-header__media { width:90px; }
-body:has(.fem-home-hero) .fem-native.fem-header .fem-header__media::before { content:''; position:absolute; inset:0; background:#f5797e; mask:url(fem-logo-fem-web-a760cdd1.svg) center/contain no-repeat; }
-body:has(.fem-home-hero) .fem-native.fem-header .fem-header__media img { opacity:0; }
-body:has(.fem-home-hero) .fem-native.fem-header :is(.fem-header__text,.fem-header__text-2,.fem-header__icon) { color:#f5797e; }
-body:has(.fem-home-hero) .fem-native.fem-header :is(.fem-header__text,.fem-header__text-2) { font-family:Grift,Poppins,Arial,sans-serif; font-size:16px; font-weight:800; }
-body:has(.fem-home-hero) .fem-native.fem-header .fem-header__layout-9 { min-height:46px; }
-body:has(.fem-home-hero) .fem-native.fem-header .fem-header__link-4 { background:#f17e7e; }
-body:has(.fem-home-hero) .fem-native.fem-header .fem-header__text-9 { color:#fff; }
-body:has(.fem-home-hero) .fem-native.fem-header :is(.fem-header__link-5,.fem-header__link-6,.fem-header__cart) { display:flex; align-items:center; justify-content:center; width:36px; height:36px; padding:8px; border-radius:50%; background:#c14b4b; color:#fff; }
-body:has(.fem-home-hero) .fem-native.fem-header :is(.fem-header__icon-3,.fem-header__icon-4) { color:#fff; width:20px; height:20px; }
 @media(max-width:1100px) {
   .fem-home-hero__inner { gap:48px; }
   .fem-home .fem-home-hero__title { font-size:48px; }
   .fem-home .fem-home-hero__button { padding:12px 22px; font-size:16px; }
   .fem-home .fem-home-hero__benefits { gap:16px; font-size:13px; }
-  body:has(.fem-home-hero) .fem-native.fem-header .fem-header__layout-2 { padding:10px 24px; }
-  body:has(.fem-home-hero) .fem-native.fem-header .fem-header__layout-5 { gap:4px; }
 }
 @media(max-width:749px) {
   .fem-home .fem-home-hero { min-height:100svh; padding:116px 24px 48px; }
@@ -54,10 +40,4 @@ body:has(.fem-home-hero) .fem-native.fem-header :is(.fem-header__icon-3,.fem-hea
   .fem-home-hero__benefits li { gap:9px; }
   .fem-home-hero__benefits svg { width:24px; height:24px; }
   .fem-home .fem-home-hero__image { width:min(65vw,300px); }
-  body:has(.fem-home-hero) .fem-native.fem-header .fem-header__layout { padding:12px; }
-  body:has(.fem-home-hero) .fem-native.fem-header .fem-header__layout-2 { min-height:58px; padding:6px 16px; }
-  body:has(.fem-home-hero) .fem-native.fem-header .fem-header__layout-5 { display:none; }
-  body:has(.fem-home-hero) .fem-native.fem-header .fem-header__button-2 { display:flex; align-items:center; justify-content:center; width:36px; height:36px; padding:8px; border-radius:50%; background:#c14b4b; }
-  body:has(.fem-home-hero) .fem-native.fem-header .fem-header__icon-2 { color:#fff; }
-  body:has(.fem-home-hero) .fem-native.fem-header .fem-header__media { width:76px; margin:0; }
 }

@@ -38,6 +38,14 @@ export function renderScratchCard():string {
   return engine.renderFileSync('fem-scratch-card');
 }
 
+export function renderProbioticosSummary(variant:{price:number;compare_at_price?:number|null}):string {
+  return engine.renderFileSync('fem-probioticos-price',{variant});
+}
+
+export function renderProbioticosDelivery():string {
+  return engine.renderFileSync('fem-probioticos-delivery');
+}
+
 /** Preview-only adapter. Shopify renders all_products directly in the real theme. */
 export function productsFromStorefront(html:string|CheerioAPI):Record<string,HomeProduct> {
   const $=typeof html==='string'?load(html):html;
@@ -58,12 +66,13 @@ export function productsFromStorefront(html:string|CheerioAPI):Record<string,Hom
   return products;
 }
 
-export function renderNativeSection(name:'home'|'header'|'footer'|'cart-drawer',products:Record<string,HomeProduct>):string {
+export function renderNativeSection(name:'home'|'header'|'footer'|'cart-drawer',products:Record<string,HomeProduct>,pathname='/'):string {
   const source=readFileSync(new URL(`../theme-source/sections/fem-${name}.liquid`,import.meta.url),'utf8');
   const schema=JSON.parse(source.match(/{%\s*schema\s*%}([\s\S]*?){%\s*endschema\s*%}/)?.[1]??'{}');
   const defaults=Object.fromEntries((schema.settings??[]).filter((setting:{id?:string})=>setting.id).map((setting:{id:string;default?:unknown})=>[setting.id,setting.default??'']));
   const saved=JSON.parse(readFileSync(new URL('../theme-source/config/settings_data.json',import.meta.url),'utf8').replace(/^\/\*[\s\S]*?\*\/\s*/,'')).current?.sections?.[`fem-${name}`]?.settings??{};
   const context={
+    product:{handle:pathname.match(/^\/products\/([^/?#]+)/)?.[1]??''},
     section:{id:`fem-${name}`,settings:{...defaults,...saved},location:name==='home'?'template':name,index:1},
     all_products:products,collections:{'todos-los-productos':{url:'/collections/todos-los-productos'}},
     routes:{root_url:'/',collections_url:'/collections',all_products_collection_url:'/collections/all',account_url:'/account',cart_url:'/cart',search_url:'/search'},

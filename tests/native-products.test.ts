@@ -102,3 +102,24 @@ test('Looping carousels continue at both ends without recreating slide content',
   for(let i=0;i<4;i++)next.click();assert.equal(track.firstElementChild,second);assert.equal(track.lastElementChild,first);assert.equal(viewport.scrollLeft,1200);
   for(let i=0;i<4;i++)previous.click();assert.equal(track.firstElementChild,first);assert.equal(viewport.scrollLeft,0);
 });
+
+test('Thumbnail sizing never disables the main arrows, and images can be dragged without opening the lightbox',t=>{
+  const window=environment(`<section data-fem-id="photos"><script type="application/json" id="fem-view-slider-imain-params">{"breakpoints":{"0":{"slidesPerView":1,"spaceBetween":0}}}</script><div id="imain" data-fem-type="slider" data-fem-slider-id="photos"><div class="fem-view-slider-wrapper"><div><button data-fem-action-type="open-overlay" data-fem-action-id="zoom"><img src="one.webp"></button></div><div><img src="two.webp"></div><div><img src="three.webp"></div></div></div><button class="fem-view-slider-photos-button-next">Next</button><button class="fem-view-slider-photos-button-prev">Previous</button><script type="application/json" id="fem-view-slider-ithumbs-params">{"breakpoints":{"0":{"slidesPerView":5,"spaceBetween":14}}}</script><div id="ithumbs" data-fem-type="thumbnails" data-fem-slider-id="photos"><div class="fem-view-slider-wrapper"><div>1</div><div>2</div><div>3</div></div></div><div id="izoom" data-fem-type="overlay" data-state="closed"><button class="fem-view-overlay--lightbox__button-close">Close</button></div></section>`);
+  t.after(()=>window.happyDOM.close());
+  const document=window.document,main=document.getElementById('imain')!,thumbs=document.getElementById('ithumbs')!;
+  Object.defineProperties(main,{clientWidth:{value:400},scrollWidth:{value:1200}});
+  Object.defineProperties(thumbs,{clientWidth:{value:400},scrollWidth:{value:400}});
+  enhanceCatalogInteractions(document as unknown as Document);
+  const next=document.querySelector('.fem-view-slider-photos-button-next') as unknown as HTMLButtonElement,previous=document.querySelector('.fem-view-slider-photos-button-prev') as unknown as HTMLButtonElement;
+  assert.equal(next.disabled,false);
+  next.click();assert.equal(main.scrollLeft,400);
+  (thumbs.firstElementChild!.lastElementChild as any).click();assert.equal(main.scrollLeft,800);assert.equal(next.disabled,true);assert.equal(previous.disabled,false);
+  (thumbs.firstElementChild!.firstElementChild as any).click();assert.equal(main.scrollLeft,0);
+  const image=main.querySelector('img')!;
+  image.dispatchEvent(new window.PointerEvent('pointerdown',{bubbles:true,pointerType:'mouse',clientX:300}));
+  window.dispatchEvent(new window.PointerEvent('pointermove',{pointerType:'mouse',clientX:100}));
+  window.dispatchEvent(new window.PointerEvent('pointerup',{pointerType:'mouse'}));
+  assert.equal(main.scrollLeft,200);
+  image.dispatchEvent(new window.MouseEvent('click',{bubbles:true,cancelable:true}));
+  assert.equal(document.getElementById('izoom')!.getAttribute('data-state'),'closed');
+});

@@ -1,0 +1,7 @@
+{% doc %}
+  Render an add-to-cart button for a product template without an existing purchase control.
+  @param {product} product - The product to add using its selected variant.
+{% enddoc %}
+<button type="button" class="fem-product-cart-button" data-fem-cart-add data-fem-cart-product-handle="{{ product.handle }}" {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>
+  {% if product.selected_or_first_available_variant.available %}Agregar al carrito{% else %}Agotado{% endif %}
+</button>

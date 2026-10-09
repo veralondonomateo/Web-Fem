@@ -58,14 +58,24 @@
 /* Native catalog galleries use browser scrolling instead of a third-party slider. */
 .fem-view [data-fem-type="slider"].fem-view-slider,
 .fem-view [data-fem-type="thumbnails"].fem-view-slider {
-  overflow-x: auto; overflow-y: hidden; scrollbar-width: none;
+  /* Product styles use overflow: clip, which also prevents programmatic scrolling. */
+  overflow-x: auto !important; overflow-y: hidden !important; scrollbar-width: none;
   scroll-snap-type: x mandatory; overscroll-behavior: contain;
   touch-action: pan-x pan-y;
 }
 .fem-view .fem-view-slider::-webkit-scrollbar { display: none; }
 .fem-view .fem-view-slider > .fem-view-slider-wrapper { display: flex; transform: none; width: 100%; }
 .fem-view .fem-view-slider > .fem-view-slider-wrapper > * { scroll-snap-align: start; flex-shrink: 0; }
-.fem-view .fem-view-slider[data-fem-axis="vertical"] { overflow-x: hidden; overflow-y: auto; scroll-snap-type: y mandatory; }
+.fem-view .fem-view-slider[data-fem-axis="vertical"] { overflow-x: hidden !important; overflow-y: auto !important; scroll-snap-type: y mandatory; }
 .fem-view .fem-view-overlay--lightbox > .fem-view-slider-container { width: 100%; min-width: 0; }
+.fem-view [data-fem-product-gallery-container] { position: relative; }
+/* Keep old product-specific icon sizes from covering the image or its thumbnails. */
+.fem-view [data-fem-gallery-control] { position: absolute !important; top: 50% !important; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; width: 36px !important; min-width: 36px; height: 36px !important; padding: 0; margin: 0; border: 0; border-radius: 50%; background: #fff; color: #2d2d2d; z-index: 2; cursor: pointer; }
+.fem-view [data-fem-gallery-control="prev"] { left: 18px; right: auto; }
+.fem-view [data-fem-gallery-control="next"] { right: 18px; left: auto; }
+.fem-view [data-fem-gallery-control] svg { width: 20px !important; height: 20px !important; flex: none; }
+.fem-view [data-fem-gallery-control][aria-disabled="true"] { opacity: .45; }
 .fem-view [aria-disabled="true"][data-fem-action-type^="add-to-"] { cursor: wait; }
 .fem-view .fem-product-error { color: #9f3838; font: 500 14px/1.4 var(--fem-font-body); padding: 12px 0; }
+.fem-view button.fem-product-cart-button { display: flex; justify-content: center; align-items: center; width: 100%; min-height: 44px; padding: 12px 20px; margin: 16px 0; border: 0; border-radius: 99px; background: #f17e7e; color: #fff; font: 700 15px/1.4 var(--fem-font-body); cursor: pointer; }
+.fem-view button.fem-product-cart-button:disabled { opacity: .5; cursor: default; }

@@ -1,0 +1,17 @@
+{% doc %}
+  Price summary for the selected probiotic product variant.
+  @param {variant} variant - Selected Shopify variant, including any selling plan allocation.
+{% enddoc %}
+{%- liquid
+  assign price = variant.selected_selling_plan_allocation.price | default: variant.price
+  assign compare_price = variant.compare_at_price | default: 0
+  assign savings = 0
+  if compare_price > price
+    assign savings = compare_price | minus: price | times: 100 | divided_by: compare_price | floor
+  endif
+-%}
+<div class="fem-probioticos-price" aria-live="polite">
+  <p class="fem-probioticos-price-current" data-fem-dynamic-content-source="PRICE">{{ price | money }}</p>
+  <span class="fem-probioticos-price-compare" data-fem-dynamic-content-source="COMPARE_AT" data-fem-conditional="true" {% unless compare_price > price %}style="display:none"{% endunless %}>{{ compare_price | money }}</span>
+  <span class="fem-probioticos-savings" data-fem-conditional="true" {% unless compare_price > price %}style="display:none"{% endunless %}>AHORRA <span class="fem-probioticos-savings-value" data-fem-dynamic-content-source="SAVED_PERCENTAGE">{{ savings }}%</span></span>
+</div>

@@ -9,6 +9,7 @@
     endif
   -%}
   {{ 'fem-product-probioticos.css' | asset_url | stylesheet_tag: preload: preload -}}
+  {{ 'fem-product-probioticos-design.css' | asset_url | stylesheet_tag }}
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Inter:wght@700&amp;family=Montserrat:wght@400&amp;display=swap" rel="stylesheet">
   {%- liquid
     assign product_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image
@@ -19,25 +20,11 @@
         ><div class="iJjyeqLikBIYPlUO3" data-fem-type="container"
           ><div class="fem-view-slider-container idavGCPlZeiPiaAY2" data-fem-type="slider-container"
             ><div class="fem-view-slider-container i4SPOS5ltcA1g9fJL" data-fem-type="slider-container">
-              <script type="application/json" id="fem-view-slider-iu51ekwQ0lBwTK70u-params">{"breakpoints":{"0":{"speed":300,"direction":"horizontal","autoHeight":false,"slidesPerView":5,"freeMode":false,"centeredSlides":false,"centerInsufficientSlides":false,"spaceBetween":16},"576":{"speed":300,"direction":"horizontal","autoHeight":false,"slidesPerView":5,"freeMode":false,"centeredSlides":false,"centerInsufficientSlides":false,"spaceBetween":16}},"loop":false,"autoplay":false}</script>
+              <script type="application/json" id="fem-view-slider-iu51ekwQ0lBwTK70u-params">{"breakpoints":{"0":{"speed":300,"direction":"horizontal","autoHeight":false,"slidesPerView":6,"freeMode":false,"centeredSlides":false,"centerInsufficientSlides":false,"spaceBetween":14},"576":{"speed":300,"direction":"horizontal","autoHeight":false,"slidesPerView":6,"freeMode":false,"centeredSlides":false,"centerInsufficientSlides":false,"spaceBetween":14}},"loop":false,"autoplay":false}</script>
               <div class="fem-view-slider fem-view-slider-thumbs iu51ekwQ0lBwTK70u" data-fem-slider-id="320coMO02WIMJ6uh" id="iu51ekwQ0lBwTK70u" data-fem-type="thumbnails"
                 ><div class="fem-view-slider-wrapper">
-                  {%- liquid
-                    assign media_without_variant = '' | split: ''
-                    assign featured_image = product.selected_or_first_available_variant.featured_image | default: product_image
 
-                    for media_item in product.media
-                      if media_item.media_type == 'image'
-                        if media_item.media_type == 'image' and media_item.preview_image.src != featured_image.src
-                          assign media_element = media_item | sort
-                          assign media_without_variant = media_without_variant | concat: media_element
-                        endif
-                      endif
-                    endfor
-
-                    assign sorted_media = featured_image | sort | concat: media_without_variant
-                  -%}
-                  {%- for media in sorted_media -%}
+                  {%- for media in (1..6) -%}
                     {%- if forloop.length > 0 -%}
                       {%- assign repeater_index_8cjEHKdPM5f4NcAF = forloop.index0 -%}
                       <div class="fem-view-slider-slide i8cjEHKdPM5f4NcAF" data-fem-type="slider-slide"
@@ -49,10 +36,10 @@
                                   <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256">
                                     <path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"></path>
                                   </svg></span></article
-                              ><span aria-hidden="true"><img class="fem-view-video__sizer" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27500%27%20height=%27281.25%27/%3e"></span
+                              ><span aria-hidden="true"><img width="500" height="281" class="fem-view-video__sizer" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27500%27%20height=%27281.25%27/%3e"></span
                             ></div>
                           {%- else -%}
-                            <img alt="{{ media.alt }}" src="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1280 }}{%- endif -%}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1080 }} 1080w, {{ media | image_url: width: 828 }} 828w, {{ media | image_url: width: 750 }} 750w, {{ media | image_url: width: 640 }} 640w, {{ media | image_url: width: 360 }} 360w, {{ media | image_url: width: 1280 }} 1280w{%- endif -%}" data-fem-dynamic-content-source="REPEATER" decoding="async" loading="eager" fetchpriority="high" class="fem-view-media fem-view-image fem-view-image__main" data-fem-repeater-id="8cjEHKdPM5f4NcAF" data-fem-repeater-index="{{ repeater_index_8cjEHKdPM5f4NcAF }}">
+                            {% render 'fem-probioticos-gallery-image', index: forloop.index, repeater_id: '8cjEHKdPM5f4NcAF', repeater_index: repeater_index_8cjEHKdPM5f4NcAF, image_role: 'thumbnail' %}
                           {%- endif -%}</div
                       ></div>
                     {%- endif -%}
@@ -61,22 +48,8 @@
               <script type="application/json" id="fem-view-slider-i320coMO02WIMJ6uh-params">{"breakpoints":{"0":{"speed":300,"direction":"horizontal","autoHeight":false,"slidesPerView":1,"freeMode":false,"centeredSlides":true,"centerInsufficientSlides":true,"spaceBetween":0},"576":{"speed":300,"direction":"horizontal","autoHeight":false,"slidesPerView":1,"freeMode":false,"centeredSlides":true,"centerInsufficientSlides":true,"spaceBetween":0},"769":{"speed":300,"direction":"horizontal","autoHeight":false,"slidesPerView":1,"freeMode":false,"centeredSlides":true,"centerInsufficientSlides":true,"spaceBetween":0}},"loop":false,"autoplay":false}</script>
               <div class="fem-view-slider i320coMO02WIMJ6uh" data-fem-slider-id="320coMO02WIMJ6uh" id="i320coMO02WIMJ6uh" data-fem-type="slider" conditionals=""
                 ><div class="fem-view-slider-wrapper">
-                  {%- liquid
-                    assign media_without_variant = '' | split: ''
-                    assign featured_image = product.selected_or_first_available_variant.featured_image | default: product_image
 
-                    for media_item in product.media
-                      if media_item.media_type == 'image'
-                        if media_item.media_type == 'image' and media_item.preview_image.src != featured_image.src
-                          assign media_element = media_item | sort
-                          assign media_without_variant = media_without_variant | concat: media_element
-                        endif
-                      endif
-                    endfor
-
-                    assign sorted_media = featured_image | sort | concat: media_without_variant
-                  -%}
-                  {%- for media in sorted_media -%}
+                  {%- for media in (1..6) -%}
                     {%- if forloop.length > 0 -%}
                       {%- assign repeater_index_vYY1qRfUopyRC9xt = forloop.index0 -%}
                       <div class="fem-view-slider-slide ivYY1qRfUopyRC9xt" data-fem-type="slider-slide"
@@ -88,10 +61,10 @@
                                   <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 256 256">
                                     <path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"></path>
                                   </svg></span></article
-                              ><span aria-hidden="true"><img class="fem-view-video__sizer" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27500%27%20height=%27281.25%27/%3e"></span
+                              ><span aria-hidden="true"><img width="500" height="281" class="fem-view-video__sizer" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27500%27%20height=%27281.25%27/%3e"></span
                             ></div>
                           {%- else -%}
-                            <img alt="{{ media.alt }}" src="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1280 }}{%- endif -%}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1080 }} 1080w, {{ media | image_url: width: 828 }} 828w, {{ media | image_url: width: 750 }} 750w, {{ media | image_url: width: 640 }} 640w, {{ media | image_url: width: 360 }} 360w, {{ media | image_url: width: 1280 }} 1280w{%- endif -%}" data-fem-dynamic-content-source="REPEATER" decoding="async" loading="eager" fetchpriority="high" class="fem-view-media fem-view-image fem-view-image__main" data-fem-repeater-id="vYY1qRfUopyRC9xt" data-fem-repeater-index="{{ repeater_index_vYY1qRfUopyRC9xt }}">
+                            {% render 'fem-probioticos-gallery-image', index: forloop.index, repeater_id: 'vYY1qRfUopyRC9xt', repeater_index: repeater_index_vYY1qRfUopyRC9xt, image_role: 'main' %}
                           {%- endif -%}
                         </button>
                         {%- assign fem_view_lightbox_z_index = 1000 -%}
@@ -102,40 +75,12 @@
                               <script type="application/json" id="fem-view-slider-ivYY1qRfUopyRC9xt-lightbox-params">{"breakpoints":{"1025":{"spaceBetween":40}},"loop":false,"autoplay":false}</script>
                               <div class="fem-view-slider ivYY1qRfUopyRC9xt-lightbox" data-fem-slider-id="vYY1qRfUopyRC9xt-lightbox" id="ivYY1qRfUopyRC9xt-lightbox" data-fem-type="slider"
                                 ><div class="fem-view-slider-wrapper">
-                                  {%- liquid
-                                    assign media_without_variant = '' | split: ''
-                                    assign featured_image = product.selected_or_first_available_variant.featured_image | default: product_image
-                                    for media_item in product.media
-                                      if media_item.media_type == 'image'
-                                        if media_item.media_type == 'image' and media_item.preview_image.src != featured_image.src
-                                          assign media_element = media_item | sort
-                                          assign media_without_variant = media_without_variant | concat: media_element
-                                        endif
-                                      endif
-                                    endfor
 
-                                    assign sorted_media = featured_image | sort | concat: media_without_variant
-                                  -%}
-                                  {%- for media in sorted_media -%}
+                                  {%- for media in (1..6) -%}
                                     {%- if forloop.length > 0 -%}
                                       {%- assign repeater_index_vYY1qRfUopyRC9xt = forloop.index0 -%}
                                       <div class="fem-view-slider-slide">
-                                        <img
-                                          alt="{{ media.alt }}"
-                                          src="{{ media | image_url: width: 3840 }}"
-                                          data-fem-dynamic-content-source="REPEATER"
-                                          data-fem-repeater-id="vYY1qRfUopyRC9xt"
-                                          data-fem-repeater-index="{{ repeater_index_vYY1qRfUopyRC9xt }}"
-                                          width="{{ media.width }}"
-                                          height="{{ media.height }}"
-                                          sizes="(max-width: 3840px) 100vw, 3840px"
-                                          srcSet="{{ media | image_url: width: 2048 }} 2048w, {{ media | image_url: width: 1920 }} 1920w, {{ media | image_url: width: 1200 }} 1200w, {{ media | image_url: width: 1080 }} 1080w, {{ media | image_url: width: 828 }} 828w, {{ media | image_url: width: 750 }} 750w, {{ media | image_url: width: 640 }} 640w, {{ media | image_url: width: 360 }} 360w, {{ media | image_url: width: 3840 }} 3840w"
-                                          decoding="async"
-                                          loading="lazy"
-                                          fetchpriority="auto"
-                                          class="fem-view-media fem-view-image fem-view-image__main"
-                                          style="object-fit:contain"
-                                        >
+                                        {% render 'fem-probioticos-gallery-image', index: forloop.index, repeater_id: 'vYY1qRfUopyRC9xt', repeater_index: repeater_index_vYY1qRfUopyRC9xt, image_role: 'zoom' %}
                                         <!--  -->
                                       </div>
                                     {%- endif -%}
@@ -167,7 +112,8 @@
                 ><div data-fem-type="icon" class="isBIT2b6u26agtyZN">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
                     <title>arrow-right</title><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path>
-                  </svg></div></button></div></div></div
+                  </svg></div></button></div></div>
+          <div data-fem-type="text" class="fem-view-rich-text icqUWFhkU7uj7KztV"><h3>Registro invima: NSA-3204-2026</h3></div></div
         ><div conditionals="" class="iEmDJcFTTlb59C5RP" data-fem-type="container"
           ><div class="iTiCJxhewQXjxEdk5" data-fem-type="container"
             ><h3 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="iHRc6Rbjm9onNSNRy">{{ product.title }}</h3
@@ -195,7 +141,7 @@
               ><div data-fem-type="text" class="fem-view-rich-text iqHVkeZdiKxGihBC1"><p>4.6/5</p></div></div
             ><div data-fem-type="text" class="fem-view-rich-text idcYjy9VppnFOePFZ"
               ><h3><strong>Alimento con probióticos y prebióticos #1 en Colombia</strong></h3></div
-            ><div class="i6nKMwtIq0cVyv51r" data-fem-type="container"
+            >{% render 'fem-probioticos-price', variant: product.selected_or_first_available_variant %}<div class="i6nKMwtIq0cVyv51r" data-fem-type="container"
               ><div class="i8czU2UtG8kphNgPh" data-fem-type="container"
                 ><div data-fem-type="icon" class="iglIuJfNkPRNvbrqK">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
@@ -215,8 +161,7 @@
                   </svg></div
                 ><div data-fem-type="text" class="fem-view-rich-text i1DEL353xlzB3aXoP"><p>Atención al cliente prioritaria</p></div></div
               ></div
-            ><div data-fem-type="text" class="fem-view-rich-text icqUWFhkU7uj7KztV"><h3>Registro invima: NSA-3204-2026</h3></div
-            ><div data-fem-type="text" class="fem-view-rich-text iDRuhtPkGFL1tKaw0"><h3>Envío gratis (3 a 7 días hábiles para la entrega sin contar festivos) </h3></div></div
+            >{% render 'fem-probioticos-delivery' %}</div
           ><div class="i5Ee2vCZxwkgJqyFB" data-fem-type="container">
             <!--  -->
             {%- liquid
@@ -362,7 +307,7 @@
                 ><div class="i3GnLOttg4y8oo14P" data-fem-type="container"
                   ><div data-fem-type="text" class="fem-view-rich-text iij1JDE14K3JRamQl"><h3>Compra Única</h3></div
                   ><div data-fem-type="text" class="fem-view-rich-text iEtuIsr1ZnaUbzITh"><p>Sin Beneficios</p></div></div
-                ><div data-fem-type="text" class="fem-view-rich-text isyRRSbAWa1Vr0jgb"><p>$110,000</p></div></div
+                ><div data-fem-type="text" data-fem-dynamic-content-source="PRICE" class="fem-view-rich-text isyRRSbAWa1Vr0jgb"><p>{{ selected_variant.price | money }}</p></div></div
               >
               {%- liquid
                 assign style = ''
@@ -531,7 +476,7 @@
                       ><p><strong>Cobro automático </strong>cada mes</p></div
                     ></div
                   ></div
-                ><div data-fem-type="text" class="fem-view-rich-text izOrmmlVe7dSUhBJl"><p>$89,900</p></div></div
+                ><div data-fem-type="text" data-fem-dynamic-content-source="PRICE" class="fem-view-rich-text izOrmmlVe7dSUhBJl"><p>{{ selected_variant.price | money }}</p></div></div
               >
               {%- liquid
                 assign style = ''
@@ -644,8 +589,8 @@
                 assign style = 'style="display: none;"'
               endif
             -%}
-            <a class="ig9sHJs9yXJmBoGPN" data-fem-type="container" {{- style -}} data-fem-conditional="true" href="https://checkoutfem.com/checkout?product=probiotico-vaginal-en-capsulas-x100-unidades&amp;variant=43659069325400" rel="noopener noreferrer"
-              ><div data-fem-type="text" conditionals="" class="fem-view-rich-text iKFkqqhEjtCb7UbSc"><p>Añadir al carrito</p></div>
+            <button class="ig9sHJs9yXJmBoGPN" data-fem-type="container" {{- style -}} data-fem-conditional="true"
+               type="button" data-fem-cart-add data-fem-cart-product-handle="probiotico-vaginal-en-capsulas-x100-unidades" data-variant-id="43659069325400" aria-label="Agregar al carrito"><div data-fem-type="text" conditionals="" class="fem-view-rich-text iKFkqqhEjtCb7UbSc"><p>Añadir al carrito</p></div>
               {%- liquid
                 assign style = ''
                 assign quantity_available = product.selected_or_first_available_variant.inventory_quantity
@@ -664,12 +609,12 @@
                 endif
               -%}
               <div class="iFoRBSioHt728vi8N" data-fem-type="container" {{- style -}} data-fem-conditional="true"
-                ><div data-fem-type="text" class="fem-view-rich-text iJW7SodsOxFjQkERo"><p>$110,000</p></div></div
+                ><div data-fem-type="text" data-fem-dynamic-content-source="PRICE" class="fem-view-rich-text iJW7SodsOxFjQkERo"><p>{{ product.selected_or_first_available_variant.price | money }}</p></div></div
               ><div data-fem-type="icon" conditionals="" class="iSjz2kbQ2AB7JgKKt">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
                   <title>shopping-cart</title><path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM180,192a12,12,0,1,1-12,12A12,12,0,0,1,180,192Zm-96,0a12,12,0,1,1-12,12A12,12,0,0,1,84,192Z"></path>
                 </svg></div
-            ></a>
+            ></button>
             {%- liquid
               assign style = ''
 
@@ -686,8 +631,8 @@
                 assign style = 'style="display: none;"'
               endif
             -%}
-            <a class="iP8COozRFzXmAbP2O" data-fem-type="container" {{- style -}} data-fem-conditional="true" href="https://checkoutfem.com/checkout?product=probiotico-vaginal-en-capsulas-x100-unidades&amp;variant=43659069358168" rel="noopener noreferrer"
-              ><div data-fem-type="text" conditionals="" class="fem-view-rich-text iFWwOsdqYvm3OhtSJ"><p>Añadir al carrito</p></div>
+            <button class="iP8COozRFzXmAbP2O" data-fem-type="container" {{- style -}} data-fem-conditional="true"
+               type="button" data-fem-cart-add data-fem-cart-product-handle="probiotico-vaginal-en-capsulas-x100-unidades" data-variant-id="43659069358168" aria-label="Agregar al carrito"><div data-fem-type="text" conditionals="" class="fem-view-rich-text iFWwOsdqYvm3OhtSJ"><p>Añadir al carrito</p></div>
               {%- liquid
                 assign style = ''
                 assign quantity_available = product.selected_or_first_available_variant.inventory_quantity
@@ -706,12 +651,12 @@
                 endif
               -%}
               <div class="iq30AX2mKnQ9y2bBF" data-fem-type="container" {{- style -}} data-fem-conditional="true"
-                ><div data-fem-type="text" class="fem-view-rich-text iIAyfdbdfcCYtGKA9"><p>$199,000</p></div></div
+                ><div data-fem-type="text" data-fem-dynamic-content-source="PRICE" class="fem-view-rich-text iIAyfdbdfcCYtGKA9"><p>{{ product.selected_or_first_available_variant.price | money }}</p></div></div
               ><div data-fem-type="icon" conditionals="" class="icRXLWLX878vDZjLK">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
                   <title>shopping-cart</title><path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM180,192a12,12,0,1,1-12,12A12,12,0,0,1,180,192Zm-96,0a12,12,0,1,1-12,12A12,12,0,0,1,84,192Z"></path>
                 </svg></div
-            ></a>
+            ></button>
             {%- liquid
               assign style = ''
 
@@ -728,8 +673,8 @@
                 assign style = 'style="display: none;"'
               endif
             -%}
-            <a class="iCeZH7PthdHxHu2Qo Suscription" data-fem-type="container" {{- style -}} data-fem-conditional="true" href="https://checkout.treli.co/pl/pl_DayDD9T9aNzNcZegdD6tZYIb" rel="noopener noreferrer"
-              ><div data-fem-type="text" conditionals="" class="fem-view-rich-text iZ3j8vgijRJIzke1A"><p>Añadir al carrito</p></div>
+            <button class="iCeZH7PthdHxHu2Qo Suscription" data-fem-type="container" {{- style -}} data-fem-conditional="true"
+               type="button" data-fem-cart-add data-fem-cart-product-handle="{{ product.handle }}" aria-label="Agregar al carrito"><div data-fem-type="text" conditionals="" class="fem-view-rich-text iZ3j8vgijRJIzke1A"><p>Añadir al carrito</p></div>
               {%- liquid
                 assign style = ''
                 assign quantity_available = product.selected_or_first_available_variant.inventory_quantity
@@ -740,12 +685,12 @@
               -%}
               <div data-fem-type="text" class="fem-view-rich-text icVOHX31smhSvsTD5" {{- style -}} data-fem-conditional="true"><p>Agotado</p></div
               ><div class="iNJ9Jo912BX1jlPT5" data-fem-type="container"
-                ><div data-fem-type="text" conditionals="" class="fem-view-rich-text ihkQgTyJYb8ah8zdM"><p>$89,000</p></div></div
+                ><div data-fem-type="text" conditionals="" data-fem-dynamic-content-source="PRICE" class="fem-view-rich-text ihkQgTyJYb8ah8zdM"><p>{{ product.selected_or_first_available_variant.price | money }}</p></div></div
               ><div data-fem-type="icon" conditionals="" class="imGpwt1ZDinolgwNR">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
                   <title>shopping-cart</title><path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM180,192a12,12,0,1,1-12,12A12,12,0,0,1,180,192Zm-96,0a12,12,0,1,1-12,12A12,12,0,0,1,84,192Z"></path>
                 </svg></div
-            ></a>
+            ></button>
             {%- liquid
               assign style = ''
 
@@ -762,8 +707,8 @@
                 assign style = 'style="display: none;"'
               endif
             -%}
-            <a class="ie6u7umsmcWZsWcYM" data-fem-type="container" {{- style -}} data-fem-conditional="true" href="https://checkout.treli.co/pl/pl_16obNuzB46fEPacYnaRa7cy2" rel="noopener noreferrer"
-              ><div data-fem-type="text" conditionals="" class="fem-view-rich-text i9DJxTKZHGgxbllyJ"><p>Añadir al carrito</p></div>
+            <button class="ie6u7umsmcWZsWcYM" data-fem-type="container" {{- style -}} data-fem-conditional="true"
+               type="button" data-fem-cart-add data-fem-cart-product-handle="{{ product.handle }}" aria-label="Agregar al carrito"><div data-fem-type="text" conditionals="" class="fem-view-rich-text i9DJxTKZHGgxbllyJ"><p>Añadir al carrito</p></div>
               {%- liquid
                 assign style = ''
                 assign quantity_available = product.selected_or_first_available_variant.inventory_quantity
@@ -782,11 +727,11 @@
                 endif
               -%}
               <div class="iGSBMKTiHfpypc6eY" data-fem-type="container" {{- style -}} data-fem-conditional="true"
-                ><div data-fem-type="text" conditionals="" class="fem-view-rich-text irMgdBwgOrnDPwegE"><p>$149,900</p></div></div
+                ><div data-fem-type="text" conditionals="" data-fem-dynamic-content-source="PRICE" class="fem-view-rich-text irMgdBwgOrnDPwegE"><p>{{ product.selected_or_first_available_variant.price | money }}</p></div></div
               ><div data-fem-type="icon" conditionals="" class="iBHcuy131LzQBcaii">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
                   <title>shopping-cart</title><path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM180,192a12,12,0,1,1-12,12A12,12,0,0,1,180,192Zm-96,0a12,12,0,1,1-12,12A12,12,0,0,1,84,192Z"></path>
-                </svg></div></a></div
+                </svg></div></button></div
           ><div class="i6vFzTjBBVXTCUcuK" data-fem-type="accordion-container" data-is-first-open="false" data-is-multi-open-enabled="false"
             ><div data-state="closed" class="iExpZ7Ag25WESaGI3" data-fem-type="accordion-item"
               ><button class="irWuUAmNGZVcUuHk8" data-fem-type="accordion-header" type="button"
@@ -992,12 +937,12 @@
                 </svg></div
               ><div data-fem-type="text" class="fem-view-rich-text inbpQqJP0zJdxhUcx"><p>Sin contraindicaciones</p></div></div
             ></div
-          ><a class="i6LBs6rnFEyjY3E49" data-fem-type="container" href="https://checkoutfem.com/checkout?product=probiotico-vaginal-en-capsulas-x100-unidades&amp;variant=43659069325400" rel="noopener noreferrer"
-            ><div data-fem-type="text" class="fem-view-rich-text itJazbqb4ADzA4f5A"><p>Quiero mi tarrito Fem</p></div
+          ><button class="i6LBs6rnFEyjY3E49" data-fem-type="container"
+             type="button" data-fem-cart-add data-fem-cart-product-handle="probiotico-vaginal-en-capsulas-x100-unidades" data-variant-id="43659069325400" aria-label="Agregar al carrito"><div data-fem-type="text" class="fem-view-rich-text itJazbqb4ADzA4f5A"><p>Quiero mi tarrito Fem</p></div
             ><div data-fem-type="icon" class="ir3tVQYxqbXvNbers">
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
                 <title>shopping-cart</title><path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM180,192a12,12,0,1,1-12,12A12,12,0,0,1,180,192Zm-96,0a12,12,0,1,1-12,12A12,12,0,0,1,84,192Z"></path>
-              </svg></div></a></div></div></div
+              </svg></div></button></div></div></div
     ><div class="iVbjIwbpYtgLZzZ9N" data-fem-type="container" id="iVbjIwbpYtgLZzZ9N"
       ><div class="i0GyLOMCN6iQr9aqt" data-fem-type="container"
         ><div data-fem-type="text" class="fem-view-rich-text islX4hzLEnUqc54W0"><h2>Reseñas de nuestras clientas</h2></div
@@ -1291,9 +1236,8 @@
             ><div data-fem-type="text" class="fem-view-rich-text itvwMvS5hUlZOyKVw"><p>$ 110.000</p></div
             ><div data-fem-type="text" class="fem-view-rich-text iFwRjv8LHtWAPGhPU"><p>$ 169.000</p></div></div
           ><div class="iiMyv4sXIVX0fBe4E" data-fem-type="container"
-            ><a class="iu6Xd0E0FSXwZ9tkU" data-fem-type="container" href="https://checkoutfem.com/checkout?product=probiotico-vaginal-en-capsulas-x100-unidades&amp;variant=43659069325400" rel="noopener noreferrer"
-              ><div data-fem-type="text" class="fem-view-rich-text iZSeAU0qWCdWyjC3p"><p>ENVÍO GRATIS →</p></div></a
-            ><div data-fem-type="text" class="fem-view-rich-text ii1nX1hGUZ4NVZTku"><p>Probiótico x 60 UND</p></div></div
+            ><button class="iu6Xd0E0FSXwZ9tkU" data-fem-type="container"
+               type="button" data-fem-cart-add data-fem-cart-product-handle="probiotico-vaginal-en-capsulas-x100-unidades" data-variant-id="43659069325400" aria-label="Agregar al carrito"><div data-fem-type="text" class="fem-view-rich-text iZSeAU0qWCdWyjC3p"><p>ENVÍO GRATIS →</p></div></button><div data-fem-type="text" class="fem-view-rich-text ii1nX1hGUZ4NVZTku"><p>Probiótico x 60 UND</p></div></div
           ></div
         ></div
       ></div
@@ -1324,7 +1268,7 @@
     <!--  -->
   </form>
   <!-- prettier-ignore -->
-  
+
   <script type="application/ld+json">
     {{ product | structured_data }}
   </script>

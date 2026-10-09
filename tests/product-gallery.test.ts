@@ -1,0 +1,99 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync,existsSync} from 'node:fs';
+import {load} from 'cheerio';
+import {transformStorefront} from '../server/transform.ts';
+import {renderNativeSection} from '../server/native-home.ts';
+
+const pages=JSON.parse(readFileSync('tests/fixtures/navigation.json','utf8')) as {url:string;html:string}[];
+const photos=JSON.parse(readFileSync('server/product-images.json','utf8')) as Record<string,{asset:string;width:number;height:number;alt?:string}>;
+
+test('Product galleries retain their assigned photos and serve complete local image files',()=>{
+  let checked=0;
+  for(const page of pages){
+    if(!new URL(page.url).pathname.startsWith('/products/'))continue;
+    // This product intentionally replaces Shopify's five photos with the six supplied files.
+    if(new URL(page.url).pathname==='/products/probiotico-vaginal-en-capsulas-x100-unidades'){checked++;continue;}
+    const source=load(page.html),result=load(transformStorefront(page.html,new URL(page.url).pathname));
+    const before=source('[data-instant-layout="PRODUCT_TEMPLATE"] [data-instant-type="slider"] img,[data-instant-layout="PRODUCT_TEMPLATE"] [data-instant-type="thumbnails"] img').filter('[data-instant-dynamic-content-source="REPEATER"]');
+    const after=result('[data-fem-product-gallery] img').filter('[data-fem-dynamic-content-source="REPEATER"]');
+    if(!before.length)continue;
+    assert.equal(after.length,before.length,page.url);
+    before.each((index,image)=>{
+      const original=source(image).attr('src')!,url=new URL(original,'https://femprobiotics.co');
+      const photo=photos[url.pathname.split('/').pop()+'?v='+(url.searchParams.get('v')??'')];
+      const current=after.eq(index);
+      if(photo){
+        assert.equal(current.attr('src'),'/__theme/'+photo.asset,page.url);
+        assert.ok(existsSync('theme-source/assets/'+photo.asset),photo.asset);
+        assert.equal(Number(current.attr('width')),photo.width);
+        assert.equal(Number(current.attr('height')),photo.height);
+      }else assert.match(current.attr('src')??'',/^https:\/\//);
+      assert.equal(current.attr('alt'),photo?.alt||source(image).attr('alt')||result('[data-fem-dynamic-content-source="TITLE"]').first().text().trim());
+    });
+    assert.ok(result('[data-fem-product-gallery="thumbnails"]').length,page.url);
+    checked++;
+  }
+  assert.ok(checked>=17,'Check the full set of product templates');
+});
+
+test('The probiotic product uses all six supplied images in the same order in every gallery view',()=>{
+  const page=pages.find(page=>new URL(page.url).pathname==='/products/probiotico-vaginal-en-capsulas-x100-unidades')!;
+  const photos=JSON.parse(readFileSync('server/probioticos-gallery.json','utf8')) as {asset:string;width:number;height:number;alt:string}[];
+  assert.equal(photos.length,6);
+  const $=load(transformStorefront(page.html,new URL(page.url).pathname));
+  for(const role of ['thumbnails','main','zoom']){
+    const view=$(`[data-fem-product-gallery="${role}"]`).first();
+    const images=view.find('img[data-fem-dynamic-content-source="REPEATER"]').filter((_,image)=>$(image).closest('[data-fem-product-gallery]')[0]===view[0]);
+    assert.equal(images.length,6,role);
+    images.each((index,image)=>{
+      const img=$(image),photo=photos[index];
+      assert.equal(img.attr('src'),'/__theme/'+photo.asset,role);
+      assert.equal(img.attr('alt'),photo.alt);
+      assert.equal(Number(img.attr('width')),photo.width);assert.equal(Number(img.attr('height')),photo.height);
+      assert.equal(img.attr('data-fem-repeater-index'),String(index));
+      assert.ok(existsSync('theme-source/assets/'+photo.asset));
+    });
+  }
+  const buttons=$('[data-fem-product-gallery="main"] > .fem-view-slider-wrapper > * > button');
+  assert.deepEqual(buttons.map((_,button)=>$(button).attr('data-fem-overlay-active-slide')).get(),['0','1','2','3','4','5']);
+  const thumbnailId=$('[data-fem-product-gallery="thumbnails"]').first().attr('id');
+  const config=JSON.parse($(`script[id="fem-view-slider-${thumbnailId}-params"]`).text());
+  assert.ok(Object.values(config.breakpoints).every((point:any)=>point.slidesPerView===6));
+});
+
+test('Every page shares the exact home header, including maternal product pages',()=>{
+  const routes=['/','/collections/todos-los-productos','/search','/pages/contact','/products/jabon-intimo-ph-neutro','/products/probiotico-vaginal-en-capsulas-x100-unidades','/products/fem-mom-impulso-natural-de-leche-materna','/products/fem-mom-2-unidades','/products/combo-mama'];
+  const defaultHeader=renderNativeSection('header',{},'/');
+  for(const route of routes){
+    const header=renderNativeSection('header',{},route),$=load(header);
+    assert.equal($('.fem-header').attr('data-fem-header-theme'),'default',route);
+    assert.equal(header,defaultHeader,route);
+  }
+  const expected=load(defaultHeader)('.fem-header').html();
+  for(const page of pages){
+    const $=load(transformStorefront(page.html,new URL(page.url).pathname));
+    assert.equal($('.fem-header').length,1,page.url);
+    assert.equal($('.fem-header').html(),expected,page.url);
+  }
+});
+
+test('Gallery configuration survives removal of the builder and retains five thumbnails',()=>{
+  const html='<html><head></head><body><main><section data-instant-id="test" data-instant-layout="PRODUCT_TEMPLATE"><script type="application/json" id="instant-slider-ithumbs-params">{"breakpoints":{"0":{"slidesPerView":5,"spaceBetween":14}},"thumbs":{"swiper":".instant-slider-main"}}</script><div id="ithumbs" data-instant-type="thumbnails" data-instant-slider-id="main"><div class="instant-slider-wrapper"><div><img src="https://femprobiotics.co/cdn/shop/files/test.webp" alt="Test" data-instant-dynamic-content-source="REPEATER"></div></div></div></section></main></body></html>';
+  const $=load(transformStorefront(html,'/products/test'));
+  const config=JSON.parse($('#fem-view-slider-ithumbs-params').text());
+  assert.equal(config.breakpoints['0'].slidesPerView,5);
+  assert.equal(config.breakpoints['0'].spaceBetween,14);
+  assert.equal(config.thumbs,undefined);
+  assert.equal($('#ithumbs').attr('data-fem-type'),'thumbnails');
+});
+
+test('The Ecuador template keeps the shared header visible and removes its duplicate navigation',()=>{
+  const html='<html><body><div id="header-group"><div data-instant-id="Kikh7VzmQY85iams">Old theme header</div></div><main><section data-instant-id="bmPzy6K28rNrqB8Y" data-instant-layout="PRODUCT_TEMPLATE"><style>/* HEADER */ .shopify-section-group-header-group, header { display: none !important; } /* FOOTER */ footer { display: none !important; }</style><div id="ikuG5rUTUFtiEv7Gd">Duplicate navigation</div><div id="i5MX4XVtpzDy5o1qF">Duplicate mobile menu</div><h1>Alimento con probióticos</h1></section></main></body></html>';
+  const $=load(transformStorefront(html,'/products/alimento-con-probioticos-prebioticos-ecu'));
+  assert.equal($('.fem-header').length,1);
+  assert.equal($('#ikuG5rUTUFtiEv7Gd,#i5MX4XVtpzDy5o1qF').length,0);
+  assert.doesNotMatch($('style').text(),/shopify-section-group-header-group/);
+  assert.match($('style').text(),/footer \{ display: none !important/);
+  assert.equal($('main h1').text(),'Alimento con probióticos');
+});

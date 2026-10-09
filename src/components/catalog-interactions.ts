@@ -16,17 +16,33 @@ function gallery(viewport:HTMLElement):void {
   const configNode=section.querySelector(`script[id="fem-view-slider-${viewport.id}-params"]`);
   let config:GalleryOptions={};try{config=JSON.parse(configNode?.textContent??'{}');}catch{/* Default gallery. */}
   const slides=[...track.children] as HTMLElement[];
-  const controls=section.querySelectorAll<HTMLElement>(`.fem-view-slider-${CSS.escape(id)}-button-prev,.fem-view-slider-${CSS.escape(id)}-button-next`);
   const thumbnails=viewport.dataset.femType==='thumbnails';
-  const bullets=section.querySelector<HTMLElement>(`.fem-view-slider-${CSS.escape(id)}-pagination`);
+  const controls=thumbnails?[]:[...section.querySelectorAll<HTMLElement>(`.fem-view-slider-${CSS.escape(id)}-button-prev,.fem-view-slider-${CSS.escape(id)}-button-next`)];
+  const bullets=thumbnails?null:section.querySelector<HTMLElement>(`.fem-view-slider-${CSS.escape(id)}-pagination`);
+  const productMedia=slides.some(slide=>slide.querySelector('img[data-fem-dynamic-content-source="REPEATER"]'));
+  if(productMedia){
+    const zoom=!!viewport.closest('[data-fem-type="overlay"]');
+    viewport.dataset.femProductGallery=zoom?'zoom':thumbnails?'thumbnails':'main';
+    if(!zoom&&!thumbnails){
+      viewport.parentElement?.setAttribute('data-fem-product-gallery-container','');
+      for(const control of controls)control.dataset.femGalleryControl=control.classList.contains(`fem-view-slider-${id}-button-prev`)?'prev':'next';
+    }
+  }
   let index=0,step=1,frame=0,vertical=false,speed=300;
   let autoplay:Autoplay=false;
   viewport.tabIndex=0;viewport.setAttribute('aria-roledescription',thumbnails?'Miniaturas':'Carrusel');
   const position=()=>vertical?viewport.scrollTop:viewport.scrollLeft;
   const limit=()=>vertical?viewport.scrollHeight-viewport.clientHeight:viewport.scrollWidth-viewport.clientWidth;
   const scroll=(value:number)=>{if(vertical)viewport.scrollTop=value;else viewport.scrollLeft=value;};
+  const preload=(next:number)=>{
+    if(thumbnails||viewport.closest('[data-fem-type="overlay"][data-state="closed"]'))return;
+    for(const slide of slides.slice(Math.max(0,next-1),next+2))for(const image of slide.querySelectorAll<HTMLImageElement>('img')){
+      if(image.closest('[data-fem-type="slider"],[data-fem-type="thumbnails"]')===viewport)image.loading='eager';
+    }
+  };
   const update=()=>{
     index=Math.max(0,Math.round(position()/step));
+    preload(index);
     [...track.children].forEach((slide,n)=>{slide.classList.toggle('fem-view-slider-slide-active',n===index);slide.setAttribute('aria-label',`${n+1} de ${slides.length}`);});
     for(const control of controls){
       const previous=control.classList.contains(`fem-view-slider-${id}-button-prev`);
@@ -38,10 +54,18 @@ function gallery(viewport:HTMLElement):void {
     if(!thumbnails)for(const thumbs of section.querySelectorAll<HTMLElement>(`[data-fem-type="thumbnails"][data-fem-slider-id="${id}"]`)){
       const items=thumbs.querySelectorAll<HTMLElement>(':scope > .fem-view-slider-wrapper > *');
       items.forEach((item,n)=>{item.classList.toggle('fem-view-slider-thumb-active',n===index);item.setAttribute('aria-current',String(n===index));});
+      const active=items[index];
+      if(active){
+        const left=active.offsetLeft,right=left+active.offsetWidth;
+        if(left<thumbs.scrollLeft)thumbs.scrollLeft=left;
+        else if(right>thumbs.scrollLeft+thumbs.clientWidth)thumbs.scrollLeft=right-thumbs.clientWidth;
+      }
     }
   };
   const go=(next:number)=>{
+    preload(next);
     cancelAnimationFrame(frame);
+    resize();
     if(config.loop && next>index && position()>=limit()-2 && limit()>2){
       track.append(track.firstElementChild!);scroll(Math.max(0,position()-step));next=Math.round(position()/step)+1;
     }else if(config.loop && next<0 && position()<2 && limit()>2){
@@ -66,6 +90,7 @@ function gallery(viewport:HTMLElement):void {
     track.style.gap=`${gap}px`;track.style.flexDirection=vertical?'column':'row';
     viewport.dataset.femAxis=vertical?'vertical':'horizontal';
     for(const slide of slides){
+      slide.style.margin='0';
       slide.style.flex=point.slidesPerView==='auto'?'0 0 auto':`0 0 ${size}px`;
       slide.style.width=point.slidesPerView==='auto'?'':vertical?'100%':`${size}px`;
       slide.style.height=vertical?`${size}px`:'';
@@ -84,7 +109,8 @@ function gallery(viewport:HTMLElement):void {
   viewport.addEventListener('keydown',event=>{if(event.target!==viewport)return;if(['ArrowRight','ArrowDown','ArrowLeft','ArrowUp'].includes(event.key)){event.preventDefault();go(index+(['ArrowLeft','ArrowUp'].includes(event.key)?-1:1));}});
   let dragging=false;
   viewport.addEventListener('pointerdown',event=>{
-    if(event.pointerType!=='mouse'||event.target instanceof Element&&event.target.closest('button,video,input'))return;
+    const control=event.target instanceof Element?event.target.closest('button,video,input'):null;
+    if(event.pointerType!=='mouse'||control&&!control.matches('button[data-fem-action-type="open-overlay"]'))return;
     const start=vertical?event.clientY:event.clientX,offset=position();dragging=false;
     const move=(e:PointerEvent)=>{const delta=start-(vertical?e.clientY:e.clientX);if(Math.abs(delta)>6)dragging=true;if(dragging){viewport.style.scrollSnapType='none';scroll(offset+delta);}};
     const up=()=>{window.removeEventListener('pointermove',move);viewport.style.scrollSnapType='';};

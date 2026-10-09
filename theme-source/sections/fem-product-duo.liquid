@@ -49,10 +49,10 @@
                                   <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256">
                                     <path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"></path>
                                   </svg></span></article
-                              ><span aria-hidden="true"><img class="fem-view-video__sizer" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27500%27%20height=%27281.25%27/%3e"></span
+                              ><span aria-hidden="true"><img width="500" height="281" class="fem-view-video__sizer" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27500%27%20height=%27281.25%27/%3e"></span
                             ></div>
                           {%- else -%}
-                            <img alt="{{ media.alt }}" src="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1280 }}{%- endif -%}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1080 }} 1080w, {{ media | image_url: width: 828 }} 828w, {{ media | image_url: width: 750 }} 750w, {{ media | image_url: width: 640 }} 640w, {{ media | image_url: width: 360 }} 360w, {{ media | image_url: width: 1280 }} 1280w{%- endif -%}" data-fem-dynamic-content-source="REPEATER" decoding="async" loading="eager" fetchpriority="high" class="fem-view-media fem-view-image fem-view-image__main" data-fem-repeater-id="6kGqXwNdEi1YoNbF" data-fem-repeater-index="{{ repeater_index_6kGqXwNdEi1YoNbF }}">
+                            <img width="{{ media.preview_image.width | default: media.width }}" height="{{ media.preview_image.height | default: media.height }}" alt="{{ media.alt }}" src="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1280 }}{%- endif -%}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1080 }} 1080w, {{ media | image_url: width: 828 }} 828w, {{ media | image_url: width: 750 }} 750w, {{ media | image_url: width: 640 }} 640w, {{ media | image_url: width: 360 }} 360w, {{ media | image_url: width: 1280 }} 1280w{%- endif -%}" data-fem-dynamic-content-source="REPEATER" decoding="async" loading="eager" fetchpriority="high" class="fem-view-media fem-view-image fem-view-image__main" data-fem-repeater-id="6kGqXwNdEi1YoNbF" data-fem-repeater-index="{{ repeater_index_6kGqXwNdEi1YoNbF }}">
                           {%- endif -%}</div
                       ></div>
                     {%- endif -%}
@@ -88,10 +88,10 @@
                                   <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 256 256">
                                     <path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"></path>
                                   </svg></span></article
-                              ><span aria-hidden="true"><img class="fem-view-video__sizer" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27500%27%20height=%27281.25%27/%3e"></span
+                              ><span aria-hidden="true"><img width="500" height="281" class="fem-view-video__sizer" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27500%27%20height=%27281.25%27/%3e"></span
                             ></div>
                           {%- else -%}
-                            <img alt="{{ media.alt }}" src="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1280 }}{%- endif -%}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1080 }} 1080w, {{ media | image_url: width: 828 }} 828w, {{ media | image_url: width: 750 }} 750w, {{ media | image_url: width: 640 }} 640w, {{ media | image_url: width: 360 }} 360w, {{ media | image_url: width: 1280 }} 1280w{%- endif -%}" data-fem-dynamic-content-source="REPEATER" decoding="async" loading="eager" fetchpriority="high" class="fem-view-media fem-view-image fem-view-image__main" data-fem-repeater-id="sAd9CGmr2QwHhSmy" data-fem-repeater-index="{{ repeater_index_sAd9CGmr2QwHhSmy }}">
+                            <img width="{{ media.preview_image.width | default: media.width }}" height="{{ media.preview_image.height | default: media.height }}" alt="{{ media.alt }}" src="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1280 }}{%- endif -%}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1080 }} 1080w, {{ media | image_url: width: 828 }} 828w, {{ media | image_url: width: 750 }} 750w, {{ media | image_url: width: 640 }} 640w, {{ media | image_url: width: 360 }} 360w, {{ media | image_url: width: 1280 }} 1280w{%- endif -%}" data-fem-dynamic-content-source="REPEATER" decoding="async" loading="eager" fetchpriority="high" class="fem-view-media fem-view-image fem-view-image__main" data-fem-repeater-id="sAd9CGmr2QwHhSmy" data-fem-repeater-index="{{ repeater_index_sAd9CGmr2QwHhSmy }}">
                           {%- endif -%}
                         </button>
                         {%- assign fem_view_lightbox_z_index = 1000 -%}
@@ -791,8 +791,8 @@
                 assign style = 'style="display: none;"'
               endif
             -%}
-            <a class="ivzkZ0jC64h40RvOb" data-fem-type="container" {{- style -}} data-fem-conditional="true" href="https://checkoutfem.com/checkout?product=duo-perfecto&amp;variant=43656647606360" rel="noopener noreferrer"
-              ><div class="iHseGMJdIvfBJreNo" data-fem-type="container"
+            <button class="ivzkZ0jC64h40RvOb" data-fem-type="container" {{- style -}} data-fem-conditional="true"
+               type="button" data-fem-cart-add data-fem-cart-product-handle="duo-perfecto" data-variant-id="43656647606360" aria-label="Agregar al carrito"><div class="iHseGMJdIvfBJreNo" data-fem-type="container"
                 ><p data-fem-dynamic-content-source="PRICE" data-fem-type="text" class="iolbkyfuIa9YHUvuU">
                   {%- liquid
                     assign variant_price = product.selected_or_first_available_variant.price
@@ -809,7 +809,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
                   <title>shopping-cart</title><path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM180,192a12,12,0,1,1-12,12A12,12,0,0,1,180,192Zm-96,0a12,12,0,1,1-12,12A12,12,0,0,1,84,192Z"></path>
                 </svg></div
-            ></a>
+            ></button>
             {%- liquid
               assign style = ''
 
@@ -826,15 +826,15 @@
                 assign style = 'style="display: none;"'
               endif
             -%}
-            <a class="iai16FRd6vrNf1GTd" data-fem-type="container" {{- style -}} data-fem-conditional="true" href="https://checkoutfem.com/checkout?product=duo-perfecto&amp;variant=43656647704664" rel="noopener noreferrer"
-              ><div class="iEGqNy71s2SxOwt8X" data-fem-type="container"
+            <button class="iai16FRd6vrNf1GTd" data-fem-type="container" {{- style -}} data-fem-conditional="true"
+               type="button" data-fem-cart-add data-fem-cart-product-handle="duo-perfecto" data-variant-id="43656647704664" aria-label="Agregar al carrito"><div class="iEGqNy71s2SxOwt8X" data-fem-type="container"
                 ><div data-fem-type="text" class="fem-view-rich-text iN2RGUqb9g7hysL3Y"><p>$259,800</p></div></div
               ><div data-fem-type="text" class="fem-view-rich-text ijTOHZtfKYRoK4Hce"><p>Añadir al carrito</p></div
               ><div data-fem-type="icon" class="iELgzrr3Mx1bYcdE5">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
                   <title>shopping-cart</title><path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM180,192a12,12,0,1,1-12,12A12,12,0,0,1,180,192Zm-96,0a12,12,0,1,1-12,12A12,12,0,0,1,84,192Z"></path>
                 </svg></div
-            ></a>
+            ></button>
             {%- liquid
               assign style = ''
 
@@ -851,15 +851,15 @@
                 assign style = 'style="display: none;"'
               endif
             -%}
-            <a class="iBw5aItiZSEojNqUo Suscription" data-fem-type="container" {{- style -}} data-fem-conditional="true" href="https://checkout.treli.co/pl/pl_ogk6mvoz2vcjtaNDwkskk3wz" rel="noopener noreferrer"
-              ><div class="ik3JM6tgoVNs6pDcC" data-fem-type="container"
+            <button class="iBw5aItiZSEojNqUo Suscription" data-fem-type="container" {{- style -}} data-fem-conditional="true"
+               type="button" data-fem-cart-add data-fem-cart-product-handle="{{ product.handle }}" aria-label="Agregar al carrito"><div class="ik3JM6tgoVNs6pDcC" data-fem-type="container"
                 ><div data-fem-type="text" class="fem-view-rich-text igrNo6xgje0MKnfTb"><p>$114,800</p></div></div
               ><div data-fem-type="text" class="fem-view-rich-text izJZ7kXuKziAMTYFs"><p>Añadir al carrito</p></div
               ><div data-fem-type="icon" class="i72cxaBbx5wvsb8cV">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
                   <title>shopping-cart</title><path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM180,192a12,12,0,1,1-12,12A12,12,0,0,1,180,192Zm-96,0a12,12,0,1,1-12,12A12,12,0,0,1,84,192Z"></path>
                 </svg></div
-            ></a>
+            ></button>
             {%- liquid
               assign style = ''
 
@@ -876,14 +876,14 @@
                 assign style = 'style="display: none;"'
               endif
             -%}
-            <a class="igdFE3VD3wpTVEaDA" data-fem-type="container" {{- style -}} data-fem-conditional="true" href="https://checkout.treli.co/pl/pl_rOi5wrxTpHtlDvvgwHtn1aia" rel="noopener noreferrer"
-              ><div class="iSFHTWF3NC0SsKehr" data-fem-type="container"
+            <button class="igdFE3VD3wpTVEaDA" data-fem-type="container" {{- style -}} data-fem-conditional="true"
+               type="button" data-fem-cart-add data-fem-cart-product-handle="{{ product.handle }}" aria-label="Agregar al carrito"><div class="iSFHTWF3NC0SsKehr" data-fem-type="container"
                 ><div data-fem-type="text" class="fem-view-rich-text i7Mm49orexuLFV3Ux"><p>$189,900</p></div></div
               ><div data-fem-type="text" class="fem-view-rich-text ikd2B0qzsGl9XJ6l7"><p>Añadir al carrito</p></div
               ><div data-fem-type="icon" class="iVQEb2UBW0Io3fXG5">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
                   <title>shopping-cart</title><path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM180,192a12,12,0,1,1-12,12A12,12,0,0,1,180,192Zm-96,0a12,12,0,1,1-12,12A12,12,0,0,1,84,192Z"></path>
-                </svg></div></a></div
+                </svg></div></button></div
           ><div class="iU3Fd0T491zSDHysp" data-fem-type="accordion-container" data-is-first-open="false" data-is-multi-open-enabled="false"
             ><div data-state="closed" class="iI2W0CkoON9Il10tl" data-fem-type="accordion-item"
               ><button class="iCHQvQgj1WIHJvlrq" data-fem-type="accordion-header" type="button"
@@ -1054,12 +1054,12 @@
                 ><p><strong>Apoya tu salud femenina desde adentro</strong></p></div
               ></div
             ></div
-          ><a class="i6OmtEq8hrbazVdTH" data-fem-type="container" href="https://checkoutfem.com/checkout?product=duo-perfecto&amp;variant=43656647606360" rel="noopener noreferrer"
-            ><div data-fem-type="text" class="fem-view-rich-text iHHBIHLAQZouxdqEl"><p>Quiero mi duo Fem</p></div
+          ><button class="i6OmtEq8hrbazVdTH" data-fem-type="container"
+             type="button" data-fem-cart-add data-fem-cart-product-handle="duo-perfecto" data-variant-id="43656647606360" aria-label="Agregar al carrito"><div data-fem-type="text" class="fem-view-rich-text iHHBIHLAQZouxdqEl"><p>Quiero mi duo Fem</p></div
             ><div data-fem-type="icon" class="ibplhVPEE7Fw5Co4c">
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
                 <title>shopping-cart</title><path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM180,192a12,12,0,1,1-12,12A12,12,0,0,1,180,192Zm-96,0a12,12,0,1,1-12,12A12,12,0,0,1,84,192Z"></path>
-              </svg></div></a></div></div
+              </svg></div></button></div></div
     ></div>
     {%- liquid
       assign product_aJ2CscAfp6yAjR5F_handle = 'probiotico-vaginal-en-capsulas-x100-unidades'
@@ -1292,9 +1292,8 @@
             ><div data-fem-type="text" class="fem-view-rich-text iTqZHtQBYAtGqmXuU"><p>$ 129.900</p></div
             ><div data-fem-type="text" class="fem-view-rich-text iWjCrOpx3epGscTlm"><p>$ 139.900</p></div></div
           ><div class="iAD1AsJj6Lfcn4BSG" data-fem-type="container"
-            ><a class="iP47aiQnxRTBmzD7q" data-fem-type="container" href="https://checkoutfem.com/checkout?product=duo-perfecto&amp;variant=43656647606360" rel="noopener noreferrer"
-              ><div data-fem-type="text" class="fem-view-rich-text ipTu3sWXJC3TxMZaC"><p>ENVÍO GRATIS →</p></div></a
-            ><div data-fem-type="text" class="fem-view-rich-text iCgfSpJWwDToGhFFA"><p>Probiótico vaginal + Jabón</p></div></div
+            ><button class="iP47aiQnxRTBmzD7q" data-fem-type="container"
+               type="button" data-fem-cart-add data-fem-cart-product-handle="duo-perfecto" data-variant-id="43656647606360" aria-label="Agregar al carrito"><div data-fem-type="text" class="fem-view-rich-text ipTu3sWXJC3TxMZaC"><p>ENVÍO GRATIS →</p></div></button><div data-fem-type="text" class="fem-view-rich-text iCgfSpJWwDToGhFFA"><p>Probiótico vaginal + Jabón</p></div></div
           ></div
         ></div
       ></div

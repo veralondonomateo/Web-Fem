@@ -3,9 +3,19 @@ import {repairNavigation,localHref,STORE_ORIGIN} from '../src/lib/navigation.ts'
 import {productsFromStorefront,renderNativeSection,renderScratchCard} from './native-home.ts';
 import {componentSelectors as selectors,deduplicateIcons} from '../src/lib/performance.ts';
 import {nativeMarkup} from './legacy-preview.ts';
+import {restoreProductGalleries} from './product-gallery.ts';
+import {productCartControls} from '../src/lib/product-cart.ts';
+import {presentProbioticos} from './product-probioticos.ts';
 export function transformStorefront(html:string,pathname?:string):string {
   const fullDocument=/<(?:!doctype|html)\b/i.test(html);
   const $=load(repairNavigation(html),{},fullDocument);
+  // The legacy Ecuador template embeds a second navigation and hides the theme header.
+  const ecuador=$('[data-instant-id="bmPzy6K28rNrqB8Y"]');
+  ecuador.find('#ikuG5rUTUFtiEv7Gd,#i5MX4XVtpzDy5o1qF').remove();
+  ecuador.find('style').each((_,node)=>{
+    const style=$(node);
+    style.text(style.text().replace(/\/\* HEADER \*\/[\s\S]*?display:\s*none\s*!important;\s*}/,''));
+  });
   const paymentImages=$('[data-instant-layout="CART"] img.instant-icon__payment-method').clone().removeAttr('class').attr('loading','lazy').map((_,node)=>$.html(node)).get().join('');
   $('#header-group img').each((_,node)=>{
     if(!/banner-aniv/i.test($(node).attr('src')??''))return;
@@ -19,16 +29,21 @@ export function transformStorefront(html:string,pathname?:string):string {
     for(const [id,name] of [['Kikh7VzmQY85iams','header'],['QpL8HGFa3rotk5kl','home'],['9DvYKHtHU4LVuyNi','footer']] as const){
       if(name==='home' && pathname!=='/')continue;
       const root=$(`[data-instant-id="${id}"]`);
-      root.replaceWith(renderNativeSection(name,products));
+      const markup=renderNativeSection(name,products,pathname);
+      if(name==='header'&&!root.length&&!$('.fem-header').length){
+        const group=$('#header-group');
+        if(group.length)group.html(markup);else $('body').prepend(markup);
+      }else root.replaceWith(markup);
     }
     $('[data-instant-id="UmyA9YaWEvT6UV0u"]').remove();
     $('script').each((_,node)=>{
       const script=$(node);
+      if(script.attr('type')==='application/json'&&/^instant-slider-.+-params$/.test(script.attr('id')??''))return;
       if(/instant(?:\.so|[-/\d])|window\.Instant/.test((script.attr('src')??'')+' '+script.text()))script.remove();
     });
     $('link[href*="instant-Kikh7VzmQY85iams"],link[href*="instant-9DvYKHtHU4LVuyNi"],style[data-instant]').remove();
     if(pathname==='/')$('link[href*="instant-QpL8HGFa3rotk5kl"]').remove();
-    $('[id*="__instant-"]').each((_,node)=>{$(node).attr('id',$(node).attr('id')!.replace(/__instant-.+$/,'__fem-native'));});
+    $('[id^="shopify-section-"][id*="__instant-"]').each((_,node)=>{$(node).attr('id',$(node).attr('id')!.replace(/__instant-.+$/,'__fem-native'));});
     if(pathname==='/')$('link[rel="stylesheet"][href*="fonts.googleapis.com/css2"]').remove();
   }
   if(fullDocument){
@@ -94,8 +109,24 @@ export function transformStorefront(html:string,pathname?:string):string {
     if(/^[A-Za-z0-9]+$/.test(id))section.html(deduplicateIcons(section.html()??'',`fem-icon-${id}`));
   });
   $('meta[name="robots"]').remove();
-  if(fullDocument)$('head').append('<meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="/__theme/fem-tokens.css"><script type="module" src="/__theme/fem-runtime.js"></script>');
+  if(fullDocument){
+    if($('.iyllIvKHIw2ISoa1k').length)$('body').append('<link rel="stylesheet" href="/__theme/fem-product-jabon-gallery.css">');
+    $('head').append('<meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="/__theme/fem-tokens.css"><script type="module" src="/__theme/fem-runtime.js"></script>');
+  }
   let result=$.html().replace(/(?:https?:)?\/\/femprobiotics\.co\/cdn\/shop\/t\/9\/assets\/([a-zA-Z0-9_.-]+)(?:\?v=\d+)?/g, '/__theme/$1');
   if(fullDocument && pathname==='/')result=result.replace(/<!--[\s\S]*?-->/g,comment=>/instant/i.test(comment)?'':comment);
-  return nativeMarkup(result);
+  const native=nativeMarkup(result);
+  if(!/data-fem-layout="PRODUCT_TEMPLATE"/.test(native))return restoreProductGalleries(native);
+  const cartMarkup=load(native,{},fullDocument);
+  cartMarkup('[data-fem-layout="PRODUCT_TEMPLATE"]').each((_,node)=>{
+    const section=cartMarkup(node);
+    section.html(productCartControls(section.html()??''));
+    if(section.find('[data-fem-cart-add],[data-fem-action-type="add-to-cart"]').length)return;
+    const handle=section.find('form[data-fem-form-product-url]').first().attr('data-fem-form-product-url')?.split('/').pop();
+    if(!handle||!/^[-\w]+$/.test(handle))return;
+    const control=`<button type="button" class="fem-product-cart-button" data-fem-cart-add data-fem-cart-fallback data-fem-cart-product-handle="${handle}">Agregar al carrito</button>`;
+    const accordion=section.find('[data-fem-type="accordion-container"]').first();
+    if(accordion.length)accordion.before(control);else section.find('form').first().append(control);
+  });
+  return presentProbioticos(restoreProductGalleries(cartMarkup.html()));
 }
