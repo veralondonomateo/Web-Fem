@@ -1,6 +1,7 @@
 :root {
   --fem-font-body: 'Poppins', sans-serif;
   --fem-font-editorial: 'Behind The Nineties Sans', serif;
+  --fem-font-button-size: 14px;
   --fem-color-rose: #df8585;
   --fem-color-coral: #de5d46;
   --fem-color-text: #000;
@@ -14,6 +15,22 @@
   --fem-space-md: 24px;
   --fem-space-lg: 40px;
   --fem-transition: 180ms ease;
+}
+/* Keep action labels consistent across section and responsive styles. */
+body :is(
+  button, [role="button"], input:is([type="submit"],[type="button"],[type="reset"]),
+  .button, .button-primary, .button-secondary, .variant-option__button-label,
+  .fem-view-custom-variant-picker label,
+  a[class*="__button"], a[data-fem-type="container"],
+  .fem-native.fem-home a[class*="__link"],
+  .fem-collections-contact,
+  .fem-header__link-4, .fem-header__text-18, .fem-header__text-19
+) {
+  font-size: var(--fem-font-button-size) !important;
+
+  :is(span,p,strong,b,em,small,[data-fem-type="text"],.fem-copy,.button__text,.add-to-cart-text) {
+    font-size: inherit !important;
+  }
 }
 :where(a,button,input,select,textarea,summary):focus-visible {
   outline: 2px solid var(--fem-color-focus);

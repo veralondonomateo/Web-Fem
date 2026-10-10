@@ -129,6 +129,11 @@ function menu(trigger:HTMLElement):void {
     }
   };
   setOpen(false);
+  if(overlay && panel.id==='fem-mobile-menu'){
+    matchMedia('(max-width: 749px)').addEventListener('change',event=>{
+      if(!event.matches && opened)setOpen(false);
+    });
+  }
   trigger.addEventListener('click',event=>setOpen(trigger.hasAttribute('data-fem-hover') && matchMedia('(hover: hover)').matches && event.detail>0 ? true : !opened));
   panel.querySelectorAll<HTMLElement>('[data-fem-close]').forEach(button=>button.addEventListener('click',()=>{setOpen(false);trigger.focus();}));
   document.addEventListener('pointerdown',event=>{if(opened && !panel.contains(event.target as Node) && !trigger.contains(event.target as Node))setOpen(false);});
