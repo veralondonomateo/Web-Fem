@@ -380,5 +380,15 @@
     "gesture": "Use your finger or mouse",
     "revealed": "You have 10% off! Enter your email to redeem it.",
     "steps": "1. Scratch · 2. Reveal · 3. Redeem"
+  },
+  "fem_plans": {
+    "breadcrumb": "Breadcrumb",
+    "home": "Home",
+    "options": "Monthly Fem plans",
+    "recommended": "Recommended",
+    "monthly": "Monthly",
+    "price_prefix": "Only",
+    "start": "Start my plan",
+    "benefits": "Fem subscription benefits"
   }
 }

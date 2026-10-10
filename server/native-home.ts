@@ -39,9 +39,9 @@ export function renderScratchCard():string {
 }
 
 /** Render the same editable sections used by Shopify, without reading legacy page markup. */
-export function renderCollectionsPage(embedded=false):string {
+function renderPageTemplate(name:string,embedded=false):string {
   type SectionDefinition={type:string;settings:Record<string,unknown>;blocks?:Record<string,{type:string;settings:Record<string,unknown>}>;block_order?:string[]};
-  const template=JSON.parse(readFileSync(new URL('../theme-source/templates/list-collections.json',import.meta.url),'utf8')) as {sections:Record<string,SectionDefinition>;order:string[]};
+  const template=JSON.parse(readFileSync(new URL(`../theme-source/templates/${name}.json`,import.meta.url),'utf8')) as {sections:Record<string,SectionDefinition>;order:string[]};
   return (embedded?['main']:template.order).map(id=>{
     const definition=template.sections[id];
     const source=readFileSync(new URL(`../theme-source/sections/${definition.type}.liquid`,import.meta.url),'utf8');
@@ -54,9 +54,17 @@ export function renderCollectionsPage(embedded=false):string {
       return {id:blockId,type:block.type,settings,shopify_attributes:''};
     });
     const settings={...defaults,...definition.settings,...(embedded?{embedded:true,heading:'Explora nuestras colecciones',description:''}:{})};
-    const context={section:{id:`collections-${id}`,settings,blocks},routes:{root_url:'/',all_products_collection_url:'/collections/all'}};
+    const context={section:{id:`${name==='list-collections'?'collections':'plans'}-${id}`,settings,blocks},routes:{root_url:'/',all_products_collection_url:'/collections/all'}};
     return engine.parseAndRenderSync(source,context,{globals:context});
   }).join('\n');
+}
+
+export function renderCollectionsPage(embedded=false):string {
+  return renderPageTemplate('list-collections',embedded);
+}
+
+export function renderPlansPage():string {
+  return renderPageTemplate('page.planes-fem');
 }
 
 export function renderProbioticosSummary(variant:{price:number;compare_at_price?:number|null}):string {

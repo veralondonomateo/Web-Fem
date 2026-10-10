@@ -62,13 +62,14 @@ test('The probiotic product uses all six supplied images in the same order in ev
   assert.ok(Object.values(config.breakpoints).every((point:any)=>point.slidesPerView===6));
 });
 
-test('Every page shares the exact home header, including maternal product pages',()=>{
+test('Pages share the home header structure with a purple variant for maternal products',()=>{
   const routes=['/','/collections/todos-los-productos','/search','/pages/contact','/products/jabon-intimo-ph-neutro','/products/probiotico-vaginal-en-capsulas-x100-unidades','/products/fem-mom-impulso-natural-de-leche-materna','/products/fem-mom-2-unidades','/products/combo-mama'];
+  const maternal=new Set(['fem-mom-impulso-natural-de-leche-materna','fem-mom-2-unidades','combo-mama']);
   const defaultHeader=renderNativeSection('header',{},'/');
   for(const route of routes){
     const header=renderNativeSection('header',{},route),$=load(header);
-    assert.equal($('.fem-header').attr('data-fem-header-theme'),'default',route);
-    assert.equal(header,defaultHeader,route);
+    assert.equal($('.fem-header').attr('data-fem-header-theme'),maternal.has(route.split('/products/')[1])?'maternal':'default',route);
+    assert.equal(header.replace('data-fem-header-theme="maternal"','data-fem-header-theme="default"'),defaultHeader,route);
   }
   const expected=load(defaultHeader)('.fem-header').html();
   for(const page of pages){

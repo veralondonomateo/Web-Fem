@@ -396,5 +396,15 @@
     "gesture": "Usa tu dedo o el mouse",
     "revealed": "¡Tienes un 10% de descuento! Deja tu correo para redimirlo.",
     "steps": "1. Raspa · 2. Descubre · 3. Redime"
+  },
+  "fem_plans": {
+    "breadcrumb": "Ruta de navegación",
+    "home": "Home",
+    "options": "Planes mensuales Fem",
+    "recommended": "Recomendado",
+    "monthly": "Mensual",
+    "price_prefix": "Por solo",
+    "start": "Empezar mi plan",
+    "benefits": "Beneficios de la suscripción Fem"
   }
 }

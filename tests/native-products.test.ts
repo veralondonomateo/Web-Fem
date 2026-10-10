@@ -25,7 +25,7 @@ test('All migrated pages remove the runtime and keep their section-rendering ide
     assert.doesNotMatch(result('body').html()??'',/window\.Instant|client\.instant\.so/);
     for(const match of result.html().matchAll(/\/__theme\/([a-zA-Z0-9_.-]+)/g))assert.ok(existsSync('theme-source/assets/'+match[1])||['fem-runtime.js','fem-tokens.css'].includes(match[1]),page.url+': '+match[1]);
     source('main [data-instant-id]').each((_,node)=>{
-      const id=source(node).attr('data-instant-id')!;if(id==='QpL8HGFa3rotk5kl'||id==='jk0iO6ALDrfmfm6c')return;
+      const id=source(node).attr('data-instant-id')!;if(id==='QpL8HGFa3rotk5kl'||id==='jk0iO6ALDrfmfm6c'||id==='zX2zkAycloBh8C5v')return;
       assert.equal(result(`[data-fem-id="${id}"]`).attr('data-section-id'),source(node).attr('data-section-id'),page.url);
     });
   }

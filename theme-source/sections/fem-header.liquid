@@ -6,7 +6,14 @@
 </symbol>
 </defs>
 </svg>
-<div class="fem-native fem-header" data-fem-header-theme="default" data-section-id="{{ section.id }}">
+{%- liquid
+  assign header_theme = 'default'
+  case product.handle
+    when 'fem-mom-impulso-natural-de-leche-materna', 'fem-mom-2-unidades', 'combo-mama'
+      assign header_theme = 'maternal'
+  endcase
+-%}
+<div class="fem-native fem-header" data-fem-header-theme="{{ header_theme }}" data-section-id="{{ section.id }}">
   {%- liquid
     assign preload = true
     if section.location == 'footer'
