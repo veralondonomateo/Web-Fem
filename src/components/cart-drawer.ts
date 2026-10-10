@@ -172,11 +172,17 @@ export function enhanceCartDrawer():void {
     const quantity=Number(fields.get('quantity')||scope?.querySelector<HTMLInputElement>('input[name="quantity"]')?.value||1);
     return addItemFromFields(id,quantity,fields.entries());
   };
-  const productForm=(handle:string)=>[...document.querySelectorAll<HTMLElement>('form[data-fem-form-product-url]')].find(form=>new URL(form.dataset.femFormProductUrl!,location.href).pathname===`/products/${handle}`);
+  const productForm=(handle:string,control:HTMLElement)=>{
+    const forms=[...document.querySelectorAll<HTMLElement>('form[data-fem-form-product-url]')].filter(form=>new URL(form.dataset.femFormProductUrl!,location.href).pathname===`/products/${handle}`);
+    const section=control.closest('[data-fem-layout="PRODUCT_TEMPLATE"]');
+    const local=forms.filter(form=>section?.contains(form));
+    const candidates=local.length?local:forms;
+    return candidates.find(form=>form.dataset.femType==='root')??candidates[0];
+  };
   async function addProduct(control:HTMLElement,handle:string,explicit?:string|null):Promise<void>{
     if(busy&&!refreshing||control.matches('[disabled],[aria-disabled="true"],[data-fem-disabled="true"]'))return;
     const own=control.closest<HTMLElement>('form[data-fem-form-product-url]');
-    const form=own&&new URL(own.dataset.femFormProductUrl!,location.href).pathname===`/products/${handle}`?own:productForm(handle);
+    const form=own&&new URL(own.dataset.femFormProductUrl!,location.href).pathname===`/products/${handle}`?own:productForm(handle,control);
     if(form?.getAttribute('aria-busy')==='true')return;
     if(form){try{await add(itemFrom(form));}catch(reason){show();fail(reason);}return;}
     show();await refreshing;

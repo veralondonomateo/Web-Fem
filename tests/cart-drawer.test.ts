@@ -51,13 +51,13 @@ test('Native drawer renders accessible controls, translated copy and no invented
   const config=JSON.parse($('[data-cart-config]').text());assert.equal(config.threshold,10000000);assert.equal(config.endsAt,'');
   assert.equal($('[data-cart-gifts] img').length,2);assert.equal($('[data-cart-plus]').length,1);
 });
-test('All pages remove only the anniversary header strip and install one native cart',()=>{
+test('All pages remove the anniversary header strip and install the shared header and one native cart',()=>{
   const fixtures=JSON.parse(readFileSync('tests/fixtures/navigation.json','utf8')) as {html:string;url:string}[];
   for(const fixture of fixtures){
     const html=fixture.html.replace('<body','<body').replace('</body>','<div id="header-group"><div data-instant-type="media"><img src="/Banner-aniv-web.webp"></div><a href="/"><img src="/logo.svg"></a></div></body>');
     const $=load(transformStorefront(html));
     assert.equal($('#header-group img[src*="Banner-aniv"]').length,0,fixture.url);
-    assert.equal($('#header-group img[src="/logo.svg"]').length,1,fixture.url);
+    assert.equal($('.fem-header img[alt="Fem"]').length,1,fixture.url);
     assert.equal($('#fem-cart-drawer').length,1,fixture.url);
     assert.equal($('[data-instant-layout="CART"]').length,0,fixture.url);
   }

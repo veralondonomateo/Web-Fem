@@ -35,9 +35,9 @@ function initializeCard(card:HTMLElement):void {
   try { context=canvas.getContext('2d'); } catch {}
   if(!context){reveal();return;}
   const gradient=context.createLinearGradient(0,0,720,420);
-  gradient.addColorStop(0,'#d88291');gradient.addColorStop(.5,'#c56077');gradient.addColorStop(1,'#df9b9f');
+  gradient.addColorStop(0,'#ffacac');gradient.addColorStop(.5,'#f5797e');gradient.addColorStop(1,'#f6a1a5');
   context.fillStyle=gradient;context.fillRect(0,0,720,420);
-  context.fillStyle='rgba(255,247,239,.2)';
+  context.fillStyle='rgba(255,247,247,.2)';
   for(let y=20;y<420;y+=36)for(let x=20;x<720;x+=36){context.beginPath();context.arc(x,y,1.5,0,Math.PI*2);context.fill();}
   context.globalCompositeOperation='destination-out';context.fillStyle='#000';context.strokeStyle='#000';context.lineWidth=68;context.lineCap='round';context.lineJoin='round';
   card.classList.add('fem-scratch--painted');

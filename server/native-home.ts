@@ -38,6 +38,27 @@ export function renderScratchCard():string {
   return engine.renderFileSync('fem-scratch-card');
 }
 
+/** Render the same editable sections used by Shopify, without reading legacy page markup. */
+export function renderCollectionsPage(embedded=false):string {
+  type SectionDefinition={type:string;settings:Record<string,unknown>;blocks?:Record<string,{type:string;settings:Record<string,unknown>}>;block_order?:string[]};
+  const template=JSON.parse(readFileSync(new URL('../theme-source/templates/list-collections.json',import.meta.url),'utf8')) as {sections:Record<string,SectionDefinition>;order:string[]};
+  return (embedded?['main']:template.order).map(id=>{
+    const definition=template.sections[id];
+    const source=readFileSync(new URL(`../theme-source/sections/${definition.type}.liquid`,import.meta.url),'utf8');
+    const schema=JSON.parse(source.match(/{%\s*schema\s*%}([\s\S]*?){%\s*endschema\s*%}/)?.[1]??'{}');
+    const defaults=Object.fromEntries((schema.settings??[]).filter((setting:{id?:string})=>setting.id).map((setting:{id:string;default?:unknown})=>[setting.id,setting.default??'']));
+    const blocks=(definition.block_order??[]).map(blockId=>{
+      const block=definition.blocks![blockId],settings={...block.settings};
+      // Shopify resolves collection-picker settings to Collection objects automatically.
+      if(typeof settings.collection==='string'&&settings.collection)settings.collection={url:'/collections/'+settings.collection,title:settings.title};
+      return {id:blockId,type:block.type,settings,shopify_attributes:''};
+    });
+    const settings={...defaults,...definition.settings,...(embedded?{embedded:true,heading:'Explora nuestras colecciones',description:''}:{})};
+    const context={section:{id:`collections-${id}`,settings,blocks},routes:{root_url:'/',all_products_collection_url:'/collections/all'}};
+    return engine.parseAndRenderSync(source,context,{globals:context});
+  }).join('\n');
+}
+
 export function renderProbioticosSummary(variant:{price:number;compare_at_price?:number|null}):string {
   return engine.renderFileSync('fem-probioticos-price',{variant});
 }

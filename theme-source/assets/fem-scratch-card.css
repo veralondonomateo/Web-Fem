@@ -2,44 +2,46 @@
 [data-fem-scratch-frame] { transform:none !important; margin:12px !important; max-width:calc(100vw - 24px) !important; max-height:calc(100dvh - 24px) !important; overflow:auto !important; overscroll-behavior:contain; border-radius:20px; }
 [data-fem-scratch-form] { width:min(1000px,calc(100vw - 24px)) !important; max-width:100% !important; min-height:0 !important; padding:0 !important; }
 [data-fem-scratch-layout] { display:grid !important; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:stretch; width:100%; }
-[data-fem-scratch-details] { box-sizing:border-box; width:100% !important; min-width:0 !important; min-height:0 !important; margin:0 !important; padding:48px 40px !important; background:#fff7f7; border-radius:0 20px 20px 0; }
+[data-fem-scratch-details] { box-sizing:border-box; width:100% !important; min-width:0 !important; min-height:0 !important; margin:0 !important; padding:48px 40px !important; background:#fff7f7; border-radius:0 20px 20px 0; font-family:Poppins,Arial,sans-serif; }
+[data-fem-scratch-details] :is(input,button,p,span,label) { font-family:Poppins,Arial,sans-serif !important; }
 [data-fem-scratch-details] > [data-testid="form-row"] > [data-testid="form-component"] { padding-left:0 !important; padding-right:0 !important; min-width:0; }
-.fem-scratch-redemption { margin-bottom:20px; text-align:left; color:#822f34; font-family:Montserrat,Arial,sans-serif; }
-.fem-scratch-redemption h2 { margin:0 0 18px; color:inherit; font:700 clamp(25px,3.2vw,36px)/1.2 Montserrat,Arial,sans-serif; letter-spacing:-.7px; text-wrap:balance; }
-.fem-scratch-redemption p { margin:0; color:#775c5f; font:400 14px/1.6 Montserrat,Arial,sans-serif; }
-[data-fem-scratch-details] input[type="email"] { box-sizing:border-box; width:100% !important; min-width:0 !important; height:56px !important; padding:14px 16px !important; border:1px solid #d88a91 !important; border-radius:8px !important; background:#fff !important; font-size:15px !important; }
-[data-fem-scratch-submit] { box-sizing:border-box !important; width:100% !important; height:auto !important; min-height:54px; padding:14px 12px !important; border-radius:8px !important; background:#ed5340 !important; color:#fff !important; font-size:16px !important; line-height:1.4 !important; letter-spacing:0 !important; white-space:normal !important; }
-[data-fem-scratch-dismiss] { height:auto !important; min-height:40px; padding:8px !important; background:transparent !important; color:#822f34 !important; font-size:12px !important; line-height:1.4 !important; letter-spacing:0 !important; text-decoration:underline !important; white-space:normal !important; }
+.fem-scratch-redemption { margin-bottom:20px; text-align:left; color:#581d18; font-family:Poppins,Arial,sans-serif; }
+.fem-scratch-redemption h2 { margin:0 0 18px; color:inherit; font:700 clamp(25px,3.2vw,36px)/1.2 Poppins,Arial,sans-serif; letter-spacing:-.7px; text-wrap:balance; }
+.fem-scratch-redemption p { margin:0; color:#775c5f; font:400 14px/1.6 Poppins,Arial,sans-serif; }
+[data-fem-scratch-details] input[type="email"] { box-sizing:border-box; width:100% !important; min-width:0 !important; height:56px !important; padding:14px 16px !important; border:1px solid #f5797e !important; border-radius:12px !important; background:#fff !important; font-size:15px !important; }
+[data-fem-scratch-submit] { box-sizing:border-box !important; width:100% !important; height:auto !important; min-height:54px; padding:14px 12px !important; border-radius:999px !important; background:#f5797e !important; color:#fff !important; font-size:16px !important; font-weight:600 !important; line-height:1.4 !important; letter-spacing:0 !important; white-space:normal !important; }
+[data-fem-scratch-dismiss] { height:auto !important; min-height:40px; padding:8px !important; background:transparent !important; color:#581d18 !important; font-size:12px !important; line-height:1.4 !important; letter-spacing:0 !important; text-decoration:underline !important; white-space:normal !important; }
 [data-fem-scratch-consent] > [data-testid="form-component"] { padding-top:18px !important; padding-bottom:0 !important; }
 [data-fem-scratch-consent] p, [data-fem-scratch-consent] span { font-size:11px !important; line-height:1.5 !important; }
 .fem-scratch, .fem-scratch * { box-sizing:border-box; }
 .fem-scratch {
   position:relative; isolation:isolate; display:flex; flex:1 1 50%; flex-direction:column; align-items:center; justify-content:center;
   width:100%; min-width:0; padding:42px 32px; overflow:hidden; text-align:center;
-  color:#822f34; background:radial-gradient(ellipse at 12% 12%,#fff1e9 0,transparent 48%),linear-gradient(145deg,#ffe3df,#f3aaa9);
-  border-radius:20px 0 0 20px; font-family:Montserrat,Arial,sans-serif;
+  color:#581d18; background:radial-gradient(ellipse at 12% 12%,#fff7f7 0,transparent 48%),linear-gradient(145deg,#ffd4d4,#ffacac);
+  border-radius:20px 0 0 20px; font-family:Poppins,Arial,sans-serif;
 }
-.fem-scratch::before,.fem-scratch::after { content:'✧'; position:absolute; z-index:-1; color:#fff7ef; font:76px/1 Georgia,serif; }
+.fem-scratch::before,.fem-scratch::after { content:'✧'; position:absolute; z-index:-1; color:#fff7f7; font:76px/1 Poppins,Arial,sans-serif; }
 .fem-scratch::before { top:20%; left:4%; transform:rotate(-12deg); }
 .fem-scratch::after { bottom:12%; right:5%; font-size:110px; transform:rotate(16deg); }
-.fem-scratch .fem-scratch__brand { margin:0 0 24px; color:#a83b42; font:italic 700 58px/1 Georgia,serif; letter-spacing:-3px; }
-.fem-scratch__brand span { display:inline-block; vertical-align:top; margin:8px 0 0 6px; font:18px/1 Arial,sans-serif; }
+.fem-scratch .fem-scratch__brand { position:relative; width:150px; max-width:100%; margin:0 0 26px; }
+.fem-scratch__brand::before { content:''; position:absolute; inset:0; background:#f5797e; mask:url(fem-logo-fem-web-a760cdd1.svg) center/contain no-repeat; }
+.fem-scratch__brand img { display:block; width:100%; height:auto; opacity:0; }
 .fem-scratch .fem-scratch__eyebrow { margin:0 0 10px; font-size:11px; font-weight:700; letter-spacing:2.2px; text-transform:uppercase; }
-.fem-scratch .fem-scratch__title { margin:0 0 12px; color:#822f34; font:italic 500 clamp(32px,3.7vw,48px)/1.08 Georgia,serif; }
+.fem-scratch .fem-scratch__title { margin:0 0 12px; color:#581d18; font:700 clamp(32px,3.7vw,44px)/1.15 Poppins,Arial,sans-serif; letter-spacing:-1px; text-wrap:balance; }
 .fem-scratch .fem-scratch__intro { max-width:280px; margin:0 0 24px; font-size:14px; line-height:1.55; }
-.fem-scratch__ticket { position:relative; width:100%; max-width:360px; aspect-ratio:12/7; overflow:hidden; border:7px solid #fff7ef; border-radius:20px; box-shadow:0 12px 30px #862e3326; background:#fff7ef; }
-.fem-scratch__prize { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; color:#a7323b; border:1px dashed #daa0a0; border-radius:12px; font-size:12px; }
-.fem-scratch__prize > strong { font:700 clamp(64px,7vw,94px)/1 Georgia,serif; letter-spacing:-5px; }
-.fem-scratch__prize > strong span { font-size:.55em; letter-spacing:-2px; }
+.fem-scratch__ticket { position:relative; width:100%; max-width:360px; aspect-ratio:12/7; overflow:hidden; border:7px solid #fff7f7; border-radius:20px; box-shadow:0 12px 30px #bd3e3422; background:#fff7f7; }
+.fem-scratch__prize { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; color:#581d18; border:1px dashed #f5797e; border-radius:12px; font-size:12px; }
+.fem-scratch__prize > strong { color:#f5797e; font:700 clamp(64px,7vw,86px)/1.1 Poppins,Arial,sans-serif; letter-spacing:-4px; }
+.fem-scratch__prize > strong span { font-size:.55em; letter-spacing:-1px; }
 .fem-scratch__prize > span:first-child { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; }
-.fem-scratch__cover { position:absolute; inset:0; background:#c95f76; transition:opacity .35s ease; }
+.fem-scratch__cover { position:absolute; inset:0; background:#f5797e; transition:opacity .35s ease; }
 .fem-scratch--painted .fem-scratch__cover { background:transparent; }
 .fem-scratch__ticket { user-select:none; -webkit-user-select:none; }
 .fem-scratch canvas { display:block; width:100%; height:100%; touch-action:none; cursor:grab; }
 .fem-scratch--dragging canvas { cursor:grabbing; }
-.fem-scratch__cover-label { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; pointer-events:none; color:#fff9f1; }
+.fem-scratch__cover-label { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; pointer-events:none; color:#fff7f7; }
 .fem-scratch__cover-label > span { font-size:40px; line-height:1; }
-.fem-scratch__cover-label > strong { font:italic 500 28px/1.1 Georgia,serif; }
+.fem-scratch__cover-label > strong { font:600 26px/1.2 Poppins,Arial,sans-serif; }
 .fem-scratch__cover-label > small { font-size:11px; letter-spacing:.5px; }
 .fem-scratch--started .fem-scratch__cover-label { opacity:0; }
 .fem-scratch--revealed .fem-scratch__cover { opacity:0; pointer-events:none; }
@@ -59,10 +61,9 @@
   [data-fem-scratch-submit] { font-size:12px !important; min-height:48px; padding:12px 6px !important; }
   [data-fem-scratch-consent] p, [data-fem-scratch-consent] span { font-size:10px !important; }
   .fem-scratch { padding:28px 12px 20px; border-radius:16px 0 0 16px; }
-  .fem-scratch .fem-scratch__brand { font-size:34px; margin-bottom:12px; }
-  .fem-scratch__brand span { margin-top:3px; font-size:12px; }
+  .fem-scratch .fem-scratch__brand { width:100px; margin-bottom:16px; }
   .fem-scratch .fem-scratch__eyebrow { font-size:8px; letter-spacing:1px; margin-bottom:6px; }
-  .fem-scratch .fem-scratch__title { font-size:26px; margin-bottom:8px; }
+  .fem-scratch .fem-scratch__title { font-size:24px; letter-spacing:-.5px; margin-bottom:8px; }
   .fem-scratch .fem-scratch__intro { font-size:11px; margin-bottom:14px; }
   .fem-scratch__ticket { aspect-ratio:1; border-width:4px; border-radius:14px; }
   .fem-scratch__prize { gap:4px; padding:6px; font-size:10px; }

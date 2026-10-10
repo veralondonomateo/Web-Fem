@@ -801,7 +801,7 @@
             </span> </div
           ><div class="iHl6sQHvz2j2YhEfn" data-fem-type="container"
             ><button class="ipgWrKebZnx9wO7W6" data-fem-type="container"
-               type="button" data-fem-cart-add data-fem-cart-product-handle="soda-probiotica-x12-unidades" aria-label="Agregar al carrito"><div data-fem-type="text" class="fem-view-rich-text iD5FcTFA6yScvPR92"><p>ENVIO GRATIS →</p></div></button><div data-fem-type="text" class="fem-view-rich-text iXTByCehCJIDszpFQ"><p>Gomas + Jabón íntimo</p></div></div
+               data-fem-cart-add data-fem-cart-product-handle="soda-probiotica-x12-unidades" data-fem-sticky-cart-add type="button" aria-label="Agregar al carrito"><div data-fem-type="text" class="fem-view-rich-text iD5FcTFA6yScvPR92"><p>ENVIO GRATIS →</p></div></button><div data-fem-type="text" class="fem-view-rich-text iXTByCehCJIDszpFQ"><p>Gomas + Jabón íntimo</p></div></div
           ></div
         ></div
       ></div
@@ -829,11 +829,11 @@
               {%-	endif -%}
             "
             data-fem-href="{{ routes.cart_url }}/{{ product.selected_or_first_available_variant.id }}:1?storefront=true"
-            ><a
+            ><button
               class="iBAY9jZvapLJ2d3QY"
               data-fem-type="container"
-              href="{{ routes.cart_url }}/{{ product.selected_or_first_available_variant.id }}:1?storefront=true"
-              rel="noopener noreferrer"
+
+
               data-fem-action-type="add-to-cart"
               data-fem-action-id="{{ product.id }}"
               data-fem-action-variant-id="{{ product.selected_or_first_available_variant.id }}"
@@ -842,8 +842,7 @@
                 	true
                 {%-	endif -%}
               "
-              ><div data-fem-type="text" class="fem-view-rich-text iUMLoKvpvA1ipPiIA"><p>+ ENVÍO GRATIS →</p></div></a
-            ><div data-fem-type="text" class="fem-view-rich-text iKPFBC3tmYHREqXQl"><p>Soda prebiótica</p></div></div
+               data-fem-cart-add data-fem-cart-product-handle="{{ product.handle }}" data-fem-sticky-cart-add type="button" aria-label="Agregar al carrito"><div data-fem-type="text" class="fem-view-rich-text iUMLoKvpvA1ipPiIA"><p>+ ENVÍO GRATIS →</p></div></button><div data-fem-type="text" class="fem-view-rich-text iKPFBC3tmYHREqXQl"><p>Soda prebiótica</p></div></div
           ></div
         ></div
       ></div

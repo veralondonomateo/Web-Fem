@@ -823,11 +823,11 @@
               {{- compare_at_price | money -}}
             </span> </div
           ><div class="ioHMbXQtBApNgJuYf" data-fem-type="container"
-            ><a
+            ><button
               class="iRBeYAPHujKbyN4AR"
               data-fem-type="container"
-              href="{{ routes.cart_url }}/{{ product.selected_or_first_available_variant.id }}:1?storefront=true"
-              rel="noopener noreferrer"
+
+
               data-fem-action-type="add-to-cart"
               data-fem-action-id="{{ product.id }}"
               data-fem-action-variant-id="{{ product.selected_or_first_available_variant.id }}"
@@ -836,8 +836,7 @@
                 	true
                 {%-	endif -%}
               "
-              ><div data-fem-type="text" class="fem-view-rich-text imZUXop9nBUmVdHmb"><p>ENVIO GRATIS →</p></div></a
-            ><div data-fem-type="text" class="fem-view-rich-text iyPPsrywkDCuEUqWG"><p>Combo Probiótico + sodas</p></div></div
+               data-fem-cart-add data-fem-cart-product-handle="{{ product.handle }}" data-fem-sticky-cart-add type="button" aria-label="Agregar al carrito"><div data-fem-type="text" class="fem-view-rich-text imZUXop9nBUmVdHmb"><p>ENVIO GRATIS →</p></div></button><div data-fem-type="text" class="fem-view-rich-text iyPPsrywkDCuEUqWG"><p>Combo Probiótico + sodas</p></div></div
           ></div
         ></div
       ></div

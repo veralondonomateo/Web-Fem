@@ -1,204 +1,150 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "collection_list_Wfgh3m": {
-      "type": "main-collection-list",
+    "main": {
+      "type": "fem-collections",
+      "settings": {
+        "heading": "Colecciones",
+        "description": "Soluciones pensadas para cada etapa de tu cuidado íntimo. Elige lo que tu cuerpo necesita hoy.",
+        "embedded": false
+      },
       "blocks": {
-        "group_4FtiAg": {
-          "type": "group",
-          "name": "t:names.header",
+        "collection_1": {
+          "type": "collection",
           "settings": {
-            "link": "",
-            "open_in_new_tab": false,
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "padding-block-start": 0,
-            "padding-block-end": 48,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "text_fRMQMR": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<h3>Collections</h3>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h2",
-                "font": "var(--font-primary--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 16,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "text_fRMQMR"
-          ]
+            "collection": "combo-fem",
+            "title": "Combos Fem",
+            "artwork": "combos"
+          }
         },
-        "static-collection-card": {
-          "type": "_collection-card",
-          "name": "t:names.collection_card",
-          "static": true,
+        "collection_2": {
+          "type": "collection",
           "settings": {
-            "placement": "below_image",
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "flex-start",
-            "collection_card_gap": 8,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0
-          },
-          "blocks": {
-            "collection_title_7YgBPU": {
-              "type": "collection-title",
-              "name": "t:names.collection_title",
-              "settings": {
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "collection-card-image": {
-              "type": "_collection-card-image",
-              "name": "t:names.collection_card_image",
-              "static": true,
-              "settings": {
-                "image_ratio": "portrait",
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "collection_title_7YgBPU"
-          ]
+            "collection": "mas-vendidos",
+            "title": "Más vendidos",
+            "artwork": "bestsellers"
+          }
+        },
+        "collection_3": {
+          "type": "collection",
+          "settings": {
+            "collection": "frontpage",
+            "title": "Promos Fem",
+            "artwork": "promotions"
+          }
+        },
+        "collection_4": {
+          "type": "collection",
+          "settings": {
+            "collection": "todos-los-productos",
+            "title": "Todos los productos",
+            "artwork": "all"
+          }
         }
       },
       "block_order": [
-        "group_4FtiAg"
-      ],
-      "disabled": true,
-      "name": "t:names.collections_grid",
-      "settings": {
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "columns": 3,
-        "mobile_columns": "2",
-        "columns_gap": 12,
-        "bento_gap": 8,
-        "rows_gap": 24,
-        "max_collections": 4,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "gap": 12,
-        "color_scheme": "",
-        "padding-block-start": 48,
-        "padding-block-end": 48
-      }
+        "collection_1",
+        "collection_2",
+        "collection_3",
+        "collection_4"
+      ]
     },
-    "fem_view_jk0i_o6_al_drfmfm6c_NbPhEB": {
-      "type": "fem-collections",
-      "name": "Coleciones",
+    "comparison": {
+      "type": "fem-collections-comparison",
       "settings": {
-        "text_hwMPwROlvaXemD50-2": "<h3>Colecciones</h3>",
-        "text_DFQ2C34lavD9Kmtw-2": "<p>Nuestros productos más vendidos han transformado la salud íntima de más de 100.000 mujeres en toda Latinoamérica.</p>",
-        "url_W9vDWD1ZpmQDPCrq-2": "shopify://collections/combo-fem",
-        "text_nAuvly20TyFoeJPc-2": "<p>Ver más</p>",
-        "text_JZX4NPPevTuYbCIc-2": "<p>Más Vendidos</p>",
-        "url_7wdbSE1fOC97MC1Z-2": "shopify://collections/mas-vendidos",
-        "text_HjiipSzIrna0Ocyw-2": "<p>Ver más</p>",
-        "text_n2PyDGReJK7TfHwl-2": "<p>Página de inicio</p>",
-        "url_X7reFMOAHErRR3ZJ-2": "shopify://collections/frontpage",
-        "text_q4F6o8XgojXWM3Ar-2": "<p>Ver más</p>",
-        "text_n8Ecaj12kq3KKNiS-2": "<p>Todos los productos</p>",
-        "url_6Hg0WnSZT3dI14nw-2": "shopify://collections/todos-los-productos",
-        "text_jyIyABq2yYSF2CdC-2": "<p>Ver más</p>",
-        "text_ad2xkUW3cMQGxZ39-2": "<p>FEM PROBIÓTICS</p>",
-        "text_E5pS4G1Fq67OagCC-2": "<p><strong>Haz parte de nuestra comunidad</strong></p>",
-        "url_oJSaBWVYikixbDf0-2": "",
-        "text_sKi7GYKhRIqUVddJ-2": "<p>SER EMBAJADOR</p>",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
+        "heading": "Fem vs otras soluciones",
+        "description": "¿Remedios caseros, tés o fórmulas milagrosas? Mejor no"
+      },
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "text": "Apto para consumo diario"
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "text": "Tenemos registro invima"
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "text": "+1.000 clientas felices"
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "text": "Sin efectos secundarios"
+          }
+        },
+        "feature_5": {
+          "type": "feature",
+          "settings": {
+            "text": "Atención y acompañamiento constante"
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4",
+        "feature_5"
+      ]
+    },
+    "faq": {
+      "type": "fem-collections-faq",
+      "settings": {
+        "heading": "Preguntas frecuentes",
+        "subheading": "¿Tienes dudas?",
+        "description": "Estamos aquí para asesorarte",
+        "contact_label": "Contáctanos",
+        "contact_url": "/pages/contact",
+        "open_first": true
+      },
+      "blocks": {
+        "question_1": {
+          "type": "question",
+          "settings": {
+            "question": "¿Cómo se usan?",
+            "answer": "<p>\n<strong>2 unidades al día (1.2g)</strong>\n</p>\n<p>, preferiblemente con agua y a la misma hora todos los días</p>"
+          }
+        },
+        "question_2": {
+          "type": "question",
+          "settings": {
+            "question": "¿Dónde lo puedo conseguir?",
+            "answer": "<p>\n<strong>Fem Probiotics</strong>\n</p>\n<p>está disponible a través de nuestra página web oficial, WhatsApp y redes sociales. Además, contamos con distribuidores y mayoristas autorizados que comercializan el producto en distintas ciudades del país.</p>"
+          }
+        },
+        "question_3": {
+          "type": "question",
+          "settings": {
+            "question": "¿Cuáles son sus ingredientes?",
+            "answer": "<p>\n<strong>Contiene una combinación de probióticos, prebióticos, vitaminas y minerales, entre ellos:</strong>\n</p>\n<p>lactobacilos (acidófilos y casei), bifidobacterias, inulina, fructooligosacáridos, arándano, moringa, alfalfa, vitaminas A, B, C, D y E, zinc, calcio, magnesio y hierro, además de ingredientes de grado alimenticio</p>"
+          }
+        },
+        "question_4": {
+          "type": "question",
+          "settings": {
+            "question": "¿Envían a todo el país?",
+            "answer": "<p>Sí. Realizamos envíos a <strong>toda Colombia.</strong>\n</p>\n<p>\n<strong>Ciudades principales:</strong> 3 a 7 días hábiles.</p>\n<p>\n<strong>Municipios y zonas alejadas: </strong>hasta 7 días hábiles.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_1",
+        "question_2",
+        "question_3",
+        "question_4"
+      ]
     }
   },
   "order": [
-    "collection_list_Wfgh3m",
-    "fem_view_jk0i_o6_al_drfmfm6c_NbPhEB"
+    "main",
+    "comparison",
+    "faq"
   ]
 }
-

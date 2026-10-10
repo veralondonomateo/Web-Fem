@@ -48,7 +48,9 @@ test('All audited pages keep product text, form fields, media and icon geometry'
     return localMedia([src.replace(/^\/\//,'https://'),image.attr('srcset')?.replace(/(^|,\s*)\/\//g,'$1https://'),image.attr('width'),image.attr('height')].join('|'));
   };
   const signature=($:ReturnType<typeof load>)=>{
-    const main=$('main');
+    // Collections now use new native sections, covered by native-collections.test.ts.
+    const main=$('main').clone();
+    main.find('[data-instant-id="jk0iO6ALDrfmfm6c"],.fem-collections-page,.fem-collections-comparison,.fem-collections-faq').remove();
     // This assigned gallery's media and image buttons are checked against its six-photo manifest.
     const probioticGallery=(element:Element)=>!!$(element as any).closest('.iFziHfOxyaRbyU98Z').length;
     const content=main.clone();content.find('script,style,svg,[data-fem-cart-fallback]').remove();

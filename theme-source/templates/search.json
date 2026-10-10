@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "search": {
@@ -99,31 +90,51 @@
     },
     "fem_view_jk0i_o6_al_drfmfm6c_nXwD6K": {
       "type": "fem-collections",
-      "name": "Coleciones",
       "settings": {
-        "text_hwMPwROlvaXemD50-2": "<h3>Colecciones</h3>",
-        "text_pRvcVMvYClq8ecSN-2": "<p>Soluciones pensadas para cada etapa de tu cuidado íntimo. Elige lo que tu cuerpo necesita hoy.</p>",
-        "text_BoDakXsLsgLWN7rp-2": "<p>Home</p>",
-        "text_JakO6aUnZzPw0FAf-2": "<p>Colecciones</p>",
-        "collection_4EqtK0s5tlHby4RK-2": "",
-        "url_4EqtK0s5tlHby4RK-2": "",
-        "text_QW04acNuZFTlyvUi-2": "<p>→</p>",
-        "collection_Je4PsXIR1zkWZQDi-2": "",
-        "url_Je4PsXIR1zkWZQDi-2": "",
-        "text_P9TUKiaICiadaWtw-2": "<p>→</p>",
-        "collection_bzTp54bLI3Iq36Aj-2": "",
-        "url_bzTp54bLI3Iq36Aj-2": "",
-        "text_9t1zyelCBQ0ynInl-2": "<p>→</p>",
-        "collection_URtZbZSpSNc3V97r-2": "",
-        "url_URtZbZSpSNc3V97r-2": "",
-        "text_gbSrjHXHo1RF0e0J-2": "<p>→</p>",
-        "text_ad2xkUW3cMQGxZ39-2": "<p>FEM PROBIÓTICS</p>",
-        "text_E5pS4G1Fq67OagCC-2": "<p><strong>Haz parte de nuestra comunidad</strong></p>",
-        "url_oJSaBWVYikixbDf0-2": "shopify://pages/contact",
-        "text_sKi7GYKhRIqUVddJ-2": "<p>SER EMBAJADOR</p>",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
+        "heading": "Explora nuestras colecciones",
+        "description": "",
+        "embedded": true
+      },
+      "blocks": {
+        "collection_1": {
+          "type": "collection",
+          "settings": {
+            "collection": "combo-fem",
+            "title": "Combos Fem",
+            "artwork": "combos"
+          }
+        },
+        "collection_2": {
+          "type": "collection",
+          "settings": {
+            "collection": "mas-vendidos",
+            "title": "Más vendidos",
+            "artwork": "bestsellers"
+          }
+        },
+        "collection_3": {
+          "type": "collection",
+          "settings": {
+            "collection": "frontpage",
+            "title": "Promos Fem",
+            "artwork": "promotions"
+          }
+        },
+        "collection_4": {
+          "type": "collection",
+          "settings": {
+            "collection": "todos-los-productos",
+            "title": "Todos los productos",
+            "artwork": "all"
+          }
+        }
+      },
+      "block_order": [
+        "collection_1",
+        "collection_2",
+        "collection_3",
+        "collection_4"
+      ]
     }
   },
   "order": [

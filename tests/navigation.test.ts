@@ -17,7 +17,13 @@ test('Audited documents keep product content and other payment links while produ
   const external=(html:typeof original)=>html('a[href^="https://checkoutfem.com"]').filter((_,el)=>!html(el).closest('[data-instant-layout="PRODUCT_TEMPLATE"],[data-fem-layout="PRODUCT_TEMPLATE"]').length).map((_,el)=>html(el).attr('href')).get();
   assert.deepEqual(external(transformed),external(original),page.url);
   assert.equal(transformed('[data-fem-layout="PRODUCT_TEMPLATE"] a[href^="https://checkoutfem.com"]').length,0,page.url);
-  assert.deepEqual(transformed('main h1,main h2,main h3').map((_,el)=>transformed(el).text()).get(),original('main h1,main h2,main h3').map((_,el)=>original(el).text()).get(),page.url);
+  const headings=(doc:typeof original)=>{
+   const main=doc('main').clone();
+   // Native collections headings and links have their own design contract.
+   main.find('[data-instant-id="jk0iO6ALDrfmfm6c"],.fem-collections-page,.fem-collections-comparison,.fem-collections-faq').remove();
+   return main.find('h1,h2,h3').map((_,el)=>doc(el).text()).get();
+  };
+  assert.deepEqual(headings(transformed),headings(original),page.url);
  }
 });
 test('Legal wrapper is noninteractive and keeps its mailto link',()=>{

@@ -1,6 +1,6 @@
 import {load} from 'cheerio';
 import {repairNavigation,localHref,STORE_ORIGIN} from '../src/lib/navigation.ts';
-import {productsFromStorefront,renderNativeSection,renderScratchCard} from './native-home.ts';
+import {productsFromStorefront,renderNativeSection,renderScratchCard,renderCollectionsPage} from './native-home.ts';
 import {componentSelectors as selectors,deduplicateIcons} from '../src/lib/performance.ts';
 import {nativeMarkup} from './legacy-preview.ts';
 import {restoreProductGalleries} from './product-gallery.ts';
@@ -51,6 +51,14 @@ export function transformStorefront(html:string,pathname?:string):string {
     if(!$('#fem-cart-drawer').length)$('body').append(renderNativeSection('cart-drawer',{}));
     if(!$('#fem-scratch-template').length)$('body').append(renderScratchCard());
     if(paymentImages)$('[data-cart-payments]').html(paymentImages);
+  }
+  const collectionsRoot=$('[data-instant-id="jk0iO6ALDrfmfm6c"]');
+  const canonical=$('link[rel="canonical"]').attr('href');
+  const pagePath=pathname??(canonical?new URL(canonical,STORE_ORIGIN).pathname:'');
+  if(pagePath==='/collections'||collectionsRoot.length){
+    $('link[href*="instant-jk0iO6ALDrfmfm6c"],link[href*="fem-collections.css"]').remove();
+    if(pagePath==='/collections'&&$('main').length)$('main').html(renderCollectionsPage());
+    else collectionsRoot.replaceWith(renderCollectionsPage(true));
   }
   $('[data-instant-id="Kikh7VzmQY85iams"] .iNoR1guaGLSno7n9R img').attr({
     src:'/__theme/fem-logo-fem-web-a760cdd1.svg',

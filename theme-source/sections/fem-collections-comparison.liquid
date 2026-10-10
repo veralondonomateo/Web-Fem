@@ -1,0 +1,35 @@
+<section class="fem-collections-comparison" aria-labelledby="collections-comparison-{{ section.id }}">
+  <header>
+    <h2 id="collections-comparison-{{ section.id }}">{{ section.settings.heading | escape }}</h2>
+    <p>{{ section.settings.description | escape }}</p>
+  </header>
+  <table class="fem-collections-table">
+    <caption class="fem-collections-visually-hidden">{{ section.settings.heading | escape }}</caption>
+    <thead><tr>
+      <th scope="col"><span class="fem-collections-visually-hidden">Característica</span></th>
+      <th scope="col" class="fem-collections-table-fem"><img src="{{ 'fem-logo-fem-web-a760cdd1.svg' | asset_url }}" alt="Fem" width="565" height="177" loading="lazy"></th>
+      <th scope="col">Otros</th>
+    </tr></thead>
+    <tbody>
+      {% for block in section.blocks %}
+        <tr {{ block.shopify_attributes }}>
+          <th scope="row">{{ block.settings.text | escape }}</th>
+          <td class="fem-collections-table-fem"><span class="fem-collections-visually-hidden">Incluido</span><svg aria-hidden="true" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2"><circle cx="14" cy="14" r="12"/><path d="m8 14 4 4 8-8"/></svg></td>
+          <td><span class="fem-collections-visually-hidden">No incluido</span><svg aria-hidden="true" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2"><circle cx="14" cy="14" r="12"/><path d="m10 10 8 8m0-8-8 8"/></svg></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% schema %}
+{
+  "name":"Comparativa Fem",
+  "max_blocks":8,
+  "settings":[
+    {"type":"text","id":"heading","label":"Título","default":"Fem vs otras soluciones"},
+    {"type":"text","id":"description","label":"Descripción","default":"¿Remedios caseros, tés o fórmulas milagrosas? Mejor no"}
+  ],
+  "blocks":[{"type":"feature","name":"Característica","settings":[{"type":"text","id":"text","label":"Texto"}]}],
+  "presets":[{"name":"Comparativa Fem","blocks":[{"type":"feature","settings":{"text":"Apto para consumo diario"}},{"type":"feature","settings":{"text":"Tenemos registro invima"}},{"type":"feature","settings":{"text":"+1.000 clientas felices"}},{"type":"feature","settings":{"text":"Sin efectos secundarios"}},{"type":"feature","settings":{"text":"Atención y acompañamiento constante"}}]}]
+}
+{% endschema %}
