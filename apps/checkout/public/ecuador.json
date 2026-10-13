@@ -1,0 +1,4396 @@
+{
+  "states": [
+    {
+      "id": 819,
+      "id_country": 103,
+      "name": "Azuay",
+      "cities": [
+        {
+          "name": "Cuenca",
+          "idDistrict": null
+        },
+        {
+          "name": "Gualaceo",
+          "idDistrict": null
+        },
+        {
+          "name": "Chordeleg",
+          "idDistrict": null
+        },
+        {
+          "name": "Paute",
+          "idDistrict": null
+        },
+        {
+          "name": "Sigsig",
+          "idDistrict": null
+        },
+        {
+          "name": "Giron",
+          "idDistrict": null
+        },
+        {
+          "name": "Nabon",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Isabel",
+          "idDistrict": null
+        },
+        {
+          "name": "Oña",
+          "idDistrict": null
+        },
+        {
+          "name": "Pucara",
+          "idDistrict": null
+        },
+        {
+          "name": "Abdón Calderón (La Unión)",
+          "idDistrict": null
+        },
+        {
+          "name": "Asunción (Girón)",
+          "idDistrict": null
+        },
+        {
+          "name": "Baños",
+          "idDistrict": null
+        },
+        {
+          "name": "Baños Cuenca",
+          "idDistrict": null
+        },
+        {
+          "name": "Bellavista (Cuenca)",
+          "idDistrict": null
+        },
+        {
+          "name": "Camilo Ponce Enríquez",
+          "idDistrict": null
+        },
+        {
+          "name": "Cañaribamba",
+          "idDistrict": null
+        },
+        {
+          "name": "Chaullabamba",
+          "idDistrict": null
+        },
+        {
+          "name": "Checa (Jidcay)",
+          "idDistrict": null
+        },
+        {
+          "name": "Chiquintad",
+          "idDistrict": null
+        },
+        {
+          "name": "Chumblín",
+          "idDistrict": null
+        },
+        {
+          "name": "Cuchil (Cutchil)",
+          "idDistrict": null
+        },
+        {
+          "name": "Cumbe",
+          "idDistrict": null
+        },
+        {
+          "name": "El Batán",
+          "idDistrict": null
+        },
+        {
+          "name": "El Cabo",
+          "idDistrict": null
+        },
+        {
+          "name": "El Carmen De Pijilí (Santa Isabel)",
+          "idDistrict": null
+        },
+        {
+          "name": "El Pan",
+          "idDistrict": null
+        },
+        {
+          "name": "El Sagrario (Cuenca)",
+          "idDistrict": null
+        },
+        {
+          "name": "El Vecino",
+          "idDistrict": null
+        },
+        {
+          "name": "Firma",
+          "idDistrict": null
+        },
+        {
+          "name": "Gil Ramírez Dávalos",
+          "idDistrict": null
+        },
+        {
+          "name": "Guachapala",
+          "idDistrict": null
+        },
+        {
+          "name": "Hermano Miguel",
+          "idDistrict": null
+        },
+        {
+          "name": "Huaynacápac",
+          "idDistrict": null
+        },
+        {
+          "name": "La Unión (Chordeleg)",
+          "idDistrict": null
+        },
+        {
+          "name": "Llacao",
+          "idDistrict": null
+        },
+        {
+          "name": "Luis Cordero Vega",
+          "idDistrict": null
+        },
+        {
+          "name": "Machángara",
+          "idDistrict": null
+        },
+        {
+          "name": "Monay",
+          "idDistrict": null
+        },
+        {
+          "name": "Nulti",
+          "idDistrict": null
+        },
+        {
+          "name": "Paccha",
+          "idDistrict": null
+        },
+        {
+          "name": "Ponce Enríquez",
+          "idDistrict": null
+        },
+        {
+          "name": "Principal",
+          "idDistrict": null
+        },
+        {
+          "name": "Remigio Crespo Toral (Gúlag)",
+          "idDistrict": null
+        },
+        {
+          "name": "Ricaurte",
+          "idDistrict": null
+        },
+        {
+          "name": "Ricaurte Cuenca",
+          "idDistrict": null
+        },
+        {
+          "name": "San Blas (Cuenca)",
+          "idDistrict": null
+        },
+        {
+          "name": "San Felipe De Oña Cabecera Cantonal",
+          "idDistrict": null
+        },
+        {
+          "name": "San Fernando",
+          "idDistrict": null
+        },
+        {
+          "name": "San Gerardo",
+          "idDistrict": null
+        },
+        {
+          "name": "San Joaquín",
+          "idDistrict": null
+        },
+        {
+          "name": "San Juan Cuenca",
+          "idDistrict": null
+        },
+        {
+          "name": "San Salvador De Cañaribamba",
+          "idDistrict": null
+        },
+        {
+          "name": "San Sebastián (Cuenca)",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Ana (Cuenca)",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Isabel (Chaguarurco)",
+          "idDistrict": null
+        },
+        {
+          "name": "Sayausí",
+          "idDistrict": null
+        },
+        {
+          "name": "Sevilla de Oro",
+          "idDistrict": null
+        },
+        {
+          "name": "Sidcay",
+          "idDistrict": null
+        },
+        {
+          "name": "Sig Sig",
+          "idDistrict": null
+        },
+        {
+          "name": "Simón Bolívar (Cab. En Gañanzol)",
+          "idDistrict": null
+        },
+        {
+          "name": "Sinincay",
+          "idDistrict": null
+        },
+        {
+          "name": "Sosudel",
+          "idDistrict": null
+        },
+        {
+          "name": "Sucre (Cuenca)",
+          "idDistrict": null
+        },
+        {
+          "name": "Susudel",
+          "idDistrict": null
+        },
+        {
+          "name": "Tarqui",
+          "idDistrict": null
+        },
+        {
+          "name": "Tarqui Cuenca",
+          "idDistrict": null
+        },
+        {
+          "name": "Tomebamba",
+          "idDistrict": null
+        },
+        {
+          "name": "Totoracocha",
+          "idDistrict": null
+        },
+        {
+          "name": "Turi",
+          "idDistrict": null
+        },
+        {
+          "name": "Valle (Cuenca)",
+          "idDistrict": null
+        },
+        {
+          "name": "Victoria Del Portete (Irquis)",
+          "idDistrict": null
+        },
+        {
+          "name": "Yanuncay",
+          "idDistrict": null
+        },
+        {
+          "name": "Yunguilla",
+          "idDistrict": null
+        },
+        {
+          "name": "Zhidmad",
+          "idDistrict": null
+        },
+        {
+          "name": "Zona Franca",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 306,
+      "id_country": 103,
+      "name": "Bolivar",
+      "cities": [
+        {
+          "name": "Guaranda",
+          "idDistrict": null
+        },
+        {
+          "name": "San Miguel",
+          "idDistrict": null
+        },
+        {
+          "name": "San Jose de Chimbo",
+          "idDistrict": null
+        },
+        {
+          "name": "Caluma",
+          "idDistrict": null
+        },
+        {
+          "name": "Chillanes",
+          "idDistrict": null
+        },
+        {
+          "name": "Echeandia",
+          "idDistrict": null
+        },
+        {
+          "name": "Las Naves",
+          "idDistrict": null
+        },
+        {
+          "name": "Salinas",
+          "idDistrict": null
+        },
+        {
+          "name": "San Luis de Pambil",
+          "idDistrict": null
+        },
+        {
+          "name": "Angel Polibio Cháves",
+          "idDistrict": null
+        },
+        {
+          "name": "Asunción",
+          "idDistrict": null
+        },
+        {
+          "name": "Chimbo",
+          "idDistrict": null
+        },
+        {
+          "name": "Gabriel Ignacio Veintimilla",
+          "idDistrict": null
+        },
+        {
+          "name": "Guanujo",
+          "idDistrict": null
+        },
+        {
+          "name": "La Magdalena",
+          "idDistrict": null
+        },
+        {
+          "name": "Primero De Mayo",
+          "idDistrict": null
+        },
+        {
+          "name": "Salinas (Guaranda)",
+          "idDistrict": null
+        },
+        {
+          "name": "Salinas De Guaranda",
+          "idDistrict": null
+        },
+        {
+          "name": "San Lorenzo",
+          "idDistrict": null
+        },
+        {
+          "name": "San Miguel De Bolívar",
+          "idDistrict": null
+        },
+        {
+          "name": "San Pedro De Guanujo",
+          "idDistrict": null
+        },
+        {
+          "name": "San Sebastián",
+          "idDistrict": null
+        },
+        {
+          "name": "San Simón",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Fé",
+          "idDistrict": null
+        },
+        {
+          "name": "4 Esquinas",
+          "idDistrict": null
+        },
+        {
+          "name": "Balzapamba",
+          "idDistrict": null
+        },
+        {
+          "name": "Pisagua Alto",
+          "idDistrict": null
+        },
+        {
+          "name": "Pisagua Bajo",
+          "idDistrict": null
+        },
+        {
+          "name": "Recinto 24 De Mayo",
+          "idDistrict": null
+        },
+        {
+          "name": "Recinto El Palmar",
+          "idDistrict": null
+        },
+        {
+          "name": "Recinto La Maritza",
+          "idDistrict": null
+        },
+        {
+          "name": "San Pablo De Atenas",
+          "idDistrict": null
+        },
+        {
+          "name": "Vinchoa",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 563,
+      "id_country": 103,
+      "name": "Cañar",
+      "cities": [
+        {
+          "name": "Azogues",
+          "idDistrict": null
+        },
+        {
+          "name": "Cañar",
+          "idDistrict": null
+        },
+        {
+          "name": "Biblian",
+          "idDistrict": null
+        },
+        {
+          "name": "La Troncal",
+          "idDistrict": null
+        },
+        {
+          "name": "Deleg",
+          "idDistrict": null
+        },
+        {
+          "name": "El Tambo",
+          "idDistrict": null
+        },
+        {
+          "name": "Suscal",
+          "idDistrict": null
+        },
+        {
+          "name": "La Union",
+          "idDistrict": null
+        },
+        {
+          "name": "El Carmen",
+          "idDistrict": null
+        },
+        {
+          "name": "Ingapirca",
+          "idDistrict": null
+        },
+        {
+          "name": "Cojitambo",
+          "idDistrict": null
+        },
+        {
+          "name": "Guapán",
+          "idDistrict": null
+        },
+        {
+          "name": "Javier Loyola",
+          "idDistrict": null
+        },
+        {
+          "name": "Luis Cordero",
+          "idDistrict": null
+        },
+        {
+          "name": "Manuel J Calle",
+          "idDistrict": null
+        },
+        {
+          "name": "San Miguel",
+          "idDistrict": null
+        },
+        {
+          "name": "Cochancay",
+          "idDistrict": null
+        },
+        {
+          "name": "Ducur",
+          "idDistrict": null
+        },
+        {
+          "name": "La Puntilla",
+          "idDistrict": null
+        },
+        {
+          "name": "Voluntad De Dios",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 189,
+      "id_country": 103,
+      "name": "Carchi",
+      "cities": [
+        {
+          "name": "Tulcan",
+          "idDistrict": null
+        },
+        {
+          "name": "Montufar",
+          "idDistrict": null
+        },
+        {
+          "name": "Mira",
+          "idDistrict": null
+        },
+        {
+          "name": "Bolivar",
+          "idDistrict": null
+        },
+        {
+          "name": "Espejo",
+          "idDistrict": null
+        },
+        {
+          "name": "Huaca",
+          "idDistrict": null
+        },
+        {
+          "name": "San Gabriel",
+          "idDistrict": null
+        },
+        {
+          "name": "El Ángel",
+          "idDistrict": null
+        },
+        {
+          "name": "San Pedro de Huaca",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Martha de Cuba",
+          "idDistrict": null
+        },
+        {
+          "name": "Cristóbal Colón",
+          "idDistrict": null
+        },
+        {
+          "name": "González Suárez (Tulcán)",
+          "idDistrict": null
+        },
+        {
+          "name": "Julio Andrade",
+          "idDistrict": null
+        },
+        {
+          "name": "Julio Andrade (Orejuela)",
+          "idDistrict": null
+        },
+        {
+          "name": "Chitan De Navarretes",
+          "idDistrict": null
+        },
+        {
+          "name": "Cuesaca",
+          "idDistrict": null
+        },
+        {
+          "name": "Garcia Moreno",
+          "idDistrict": null
+        },
+        {
+          "name": "La Paz",
+          "idDistrict": null
+        },
+        {
+          "name": "Pioter",
+          "idDistrict": null
+        },
+        {
+          "name": "San Isidro",
+          "idDistrict": null
+        },
+        {
+          "name": "Sandial",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 91,
+      "id_country": 103,
+      "name": "Chimborazo",
+      "cities": [
+        {
+          "name": "Riobamba",
+          "idDistrict": null
+        },
+        {
+          "name": "Guano",
+          "idDistrict": null
+        },
+        {
+          "name": "Alausi",
+          "idDistrict": null
+        },
+        {
+          "name": "Colta",
+          "idDistrict": null
+        },
+        {
+          "name": "Chambo",
+          "idDistrict": null
+        },
+        {
+          "name": "Cumanda",
+          "idDistrict": null
+        },
+        {
+          "name": "Pallatanga",
+          "idDistrict": null
+        },
+        {
+          "name": "Penipe",
+          "idDistrict": null
+        },
+        {
+          "name": "Chunchi",
+          "idDistrict": null
+        },
+        {
+          "name": "Guamote",
+          "idDistrict": null
+        },
+        {
+          "name": "Alausi Cumandá",
+          "idDistrict": null
+        },
+        {
+          "name": "Cajabamba",
+          "idDistrict": null
+        },
+        {
+          "name": "Calpi",
+          "idDistrict": null
+        },
+        {
+          "name": "Cumandá Chimborazo",
+          "idDistrict": null
+        },
+        {
+          "name": "Flores",
+          "idDistrict": null
+        },
+        {
+          "name": "Ilapo",
+          "idDistrict": null
+        },
+        {
+          "name": "La Matriz (Guano)",
+          "idDistrict": null
+        },
+        {
+          "name": "Licán",
+          "idDistrict": null
+        },
+        {
+          "name": "Licto",
+          "idDistrict": null
+        },
+        {
+          "name": "Lizarzaburu",
+          "idDistrict": null
+        },
+        {
+          "name": "Maldonado (Riobamba)",
+          "idDistrict": null
+        },
+        {
+          "name": "Punin",
+          "idDistrict": null
+        },
+        {
+          "name": "San Andrés",
+          "idDistrict": null
+        },
+        {
+          "name": "San Juan",
+          "idDistrict": null
+        },
+        {
+          "name": "San Luis",
+          "idDistrict": null
+        },
+        {
+          "name": "Velasco",
+          "idDistrict": null
+        },
+        {
+          "name": "Veloz",
+          "idDistrict": null
+        },
+        {
+          "name": "Yaruquíes",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "id_country": 103,
+      "name": "Cotopaxi",
+      "cities": [
+        {
+          "name": "Latacunga",
+          "idDistrict": null
+        },
+        {
+          "name": "Salcedo",
+          "idDistrict": null
+        },
+        {
+          "name": "La Mana",
+          "idDistrict": null
+        },
+        {
+          "name": "Pujili",
+          "idDistrict": null
+        },
+        {
+          "name": "Saquisili",
+          "idDistrict": null
+        },
+        {
+          "name": "Sigchos",
+          "idDistrict": null
+        },
+        {
+          "name": "Cotopaxi",
+          "idDistrict": null
+        },
+        {
+          "name": "Mulalo",
+          "idDistrict": null
+        },
+        {
+          "name": "Tanicuchi",
+          "idDistrict": null
+        },
+        {
+          "name": "Toacaso",
+          "idDistrict": null
+        },
+        {
+          "name": "Alaques",
+          "idDistrict": null
+        },
+        {
+          "name": "Belisario Quevedo (Guanailín)",
+          "idDistrict": null
+        },
+        {
+          "name": "Belisario Quevedo (Latacunga)",
+          "idDistrict": null
+        },
+        {
+          "name": "El Carmen (Cotopaxi)",
+          "idDistrict": null
+        },
+        {
+          "name": "Eloy Alfaro (San Felipe)",
+          "idDistrict": null
+        },
+        {
+          "name": "Guaitacama (Guaytacama)",
+          "idDistrict": null
+        },
+        {
+          "name": "Guaytacama",
+          "idDistrict": null
+        },
+        {
+          "name": "La Matriz (Latacunga)",
+          "idDistrict": null
+        },
+        {
+          "name": "Lasso",
+          "idDistrict": null
+        },
+        {
+          "name": "Mulalao",
+          "idDistrict": null
+        },
+        {
+          "name": "Mulliquindil",
+          "idDistrict": null
+        },
+        {
+          "name": "Once de noviembre",
+          "idDistrict": null
+        },
+        {
+          "name": "Pangua",
+          "idDistrict": null
+        },
+        {
+          "name": "Panzaleo",
+          "idDistrict": null
+        },
+        {
+          "name": "Pastocalle",
+          "idDistrict": null
+        },
+        {
+          "name": "Poalo",
+          "idDistrict": null
+        },
+        {
+          "name": "San Buenaventura",
+          "idDistrict": null
+        },
+        {
+          "name": "San Buenaventura Bellavista.",
+          "idDistrict": null
+        },
+        {
+          "name": "San Juan De Pastocalle",
+          "idDistrict": null
+        },
+        {
+          "name": "San Miguel",
+          "idDistrict": null
+        },
+        {
+          "name": "Tanicuchchi",
+          "idDistrict": null
+        },
+        {
+          "name": "Anchilivi",
+          "idDistrict": null
+        },
+        {
+          "name": "Chipualo",
+          "idDistrict": null
+        },
+        {
+          "name": "El Corazon",
+          "idDistrict": null
+        },
+        {
+          "name": "La Victoria",
+          "idDistrict": null
+        },
+        {
+          "name": "Moraspungo",
+          "idDistrict": null
+        },
+        {
+          "name": "Mulalillo",
+          "idDistrict": null
+        },
+        {
+          "name": "Patain",
+          "idDistrict": null
+        },
+        {
+          "name": "Rumipamba",
+          "idDistrict": null
+        },
+        {
+          "name": "San Marcos",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Ana",
+          "idDistrict": null
+        },
+        {
+          "name": "Yanayacu",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 698,
+      "id_country": 103,
+      "name": "El Oro",
+      "cities": [
+        {
+          "name": "Machala",
+          "idDistrict": null
+        },
+        {
+          "name": "Pasaje",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Rosa",
+          "idDistrict": null
+        },
+        {
+          "name": "Huaquillas",
+          "idDistrict": null
+        },
+        {
+          "name": "El Guabo",
+          "idDistrict": null
+        },
+        {
+          "name": "Zaruma",
+          "idDistrict": null
+        },
+        {
+          "name": "Piñas",
+          "idDistrict": null
+        },
+        {
+          "name": "Portovelo",
+          "idDistrict": null
+        },
+        {
+          "name": "Balsas",
+          "idDistrict": null
+        },
+        {
+          "name": "Arenillas",
+          "idDistrict": null
+        },
+        {
+          "name": "Atahualpa",
+          "idDistrict": null
+        },
+        {
+          "name": "Barbones",
+          "idDistrict": null
+        },
+        {
+          "name": "Bellavista (Santa Rosa)",
+          "idDistrict": null
+        },
+        {
+          "name": "Bolívar (Pasaje)",
+          "idDistrict": null
+        },
+        {
+          "name": "Buena Vista",
+          "idDistrict": null
+        },
+        {
+          "name": "Cana Quemada",
+          "idDistrict": null
+        },
+        {
+          "name": "Ecuador",
+          "idDistrict": null
+        },
+        {
+          "name": "El Cambio",
+          "idDistrict": null
+        },
+        {
+          "name": "El Paraíso (Huaquillas)",
+          "idDistrict": null
+        },
+        {
+          "name": "El Retiro",
+          "idDistrict": null
+        },
+        {
+          "name": "La Avanzada",
+          "idDistrict": null
+        },
+        {
+          "name": "La Iberia",
+          "idDistrict": null
+        },
+        {
+          "name": "La Libertad (Arenillas)",
+          "idDistrict": null
+        },
+        {
+          "name": "La Peaña",
+          "idDistrict": null
+        },
+        {
+          "name": "La Providencia",
+          "idDistrict": null
+        },
+        {
+          "name": "Las Lajas",
+          "idDistrict": null
+        },
+        {
+          "name": "Loma De Franco",
+          "idDistrict": null
+        },
+        {
+          "name": "Marcabelí",
+          "idDistrict": null
+        },
+        {
+          "name": "Milton Reyes",
+          "idDistrict": null
+        },
+        {
+          "name": "Ochoa León (Matriz)",
+          "idDistrict": null
+        },
+        {
+          "name": "Puerto Bolivar",
+          "idDistrict": null
+        },
+        {
+          "name": "Puerto Jelí",
+          "idDistrict": null
+        },
+        {
+          "name": "Saracay",
+          "idDistrict": null
+        },
+        {
+          "name": "Torata",
+          "idDistrict": null
+        },
+        {
+          "name": "Unión Lojana",
+          "idDistrict": null
+        },
+        {
+          "name": "Veitoria",
+          "idDistrict": null
+        },
+        {
+          "name": "3 Cerritos (Pasaje)",
+          "idDistrict": null
+        },
+        {
+          "name": "Bajo Alto",
+          "idDistrict": null
+        },
+        {
+          "name": "Bellamaria",
+          "idDistrict": null
+        },
+        {
+          "name": "El Pache",
+          "idDistrict": null
+        },
+        {
+          "name": "El Porton",
+          "idDistrict": null
+        },
+        {
+          "name": "Lourdes",
+          "idDistrict": null
+        },
+        {
+          "name": "Paccha",
+          "idDistrict": null
+        },
+        {
+          "name": "Puerto Hualtaco",
+          "idDistrict": null
+        },
+        {
+          "name": "Rio Bonito",
+          "idDistrict": null
+        },
+        {
+          "name": "San Vicente Del Jobo",
+          "idDistrict": null
+        },
+        {
+          "name": "Shumiral",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 652,
+      "id_country": 103,
+      "name": "Esmeraldas",
+      "cities": [
+        {
+          "name": "Esmeraldas",
+          "idDistrict": null
+        },
+        {
+          "name": "Atacames",
+          "idDistrict": null
+        },
+        {
+          "name": "Muisne",
+          "idDistrict": null
+        },
+        {
+          "name": "San Lorenzo",
+          "idDistrict": null
+        },
+        {
+          "name": "Rioverde",
+          "idDistrict": null
+        },
+        {
+          "name": "Quininde",
+          "idDistrict": null
+        },
+        {
+          "name": "Valdez",
+          "idDistrict": null
+        },
+        {
+          "name": "Eloy Alfaro",
+          "idDistrict": null
+        },
+        {
+          "name": "La Concordia",
+          "idDistrict": null
+        },
+        {
+          "name": "Borbon",
+          "idDistrict": null
+        },
+        {
+          "name": "5 De Agosto",
+          "idDistrict": null
+        },
+        {
+          "name": "Bartolomé Ruiz (César Franco Carrión)",
+          "idDistrict": null
+        },
+        {
+          "name": "Colimes",
+          "idDistrict": null
+        },
+        {
+          "name": "La Unión",
+          "idDistrict": null
+        },
+        {
+          "name": "La Villegas",
+          "idDistrict": null
+        },
+        {
+          "name": "Luis Tello (Las Palmas)",
+          "idDistrict": null
+        },
+        {
+          "name": "Rio Verde",
+          "idDistrict": null
+        },
+        {
+          "name": "Rosa Zárate (Quinindé)",
+          "idDistrict": null
+        },
+        {
+          "name": "San Mateo",
+          "idDistrict": null
+        },
+        {
+          "name": "Simón Plata Torres",
+          "idDistrict": null
+        },
+        {
+          "name": "Sua",
+          "idDistrict": null
+        },
+        {
+          "name": "Tabiazo",
+          "idDistrict": null
+        },
+        {
+          "name": "Tachina",
+          "idDistrict": null
+        },
+        {
+          "name": "Tonsupa",
+          "idDistrict": null
+        },
+        {
+          "name": "Valle Hermoso (La Concordia)",
+          "idDistrict": null
+        },
+        {
+          "name": "Viche",
+          "idDistrict": null
+        },
+        {
+          "name": "Vuelta Larga",
+          "idDistrict": null
+        },
+        {
+          "name": "La Independencia",
+          "idDistrict": null
+        },
+        {
+          "name": "La Y De Calderon",
+          "idDistrict": null
+        },
+        {
+          "name": "Lagarto",
+          "idDistrict": null
+        },
+        {
+          "name": "Las Penas",
+          "idDistrict": null
+        },
+        {
+          "name": "Same",
+          "idDistrict": null
+        },
+        {
+          "name": "Tonchigue",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 649,
+      "id_country": 103,
+      "name": "Galapagos",
+      "cities": [
+        {
+          "name": "Puerto Baquerizo Moreno",
+          "idDistrict": null
+        },
+        {
+          "name": "Isla Santa Cruz",
+          "idDistrict": null
+        },
+        {
+          "name": "Isla San Cristobal",
+          "idDistrict": null
+        },
+        {
+          "name": "Isla Isabela",
+          "idDistrict": null
+        },
+        {
+          "name": "Isla Floreana",
+          "idDistrict": null
+        },
+        {
+          "name": "Isla Baltra",
+          "idDistrict": null
+        },
+        {
+          "name": "Isla Santa Fe",
+          "idDistrict": null
+        },
+        {
+          "name": "Isla Española",
+          "idDistrict": null
+        },
+        {
+          "name": "Isla Genovesa",
+          "idDistrict": null
+        },
+        {
+          "name": "Isla Fernandina",
+          "idDistrict": null
+        },
+        {
+          "name": "Isla Santiago",
+          "idDistrict": null
+        },
+        {
+          "name": "Bellavista (Santa Cruz)",
+          "idDistrict": null
+        },
+        {
+          "name": "El Progreso",
+          "idDistrict": null
+        },
+        {
+          "name": "Puerto Ayora",
+          "idDistrict": null
+        },
+        {
+          "name": "San Cristóbal",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Cruz",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 768,
+      "id_country": 103,
+      "name": "Guayas",
+      "cities": [
+        {
+          "name": "Guayaquil",
+          "idDistrict": null
+        },
+        {
+          "name": "Duran",
+          "idDistrict": null
+        },
+        {
+          "name": "Samborondon",
+          "idDistrict": null
+        },
+        {
+          "name": "Milagro",
+          "idDistrict": null
+        },
+        {
+          "name": "Daule",
+          "idDistrict": null
+        },
+        {
+          "name": "Playas",
+          "idDistrict": null
+        },
+        {
+          "name": "Salitre",
+          "idDistrict": null
+        },
+        {
+          "name": "Nobol",
+          "idDistrict": null
+        },
+        {
+          "name": "Naranjal",
+          "idDistrict": null
+        },
+        {
+          "name": "El Triunfo",
+          "idDistrict": null
+        },
+        {
+          "name": "Alfredo Baquerizo Moreno (Juján)",
+          "idDistrict": null
+        },
+        {
+          "name": "Ayacucho (Guayaquil)",
+          "idDistrict": null
+        },
+        {
+          "name": "Balao",
+          "idDistrict": null
+        },
+        {
+          "name": "Balzar",
+          "idDistrict": null
+        },
+        {
+          "name": "Banife",
+          "idDistrict": null
+        },
+        {
+          "name": "Base Taura",
+          "idDistrict": null
+        },
+        {
+          "name": "Boca De Caña",
+          "idDistrict": null
+        },
+        {
+          "name": "Bocana",
+          "idDistrict": null
+        },
+        {
+          "name": "Boliche",
+          "idDistrict": null
+        },
+        {
+          "name": "Bolívar (Sagrario)",
+          "idDistrict": null
+        },
+        {
+          "name": "Bucay",
+          "idDistrict": null
+        },
+        {
+          "name": "Candilejos",
+          "idDistrict": null
+        },
+        {
+          "name": "Carbo (Concepción)",
+          "idDistrict": null
+        },
+        {
+          "name": "Central",
+          "idDistrict": null
+        },
+        {
+          "name": "Cerecita",
+          "idDistrict": null
+        },
+        {
+          "name": "Chiveria",
+          "idDistrict": null
+        },
+        {
+          "name": "Chobo",
+          "idDistrict": null
+        },
+        {
+          "name": "Chongón",
+          "idDistrict": null
+        },
+        {
+          "name": "Colimes",
+          "idDistrict": null
+        },
+        {
+          "name": "Coloradal",
+          "idDistrict": null
+        },
+        {
+          "name": "Coronel Marcelino Maridueña (San Carlos)",
+          "idDistrict": null
+        },
+        {
+          "name": "Crnel.Lorenzo De Garaicoa (Pedregal)",
+          "idDistrict": null
+        },
+        {
+          "name": "Cumandá",
+          "idDistrict": null
+        },
+        {
+          "name": "Cumandá Milagro",
+          "idDistrict": null
+        },
+        {
+          "name": "Data De Playas",
+          "idDistrict": null
+        },
+        {
+          "name": "El Deseo",
+          "idDistrict": null
+        },
+        {
+          "name": "El Empalme",
+          "idDistrict": null
+        },
+        {
+          "name": "El Piedrero",
+          "idDistrict": null
+        },
+        {
+          "name": "El Recreo",
+          "idDistrict": null
+        },
+        {
+          "name": "El Rosario (El Empalme)",
+          "idDistrict": null
+        },
+        {
+          "name": "Eloy Alfaro Durán",
+          "idDistrict": null
+        },
+        {
+          "name": "Emiliano Caicedo Marcos",
+          "idDistrict": null
+        },
+        {
+          "name": "Febres Cordero",
+          "idDistrict": null
+        },
+        {
+          "name": "García Moreno (Guayaquil)",
+          "idDistrict": null
+        },
+        {
+          "name": "General Antonio Elizalde",
+          "idDistrict": null
+        },
+        {
+          "name": "General Elizalde (Bucay)",
+          "idDistrict": null
+        },
+        {
+          "name": "General Vernaza",
+          "idDistrict": null
+        },
+        {
+          "name": "General Villamil (Playas)",
+          "idDistrict": null
+        },
+        {
+          "name": "Gral Villamil Playas",
+          "idDistrict": null
+        },
+        {
+          "name": "Gral. Vernaza (Dos Esteros)",
+          "idDistrict": null
+        },
+        {
+          "name": "Guayas (Pueblo Nuevo)",
+          "idDistrict": null
+        },
+        {
+          "name": "Ingenio San Carlos",
+          "idDistrict": null
+        },
+        {
+          "name": "Isidro Ayora",
+          "idDistrict": null
+        },
+        {
+          "name": "Isidro Ayora (Soledad)",
+          "idDistrict": null
+        },
+        {
+          "name": "Jesús María",
+          "idDistrict": null
+        },
+        {
+          "name": "Juan Gómez Rendón (Progreso)",
+          "idDistrict": null
+        },
+        {
+          "name": "Juján",
+          "idDistrict": null
+        },
+        {
+          "name": "Junquillal",
+          "idDistrict": null
+        },
+        {
+          "name": "La Aurora (Satélite)",
+          "idDistrict": null
+        },
+        {
+          "name": "La Maravilla",
+          "idDistrict": null
+        },
+        {
+          "name": "La Puntilla",
+          "idDistrict": null
+        },
+        {
+          "name": "La Puntilla (Satélite)",
+          "idDistrict": null
+        },
+        {
+          "name": "La Victoria (Ñauza)",
+          "idDistrict": null
+        },
+        {
+          "name": "Las Animas",
+          "idDistrict": null
+        },
+        {
+          "name": "Las Mercedes",
+          "idDistrict": null
+        },
+        {
+          "name": "Laurel",
+          "idDistrict": null
+        },
+        {
+          "name": "Letamendi",
+          "idDistrict": null
+        },
+        {
+          "name": "Limonal",
+          "idDistrict": null
+        },
+        {
+          "name": "Lomas De Sargentillo",
+          "idDistrict": null
+        },
+        {
+          "name": "Lorenzo De Garaicoa",
+          "idDistrict": null
+        },
+        {
+          "name": "Los Lojas (Enrique Baquerizo Moreno)",
+          "idDistrict": null
+        },
+        {
+          "name": "Los Tintos",
+          "idDistrict": null
+        },
+        {
+          "name": "Manuel J. Calle",
+          "idDistrict": null
+        },
+        {
+          "name": "Marcelino Maridueña",
+          "idDistrict": null
+        },
+        {
+          "name": "Mariscal Sucre",
+          "idDistrict": null
+        },
+        {
+          "name": "Mariscal Sucre (Huaques)",
+          "idDistrict": null
+        },
+        {
+          "name": "Matilde Esther",
+          "idDistrict": null
+        },
+        {
+          "name": "Naranjito",
+          "idDistrict": null
+        },
+        {
+          "name": "Narcisa De Jesús",
+          "idDistrict": null
+        },
+        {
+          "name": "Nueve De Octubre",
+          "idDistrict": null
+        },
+        {
+          "name": "Olmedo (San Alejo)",
+          "idDistrict": null
+        },
+        {
+          "name": "Padre Juan Bautista Aguirre",
+          "idDistrict": null
+        },
+        {
+          "name": "Palestina",
+          "idDistrict": null
+        },
+        {
+          "name": "Paraíso",
+          "idDistrict": null
+        },
+        {
+          "name": "Pascuales",
+          "idDistrict": null
+        },
+        {
+          "name": "Pedro Carbo",
+          "idDistrict": null
+        },
+        {
+          "name": "Petrillo",
+          "idDistrict": null
+        },
+        {
+          "name": "Piedrahita (Nobol)",
+          "idDistrict": null
+        },
+        {
+          "name": "Playas (Gral. Villamil)",
+          "idDistrict": null
+        },
+        {
+          "name": "Posorja",
+          "idDistrict": null
+        },
+        {
+          "name": "Progreso",
+          "idDistrict": null
+        },
+        {
+          "name": "Puente Lucía",
+          "idDistrict": null
+        },
+        {
+          "name": "Puerto Inca",
+          "idDistrict": null
+        },
+        {
+          "name": "Roberto Astudillo",
+          "idDistrict": null
+        },
+        {
+          "name": "Roca",
+          "idDistrict": null
+        },
+        {
+          "name": "Rocafuerte (Guayaquil)",
+          "idDistrict": null
+        },
+        {
+          "name": "Sabanilla",
+          "idDistrict": null
+        },
+        {
+          "name": "Samborondón (Pueblo)",
+          "idDistrict": null
+        },
+        {
+          "name": "San Antonio (Playas)",
+          "idDistrict": null
+        },
+        {
+          "name": "San Jacinto",
+          "idDistrict": null
+        },
+        {
+          "name": "San Jacinto De Yaguachi",
+          "idDistrict": null
+        },
+        {
+          "name": "San Mateo (Salitre (Urbina Jado))",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Clara",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Lucía",
+          "idDistrict": null
+        },
+        {
+          "name": "Simón Bolívar",
+          "idDistrict": null
+        },
+        {
+          "name": "Sucre (Guayaquil)",
+          "idDistrict": null
+        },
+        {
+          "name": "Tarifa",
+          "idDistrict": null
+        },
+        {
+          "name": "Tarqui (Guayaquil)",
+          "idDistrict": null
+        },
+        {
+          "name": "Tenguel",
+          "idDistrict": null
+        },
+        {
+          "name": "Tres Postes",
+          "idDistrict": null
+        },
+        {
+          "name": "Urdaneta",
+          "idDistrict": null
+        },
+        {
+          "name": "Valle De La Virgen",
+          "idDistrict": null
+        },
+        {
+          "name": "Velasco Ibarra (El Empalme)",
+          "idDistrict": null
+        },
+        {
+          "name": "Vicente Piedrahita",
+          "idDistrict": null
+        },
+        {
+          "name": "Villa Nueva",
+          "idDistrict": null
+        },
+        {
+          "name": "Ximena",
+          "idDistrict": null
+        },
+        {
+          "name": "Yaguachi",
+          "idDistrict": null
+        },
+        {
+          "name": "Balao Chico",
+          "idDistrict": null
+        },
+        {
+          "name": "Cien Familia",
+          "idDistrict": null
+        },
+        {
+          "name": "El Morro",
+          "idDistrict": null
+        },
+        {
+          "name": "El Nato",
+          "idDistrict": null
+        },
+        {
+          "name": "Engabao",
+          "idDistrict": null
+        },
+        {
+          "name": "Km. 26",
+          "idDistrict": null
+        },
+        {
+          "name": "La T De Salitre",
+          "idDistrict": null
+        },
+        {
+          "name": "La Toma",
+          "idDistrict": null
+        },
+        {
+          "name": "Nueva Union (Naranjal)",
+          "idDistrict": null
+        },
+        {
+          "name": "Ponce Enriquez",
+          "idDistrict": null
+        },
+        {
+          "name": "Puerto Del Engabao",
+          "idDistrict": null
+        },
+        {
+          "name": "San Carlos (Balao)",
+          "idDistrict": null
+        },
+        {
+          "name": "San Isidro",
+          "idDistrict": null
+        },
+        {
+          "name": "San Lorenzo",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Rita (Balao)",
+          "idDistrict": null
+        },
+        {
+          "name": "Taura",
+          "idDistrict": null
+        },
+        {
+          "name": "Urbina Jado - Salitre",
+          "idDistrict": null
+        },
+        {
+          "name": "Virgen De Fatima Km 26",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 853,
+      "id_country": 103,
+      "name": "Imbabura",
+      "cities": [
+        {
+          "name": "Ibarra",
+          "idDistrict": null
+        },
+        {
+          "name": "Otavalo",
+          "idDistrict": null
+        },
+        {
+          "name": "Atuntaqui",
+          "idDistrict": null
+        },
+        {
+          "name": "Cotacachi",
+          "idDistrict": null
+        },
+        {
+          "name": "Antonio Ante",
+          "idDistrict": null
+        },
+        {
+          "name": "Pimampiro",
+          "idDistrict": null
+        },
+        {
+          "name": "San Miguel de Urcuqui",
+          "idDistrict": null
+        },
+        {
+          "name": "Alpachaca",
+          "idDistrict": null
+        },
+        {
+          "name": "Andrade Marín",
+          "idDistrict": null
+        },
+        {
+          "name": "Andrade Marín (Lourdes)",
+          "idDistrict": null
+        },
+        {
+          "name": "Caranqui",
+          "idDistrict": null
+        },
+        {
+          "name": "Chaltura",
+          "idDistrict": null
+        },
+        {
+          "name": "Chorlavi",
+          "idDistrict": null
+        },
+        {
+          "name": "Dr. Miguel Egas Cabezas (Peguche)",
+          "idDistrict": null
+        },
+        {
+          "name": "El Olivo",
+          "idDistrict": null
+        },
+        {
+          "name": "El Retorno",
+          "idDistrict": null
+        },
+        {
+          "name": "Eugenio Espejo (Calpaquí)",
+          "idDistrict": null
+        },
+        {
+          "name": "Gonzales Suárez",
+          "idDistrict": null
+        },
+        {
+          "name": "González Suárez (Otavalo)",
+          "idDistrict": null
+        },
+        {
+          "name": "Imantag",
+          "idDistrict": null
+        },
+        {
+          "name": "Imbaya (San Luis De Cobuendo)",
+          "idDistrict": null
+        },
+        {
+          "name": "La Dolorosa Del Priorato",
+          "idDistrict": null
+        },
+        {
+          "name": "La Esperanza",
+          "idDistrict": null
+        },
+        {
+          "name": "Las Golondrinas",
+          "idDistrict": null
+        },
+        {
+          "name": "Natabuela",
+          "idDistrict": null
+        },
+        {
+          "name": "Peguche",
+          "idDistrict": null
+        },
+        {
+          "name": "Perugachi",
+          "idDistrict": null
+        },
+        {
+          "name": "Quiroga",
+          "idDistrict": null
+        },
+        {
+          "name": "Quiroga Otavalo",
+          "idDistrict": null
+        },
+        {
+          "name": "Sagrario",
+          "idDistrict": null
+        },
+        {
+          "name": "San Antonio (Ibarra)",
+          "idDistrict": null
+        },
+        {
+          "name": "San Antonio De Ibarra",
+          "idDistrict": null
+        },
+        {
+          "name": "San Blas",
+          "idDistrict": null
+        },
+        {
+          "name": "San Francisco (Cotacachi)",
+          "idDistrict": null
+        },
+        {
+          "name": "San Francisco (Ibarra)",
+          "idDistrict": null
+        },
+        {
+          "name": "San Francisco De Natabuela",
+          "idDistrict": null
+        },
+        {
+          "name": "San José",
+          "idDistrict": null
+        },
+        {
+          "name": "San José De Chaltura",
+          "idDistrict": null
+        },
+        {
+          "name": "San Juan de Iluman",
+          "idDistrict": null
+        },
+        {
+          "name": "San Miguel De Ibarra",
+          "idDistrict": null
+        },
+        {
+          "name": "San Pablo Del Lago",
+          "idDistrict": null
+        },
+        {
+          "name": "San Pablo Imbabura",
+          "idDistrict": null
+        },
+        {
+          "name": "San Rafael (Otavalo)",
+          "idDistrict": null
+        },
+        {
+          "name": "San Roque",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Bertha",
+          "idDistrict": null
+        },
+        {
+          "name": "Tierra Blanca",
+          "idDistrict": null
+        },
+        {
+          "name": "Tumbabiro",
+          "idDistrict": null
+        },
+        {
+          "name": "Urcuquí",
+          "idDistrict": null
+        },
+        {
+          "name": "Urcuquí Cabecera Cantonal",
+          "idDistrict": null
+        },
+        {
+          "name": "Yaguarcocha",
+          "idDistrict": null
+        },
+        {
+          "name": "Aduana",
+          "idDistrict": null
+        },
+        {
+          "name": "Pinsaqui",
+          "idDistrict": null
+        },
+        {
+          "name": "Puerto Lago",
+          "idDistrict": null
+        },
+        {
+          "name": "San Luis",
+          "idDistrict": null
+        },
+        {
+          "name": "Santo Domingo Imbabura",
+          "idDistrict": null
+        },
+        {
+          "name": "Yachay",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 579,
+      "id_country": 103,
+      "name": "Loja",
+      "cities": [
+        {
+          "name": "Loja",
+          "idDistrict": null
+        },
+        {
+          "name": "Catamayo",
+          "idDistrict": null
+        },
+        {
+          "name": "Gonzanama",
+          "idDistrict": null
+        },
+        {
+          "name": "Calvas",
+          "idDistrict": null
+        },
+        {
+          "name": "Espindola",
+          "idDistrict": null
+        },
+        {
+          "name": "Macara",
+          "idDistrict": null
+        },
+        {
+          "name": "Puyango",
+          "idDistrict": null
+        },
+        {
+          "name": "Saraguro",
+          "idDistrict": null
+        },
+        {
+          "name": "Zapotillo",
+          "idDistrict": null
+        },
+        {
+          "name": "Quilanga",
+          "idDistrict": null
+        },
+        {
+          "name": "Alamor",
+          "idDistrict": null
+        },
+        {
+          "name": "Cariamanga",
+          "idDistrict": null
+        },
+        {
+          "name": "Catacocha",
+          "idDistrict": null
+        },
+        {
+          "name": "Catamayo (La Toma)",
+          "idDistrict": null
+        },
+        {
+          "name": "Celica",
+          "idDistrict": null
+        },
+        {
+          "name": "Chaguarpamba",
+          "idDistrict": null
+        },
+        {
+          "name": "Colaisaca",
+          "idDistrict": null
+        },
+        {
+          "name": "El Sagrario (Loja)",
+          "idDistrict": null
+        },
+        {
+          "name": "General Eloy Alfaro (San Sebastián)",
+          "idDistrict": null
+        },
+        {
+          "name": "Larama",
+          "idDistrict": null
+        },
+        {
+          "name": "Lourdes",
+          "idDistrict": null
+        },
+        {
+          "name": "Macará (Loja)",
+          "idDistrict": null
+        },
+        {
+          "name": "Macará (Manuel Enrique Rengel Suquilanda)",
+          "idDistrict": null
+        },
+        {
+          "name": "Malacatos",
+          "idDistrict": null
+        },
+        {
+          "name": "Malacatos (Valladolid)",
+          "idDistrict": null
+        },
+        {
+          "name": "Olmedo",
+          "idDistrict": null
+        },
+        {
+          "name": "Paltas",
+          "idDistrict": null
+        },
+        {
+          "name": "Pindal",
+          "idDistrict": null
+        },
+        {
+          "name": "San José (Catamayo)",
+          "idDistrict": null
+        },
+        {
+          "name": "San Lucas",
+          "idDistrict": null
+        },
+        {
+          "name": "San Pedro De La Bendita",
+          "idDistrict": null
+        },
+        {
+          "name": "San Pedro De Vilcabamba",
+          "idDistrict": null
+        },
+        {
+          "name": "San Sebastián (Loja)",
+          "idDistrict": null
+        },
+        {
+          "name": "Sozoranga",
+          "idDistrict": null
+        },
+        {
+          "name": "Sucre (Loja)",
+          "idDistrict": null
+        },
+        {
+          "name": "Urdaneta (Paquishapa)",
+          "idDistrict": null
+        },
+        {
+          "name": "Valle (Loja)",
+          "idDistrict": null
+        },
+        {
+          "name": "Vilcabamba",
+          "idDistrict": null
+        },
+        {
+          "name": "Vilcabamba (Victoria)",
+          "idDistrict": null
+        },
+        {
+          "name": "Algarrobillo",
+          "idDistrict": null
+        },
+        {
+          "name": "Amaluza",
+          "idDistrict": null
+        },
+        {
+          "name": "Cruzpamba",
+          "idDistrict": null
+        },
+        {
+          "name": "El Empalme",
+          "idDistrict": null
+        },
+        {
+          "name": "El Ingenio",
+          "idDistrict": null
+        },
+        {
+          "name": "El Lucero",
+          "idDistrict": null
+        },
+        {
+          "name": "La Ceiba",
+          "idDistrict": null
+        },
+        {
+          "name": "Pozul",
+          "idDistrict": null
+        },
+        {
+          "name": "Rio Playas",
+          "idDistrict": null
+        },
+        {
+          "name": "Roblones",
+          "idDistrict": null
+        },
+        {
+          "name": "Sabanilla",
+          "idDistrict": null
+        },
+        {
+          "name": "Santiago",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 151,
+      "id_country": 103,
+      "name": "Los Rios",
+      "cities": [
+        {
+          "name": "Babahoyo",
+          "idDistrict": null
+        },
+        {
+          "name": "Quevedo",
+          "idDistrict": null
+        },
+        {
+          "name": "Ventanas",
+          "idDistrict": null
+        },
+        {
+          "name": "Vinces",
+          "idDistrict": null
+        },
+        {
+          "name": "Puebloviejo",
+          "idDistrict": null
+        },
+        {
+          "name": "Urdaneta",
+          "idDistrict": null
+        },
+        {
+          "name": "Valencia",
+          "idDistrict": null
+        },
+        {
+          "name": "Buena Fe",
+          "idDistrict": null
+        },
+        {
+          "name": "Palenque",
+          "idDistrict": null
+        },
+        {
+          "name": "Baba",
+          "idDistrict": null
+        },
+        {
+          "name": "7 De Agosto",
+          "idDistrict": null
+        },
+        {
+          "name": "Barreiro",
+          "idDistrict": null
+        },
+        {
+          "name": "Caluma",
+          "idDistrict": null
+        },
+        {
+          "name": "Caracol",
+          "idDistrict": null
+        },
+        {
+          "name": "Catarama",
+          "idDistrict": null
+        },
+        {
+          "name": "Clemente Baquerizo",
+          "idDistrict": null
+        },
+        {
+          "name": "Dr. Camilo Ponce",
+          "idDistrict": null
+        },
+        {
+          "name": "El Empalme",
+          "idDistrict": null
+        },
+        {
+          "name": "El Salto",
+          "idDistrict": null
+        },
+        {
+          "name": "Guare",
+          "idDistrict": null
+        },
+        {
+          "name": "Isla Bejucal",
+          "idDistrict": null
+        },
+        {
+          "name": "Isla De Bejucal",
+          "idDistrict": null
+        },
+        {
+          "name": "La Esperanza",
+          "idDistrict": null
+        },
+        {
+          "name": "La Julia",
+          "idDistrict": null
+        },
+        {
+          "name": "La Maná",
+          "idDistrict": null
+        },
+        {
+          "name": "La Unión (Babahoyo)",
+          "idDistrict": null
+        },
+        {
+          "name": "La Unión (Valencia)",
+          "idDistrict": null
+        },
+        {
+          "name": "Mocache",
+          "idDistrict": null
+        },
+        {
+          "name": "Montalvo (Los Rios)",
+          "idDistrict": null
+        },
+        {
+          "name": "Patricia Pilar",
+          "idDistrict": null
+        },
+        {
+          "name": "Pimocha",
+          "idDistrict": null
+        },
+        {
+          "name": "Pueblo Viejo",
+          "idDistrict": null
+        },
+        {
+          "name": "Quinsaloma",
+          "idDistrict": null
+        },
+        {
+          "name": "Ricaurte Los Rios",
+          "idDistrict": null
+        },
+        {
+          "name": "San Camilo",
+          "idDistrict": null
+        },
+        {
+          "name": "San Carlos",
+          "idDistrict": null
+        },
+        {
+          "name": "San Jacinto De Buena Fé",
+          "idDistrict": null
+        },
+        {
+          "name": "San Juan",
+          "idDistrict": null
+        },
+        {
+          "name": "San Juan Babahoyo",
+          "idDistrict": null
+        },
+        {
+          "name": "Siete De Octubre",
+          "idDistrict": null
+        },
+        {
+          "name": "Venus Del Río Quevedo",
+          "idDistrict": null
+        },
+        {
+          "name": "Zapotal",
+          "idDistrict": null
+        },
+        {
+          "name": "Entrada De San Juan",
+          "idDistrict": null
+        },
+        {
+          "name": "Fumisa",
+          "idDistrict": null
+        },
+        {
+          "name": "Hidrolitoral",
+          "idDistrict": null
+        },
+        {
+          "name": "La 14 Via El Paraiso",
+          "idDistrict": null
+        },
+        {
+          "name": "La Union (Quevedo)",
+          "idDistrict": null
+        },
+        {
+          "name": "Las Naves",
+          "idDistrict": null
+        },
+        {
+          "name": "Los Angeles",
+          "idDistrict": null
+        },
+        {
+          "name": "Mata De Cacao",
+          "idDistrict": null
+        },
+        {
+          "name": "Nueva Union",
+          "idDistrict": null
+        },
+        {
+          "name": "Palmisa",
+          "idDistrict": null
+        },
+        {
+          "name": "Pueblo Nuevo",
+          "idDistrict": null
+        },
+        {
+          "name": "San Luis De Pambil",
+          "idDistrict": null
+        },
+        {
+          "name": "Zulema",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 947,
+      "id_country": 103,
+      "name": "Manabi",
+      "cities": [
+        {
+          "name": "Portoviejo",
+          "idDistrict": null
+        },
+        {
+          "name": "Manta",
+          "idDistrict": null
+        },
+        {
+          "name": "Bahia de Caraquez",
+          "idDistrict": null
+        },
+        {
+          "name": "Chone",
+          "idDistrict": null
+        },
+        {
+          "name": "Montecristi",
+          "idDistrict": null
+        },
+        {
+          "name": "Jipijapa",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Ana",
+          "idDistrict": null
+        },
+        {
+          "name": "Rocafuerte",
+          "idDistrict": null
+        },
+        {
+          "name": "El Carmen",
+          "idDistrict": null
+        },
+        {
+          "name": "Calceta",
+          "idDistrict": null
+        },
+        {
+          "name": "12 De Marzo",
+          "idDistrict": null
+        },
+        {
+          "name": "18 De Octubre",
+          "idDistrict": null
+        },
+        {
+          "name": "24 De Mayo",
+          "idDistrict": null
+        },
+        {
+          "name": "4 De Diciembre",
+          "idDistrict": null
+        },
+        {
+          "name": "Abdoncalderon(Sanfrancisco)",
+          "idDistrict": null
+        },
+        {
+          "name": "Alahuela",
+          "idDistrict": null
+        },
+        {
+          "name": "Alhajuela (Bajo Grande)",
+          "idDistrict": null
+        },
+        {
+          "name": "Andresdevera",
+          "idDistrict": null
+        },
+        {
+          "name": "Angel Pedro Giler (La Estancilla)",
+          "idDistrict": null
+        },
+        {
+          "name": "Anibalsanandres",
+          "idDistrict": null
+        },
+        {
+          "name": "Arq.Sixtoduranballen",
+          "idDistrict": null
+        },
+        {
+          "name": "Ayacucho (Santa Ana)",
+          "idDistrict": null
+        },
+        {
+          "name": "Bachillero",
+          "idDistrict": null
+        },
+        {
+          "name": "Bellavista (24 De Mayo)",
+          "idDistrict": null
+        },
+        {
+          "name": "Bolivar",
+          "idDistrict": null
+        },
+        {
+          "name": "Calderón De Portoviejo",
+          "idDistrict": null
+        },
+        {
+          "name": "Canoa (San Vicente)",
+          "idDistrict": null
+        },
+        {
+          "name": "Canuto",
+          "idDistrict": null
+        },
+        {
+          "name": "Charapotó",
+          "idDistrict": null
+        },
+        {
+          "name": "Chirijos",
+          "idDistrict": null
+        },
+        {
+          "name": "Coaque",
+          "idDistrict": null
+        },
+        {
+          "name": "Colón",
+          "idDistrict": null
+        },
+        {
+          "name": "Colorado",
+          "idDistrict": null
+        },
+        {
+          "name": "Crucita",
+          "idDistrict": null
+        },
+        {
+          "name": "Dr.Miguelmoranlucio",
+          "idDistrict": null
+        },
+        {
+          "name": "El Colorado",
+          "idDistrict": null
+        },
+        {
+          "name": "Eloy Alfaro (Manta)",
+          "idDistrict": null
+        },
+        {
+          "name": "Estancilla",
+          "idDistrict": null
+        },
+        {
+          "name": "Flavio Alfaro",
+          "idDistrict": null
+        },
+        {
+          "name": "Francisco Pacheco",
+          "idDistrict": null
+        },
+        {
+          "name": "General Eloy Alfaro",
+          "idDistrict": null
+        },
+        {
+          "name": "Honoratovasquez(Cab.Envasquez)",
+          "idDistrict": null
+        },
+        {
+          "name": "Jama",
+          "idDistrict": null
+        },
+        {
+          "name": "Jaramijó",
+          "idDistrict": null
+        },
+        {
+          "name": "Junín",
+          "idDistrict": null
+        },
+        {
+          "name": "La Delicia Km. 29",
+          "idDistrict": null
+        },
+        {
+          "name": "Leonidas Plaza",
+          "idDistrict": null
+        },
+        {
+          "name": "Leonidas Proaño",
+          "idDistrict": null
+        },
+        {
+          "name": "Leonidasplazagutierrez",
+          "idDistrict": null
+        },
+        {
+          "name": "Lodana",
+          "idDistrict": null
+        },
+        {
+          "name": "Los Esteros",
+          "idDistrict": null
+        },
+        {
+          "name": "Machalilla",
+          "idDistrict": null
+        },
+        {
+          "name": "Manga del Cura",
+          "idDistrict": null
+        },
+        {
+          "name": "Manuel Inocencio Parrales Y Guale",
+          "idDistrict": null
+        },
+        {
+          "name": "Nuevo Israel",
+          "idDistrict": null
+        },
+        {
+          "name": "Olmedo",
+          "idDistrict": null
+        },
+        {
+          "name": "Paján",
+          "idDistrict": null
+        },
+        {
+          "name": "Pedernales",
+          "idDistrict": null
+        },
+        {
+          "name": "Pichincha",
+          "idDistrict": null
+        },
+        {
+          "name": "Pichincha Manabi",
+          "idDistrict": null
+        },
+        {
+          "name": "Picoazá (Dentro Del Perimetro Urbano)",
+          "idDistrict": null
+        },
+        {
+          "name": "Pueblo Nuevo",
+          "idDistrict": null
+        },
+        {
+          "name": "Puerto Cayo",
+          "idDistrict": null
+        },
+        {
+          "name": "Puerto De Cayo",
+          "idDistrict": null
+        },
+        {
+          "name": "Puerto López",
+          "idDistrict": null
+        },
+        {
+          "name": "Puertolopez",
+          "idDistrict": null
+        },
+        {
+          "name": "Ricaurte",
+          "idDistrict": null
+        },
+        {
+          "name": "Ricaurte Manabi",
+          "idDistrict": null
+        },
+        {
+          "name": "Río Chico (Dentro Del Perimetro Urbano)",
+          "idDistrict": null
+        },
+        {
+          "name": "Riochico(Riochico)",
+          "idDistrict": null
+        },
+        {
+          "name": "San Antonio",
+          "idDistrict": null
+        },
+        {
+          "name": "San Antonio De Chone",
+          "idDistrict": null
+        },
+        {
+          "name": "San Lorenzo De Jipijapa",
+          "idDistrict": null
+        },
+        {
+          "name": "San Mateo (Manta)",
+          "idDistrict": null
+        },
+        {
+          "name": "San Pablo",
+          "idDistrict": null
+        },
+        {
+          "name": "San Pedro de Suma",
+          "idDistrict": null
+        },
+        {
+          "name": "San Plácido (Dentro Del Perimetro Urbano)",
+          "idDistrict": null
+        },
+        {
+          "name": "San Vicente",
+          "idDistrict": null
+        },
+        {
+          "name": "Sanplacido",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Ana (Portoviejo)",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Ana De Vuelta Larga",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Rita (Chone)",
+          "idDistrict": null
+        },
+        {
+          "name": "Simonbolivar",
+          "idDistrict": null
+        },
+        {
+          "name": "Sucre",
+          "idDistrict": null
+        },
+        {
+          "name": "Tarqui Manabi",
+          "idDistrict": null
+        },
+        {
+          "name": "Tosagua",
+          "idDistrict": null
+        },
+        {
+          "name": "Veinticuatro de Mayo",
+          "idDistrict": null
+        },
+        {
+          "name": "Zapallo",
+          "idDistrict": null
+        },
+        {
+          "name": "10 De Agosto",
+          "idDistrict": null
+        },
+        {
+          "name": "Arenales",
+          "idDistrict": null
+        },
+        {
+          "name": "Atahualpa Manabi",
+          "idDistrict": null
+        },
+        {
+          "name": "Canitas",
+          "idDistrict": null
+        },
+        {
+          "name": "Cascol",
+          "idDistrict": null
+        },
+        {
+          "name": "Cheve",
+          "idDistrict": null
+        },
+        {
+          "name": "Ciudad Alfaro",
+          "idDistrict": null
+        },
+        {
+          "name": "Cojimies",
+          "idDistrict": null
+        },
+        {
+          "name": "Don Juan",
+          "idDistrict": null
+        },
+        {
+          "name": "El Matal",
+          "idDistrict": null
+        },
+        {
+          "name": "El Rodeo",
+          "idDistrict": null
+        },
+        {
+          "name": "La Chorrera",
+          "idDistrict": null
+        },
+        {
+          "name": "Los Bajos",
+          "idDistrict": null
+        },
+        {
+          "name": "Mache",
+          "idDistrict": null
+        },
+        {
+          "name": "Nuevo Briceno",
+          "idDistrict": null
+        },
+        {
+          "name": "Playa Prieta",
+          "idDistrict": null
+        },
+        {
+          "name": "San Clemente",
+          "idDistrict": null
+        },
+        {
+          "name": "San Isidro (Bahia)",
+          "idDistrict": null
+        },
+        {
+          "name": "San Jacinto",
+          "idDistrict": null
+        },
+        {
+          "name": "Sancan",
+          "idDistrict": null
+        },
+        {
+          "name": "Sosote",
+          "idDistrict": null
+        },
+        {
+          "name": "Zulema",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 206,
+      "id_country": 103,
+      "name": "Morona-Santiago",
+      "cities": [
+        {
+          "name": "Macas",
+          "idDistrict": null
+        },
+        {
+          "name": "Gualaquiza",
+          "idDistrict": null
+        },
+        {
+          "name": "Sucua",
+          "idDistrict": null
+        },
+        {
+          "name": "Logroño",
+          "idDistrict": null
+        },
+        {
+          "name": "Taisha",
+          "idDistrict": null
+        },
+        {
+          "name": "Santiago",
+          "idDistrict": null
+        },
+        {
+          "name": "Huamboya",
+          "idDistrict": null
+        },
+        {
+          "name": "Palora",
+          "idDistrict": null
+        },
+        {
+          "name": "San Juan Bosco",
+          "idDistrict": null
+        },
+        {
+          "name": "Sevilla Don Bosco",
+          "idDistrict": null
+        },
+        {
+          "name": "General Proaño",
+          "idDistrict": null
+        },
+        {
+          "name": "Limón Indanza",
+          "idDistrict": null
+        },
+        {
+          "name": "Morona",
+          "idDistrict": null
+        },
+        {
+          "name": "Pablo Sexto",
+          "idDistrict": null
+        },
+        {
+          "name": "Palora (Metzera)",
+          "idDistrict": null
+        },
+        {
+          "name": "Río Blanco",
+          "idDistrict": null
+        },
+        {
+          "name": "San Isidro",
+          "idDistrict": null
+        },
+        {
+          "name": "Santiago de Méndez",
+          "idDistrict": null
+        },
+        {
+          "name": "Tiwintza",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 366,
+      "id_country": 103,
+      "name": "Napo",
+      "cities": [
+        {
+          "name": "Tena",
+          "idDistrict": null
+        },
+        {
+          "name": "Archidona",
+          "idDistrict": null
+        },
+        {
+          "name": "Misahualli",
+          "idDistrict": null
+        },
+        {
+          "name": "Puerto Napo",
+          "idDistrict": null
+        },
+        {
+          "name": "Baeza",
+          "idDistrict": null
+        },
+        {
+          "name": "Cuyuja",
+          "idDistrict": null
+        },
+        {
+          "name": "El Chaco",
+          "idDistrict": null
+        },
+        {
+          "name": "Ahuano",
+          "idDistrict": null
+        },
+        {
+          "name": "Arajuno",
+          "idDistrict": null
+        },
+        {
+          "name": "Cotundo",
+          "idDistrict": null
+        },
+        {
+          "name": "Arosemena Tola",
+          "idDistrict": null
+        },
+        {
+          "name": "Carlos Julio Arosemena",
+          "idDistrict": null
+        },
+        {
+          "name": "Carlos Julio Arosemena Tola",
+          "idDistrict": null
+        },
+        {
+          "name": "Pano",
+          "idDistrict": null
+        },
+        {
+          "name": "Pto. Napo",
+          "idDistrict": null
+        },
+        {
+          "name": "Puerto Misahualli",
+          "idDistrict": null
+        },
+        {
+          "name": "San Pablo de Ushpayacu",
+          "idDistrict": null
+        },
+        {
+          "name": "Sardinas",
+          "idDistrict": null
+        },
+        {
+          "name": "Borja",
+          "idDistrict": null
+        },
+        {
+          "name": "Gonzalo Pizarro",
+          "idDistrict": null
+        },
+        {
+          "name": "Nueva Esperanza",
+          "idDistrict": null
+        },
+        {
+          "name": "Tazayacu",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 804,
+      "id_country": 103,
+      "name": "Orellana",
+      "cities": [
+        {
+          "name": "Coca",
+          "idDistrict": null
+        },
+        {
+          "name": "El Coca",
+          "idDistrict": null
+        },
+        {
+          "name": "Dayuma",
+          "idDistrict": null
+        },
+        {
+          "name": "Nuevo Rocafuerte",
+          "idDistrict": null
+        },
+        {
+          "name": "La Joya de los Sachas",
+          "idDistrict": null
+        },
+        {
+          "name": "Loreto",
+          "idDistrict": null
+        },
+        {
+          "name": "Aguarico",
+          "idDistrict": null
+        },
+        {
+          "name": "Enokanqui",
+          "idDistrict": null
+        },
+        {
+          "name": "Francisco De Orellana",
+          "idDistrict": null
+        },
+        {
+          "name": "Inés Arango (Cab. En Western)",
+          "idDistrict": null
+        },
+        {
+          "name": "Joya de los Sachas",
+          "idDistrict": null
+        },
+        {
+          "name": "Lago San Pedro",
+          "idDistrict": null
+        },
+        {
+          "name": "Puerto Francisco De Orellana (El Coca)",
+          "idDistrict": null
+        },
+        {
+          "name": "San Carlos",
+          "idDistrict": null
+        },
+        {
+          "name": "San Luis De Armenia",
+          "idDistrict": null
+        },
+        {
+          "name": "San Sebastián Del Coca",
+          "idDistrict": null
+        },
+        {
+          "name": "Unión Milagreña",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 783,
+      "id_country": 103,
+      "name": "Pastaza",
+      "cities": [
+        {
+          "name": "Puyo",
+          "idDistrict": null
+        },
+        {
+          "name": "Mera",
+          "idDistrict": null
+        },
+        {
+          "name": "Shell",
+          "idDistrict": null
+        },
+        {
+          "name": "Arajuno",
+          "idDistrict": null
+        },
+        {
+          "name": "Pastaza",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Clara",
+          "idDistrict": null
+        },
+        {
+          "name": "Sarayaku",
+          "idDistrict": null
+        },
+        {
+          "name": "Montalvo",
+          "idDistrict": null
+        },
+        {
+          "name": "Tarqui",
+          "idDistrict": null
+        },
+        {
+          "name": "Pompeya",
+          "idDistrict": null
+        },
+        {
+          "name": "Diez de Agosto",
+          "idDistrict": null
+        },
+        {
+          "name": "Fátima",
+          "idDistrict": null
+        },
+        {
+          "name": "Palora",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 750,
+      "id_country": 103,
+      "name": "Pichincha",
+      "cities": [
+        {
+          "name": "Quito",
+          "idDistrict": null
+        },
+        {
+          "name": "Cayambe",
+          "idDistrict": null
+        },
+        {
+          "name": "Machachi",
+          "idDistrict": null
+        },
+        {
+          "name": "Pedro Vicente Maldonado",
+          "idDistrict": null
+        },
+        {
+          "name": "Sangolqui",
+          "idDistrict": null
+        },
+        {
+          "name": "Tabacundo",
+          "idDistrict": null
+        },
+        {
+          "name": "Puembo",
+          "idDistrict": null
+        },
+        {
+          "name": "Pedro Moncayo",
+          "idDistrict": null
+        },
+        {
+          "name": "Mejia",
+          "idDistrict": null
+        },
+        {
+          "name": "Rumiñahui",
+          "idDistrict": null
+        },
+        {
+          "name": "Alangasí",
+          "idDistrict": null
+        },
+        {
+          "name": "Alóag",
+          "idDistrict": null
+        },
+        {
+          "name": "Alóag (Mejia)",
+          "idDistrict": null
+        },
+        {
+          "name": "Aloasí",
+          "idDistrict": null
+        },
+        {
+          "name": "Amaguaña",
+          "idDistrict": null
+        },
+        {
+          "name": "Ascázubi",
+          "idDistrict": null
+        },
+        {
+          "name": "Ascázubi (Cayambe)",
+          "idDistrict": null
+        },
+        {
+          "name": "Atahualpa (Quito)",
+          "idDistrict": null
+        },
+        {
+          "name": "Ayora",
+          "idDistrict": null
+        },
+        {
+          "name": "Azcasubi Via Al Quinche",
+          "idDistrict": null
+        },
+        {
+          "name": "Belisario Quevedo (Quito)",
+          "idDistrict": null
+        },
+        {
+          "name": "Calacalí",
+          "idDistrict": null
+        },
+        {
+          "name": "Calderón",
+          "idDistrict": null
+        },
+        {
+          "name": "Cangahua",
+          "idDistrict": null
+        },
+        {
+          "name": "Carcelén",
+          "idDistrict": null
+        },
+        {
+          "name": "Centro Histórico",
+          "idDistrict": null
+        },
+        {
+          "name": "Chavezpamba",
+          "idDistrict": null
+        },
+        {
+          "name": "Checa",
+          "idDistrict": null
+        },
+        {
+          "name": "Chilibulo",
+          "idDistrict": null
+        },
+        {
+          "name": "Chillogallo",
+          "idDistrict": null
+        },
+        {
+          "name": "Chimbacalle",
+          "idDistrict": null
+        },
+        {
+          "name": "Cochapamba (Quito)",
+          "idDistrict": null
+        },
+        {
+          "name": "Comité Del Pueblo",
+          "idDistrict": null
+        },
+        {
+          "name": "Conocoto",
+          "idDistrict": null
+        },
+        {
+          "name": "Cotocollao",
+          "idDistrict": null
+        },
+        {
+          "name": "Cotogchoa",
+          "idDistrict": null
+        },
+        {
+          "name": "Cumbayá",
+          "idDistrict": null
+        },
+        {
+          "name": "Cutuglahua",
+          "idDistrict": null
+        },
+        {
+          "name": "Cuzubamba",
+          "idDistrict": null
+        },
+        {
+          "name": "El Chaupi",
+          "idDistrict": null
+        },
+        {
+          "name": "El Condado",
+          "idDistrict": null
+        },
+        {
+          "name": "El Quinche",
+          "idDistrict": null
+        },
+        {
+          "name": "Guamaní",
+          "idDistrict": null
+        },
+        {
+          "name": "Guangopolo",
+          "idDistrict": null
+        },
+        {
+          "name": "Guayllabamba",
+          "idDistrict": null
+        },
+        {
+          "name": "Iñaquito",
+          "idDistrict": null
+        },
+        {
+          "name": "Itchimbía",
+          "idDistrict": null
+        },
+        {
+          "name": "Jipijapa (Quito)",
+          "idDistrict": null
+        },
+        {
+          "name": "Juan Montalvo",
+          "idDistrict": null
+        },
+        {
+          "name": "Kennedy",
+          "idDistrict": null
+        },
+        {
+          "name": "La Argelia",
+          "idDistrict": null
+        },
+        {
+          "name": "La Armenia",
+          "idDistrict": null
+        },
+        {
+          "name": "La Concepción",
+          "idDistrict": null
+        },
+        {
+          "name": "La Ecuatoriana",
+          "idDistrict": null
+        },
+        {
+          "name": "La Esperanza (Pedro Moncayo)",
+          "idDistrict": null
+        },
+        {
+          "name": "La Ferroviaria",
+          "idDistrict": null
+        },
+        {
+          "name": "La Libertad (Quito)",
+          "idDistrict": null
+        },
+        {
+          "name": "La Magdalena",
+          "idDistrict": null
+        },
+        {
+          "name": "La Mena",
+          "idDistrict": null
+        },
+        {
+          "name": "La Merced (Quito)",
+          "idDistrict": null
+        },
+        {
+          "name": "Llano Chico",
+          "idDistrict": null
+        },
+        {
+          "name": "Llano Grande",
+          "idDistrict": null
+        },
+        {
+          "name": "Malchinguí",
+          "idDistrict": null
+        },
+        {
+          "name": "Mariscal Sucre (Quito)",
+          "idDistrict": null
+        },
+        {
+          "name": "Miravalle",
+          "idDistrict": null
+        },
+        {
+          "name": "Mitad Del Mundo",
+          "idDistrict": null
+        },
+        {
+          "name": "Monjas",
+          "idDistrict": null
+        },
+        {
+          "name": "Nanegalito",
+          "idDistrict": null
+        },
+        {
+          "name": "Nayón",
+          "idDistrict": null
+        },
+        {
+          "name": "Olmedo (Pesillo)",
+          "idDistrict": null
+        },
+        {
+          "name": "Orquideas",
+          "idDistrict": null
+        },
+        {
+          "name": "Otón",
+          "idDistrict": null
+        },
+        {
+          "name": "Pedro V. Maldonado",
+          "idDistrict": null
+        },
+        {
+          "name": "Perucho",
+          "idDistrict": null
+        },
+        {
+          "name": "Pifo",
+          "idDistrict": null
+        },
+        {
+          "name": "Píntag",
+          "idDistrict": null
+        },
+        {
+          "name": "Pomasqui",
+          "idDistrict": null
+        },
+        {
+          "name": "Ponceano",
+          "idDistrict": null
+        },
+        {
+          "name": "Puéllaro",
+          "idDistrict": null
+        },
+        {
+          "name": "Puengasí",
+          "idDistrict": null
+        },
+        {
+          "name": "Puerto Quito",
+          "idDistrict": null
+        },
+        {
+          "name": "Pusuqui",
+          "idDistrict": null
+        },
+        {
+          "name": "Quitumbe",
+          "idDistrict": null
+        },
+        {
+          "name": "Rumipamba",
+          "idDistrict": null
+        },
+        {
+          "name": "San Antonio De Pichincha",
+          "idDistrict": null
+        },
+        {
+          "name": "San Bartolo",
+          "idDistrict": null
+        },
+        {
+          "name": "San Isidro Del Inca",
+          "idDistrict": null
+        },
+        {
+          "name": "San José De Minas",
+          "idDistrict": null
+        },
+        {
+          "name": "San José De Morán",
+          "idDistrict": null
+        },
+        {
+          "name": "San Juan (Quito)",
+          "idDistrict": null
+        },
+        {
+          "name": "San Juan De Calderón",
+          "idDistrict": null
+        },
+        {
+          "name": "San Miguel De Los Bancos",
+          "idDistrict": null
+        },
+        {
+          "name": "San Pedro De Taboada",
+          "idDistrict": null
+        },
+        {
+          "name": "San Rafael",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Rosa De Cuzubamba",
+          "idDistrict": null
+        },
+        {
+          "name": "Solanda",
+          "idDistrict": null
+        },
+        {
+          "name": "Tababela",
+          "idDistrict": null
+        },
+        {
+          "name": "Tambillo",
+          "idDistrict": null
+        },
+        {
+          "name": "Tambillo (Mejia)",
+          "idDistrict": null
+        },
+        {
+          "name": "Tocachi",
+          "idDistrict": null
+        },
+        {
+          "name": "Tumbaco",
+          "idDistrict": null
+        },
+        {
+          "name": "Tupigachi",
+          "idDistrict": null
+        },
+        {
+          "name": "Turubamba",
+          "idDistrict": null
+        },
+        {
+          "name": "Uyumbicho",
+          "idDistrict": null
+        },
+        {
+          "name": "Valle De Los Chillos",
+          "idDistrict": null
+        },
+        {
+          "name": "Yaruquí",
+          "idDistrict": null
+        },
+        {
+          "name": "Zambisa",
+          "idDistrict": null
+        },
+        {
+          "name": "Zambiza",
+          "idDistrict": null
+        },
+        {
+          "name": "Bancos",
+          "idDistrict": null
+        },
+        {
+          "name": "Guachala",
+          "idDistrict": null
+        },
+        {
+          "name": "Nanegal",
+          "idDistrict": null
+        },
+        {
+          "name": "Tandapi",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 237,
+      "id_country": 103,
+      "name": "Santa Elena",
+      "cities": [
+        {
+          "name": "Santa Elena",
+          "idDistrict": null
+        },
+        {
+          "name": "La Libertad",
+          "idDistrict": null
+        },
+        {
+          "name": "Salinas",
+          "idDistrict": null
+        },
+        {
+          "name": "Ballenita",
+          "idDistrict": null
+        },
+        {
+          "name": "Ancon",
+          "idDistrict": null
+        },
+        {
+          "name": "La Entrada",
+          "idDistrict": null
+        },
+        {
+          "name": "Anconcito",
+          "idDistrict": null
+        },
+        {
+          "name": "Ayangue",
+          "idDistrict": null
+        },
+        {
+          "name": "Cadeate",
+          "idDistrict": null
+        },
+        {
+          "name": "Capaes",
+          "idDistrict": null
+        },
+        {
+          "name": "Carlos Espinoza Larrea",
+          "idDistrict": null
+        },
+        {
+          "name": "El Tambo Santa Elena",
+          "idDistrict": null
+        },
+        {
+          "name": "Gral. Alberto Enríquez Gallo",
+          "idDistrict": null
+        },
+        {
+          "name": "José Luis Tamayo (Muey)",
+          "idDistrict": null
+        },
+        {
+          "name": "La Libertad (La Libertad)",
+          "idDistrict": null
+        },
+        {
+          "name": "Libertador Bolívar",
+          "idDistrict": null
+        },
+        {
+          "name": "Manglaralto",
+          "idDistrict": null
+        },
+        {
+          "name": "Mar Bravo",
+          "idDistrict": null
+        },
+        {
+          "name": "Montañita",
+          "idDistrict": null
+        },
+        {
+          "name": "Monteverde",
+          "idDistrict": null
+        },
+        {
+          "name": "Muey",
+          "idDistrict": null
+        },
+        {
+          "name": "Olon",
+          "idDistrict": null
+        },
+        {
+          "name": "Palmar",
+          "idDistrict": null
+        },
+        {
+          "name": "Prosperidad",
+          "idDistrict": null
+        },
+        {
+          "name": "Puerto Santa Rosa",
+          "idDistrict": null
+        },
+        {
+          "name": "Punta Barandua",
+          "idDistrict": null
+        },
+        {
+          "name": "Punta Blanca",
+          "idDistrict": null
+        },
+        {
+          "name": "Punta Carnero",
+          "idDistrict": null
+        },
+        {
+          "name": "Punta Centinela",
+          "idDistrict": null
+        },
+        {
+          "name": "Salinas (Salinas)",
+          "idDistrict": null
+        },
+        {
+          "name": "San José De Ancón",
+          "idDistrict": null
+        },
+        {
+          "name": "San Pablo Santa Elena",
+          "idDistrict": null
+        },
+        {
+          "name": "San Pedro",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Elena (Santa Elena)",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Rosa Santa Elena",
+          "idDistrict": null
+        },
+        {
+          "name": "Simón Bolívar (Julio Moreno)",
+          "idDistrict": null
+        },
+        {
+          "name": "Valdivia",
+          "idDistrict": null
+        },
+        {
+          "name": "Vicente Rocafuerte",
+          "idDistrict": null
+        },
+        {
+          "name": "Jambeli Monteverde",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 921,
+      "id_country": 103,
+      "name": "Santo Domingo de los Tsachilas",
+      "cities": [
+        {
+          "name": "Santo Domingo de los Colorados",
+          "idDistrict": null
+        },
+        {
+          "name": "La Concordia",
+          "idDistrict": null
+        },
+        {
+          "name": "Puerto Limon",
+          "idDistrict": null
+        },
+        {
+          "name": "Valle Hermoso",
+          "idDistrict": null
+        },
+        {
+          "name": "Alluriquin",
+          "idDistrict": null
+        },
+        {
+          "name": "Luz de America",
+          "idDistrict": null
+        },
+        {
+          "name": "Abraham Calazacón",
+          "idDistrict": null
+        },
+        {
+          "name": "Bombolí",
+          "idDistrict": null
+        },
+        {
+          "name": "Chiguilpe",
+          "idDistrict": null
+        },
+        {
+          "name": "Km 14 Quevedo",
+          "idDistrict": null
+        },
+        {
+          "name": "Km 24 Quevedo",
+          "idDistrict": null
+        },
+        {
+          "name": "Km 38.5 Quevedo",
+          "idDistrict": null
+        },
+        {
+          "name": "Km 41 Quevedo",
+          "idDistrict": null
+        },
+        {
+          "name": "Las Villegas",
+          "idDistrict": null
+        },
+        {
+          "name": "Monterrey",
+          "idDistrict": null
+        },
+        {
+          "name": "Río Toachi",
+          "idDistrict": null
+        },
+        {
+          "name": "Río Verde (Santo Domingo)",
+          "idDistrict": null
+        },
+        {
+          "name": "San Jacinto Del Búa",
+          "idDistrict": null
+        },
+        {
+          "name": "San Pablo De Chila",
+          "idDistrict": null
+        },
+        {
+          "name": "Santo Domingo",
+          "idDistrict": null
+        },
+        {
+          "name": "Zaracay",
+          "idDistrict": null
+        },
+        {
+          "name": "Las Delicias",
+          "idDistrict": null
+        },
+        {
+          "name": "Nuevo Israel",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 957,
+      "id_country": 103,
+      "name": "Sucumbios",
+      "cities": [
+        {
+          "name": "Lago Agrio",
+          "idDistrict": null
+        },
+        {
+          "name": "Shushufindi",
+          "idDistrict": null
+        },
+        {
+          "name": "Cuyabeno",
+          "idDistrict": null
+        },
+        {
+          "name": "Gonzalo Pizarro",
+          "idDistrict": null
+        },
+        {
+          "name": "Putumayo",
+          "idDistrict": null
+        },
+        {
+          "name": "7 De Julio",
+          "idDistrict": null
+        },
+        {
+          "name": "Cascales",
+          "idDistrict": null
+        },
+        {
+          "name": "El Eno",
+          "idDistrict": null
+        },
+        {
+          "name": "General Farfán",
+          "idDistrict": null
+        },
+        {
+          "name": "Jambelí",
+          "idDistrict": null
+        },
+        {
+          "name": "Jivino Verde",
+          "idDistrict": null
+        },
+        {
+          "name": "Nueva Loja",
+          "idDistrict": null
+        },
+        {
+          "name": "Pacayacu",
+          "idDistrict": null
+        },
+        {
+          "name": "San Pedro De Los Cofanes",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Cecilia",
+          "idDistrict": null
+        },
+        {
+          "name": "Siete De Julio",
+          "idDistrict": null
+        },
+        {
+          "name": "Sucumbíos",
+          "idDistrict": null
+        },
+        {
+          "name": "Los Rios",
+          "idDistrict": null
+        },
+        {
+          "name": "Lumbaqui",
+          "idDistrict": null
+        },
+        {
+          "name": "Reventador",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 230,
+      "id_country": 103,
+      "name": "Tungurahua",
+      "cities": [
+        {
+          "name": "Ambato",
+          "idDistrict": null
+        },
+        {
+          "name": "Baños de Agua Santa",
+          "idDistrict": null
+        },
+        {
+          "name": "Pelileo",
+          "idDistrict": null
+        },
+        {
+          "name": "Patate",
+          "idDistrict": null
+        },
+        {
+          "name": "Pillaro",
+          "idDistrict": null
+        },
+        {
+          "name": "Quero",
+          "idDistrict": null
+        },
+        {
+          "name": "Cevallos",
+          "idDistrict": null
+        },
+        {
+          "name": "Mocha",
+          "idDistrict": null
+        },
+        {
+          "name": "Tisaleo",
+          "idDistrict": null
+        },
+        {
+          "name": "Atahualpa (Chisalata)",
+          "idDistrict": null
+        },
+        {
+          "name": "Atocha Ficoa",
+          "idDistrict": null
+        },
+        {
+          "name": "Augusto N. Martínez (Mundugleo)",
+          "idDistrict": null
+        },
+        {
+          "name": "Betínez (Pachanlica)",
+          "idDistrict": null
+        },
+        {
+          "name": "Celiano Monge",
+          "idDistrict": null
+        },
+        {
+          "name": "Ciudad Nueva",
+          "idDistrict": null
+        },
+        {
+          "name": "Cuchibamba",
+          "idDistrict": null
+        },
+        {
+          "name": "García Moreno (Chumaqui)",
+          "idDistrict": null
+        },
+        {
+          "name": "Guambaló (Huambaló)",
+          "idDistrict": null
+        },
+        {
+          "name": "Huachi Chico",
+          "idDistrict": null
+        },
+        {
+          "name": "Huachi Grande",
+          "idDistrict": null
+        },
+        {
+          "name": "Huachi Loreto",
+          "idDistrict": null
+        },
+        {
+          "name": "Huambaló",
+          "idDistrict": null
+        },
+        {
+          "name": "Izamba",
+          "idDistrict": null
+        },
+        {
+          "name": "La Merced (Ambato)",
+          "idDistrict": null
+        },
+        {
+          "name": "La Península",
+          "idDistrict": null
+        },
+        {
+          "name": "Matriz",
+          "idDistrict": null
+        },
+        {
+          "name": "Montalvo (Tungurahua)",
+          "idDistrict": null
+        },
+        {
+          "name": "Mundugleo",
+          "idDistrict": null
+        },
+        {
+          "name": "Pelileo Grande",
+          "idDistrict": null
+        },
+        {
+          "name": "Picaigua",
+          "idDistrict": null
+        },
+        {
+          "name": "Pinllo",
+          "idDistrict": null
+        },
+        {
+          "name": "Pishilata",
+          "idDistrict": null
+        },
+        {
+          "name": "Quinchicoto",
+          "idDistrict": null
+        },
+        {
+          "name": "Quisapincha",
+          "idDistrict": null
+        },
+        {
+          "name": "Salasaca",
+          "idDistrict": null
+        },
+        {
+          "name": "San Bartolomé De Pinllog",
+          "idDistrict": null
+        },
+        {
+          "name": "San Francisco (Ambato)",
+          "idDistrict": null
+        },
+        {
+          "name": "San Pedro De Pelileo",
+          "idDistrict": null
+        },
+        {
+          "name": "Santa Rosa (Ambato)",
+          "idDistrict": null
+        },
+        {
+          "name": "Santiago de Píllaro",
+          "idDistrict": null
+        },
+        {
+          "name": "Totoras",
+          "idDistrict": null
+        },
+        {
+          "name": "Ulba",
+          "idDistrict": null
+        },
+        {
+          "name": "Unamuncho",
+          "idDistrict": null
+        }
+      ]
+    },
+    {
+      "id": 938,
+      "id_country": 103,
+      "name": "Zamora-Chinchipe",
+      "cities": [
+        {
+          "name": "Zamora",
+          "idDistrict": null
+        },
+        {
+          "name": "Yantzaza",
+          "idDistrict": null
+        },
+        {
+          "name": "Centinela del Condor",
+          "idDistrict": null
+        },
+        {
+          "name": "Nangaritza",
+          "idDistrict": null
+        },
+        {
+          "name": "Chinchipe",
+          "idDistrict": null
+        },
+        {
+          "name": "Palanda",
+          "idDistrict": null
+        },
+        {
+          "name": "El Pangui",
+          "idDistrict": null
+        },
+        {
+          "name": "Paquisha",
+          "idDistrict": null
+        },
+        {
+          "name": "Zumbi",
+          "idDistrict": null
+        },
+        {
+          "name": "Guayzimi",
+          "idDistrict": null
+        },
+        {
+          "name": "Cumbaratza",
+          "idDistrict": null
+        },
+        {
+          "name": "El Limón",
+          "idDistrict": null
+        },
+        {
+          "name": "Los Encuentros",
+          "idDistrict": null
+        },
+        {
+          "name": "Pachicutza",
+          "idDistrict": null
+        },
+        {
+          "name": "Pangui",
+          "idDistrict": null
+        },
+        {
+          "name": "Panguintza",
+          "idDistrict": null
+        },
+        {
+          "name": "Sabanilla (Zamora)",
+          "idDistrict": null
+        },
+        {
+          "name": "Timbara",
+          "idDistrict": null
+        },
+        {
+          "name": "Yacuambi",
+          "idDistrict": null
+        },
+        {
+          "name": "Yantzaza (Yanzatza)",
+          "idDistrict": null
+        },
+        {
+          "name": "Chamico",
+          "idDistrict": null
+        },
+        {
+          "name": "Guadalupe",
+          "idDistrict": null
+        },
+        {
+          "name": "Namirez",
+          "idDistrict": null
+        },
+        {
+          "name": "Piuntza",
+          "idDistrict": null
+        },
+        {
+          "name": "Zumba",
+          "idDistrict": null
+        }
+      ]
+    }
+  ]
+}

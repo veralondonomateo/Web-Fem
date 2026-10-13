@@ -1,0 +1,2 @@
+/* Deployment adapter: keeps the original CRM application source unchanged. */
+(()=>{const original=window.fetch;window.fetch=function(input,init){if(typeof input==='string'&&input.startsWith('/api/'))input='/admin/crm'+input;else if(input instanceof Request&&new URL(input.url).origin===location.origin&&new URL(input.url).pathname.startsWith('/api/')){const u=new URL(input.url);u.pathname='/admin/crm'+u.pathname;input=new Request(u,input);}return original.call(this,input,init);};})();

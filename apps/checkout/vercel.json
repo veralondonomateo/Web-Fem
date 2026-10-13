@@ -1,0 +1,13 @@
+{
+  "framework": "nextjs",
+  "crons": [
+    {
+      "path": "/api/cron/sync-orders",
+      "schedule": "*/10 * * * *"
+    },
+    {
+      "path": "/api/cron/carritos",
+      "schedule": "*/5 * * * *"
+    }
+  ]
+}

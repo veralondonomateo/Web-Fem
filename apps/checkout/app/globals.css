@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  --fem-primary: #fc5245;
+  --fem-primary-light: #ffa69e;
+  --fem-bg: #f7f4f4;
+}
+
+body {
+  background-color: #f7f4f4;
+  color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Prevent iOS zoom on inputs */
+input, select, textarea {
+  font-size: 16px !important;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.3s ease-out forwards;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0e8e8 25%, #fde8e8 50%, #f0e8e8 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Custom focus ring */
+.fem-focus:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 166, 158, 0.4);
+  border-color: #ffa69e;
+}
+
+/* Smooth select arrows */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ffa69e' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+}
+
+
+/* Unified FEM identity */
+body{font-family:Poppins,Arial,sans-serif!important}button,input,select{font-family:inherit}h1,h2,h3{letter-spacing:-.02em}button[type=submit]{background:#f17e7e!important;color:#581d18!important}input:focus,select:focus{border-color:#f17e7e!important} .truncate{white-space:normal!important;overflow-wrap:anywhere}
+
+/* Pago compartido: tarjeta editorial FEM y controles accesibles. */
+.fem-method-note,.fem-love-help{font-size:11px;line-height:1.7;color:#876963;margin-top:12px}
+.fem-love-option{border:1px solid #ebd4d2;border-radius:14px;margin-top:20px;background:#fff8f7;color:#581d18;overflow:hidden}
+.fem-love-option.is-selected{border:2px solid #db8583;background:#fff5f3}
+.fem-love-option>label{display:flex;align-items:center;gap:12px;padding:20px 16px;cursor:pointer;position:relative}
+.fem-love-option input{accent-color:#aa514b;flex-shrink:0;width:17px;height:17px}
+.fem-love-option strong{display:block;font-size:14px;line-height:1.6}.fem-love-option small{display:block;font-size:11px;margin-top:3px;line-height:1.6}
+.fem-love-option-heart{font-size:34px;line-height:1;color:#bc6967}.fem-love-new{font-size:8px;letter-spacing:.1em;position:absolute;right:14px;top:5px;color:#a05b53}
+.fem-love-explainer{padding:0 20px 20px;font-size:12px;line-height:1.85}.fem-love-explainer ol{padding-left:18px;list-style:decimal;margin:12px 0}.fem-preview-share{font-weight:600;border-bottom:1px solid #a95f57;margin-top:14px;min-height:36px;cursor:pointer}
+.fem-love-dialog{position:fixed;inset:0;margin:auto;border:0;border-radius:24px;padding:0;width:min(94vw,460px);max-height:92dvh;overflow:auto;color:#581d18;background:#fff;box-shadow:0 25px 100px #44232233}
+.fem-love-dialog::backdrop{background:#341b2477;backdrop-filter:blur(5px)}
+.fem-love-close{position:absolute;right:14px;top:12px;z-index:2;border:0;background:#ffffffb3;border-radius:50%;width:36px;height:36px;font-size:24px;cursor:pointer}
+.fem-love-art{position:relative;overflow:hidden;padding:26px 28px 34px;background:#fbd9d4;min-height:275px;background-image:radial-gradient(ellipse at 95% 80%,#f3a8a0 0,transparent 65%)}
+.fem-love-wordmark{font-weight:600;font-size:34px;letter-spacing:-3px}.fem-love-art>p{font-size:8px;letter-spacing:.2em;margin-top:26px;position:relative}.fem-love-art h2{font-size:34px;line-height:1.13;font-weight:500;letter-spacing:-1.8px;position:relative;margin-top:10px;max-width:270px}
+.fem-love-orbit{position:absolute;right:-25px;top:20px;font-size:230px;line-height:1;color:#fff5;transform:rotate(-14deg);pointer-events:none}
+.fem-love-stamp{position:absolute;right:16px;bottom:18px;font-size:9px;line-height:1.6;transform:rotate(-8deg);border:1px solid #a7655877;border-radius:50%;padding:19px 12px;text-align:center;background:#fce4df}
+.fem-love-body{padding:24px}.fem-love-body h3{font-size:16px;font-weight:600}.fem-love-body>p{font-size:12px;line-height:1.75;margin-top:10px}.fem-love-total{display:flex;justify-content:space-between;gap:12px;border-block:1px solid #f0dedc;padding:15px 0;margin-top:16px;font-size:12px}.fem-love-total strong{font-size:17px}
+.fem-love-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}.fem-love-actions>a,.fem-love-actions>button{padding:13px 6px;border:1px solid #ead6d3;border-radius:10px;background:#fff7f5;text-align:center;font-size:12px;font-weight:500;cursor:pointer}.fem-love-actions>a:first-child{background:#581d18;color:#fff;border-color:#581d18}
+.fem-love-body input{width:100%;border:1px solid #e8d9d6;border-radius:8px;padding:10px;font-size:11px!important;margin-top:12px;color:#795f58;background:#faf8f7}.fem-love-body .fem-love-notice{color:#477443;min-height:18px;font-size:11px}.fem-love-demo{background:#f7eeeb;padding:10px;border-radius:8px;color:#7a5147}
+.fem-love-option:focus-within,.fem-love-actions button:focus-visible,.fem-love-actions a:focus-visible,.fem-love-close:focus-visible{outline:2px solid #925049;outline-offset:3px}
+.fem-gift-preview{max-width:1000px;margin:0 auto;padding:48px 22px;color:#581d18}.fem-gift-preview-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:50px;font-size:12px}.fem-gift-preview-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:64px}.fem-gift-preview h1{font-size:clamp(36px,5vw,58px);line-height:1.12;letter-spacing:-2px;font-weight:500}.fem-gift-preview-lead{font-size:14px;line-height:1.8;margin:20px 0}.fem-gift-preview .fem-love-art{border-radius:24px;min-height:420px;padding:35px}.fem-gift-preview .fem-love-art h2{font-size:42px;max-width:none}.fem-gift-preview .fem-love-art>p{margin-top:80px}.fem-gift-preview .fem-love-orbit{top:35px;font-size:340px}.fem-gift-preview-cta{background:#f17e7e;color:#581d18;border:0;border-radius:12px;padding:17px 24px;font-weight:600;font-size:14px;width:100%;cursor:pointer}.fem-gift-preview-note{font-size:11px;line-height:1.8;margin-top:18px;color:#83655e}
+@media(max-width:640px){.fem-gift-preview{padding:24px 18px}.fem-gift-preview-header{margin-bottom:28px}.fem-gift-preview-grid{grid-template-columns:1fr;gap:26px}.fem-gift-preview .fem-love-art{min-height:310px}.fem-gift-preview .fem-love-art>p{margin-top:30px}.fem-gift-preview .fem-love-art h2{font-size:36px}.fem-love-art h2{font-size:30px}.fem-love-body{padding:20px}.fem-love-dialog{max-height:94dvh}.fem-love-option>label{gap:9px;padding-inline:12px}.fem-love-option-heart{font-size:26px}}
+@media(prefers-reduced-motion:no-preference){.fem-love-dialog[open]{animation:fadeInUp .22s ease-out}}
+
+.fem-love-logo{height:28px;width:86px;object-fit:contain;filter:brightness(0) saturate(100%) invert(13%) sepia(31%) saturate(2690%) hue-rotate(336deg) brightness(92%) contrast(93%)}

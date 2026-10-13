@@ -1,0 +1,23 @@
+node_modules
+.git
+.env*
+.local*
+theme-dev
+theme
+work
+branding
+output
+tmp
+
+/public
+**/node_modules
+**/.next
+**/.env*
+**/.vercel
+**/.git
+**/.demo-db
+**/archivos-internos
+**/.agents
+**/.claude
+
+/apps/crm/public/Mejoras CRM.pdf
