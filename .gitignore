@@ -15,7 +15,22 @@ audit/*
 !audit/redirects.json
 !audit/sitemap-urls.json
 !audit/storefront-products.json
+apps/**/node_modules/
+apps/**/.next/
+apps/**/.env*
+apps/**/.vercel/
+apps/**/*.tsbuildinfo
+apps/**/.demo-db/
+.local/
+
+.local-*
 
 .vercel/
 public/
 .vercel
+
+apps/**/archivos-internos/
+apps/**/.agents/
+apps/**/.claude/
+
+integrations/assets.mjs

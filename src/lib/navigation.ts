@@ -19,7 +19,8 @@ export function localHref(href: string): string {
   if (!/^(https?:)?\/\//i.test(href)) return href;
   const url = new URL(href, STORE_ORIGIN);
   if (![new URL(STORE_ORIGIN).hostname, STORE_DOMAIN, 'www.femprobiotics.co'].includes(url.hostname)) return href;
-  if (/^\/(checkout|checkouts|account|customer_authentication|discount|apps|challenge)(\/|$)/.test(url.pathname)) return href;
+  if (/^\/checkouts?(\/|$)/.test(url.pathname)) return '/checkout';
+  if (/^\/(account|customer_authentication|discount|apps|challenge)(\/|$)/.test(url.pathname)) return href;
   return url.pathname + url.search + url.hash;
 }
 /** Targeted source edits preserve all Liquid expressions, CSS selectors and app hooks. */

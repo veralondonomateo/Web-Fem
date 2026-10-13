@@ -1,0 +1,1002 @@
+generator client {
+  provider = "prisma-client-js"
+  // `relationJoins` deja pedir que las relaciones se traigan en la MISMA
+  // consulta (LATERAL JOIN) en vez de una consulta por relación. No cambia
+  // nada por sí solo: hay que pedirlo con `relationLoadStrategy: 'join'` en
+  // la consulta concreta. Ver el porqué en la ruta de la bandeja.
+  previewFeatures = ["relationJoins"]
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ============================================================
+// ENUMS  (mapeados a los tipos PostgreSQL creados en Supabase)
+// ============================================================
+
+enum UserRole {
+  ADMIN
+  AGENT
+  ANALYST
+
+  @@map("user_role")
+}
+
+enum CustomerStatus {
+  NEW
+  ACTIVE
+  AT_RISK
+  RECURRING
+  LOST
+
+  @@map("customer_status")
+}
+
+enum ConversationStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+
+  @@map("conversation_status")
+}
+
+enum CrmChannel {
+  WHATSAPP
+  INSTAGRAM
+  FACEBOOK
+
+  @@map("crm_channel")
+}
+
+enum MessageDirection {
+  INBOUND
+  OUTBOUND
+
+  @@map("message_direction")
+}
+
+enum MessageStatus {
+  SENT
+  DELIVERED
+  READ
+  FAILED
+
+  @@map("message_status")
+}
+
+enum OrderStatus {
+  PENDING_CONFIRMATION
+  CONFIRMED
+  PREPARING
+  DISPATCHED
+  IN_TRANSIT
+  IN_DESTINATION
+  DELIVERED
+  FAILED_DELIVERY
+  RETURNED
+  CANCELLED
+
+  @@map("order_status")
+}
+
+enum FlowTrigger {
+  ORDER_CREATED
+  ORDER_CONFIRMED
+  ORDER_DISPATCHED
+  ORDER_DELIVERED
+  ORDER_RETURNED
+  DAYS_AFTER_DELIVERY
+  NO_REPURCHASE_DAYS
+  MESSAGE_RECEIVED
+  KEYWORD_RECEIVED
+  ABANDONED_CART
+  ORDER_IN_TRANSIT
+  ORDER_OUT_FOR_DELIVERY
+  ORDER_AT_OFFICE
+  ORDER_NOVELTY
+  CONFIRMATION_REMINDER
+
+  @@map("flow_trigger")
+}
+
+enum TemplateStatus {
+  PENDING
+  APPROVED
+  REJECTED
+
+  @@map("template_status")
+}
+
+enum TemplateCategory {
+  CONFIRMATION
+  LOGISTICS
+  REPURCHASE
+  SUPPORT
+  PROMOTIONAL
+
+  @@map("template_category")
+}
+
+enum IntegrationPlatform {
+  SHOPIFY
+  META
+  MASTERSHOP
+  WOOCOMMERCE
+  /// Checkout propio de Fem (checkoutfem.com): de ahí vienen los carritos
+  /// abandonados. Shopify solo recibe los pedidos ya cerrados.
+  CHECKOUT
+
+  @@map("integration_platform")
+}
+
+enum WebhookEventStatus {
+  PENDING
+  PROCESSED
+  FAILED
+  IGNORED
+
+  @@map("webhook_event_status")
+}
+
+enum CartStatus {
+  OPEN
+  RECOVERED
+  LOST
+  /// La clienta contestó al recordatorio: la secuencia se detiene y sigue una
+  /// persona. Ni recuperado ni perdido — todavía no se sabe, y meterlo en
+  /// cualquiera de los dos mentiría en las métricas.
+  EN_CONVERSACION
+
+  @@map("cart_status")
+}
+
+// ============================================================
+// MODELOS
+// ============================================================
+
+model CrmUser {
+  id            String       @id @default(uuid())
+  authUserId    String?      @map("auth_user_id")
+  email         String       @unique
+  name          String
+  role          UserRole     @default(AGENT)
+  avatar        String?
+  isActive      Boolean      @default(true) @map("is_active")
+  /// Restringe qué línea de WhatsApp ve esta usuaria. NULL = ve todas (admin).
+  /// Con dos números en el mismo BM —uno de atención general, otro de
+  /// postcompra— cada agente solo necesita ver la conversación de su línea.
+  metaAccountId String?      @map("meta_account_id")
+  metaAccount   MetaAccount? @relation(fields: [metaAccountId], references: [id])
+  createdAt     DateTime     @default(now()) @map("created_at")
+  updatedAt     DateTime     @updatedAt @map("updated_at")
+
+  assignedConversations Conversation[]
+  fijaciones            ConversationPin[]
+  activityLogs          ActivityLog[]
+  messages              Message[]      @relation("SentBy")
+  pqrsAssigned          Pqrs[]
+
+  @@index([authUserId])
+  @@index([metaAccountId])
+  @@map("crm_users")
+}
+
+model Customer {
+  id              String         @id @default(uuid())
+  shopifyId       String?        @unique @map("shopify_id")
+  phone           String         @unique
+  /// Identidad opaca de WhatsApp (`from_user_id`, tipo «CO.123…»).
+  /// Algunas clientas tienen el número oculto y Meta no manda `from`: esto es
+  /// lo único que las identifica, y es a donde hay que contestarles.
+  waUserId        String?        @unique @map("wa_user_id")
+  email           String?
+  name            String
+  city            String?
+  department      String?
+  originChannel   CrmChannel?    @map("origin_channel")
+  status          CustomerStatus @default(NEW)
+  ltv             Decimal        @default(0) @db.Decimal(12, 2)
+  totalOrders     Int            @default(0) @map("total_orders")
+  lastPurchaseAt  DateTime?      @map("last_purchase_at")
+  firstContactAt  DateTime       @default(now()) @map("first_contact_at")
+  firstPurchaseAt DateTime?      @map("first_purchase_at")
+  notes           String?
+  tags            String[]       @default([])
+  createdAt       DateTime       @default(now()) @map("created_at")
+  updatedAt       DateTime       @updatedAt @map("updated_at")
+
+  orders           Order[]
+  conversations    Conversation[]
+  flowExecutions   FlowExecution[]
+  abandonedCarts   AbandonedCart[]
+  mastershopGuides MastershopGuide[]
+  pqrs             Pqrs[]
+  devoluciones     Devolucion[]
+  encuestas        EncuestaConversacion[]
+  avisosSendura    AvisoSendura[]
+  campanas         CampanaDestinatario[]
+  bajaMarketing    BajaMarketing?
+
+  @@index([status])
+  @@index([lastPurchaseAt])
+  @@index([firstPurchaseAt])
+  @@map("customers")
+}
+
+model IntegrationConfig {
+  id          String              @id @default(uuid())
+  platform    IntegrationPlatform
+  name        String
+  credentials Json                @default("{}")
+  settings    Json                @default("{}")
+  isActive    Boolean             @default(true) @map("is_active")
+  lastSyncAt  DateTime?           @map("last_sync_at")
+  createdAt   DateTime            @default(now()) @map("created_at")
+  updatedAt   DateTime            @updatedAt @map("updated_at")
+
+  orders         Order[]
+  abandonedCarts AbandonedCart[]
+  metaAccounts   MetaAccount[]
+
+  @@unique([platform, name])
+  @@map("integration_configs")
+}
+
+model Order {
+  id                 String             @id @default(uuid())
+  shopifyOrderId     String?            @unique @map("shopify_order_id")
+  shopifyOrderNumber String?            @map("shopify_order_number")
+  customerId         String             @map("customer_id")
+  customer           Customer           @relation(fields: [customerId], references: [id])
+  integrationId      String?            @map("integration_id")
+  integration        IntegrationConfig? @relation(fields: [integrationId], references: [id])
+  status             OrderStatus        @default(PENDING_CONFIRMATION)
+  totalAmount        Decimal            @map("total_amount") @db.Decimal(12, 2)
+  currency           String             @default("COP")
+  shippingAddress    Json?              @map("shipping_address")
+  trackingNumber     String?            @map("tracking_number")
+  mastershopGuideId  String?            @map("mastershop_guide_id")
+  estimatedDelivery  DateTime?          @map("estimated_delivery")
+  deliveredAt        DateTime?          @map("delivered_at")
+  // La clienta tocó "Confirmar" en la plantilla de WhatsApp. Mastershop no expone
+  // escritura de estado, así que la confirmación vive solo en el CRM.
+  confirmedAt        DateTime?          @map("confirmed_at")
+  notes              String?
+  items              Json               @default("[]")
+  statusHistory      Json               @default("[]") @map("status_history")
+  createdAt          DateTime           @default(now()) @map("created_at")
+  updatedAt          DateTime           @updatedAt @map("updated_at")
+
+  flowExecutions   FlowExecution[]
+  recoveredCarts   AbandonedCart[]
+  mastershopGuides MastershopGuide[]
+
+  @@index([customerId])
+  @@index([integrationId])
+  // Compuesto, no solo [status]: el dashboard cuenta siempre «estado X en los
+  // últimos N días». Con el índice suelto, Postgres recorría todos los pedidos
+  // de ese estado desde el principio de los tiempos y filtraba la fecha después,
+  // así que el coste crecía con el histórico en vez de con la ventana.
+  @@index([status, createdAt])
+  @@index([createdAt])
+  @@index([mastershopGuideId])
+  @@index([trackingNumber])
+  @@map("orders")
+}
+
+model AbandonedCart {
+  id               String             @id @default(uuid())
+  // Id del carrito en el checkout propio (checkoutfem.com). Antes se llamaba
+  // shopifyCheckoutId: los carritos no vienen de Shopify sino del checkout de
+  // Fem, que es quien los detecta y los pone en cola.
+  externalId       String             @unique @map("external_id")
+  /// pago_no_completado | datos_parciales. El primero es el más caliente:
+  /// la clienta ya había decidido comprar y solo falló el pago.
+  cartType         String?            @map("cart_type")
+  customerId       String?            @map("customer_id")
+  customer         Customer?          @relation(fields: [customerId], references: [id])
+  integrationId    String?            @map("integration_id")
+  integration      IntegrationConfig? @relation(fields: [integrationId], references: [id])
+  email            String?
+  phone            String?
+  status           CartStatus         @default(OPEN)
+  /// link_recuperacion: abre el checkout con producto y datos ya cargados.
+  checkoutUrl      String?            @map("checkout_url")
+  /// link_recuperacion_descuento: el mismo, con el cupón aplicado. Solo se usa
+  /// en el tercer mensaje; mandarlo antes es regalar margen a quien iba a comprar.
+  discountUrl      String?            @map("discount_url")
+  couponCode       String?            @map("coupon_code")
+  /// contactar_desde: no escribir antes de este momento (detección + 45 min).
+  contactableFrom  DateTime?          @map("contactable_from")
+  totalAmount      Decimal?           @map("total_amount") @db.Decimal(12, 2)
+  currency         String             @default("COP")
+  lineItems        Json               @default("[]") @map("line_items")
+  recoveredOrderId String?            @map("recovered_order_id")
+  recoveredOrder   Order?             @relation(fields: [recoveredOrderId], references: [id])
+  /// Número de WhatsApp por el que corre ESTA secuencia (phone_number_id de
+  /// Meta). Se fija con el primer mensaje y no se cambia: si la clienta empezó
+  /// a recibir por un número, los siguientes mensajes tienen que llegarle al
+  /// mismo chat. Vacío = todavía no se le ha escrito.
+  phoneNumberId    String?            @map("phone_number_id")
+  reminderSentAt   DateTime?          @map("reminder_sent_at")
+  reminderCount    Int                @default(0) @map("reminder_count")
+  abandonedAt      DateTime           @default(now()) @map("abandoned_at")
+  createdAt        DateTime           @default(now()) @map("created_at")
+  updatedAt        DateTime           @updatedAt @map("updated_at")
+
+  flowExecutions FlowExecution[]
+
+  @@index([customerId])
+  @@index([integrationId])
+  @@index([recoveredOrderId])
+  @@index([status])
+  @@index([createdAt])
+  @@map("abandoned_carts")
+}
+
+model MetaAccount {
+  id            String             @id @default(uuid())
+  integrationId String?            @map("integration_id")
+  integration   IntegrationConfig? @relation(fields: [integrationId], references: [id])
+  channel       CrmChannel
+  accountId     String             @map("account_id")
+  accountName   String?            @map("account_name")
+  phoneNumber   String?            @map("phone_number")
+  wabaId        String?            @map("waba_id")
+  pageId        String?            @map("page_id")
+  instagramId   String?            @map("instagram_id")
+  accessToken   String?            @map("access_token")
+  isActive      Boolean            @default(true) @map("is_active")
+  createdAt     DateTime           @default(now()) @map("created_at")
+  updatedAt     DateTime           @updatedAt @map("updated_at")
+
+  conversations Conversation[]
+  users         CrmUser[]
+
+  @@unique([channel, accountId])
+  @@index([integrationId])
+  @@map("meta_accounts")
+}
+
+model MastershopGuide {
+  id              String    @id @default(uuid())
+  guideNumber     String    @unique @map("guide_number")
+  orderId         String?   @map("order_id")
+  order           Order?    @relation(fields: [orderId], references: [id])
+  customerId      String?   @map("customer_id")
+  customer        Customer? @relation(fields: [customerId], references: [id])
+  carrier         String?
+  status          String    @default("CREATED")
+  statusDetail    String?   @map("status_detail")
+  originCity      String?   @map("origin_city")
+  destinationCity String?   @map("destination_city")
+  estimatedDate   DateTime? @map("estimated_date") @db.Date
+  deliveredAt     DateTime? @map("delivered_at")
+  events          Json      @default("[]")
+  rawData         Json      @default("{}") @map("raw_data")
+  lastSyncedAt    DateTime? @map("last_synced_at")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+
+  @@index([orderId])
+  @@index([customerId])
+  @@index([status])
+  @@map("mastershop_guides")
+}
+
+model Conversation {
+  id                   String             @id @default(uuid())
+  customerId           String             @map("customer_id")
+  customer             Customer           @relation(fields: [customerId], references: [id])
+  metaAccountId        String?            @map("meta_account_id")
+  metaAccount          MetaAccount?       @relation(fields: [metaAccountId], references: [id])
+  channel              CrmChannel
+  externalId           String?            @map("external_id")
+  status               ConversationStatus @default(OPEN)
+  assignedTo           String?            @map("assigned_to")
+  agent                CrmUser?           @relation(fields: [assignedTo], references: [id])
+  tags                 String[]           @default([])
+  isRead               Boolean            @default(false) @map("is_read")
+  /// La clienta escribió algo que pide respuesta y todavía no le ha contestado
+  /// una PERSONA. Lo enciende el webhook y lo apaga la agente; lo que mande un
+  /// flujo automático no lo toca — antes sí, y por eso las preguntas
+  /// desaparecían de la bandeja sin que nadie las hubiera leído.
+  sinResponder         Boolean            @default(false) @map("sin_responder")
+  /// Cuándo escribió ELLA por última vez. Ordena la cola y mide la espera: con
+  /// `lastMessageAt` un aviso automático del pedido movía a la clienta de sitio
+  /// y le reiniciaba el cronómetro, así que la que más llevaba esperando dejaba
+  /// de parecerlo y se la atendía tarde.
+  ultimoSuyoAt         DateTime?          @map("ultimo_suyo_at")
+  lastMessageAt        DateTime?          @map("last_message_at")
+  /// Cómo quedó el último mensaje, copiado aquí para no tener que ir a buscarlo.
+  /// Las pestañas «Sin resp.» y «No llegaron» preguntan justo esto de cada
+  /// conversación abierta, cada ocho segundos: deducirlo al vuelo era el 70%
+  /// del tiempo de la base. Lo mantiene al día el trigger `messages_sync_ultimo`
+  /// —no el código de la aplicación—, para que ninguna vía de escritura pueda
+  /// olvidarse. Ver `scripts/despues-de-db-push.sql`.
+  lastMessageDirection MessageDirection?  @map("last_message_direction")
+  lastMessageStatus    MessageStatus?     @map("last_message_status")
+  createdAt            DateTime           @default(now()) @map("created_at")
+  updatedAt            DateTime           @updatedAt @map("updated_at")
+
+  messages  Message[]
+  encuestas EncuestaConversacion[]
+  fijaciones ConversationPin[]
+
+  @@index([customerId])
+  @@index([metaAccountId])
+  @@index([assignedTo])
+  @@index([status])
+  @@index([lastMessageAt])
+  // La bandeja siempre pide lo mismo: no resueltas, ordenadas por fecha. Con
+  // los dos campos en un solo índice se lee la página directamente en vez de
+  // recorrer la tabla y ordenar — hoy son milisegundos, pero crece con el uso.
+  @@index([status, lastMessageAt])
+  @@index([channel, externalId])
+  @@map("conversations")
+}
+
+model Message {
+  id             String           @id @default(uuid())
+  conversationId String           @map("conversation_id")
+  conversation   Conversation     @relation(fields: [conversationId], references: [id])
+  direction      MessageDirection
+  content        String
+  contentType    String           @default("text") @map("content_type")
+  mediaUrl       String?          @map("media_url")
+  media          MessageMedia?
+  status         MessageStatus    @default(SENT)
+  externalId     String?          @map("external_id")
+  // Por qué WhatsApp rechazó el mensaje. Sin esto un envío fallido se veía
+  // igual que uno entregado y no había manera de saber qué había pasado.
+  errorMotivo    String?          @map("error_motivo")
+  /// Mensaje al que este responde, para pintar la cita como en WhatsApp.
+  replyToId      String?          @map("reply_to_id")
+  isInternal     Boolean          @default(false) @map("is_internal")
+  sentById       String?          @map("sent_by_id")
+  sentBy         CrmUser?         @relation("SentBy", fields: [sentById], references: [id])
+  createdAt      DateTime         @default(now()) @map("created_at")
+
+  @@index([conversationId, createdAt])
+  @@index([sentById])
+  @@index([externalId])
+  @@map("messages")
+}
+
+// Archivos que manda la clienta por WhatsApp (fotos del cabello, audios, PDFs).
+// Se guardan en la BD porque el volumen del negocio es bajo y así no dependen de
+// credenciales de Storage. Si el volumen crece, mover `data` a un bucket y dejar
+// aquí solo la ruta: el resto del código no cambia.
+model MessageMedia {
+  id        String   @id @default(uuid())
+  messageId String   @unique @map("message_id")
+  message   Message  @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  mimeType  String   @map("mime_type")
+  filename  String?
+  size      Int
+  data      Bytes
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("message_media")
+}
+
+model MessageTemplate {
+  id             String           @id @default(uuid())
+  name           String
+  shortcut       String?          @unique
+  category       TemplateCategory
+  content        String
+  variables      String[]         @default([])
+  status         TemplateStatus   @default(PENDING)
+  channels       CrmChannel[]     @default([])
+  metaTemplateId String?          @map("meta_template_id")
+  /// Formato de la cabecera en Meta: TEXT, IMAGE, VIDEO, DOCUMENT — o null si
+  /// no tiene. Una plantilla con cabecera IMAGE exige mandar una imagen en
+  /// cada envío; sin ella Meta responde 132012 «parameter format does not match».
+  headerFormat   String?          @map("header_format")
+  /// La plantilla lleva un botón de URL dinámica (…/r/{{1}}) y por tanto exige
+  /// un parámetro de botón en cada envío.
+  hasUrlButton   Boolean          @default(false) @map("has_url_button")
+  /// Los botones tal como los devuelve Meta: [{type, text, url}]. Se guardan
+  /// enteros —antes solo se miraba si había uno dinámico y se tiraba el resto—
+  /// para poder dejar en la bandeja lo mismo que recibió la clienta.
+  botones        Json?
+  language       String           @default("es")
+  createdAt      DateTime         @default(now()) @map("created_at")
+  updatedAt      DateTime         @updatedAt @map("updated_at")
+
+  @@map("message_templates")
+}
+
+model FlowTemplate {
+  id          String      @id @default(uuid())
+  name        String
+  description String?
+  trigger     FlowTrigger
+  isActive    Boolean     @default(true) @map("is_active")
+  conditions  Json        @default("[]")
+  steps       Json        @default("[]")
+  createdAt   DateTime    @default(now()) @map("created_at")
+  updatedAt   DateTime    @updatedAt @map("updated_at")
+
+  executions FlowExecution[]
+
+  @@index([trigger])
+  @@map("flow_templates")
+}
+
+model FlowExecution {
+  id             String         @id @default(uuid())
+  flowTemplateId String         @map("flow_template_id")
+  flow           FlowTemplate   @relation(fields: [flowTemplateId], references: [id])
+  customerId     String         @map("customer_id")
+  customer       Customer       @relation(fields: [customerId], references: [id])
+  orderId        String?        @map("order_id")
+  order          Order?         @relation(fields: [orderId], references: [id])
+  cartId         String?        @map("cart_id")
+  cart           AbandonedCart? @relation(fields: [cartId], references: [id])
+  currentStep    Int            @default(0) @map("current_step")
+  status         String         @default("running")
+  scheduledAt    DateTime?      @map("scheduled_at")
+  completedAt    DateTime?      @map("completed_at")
+  metadata       Json           @default("{}")
+  createdAt      DateTime       @default(now()) @map("created_at")
+  updatedAt      DateTime       @updatedAt @map("updated_at")
+
+  @@index([flowTemplateId])
+  @@index([customerId])
+  @@index([orderId])
+  @@index([cartId])
+  @@index([status, scheduledAt])
+  @@index([createdAt])
+  @@map("flow_executions")
+}
+
+model WebhookEvent {
+  id          String              @id @default(uuid())
+  platform    IntegrationPlatform
+  eventType   String              @map("event_type")
+  status      WebhookEventStatus  @default(PENDING)
+  payload     Json                @default("{}")
+  headers     Json                @default("{}")
+  processedAt DateTime?           @map("processed_at")
+  error       String?
+  createdAt   DateTime            @default(now()) @map("created_at")
+
+  /// Identidad del hecho que reporta el evento, no del envío.
+  /// Mastershop reenvía el mismo cambio 4 o 5 veces (medido: de 418 hechos
+  /// distintos en media hora, solo 34 llegaron una sola vez). Sin esto, cada
+  /// copia añadía otra entrada al historial del pedido. Es una columna y no un
+  /// índice sobre `payload` porque `prisma db push` borra los índices que no
+  /// estén declarados en este esquema.
+  dedupeKey String? @map("dedupe_key")
+
+  @@index([platform, createdAt])
+  @@index([status])
+  @@index([platform, dedupeKey, createdAt])
+  @@map("webhook_events")
+}
+
+model ActivityLog {
+  id         String   @id @default(uuid())
+  userId     String?  @map("user_id")
+  user       CrmUser? @relation(fields: [userId], references: [id])
+  action     String
+  resource   String
+  resourceId String?  @map("resource_id") @db.Uuid
+  metadata   Json     @default("{}")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  @@index([userId])
+  @@index([createdAt])
+  @@map("activity_logs")
+}
+
+// ── PQRS ─────────────────────────────────────────────────────────────────────
+// Peticiones, quejas, reclamos y sugerencias. Van aparte de la bandeja porque
+// tienen plazo legal: la SIC da 15 días hábiles y, si se vencen, aplica el
+// silencio administrativo positivo — se entiende resuelto A FAVOR de la
+// clienta. Por eso cada una lleva radicado, vencimiento y semáforo.
+
+enum PqrsType {
+  PETICION
+  QUEJA
+  RECLAMO
+  SUGERENCIA
+}
+
+enum PqrsPriority {
+  BAJA
+  MEDIA
+  ALTA
+  CRITICA
+}
+
+enum PqrsStatus {
+  ABIERTA
+  EN_PROCESO
+  ESPERANDO_CLIENTA
+  RESUELTA
+  CERRADA
+}
+
+model Pqrs {
+  id       String @id @default(uuid())
+  /// Consecutivo legible: en pantalla se muestra como PQR-2026-00042.
+  radicado Int    @unique @default(autoincrement())
+
+  type        PqrsType
+  priority    PqrsPriority @default(MEDIA)
+  status      PqrsStatus   @default(ABIERTA)
+  subject     String
+  description String
+  /// Obligatoria para pasar a RESUELTA: qué se le respondió a la clienta.
+  resolution  String?
+
+  customerId     String   @map("customer_id")
+  customer       Customer @relation(fields: [customerId], references: [id])
+  conversationId String?  @map("conversation_id")
+  orderId        String?  @map("order_id")
+  assignedTo     String?  @map("assigned_to")
+  agent          CrmUser? @relation(fields: [assignedTo], references: [id])
+  createdById    String?  @map("created_by_id")
+  createdByName  String?  @map("created_by_name")
+
+  /// Vencimiento legal: 15 días hábiles desde el día siguiente a la radicación.
+  dueAt           DateTime  @map("due_at")
+  firstResponseAt DateTime? @map("first_response_at")
+  resolvedAt      DateTime? @map("resolved_at")
+  closedAt        DateTime? @map("closed_at")
+
+  /// La devolución de dinero que salió de esta PQRS, si la hubo.
+  /// Es 1-a-1: el motivo de una devolución ES el radicado que la originó.
+  devolucion Devolucion?
+
+  /// Bitácora: [{at, por, tipo, texto}] — comentarios y cambios de estado.
+  history Json @default("[]")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([status, dueAt])
+  @@index([customerId])
+  @@index([assignedTo])
+  @@index([type, createdAt])
+  @@map("pqrs")
+}
+
+// ── Candado de cron ──────────────────────────────────────────────────────────
+// Evita que dos pasadas del mismo cron se encimen. Con el pooler en modo
+// transacción (pgbouncer=true) un advisory lock de sesión no sirve —cada
+// consulta puede caer en una conexión física distinta—, así que el candado es
+// una fila con comparar-y-cambiar atómico por SQL, no una sesión mantenida.
+model CronLock {
+  name        String   @id
+  lockedUntil DateTime @map("locked_until")
+
+  @@map("cron_locks")
+}
+
+// ── Devoluciones de dinero ───────────────────────────────────────────────────
+// Cuando una PQRS termina en «hay que devolverle la plata», eso deja de ser un
+// comentario suelto en la bitácora y pasa a ser una fila con estado propio.
+//
+// Va en tabla aparte, y no como tres campos en `pqrs`, por dos razones que se
+// pagan solas:
+//
+//  · Trazabilidad. Con campos sueltos, el día que alguien cambia una devolución
+//    de «hecha» a «rechazada» se pierde lo anterior y no queda quién ni cuándo.
+//    Aquí cada cambio entra en `history` igual que en las PQRS.
+//
+//  · Control mensual. «Cuántas devoluciones hicimos en julio y por cuánto» es
+//    una consulta por `resuelta_at` con un índice detrás, no un recuento a mano
+//    leyendo radicados uno por uno.
+//
+// La relación con `pqrs` es 1-a-1 y obligatoria a propósito: toda devolución
+// tiene que poder responder «¿por qué se devolvió?», y esa respuesta es el
+// radicado. Si hiciera falta una segunda devolución para la misma clienta, se
+// radica una PQRS nueva y así el motivo vuelve a quedar escrito.
+
+enum EstadoDevolucion {
+  /// Aprobada, pero todavía falta algo para poder girar — casi siempre los
+  /// datos bancarios, que la clienta da después de reclamar.
+  PENDIENTE
+  /// Los datos del pago ya están: se puede girar. Exige entidad y n.º de
+  /// cuenta, porque si no, «lista para devolver» no sería verdad.
+  ///
+  /// El orden de declaración importa: la lista de devoluciones ordena por este
+  /// enum para dejar arriba lo que aún no se ha pagado.
+  LISTA_PARA_DEVOLVER
+  /// La plata salió. Exige método y referencia del comprobante.
+  HECHA
+  /// Se decidió no devolver. Exige explicar por qué en las notas.
+  RECHAZADA
+
+  @@map("estado_devolucion")
+}
+
+enum MetodoDevolucion {
+  TRANSFERENCIA
+  NEQUI
+  DAVIPLATA
+  BANCOLOMBIA
+  EFECTIVO
+  /// Reverso por la misma pasarela con que pagó.
+  PASARELA
+  OTRO
+
+  @@map("metodo_devolucion")
+}
+
+model Devolucion {
+  id          String @id @default(uuid())
+  /// Consecutivo legible: en pantalla se muestra como DEV-2026-00042.
+  consecutivo Int    @unique @default(autoincrement())
+
+  /// El radicado que la originó — y, por tanto, el motivo.
+  pqrsId String @unique @map("pqrs_id")
+  pqrs   Pqrs   @relation(fields: [pqrsId], references: [id], onDelete: Cascade)
+
+  customerId String   @map("customer_id")
+  customer   Customer @relation(fields: [customerId], references: [id])
+  /// Pedido al que corresponde, cuando se sabe. Sin llave foránea: hay
+  /// devoluciones de pedidos que nunca entraron al CRM.
+  orderId    String?  @map("order_id")
+
+  monto    Decimal @db.Decimal(12, 2)
+  currency String  @default("COP")
+
+  estado     EstadoDevolucion  @default(PENDIENTE)
+  metodo     MetodoDevolucion?
+  /// Comprobante: número de transferencia, de reverso o de consignación.
+  referencia String?
+
+  /// Por qué se va a devolver, en una línea. El detalle está en la PQRS.
+  motivo String
+  notas  String?
+
+  /// A quién y a dónde se consigna — los mismos datos del control que se
+  /// llevaba en el Drive, para no tener que llenar dos sitios.
+  ///
+  /// Van en la devolución y no en la ficha de la clienta a propósito: la cuenta
+  /// suele ser de otra persona (la mamá, el esposo) y puede cambiar de una
+  /// devolución a la siguiente. Todos opcionales: primero se radica, y los
+  /// datos bancarios los termina de dar la clienta después.
+  titular      String?
+  cedula       String?
+  /// El celular al que se le confirma el pago. Suele ser el de la ficha, pero
+  /// no siempre: si la cuenta es de un tercero, el contacto es el de él.
+  contacto     String?
+  /// Banco o billetera: «Bancolombia», «Nequi», «Davivienda»… Texto libre y no
+  /// un enum porque la lista de entidades colombianas no para de crecer y no
+  /// vale la pena una migración cada vez que aparece una nueva.
+  entidad      String?
+  tipoCuenta   String?   @map("tipo_cuenta")
+  numeroCuenta String?   @map("numero_cuenta")
+  /// Hasta cuándo hay plazo para pagarla. Por defecto un mes desde que se
+  /// radica, que es como se venía llevando.
+  fechaLimite  DateTime? @map("fecha_limite") @db.Date
+
+  solicitadaPorId   String?   @map("solicitada_por_id")
+  solicitadaPorName String?   @map("solicitada_por_name")
+  resueltaPorId     String?   @map("resuelta_por_id")
+  resueltaPorName   String?   @map("resuelta_por_name")
+  /// Cuándo quedó HECHA o RECHAZADA. Es la fecha por la que se cuenta el mes.
+  resueltaAt        DateTime? @map("resuelta_at")
+
+  /// Bitácora: [{at, por, tipo, texto}] — los mismos tipos que en PQRS.
+  history Json @default("[]")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  /// La pantalla abre siempre en «pendientes, la más vieja arriba».
+  @@index([estado, createdAt])
+  /// El control mensual agrupa por `resuelta_at`.
+  @@index([resueltaAt])
+  @@index([customerId])
+  @@map("devoluciones")
+}
+
+/// Cómo va la encuesta de satisfacción de una conversación.
+enum EstadoEncuesta {
+  /// Creada y esperando a que se cumpla la espera tras cerrar la conversación.
+  PROGRAMADA
+  /// Ya se le preguntó a la clienta.
+  ENVIADA
+  /// La clienta calificó.
+  RESPONDIDA
+  /// No se llegó a preguntar. `motivo` dice por qué.
+  OMITIDA
+
+  @@map("estado_encuesta")
+}
+
+/// La calificación que la clienta le pone a la atención cuando su conversación
+/// se cierra.
+///
+/// Vive aparte de `messages` a propósito, y ahí está todo el diseño: ni la
+/// pregunta ni la respuesta se guardan como mensajes de la conversación, así
+/// que la agente que atendió NO ve su propia nota en la bandeja. Si estuviera
+/// en el hilo, medir dejaría de servir para lo que se quiere medir.
+///
+/// Solo lo lee gerencia, desde /calidad.
+model EncuestaConversacion {
+  id             String       @id @default(uuid())
+  conversationId String       @map("conversation_id")
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  customerId     String       @map("customer_id")
+  customer       Customer     @relation(fields: [customerId], references: [id])
+  /// Línea por la que se preguntó. La respuesta tiene que entrar por la misma.
+  metaAccountId  String?      @map("meta_account_id")
+
+  /// A quién califica. Se copia el nombre además del id: si mañana la agente
+  /// sale del CRM, el histórico tiene que seguir diciendo a quién se calificó.
+  agentId        String?      @map("agent_id")
+  agentName      String?      @map("agent_name")
+
+  estado    EstadoEncuesta @default(PROGRAMADA)
+  /// Cuándo toca preguntar: el cierre de la conversación más la espera.
+  enviarAt  DateTime       @map("enviar_at")
+  enviadaAt DateTime?      @map("enviada_at")
+
+  respondidaAt DateTime? @map("respondida_at")
+  /// 1 a 5. Nulo mientras no conteste.
+  estrellas    Int?
+  comentario   String?
+  /// Por qué no se preguntó (ventana de 24 h cerrada, conversación reabierta…).
+  motivo       String?
+  /// wamid de la respuesta. Meta reenvía el mismo mensaje si tardamos en
+  /// contestarle, y sin esto la segunda copia se guardaría como un mensaje
+  /// normal en la bandeja — justo lo que este módulo no puede permitir.
+  respuestaWamid String? @map("respuesta_wamid")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  /// El cron pregunta siempre lo mismo: lo programado que ya venció.
+  @@index([estado, enviarAt])
+  /// Para no preguntarle dos veces a la misma clienta en poco tiempo.
+  @@index([customerId, createdAt])
+  @@index([agentId, respondidaAt])
+  /// Para reconocer el reenvío de Meta sin recorrer la tabla entera.
+  @@index([respuestaWamid])
+  /// Una conversación, una encuesta. No es solo higiene: es lo que hace que
+  /// programar sea idempotente y que nadie reciba la misma pregunta dos veces.
+  @@unique([conversationId])
+  @@map("encuestas_conversacion")
+}
+
+/// Un chat que una usuaria quiere tener arriba en su bandeja.
+///
+/// Va por usuaria y no como una columna de la conversación a propósito: lo que
+/// Lina necesita a mano no tiene por qué estorbarle a Luciana, ni aparecerle a
+/// gerencia, que las ve todas.
+model ConversationPin {
+  userId         String   @map("user_id")
+  user           CrmUser  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  conversationId String   @map("conversation_id")
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  createdAt      DateTime @default(now()) @map("created_at")
+
+  @@id([userId, conversationId])
+  @@index([userId, createdAt])
+  @@index([conversationId])
+  @@map("conversation_pins")
+}
+
+/// El aviso de que Sendura va a llamar a la clienta.
+///
+/// Existe porque Sendura llama desde un número que la clienta no conoce, y hay
+/// quien se asusta —«¿de dónde sacaron mi teléfono?»—, desconfía y rechaza el
+/// pedido. El aviso llega antes que la llamada y dice quiénes son.
+///
+/// El checkout también lo lleva (`avisado_at`) y es la fuente de verdad, pero
+/// entre enviar el WhatsApp y reportarlo hay una llamada de red que puede
+/// fallar; si falla, el pedido volvería con `debe_avisar: true` y la clienta
+/// recibiría el aviso dos veces. Esta fila se escribe ANTES de reportar.
+model AvisoSendura {
+  id           String    @id @default(uuid())
+  /// Id del pedido en el checkout. Uno por pedido: es un aviso, no una secuencia.
+  pedidoId     String    @unique @map("pedido_id")
+  customerId   String?   @map("customer_id")
+  customer     Customer? @relation(fields: [customerId], references: [id])
+  guia         String?
+  telefono     String
+  enviadoAt    DateTime? @map("enviado_at")
+  /// Si el checkout ya selló el aviso. Lo que quede en false se reintenta.
+  reportado    Boolean   @default(false)
+  /// Por qué no se envió, cuando no se envió.
+  motivo       String?
+  despachadoAt DateTime? @map("despachado_at")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([createdAt])
+  @@map("avisos_sendura")
+}
+
+/// Un envío masivo de marketing.
+///
+/// Con frenos por diseño: tope diario, franja horaria y pausa automática si
+/// Meta empieza a rechazar por saturación. Mandar 40.000 mensajes de golpe es
+/// la forma más rápida de perder el número, y ese número sostiene la
+/// confirmación de pedidos y el seguimiento de envíos de todo el negocio.
+model Campana {
+  id         String @id @default(uuid())
+  nombre     String
+  plantilla  String
+  /// programada | enviando | pausada | terminada
+  estado     String @default("programada")
+  /// phone_number_id de Meta. NO la de postcompra: si Meta castiga ese número
+  /// se cae el seguimiento de pedidos.
+  linea      String?
+  topeDiario Int    @default(3000) @map("tope_diario")
+  /// Cuántos como mucho en los últimos 60 minutos. NULL = sin freno por hora.
+  ///
+  /// El tope diario solo dice cuántos, no a qué ritmo: sin esto la campaña se
+  /// gasta el cupo del día en media hora (500 por pasada, una pasada por
+  /// minuto) y vuelve a ser la ráfaga que se quería evitar. Mandar a goteo
+  /// además deja que el freno por rechazos de Meta llegue a tiempo: en una
+  /// ráfaga, cuando Meta avisa ya salieron todos.
+  topePorHora Int?  @map("tope_por_hora")
+  horaInicio Int    @default(8)    @map("hora_inicio")
+  horaFin    Int    @default(20)   @map("hora_fin")
+  /// URL pública de la imagen de cabecera, si la plantilla la lleva. Meta no
+  /// reutiliza la imagen con la que se aprobó la plantilla: hay que darla en
+  /// cada envío.
+  imagenUrl  String?   @map("imagen_url")
+  /// Hora a partir de la cual no sale nada más, aunque queden pendientes. Una
+  /// promo que ya terminó no se anuncia: la franja diaria no basta para eso.
+  finAt      DateTime? @map("fin_at")
+  creadaPor  String? @map("creada_por")
+
+  destinatarios CampanaDestinatario[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("campanas")
+}
+
+/// Una destinataria. La fila con su marca de enviado es lo que garantiza que
+/// nadie reciba el mismo mensaje dos veces aunque el proceso se reinicie.
+model CampanaDestinatario {
+  id         String  @id @default(uuid())
+  campanaId  String  @map("campana_id")
+  campana    Campana @relation(fields: [campanaId], references: [id], onDelete: Cascade)
+  customerId String  @map("customer_id")
+  customer   Customer @relation(fields: [customerId], references: [id])
+  telefono   String
+  nombre     String?
+  /// pendiente | enviado | fallido | omitido
+  estado     String  @default("pendiente")
+  /// Menor sale antes. Ordena por interacción: quien más responde va primero,
+  /// porque una tanda que interactúa sube la calificación del número y una que
+  /// no la baja.
+  prioridad  Int     @default(100)
+  wamid      String?
+  error      String?
+  enviadoAt  DateTime? @map("enviado_at")
+  createdAt  DateTime  @default(now()) @map("created_at")
+
+  @@unique([campanaId, customerId])
+  @@index([campanaId, estado, prioridad, id])
+  @@index([campanaId, enviadoAt])
+  @@map("campana_destinatarios")
+}
+
+/// Quien pidió no recibir promociones. Global y permanente: vale para todas las
+/// campañas, no solo para la que estaba corriendo cuando lo pidió.
+model BajaMarketing {
+  customerId String   @id @map("customer_id")
+  customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  motivo     String?
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  @@map("bajas_marketing")
+}

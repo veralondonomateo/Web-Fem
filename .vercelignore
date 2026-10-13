@@ -8,9 +8,14 @@ work
 branding
 output
 tmp
-apps
-integrations
-admin
-milestone
 
 public
+**/node_modules
+**/.next
+**/.env*
+**/.vercel
+**/.git
+**/.demo-db
+**/archivos-internos
+**/.agents
+**/.claude

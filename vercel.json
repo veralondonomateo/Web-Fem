@@ -1,18 +1,78 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": null,
-  "buildCommand": "npm run vercel-build",
-  "outputDirectory": "public",
-  "functions": {
-    "api/store.ts": {
-      "maxDuration": 60,
-      "includeFiles": "{audit/redirects.json,docs/review.html,server/*.json,theme-source/{snippets,sections,templates,locales,config}/**}"
+  "services": {
+    "store": {
+      "buildCommand": "npm run vercel-build",
+      "outputDirectory": "public",
+      "functions": {
+        "api/store.ts": {
+          "maxDuration": 60,
+          "includeFiles": "{audit/redirects.json,docs/review.html,server/*.json,theme-source/{snippets,sections,templates,locales,config}/**}"
+        }
+      },
+      "root": ".",
+      "entrypoint": "api/store.ts"
+    },
+    "gateway": {
+      "root": "integrations",
+      "functions": {
+        "api/index.mjs": {
+          "maxDuration": 60,
+          "includeFiles": "../{admin,milestone}/**"
+        }
+      },
+      "bindings": [
+        {
+          "type": "service",
+          "service": "store",
+          "format": "url",
+          "env": "STORE_INTERNAL_URL"
+        },
+        {
+          "type": "service",
+          "service": "checkout",
+          "format": "url",
+          "env": "CHECKOUT_INTERNAL_URL"
+        },
+        {
+          "type": "service",
+          "service": "crm",
+          "format": "url",
+          "env": "CRM_INTERNAL_URL"
+        }
+      ],
+      "entrypoint": "api/index.mjs",
+      "buildCommand": "node ../scripts/build-gateway.mjs"
+    },
+    "checkout": {
+      "root": "apps/checkout",
+      "framework": "nextjs",
+      "buildCommand": "npm run build"
+    },
+    "crm": {
+      "root": "apps/crm",
+      "framework": "nextjs",
+      "buildCommand": "npm run build"
     }
   },
   "rewrites": [
     {
-      "source": "/((?!__theme/).*)",
-      "destination": "/api/store"
+      "source": "/milestone-assets/equipo.jpg",
+      "destination": {
+        "service": "store"
+      }
+    },
+    {
+      "source": "/__theme/(.*)",
+      "destination": {
+        "service": "store"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "gateway"
+      }
     }
   ],
   "headers": [
@@ -33,7 +93,7 @@
         },
         {
           "key": "Permissions-Policy",
-          "value": "camera=(), microphone=(), geolocation=()"
+          "value": "camera=(), microphone=(self), geolocation=()"
         },
         {
           "key": "Strict-Transport-Security",

@@ -1,0 +1,16 @@
+BEGIN;
+ALTER TABLE public.cron_locks ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON TABLE public.cron_locks FROM anon, authenticated;
+ALTER TABLE public.conversation_pins ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON TABLE public.conversation_pins FROM anon, authenticated;
+ALTER TABLE public.encuestas_conversacion ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON TABLE public.encuestas_conversacion FROM anon, authenticated;
+ALTER TABLE public.avisos_sendura ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON TABLE public.avisos_sendura FROM anon, authenticated;
+ALTER TABLE public.campana_destinatarios ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON TABLE public.campana_destinatarios FROM anon, authenticated;
+ALTER TABLE public.campanas ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON TABLE public.campanas FROM anon, authenticated;
+ALTER TABLE public.bajas_marketing ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON TABLE public.bajas_marketing FROM anon, authenticated;
+COMMIT;

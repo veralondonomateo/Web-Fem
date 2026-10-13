@@ -80,7 +80,7 @@ async function serve(req:IncomingMessage,res:ServerResponse):Promise<void> {
   if(method==='POST') {
     const origin=req.headers.origin;
     const allowed=process.env.VERCEL ? [`https://${req.headers.host}`] : [`http://localhost:${port}`,`http://127.0.0.1:${port}`];
-    if(origin&&!allowed.includes(origin)){res.writeHead(403).end();return;}
+    if(origin&&!allowed.includes(origin)&&!(process.env.FEM_INTERNAL_SECRET&&req.headers['x-fem-internal']===process.env.FEM_INTERNAL_SECRET)){res.writeHead(403).end();return;}
   }
   const headers:Record<string,string>={'User-Agent':req.headers['user-agent']??'Fem Local Review','Accept':req.headers.accept??'*/*','Accept-Language':req.headers['accept-language']??'es-CO,es;q=0.9'};
   if(req.headers.cookie)headers.Cookie=req.headers.cookie;

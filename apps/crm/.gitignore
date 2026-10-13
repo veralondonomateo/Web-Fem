@@ -1,0 +1,19 @@
+# dependencias
+node_modules/
+
+# build
+.next/
+out/
+tsconfig.tsbuildinfo
+next-env.d.ts
+
+# entorno — los secretos nunca van a git
+.env
+.env.*
+!.env.example
+
+# plataforma
+.vercel
+
+# macOS
+.DS_Store
