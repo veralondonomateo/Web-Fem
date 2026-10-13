@@ -26,7 +26,7 @@ apps/**/.demo-db/
 .local-*
 
 .vercel/
-public/
+/public/
 .vercel
 
 apps/**/archivos-internos/
@@ -34,3 +34,5 @@ apps/**/.agents/
 apps/**/.claude/
 
 integrations/assets.mjs
+
+/apps/crm/public/Mejoras CRM.pdf

@@ -181,7 +181,7 @@ export default function CheckoutForm({
   } = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: {
-      saveInfo: true,
+      saveInfo: false,
       paymentMethod: initialPayment ?? "mercadopago",
     },
   });

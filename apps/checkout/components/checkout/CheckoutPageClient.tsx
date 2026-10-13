@@ -332,7 +332,7 @@ export default function CheckoutPageClient({ shopifyProduct, gomitasProduct, jab
   return (
     <div className="min-h-screen bg-[#f5f5f5] flex flex-col">
       <CheckoutHeader />
-      {unified && <div className="max-w-6xl mx-auto px-4 pt-5 w-full"><a href="/cart" className="text-sm underline">← Revisar productos en el carrito</a>{process.env.NEXT_PUBLIC_FEM_PREVIEW === 'true' && <p className="p-3 mt-3 bg-amber-50 text-amber-900 text-sm rounded-lg">Vista local de prueba: no se generan cobros ni pedidos reales.</p>}</div>}
+      {unified && <div className="max-w-6xl mx-auto px-4 pt-5 w-full"><a href="/cart" className="text-sm underline">← Revisar productos en el carrito</a>{process.env.NEXT_PUBLIC_FEM_PREVIEW === 'true' && <p className="p-3 mt-3 bg-amber-50 text-amber-900 text-sm rounded-lg">Vista previa de prueba: no se generan cobros ni pedidos reales.</p>}</div>}
 
       {modoEleccion && (
         <>

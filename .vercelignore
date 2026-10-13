@@ -9,7 +9,7 @@ branding
 output
 tmp
 
-public
+/public
 **/node_modules
 **/.next
 **/.env*
@@ -19,3 +19,5 @@ public
 **/archivos-internos
 **/.agents
 **/.claude
+
+/apps/crm/public/Mejoras CRM.pdf

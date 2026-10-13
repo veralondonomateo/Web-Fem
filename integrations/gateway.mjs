@@ -86,7 +86,7 @@ async function handler(req,res){
  return proxy(req,res,CHECKOUT,p+u.search,{'x-fem-internal':secret,'x-fem-cart':Buffer.from(JSON.stringify(data)).toString('base64url')});
  }
  if(checkoutAPI.test(p)){
- if(preview&&(!['GET','HEAD'].includes(method)||p.includes('/cron/')||p.includes('/webhooks/')))return json(res,409,{error:'Vista local: no se crean pedidos ni cobros reales. La integración de pago está disponible para activar en despliegue tras validar las credenciales.',preview:true,codigo:'vista_local'});
+ if(preview&&(!['GET','HEAD'].includes(method)||p.includes('/cron/')||p.includes('/webhooks/')))return json(res,409,{error:'Vista previa: no se crean pedidos ni cobros reales. La integración de pago se activará después de validar el webhook y las credenciales.',preview:true,codigo:'vista_local'});
  if(p==='/api/checkout'&&method==='POST'){
  const b=JSON.parse((await body(req)).toString());
  let c;
