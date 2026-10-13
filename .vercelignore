@@ -1,0 +1,14 @@
+node_modules
+.git
+.env*
+.local*
+theme-dev
+theme
+work
+branding
+output
+tmp
+apps
+integrations
+admin
+milestone

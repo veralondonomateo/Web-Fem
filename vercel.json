@@ -1,0 +1,18 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": "public",
+  "functions": {
+    "api/store.ts": {
+      "maxDuration": 60,
+      "includeFiles": "{audit/redirects.json,docs/review.html,server/*.json,theme-source/{snippets,sections,templates,locales,config}/**}"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/((?!__theme/).*)",
+      "destination": "/api/store"
+    }
+  ]
+}

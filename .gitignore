@@ -15,3 +15,7 @@ audit/*
 !audit/redirects.json
 !audit/sitemap-urls.json
 !audit/storefront-products.json
+
+.vercel/
+public/
+.vercel
