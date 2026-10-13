@@ -1,5 +1,6 @@
 import {paymentPreference,paymentAttributes,satinRewardUnlocked,type PaymentPreference} from '../lib/cart-payment.ts';
 import {CartClient,addItemFromFields,cartMoney,shippingProgress,visibleCartItems,visibleCartCount,type CartState,type CartProduct,type AddItem} from '../lib/cart.ts';
+import {productPhotoUrl} from '../lib/product-photos.ts';
 
 let initialized=false;
 export function enhanceCartDrawer():void {
@@ -47,7 +48,7 @@ export function enhanceCartDrawer():void {
       row.querySelectorAll<HTMLAnchorElement>('[data-product-url]').forEach(link=>link.href=product.url||`${config.root}products/${product.handle}`);
       row.querySelector('[data-product-title]')!.textContent=product.title;
       row.querySelector('[data-product-price]')!.textContent=money(variant.price);
-      const image=row.querySelector<HTMLImageElement>('[data-product-image]')!;image.src=product.featured_image||product.images?.[0]||'';image.alt=product.title;
+      const image=row.querySelector<HTMLImageElement>('[data-product-image]')!;image.src=productPhotoUrl(product.handle,import.meta.url)||product.featured_image||product.images?.[0]||'';image.alt=product.title;
       const button=row.querySelector<HTMLButtonElement>('[data-cart-recommendation-add]')!;button.dataset.variantId=String(variant.id);button.setAttribute('aria-label',`${button.getAttribute('aria-label')}: ${product.title}`);button.disabled=busy;
       list.append(row);
     }
@@ -97,7 +98,7 @@ export function enhanceCartDrawer():void {
       const row=find<HTMLTemplateElement>('[data-cart-item-template]').content.firstElementChild!.cloneNode(true) as HTMLElement;row.dataset.itemKey=item.key;
       row.querySelectorAll<HTMLAnchorElement>('[data-item-url]').forEach(link=>link.href=item.url);
       row.querySelector('[data-item-title]')!.textContent=item.product_title||item.title;
-      const image=row.querySelector<HTMLImageElement>('[data-item-image]')!,src=item.featured_image?.url||item.image;if(src)image.src=src;else image.hidden=true;image.alt=item.product_title||item.title;
+      const image=row.querySelector<HTMLImageElement>('[data-item-image]')!,src=productPhotoUrl(item.url,import.meta.url)||item.featured_image?.url||item.image;if(src)image.src=src;else image.hidden=true;image.alt=item.product_title||item.title;
       const variant=row.querySelector<HTMLElement>('[data-item-variant]')!;
       variant.textContent=[item.variant_title==='Default Title'?'':item.variant_title,item.selling_plan_allocation?.selling_plan.name,...Object.entries(item.properties??{}).filter(([name,value])=>!name.startsWith('_')&&value).map(([name,value])=>`${name}: ${String(value)}`)].filter(Boolean).join(' · ');variant.hidden=!variant.textContent;
       row.querySelector('[data-item-price]')!.textContent=money(item.final_line_price);

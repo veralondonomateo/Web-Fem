@@ -1,0 +1,19 @@
+{% doc %}
+Renders a supplied product photo, with the original markup as fallback.
+@param {product} card_product - Product displayed by the card.
+@param {number} [photo_index] - Photo position, starting at 1.
+@param {string} [fallback] - Original image markup for products without supplied photos.
+@param {string} [image_class] - Image classes.
+@param {string} [image_attributes] - Additional image attributes.
+@param {string} [image_style] - Inline image styles.
+@param {string} [loading] - Eager or lazy loading.
+@param {string} [fetchpriority] - Image fetch priority.
+@param {boolean} [decorative] - Use an empty alt text for decorative images.
+{% enddoc %}
+{%- capture photo -%}{%- render 'fem-product-photo-data', card_product: card_product, photo_index: photo_index -%}{%- endcapture -%}
+{%- assign photo = photo | strip | split: '|' -%}
+{%- if photo[0] != blank -%}
+  <img src="{{ photo[0] | asset_url }}" width="{{ photo[1] }}" height="{{ photo[2] }}" alt="{% unless decorative %}{{ card_product.title | escape }}{% endunless %}" class="{{ image_class | escape }}" {% if image_style != blank %}style="{{ image_style | escape }}"{% endif %} loading="{{ loading | default: 'lazy' }}" fetchpriority="{{ fetchpriority | default: 'auto' }}" decoding="async" {{ image_attributes }}>
+{%- else -%}
+  {{- fallback -}}
+{%- endif -%}

@@ -8,6 +8,84 @@
  * ------------------------------------------------------------
  */
 {
+  "fem_mom_gallery": {
+    "image_1": "Fem Mom — product presentation",
+    "image_2": "Fem Mom — product information",
+    "image_3": "Fem Mom — benefits",
+    "image_4": "Fem Mom — comparison with other brands",
+    "image_5": "Fem Mom — nutritional information",
+    "image_6": "Fem Mom — customer reviews"
+  },
+  "fem_combo_mama_gallery": {
+    "image_1": "Mom combo — combo presentation",
+    "image_2": "Mom combo — combo information",
+    "image_3": "Mom combo — ingredients",
+    "image_4": "Mom combo — comparison with other brands",
+    "image_5": "Mom combo — customer reviews"
+  },
+  "fem_gomas_jab_gallery": {
+    "image_1": "Gummies + Intimate soap combo — combo presentation",
+    "image_2": "Gummies + Intimate soap combo — combo information",
+    "image_3": "Gummies + Intimate soap combo — ingredients",
+    "image_4": "Gummies + Intimate soap combo — comparison with other brands",
+    "image_5": "Gummies + Intimate soap combo — customer reviews"
+  },
+  "fem_pro_jab_ovu_gallery": {
+    "image_1": "Probiotic food + Intimate soap + Fem homeopathic vaginal ovules — combo presentation",
+    "image_2": "Probiotic food + Intimate soap + Fem homeopathic vaginal ovules — combo information",
+    "image_3": "Probiotic food + Intimate soap + Fem homeopathic vaginal ovules — ingredients",
+    "image_4": "Probiotic food + Intimate soap + Fem homeopathic vaginal ovules — comparison with other brands",
+    "image_5": "Probiotic food + Intimate soap + Fem homeopathic vaginal ovules — customer reviews"
+  },
+  "fem_pro_gom_jab_gallery": {
+    "image_1": "Probiotic food + Gummies + Intimate soap combo — combo presentation",
+    "image_2": "Probiotic food + Gummies + Intimate soap combo — combo information",
+    "image_3": "Probiotic food + Gummies + Intimate soap combo — ingredients",
+    "image_4": "Probiotic food + Gummies + Intimate soap combo — comparison with other brands",
+    "image_5": "Probiotic food + Gummies + Intimate soap combo — customer reviews"
+  },
+  "fem_combo_compl_gallery": {
+    "image_1": "Complete combo — combo presentation",
+    "image_2": "Complete combo — combo information",
+    "image_3": "Complete combo — ingredients",
+    "image_4": "Complete combo — comparison with other brands",
+    "image_5": "Complete combo — customer reviews"
+  },
+  "fem_ovulos_jab_gallery": {
+    "image_1": "Vaginal ovules + Intimate soap combo — combo presentation",
+    "image_2": "Vaginal ovules + Intimate soap combo — combo information",
+    "image_3": "Vaginal ovules + Intimate soap combo — ingredients",
+    "image_4": "Vaginal ovules + Intimate soap combo — comparison with other brands",
+    "image_5": "Vaginal ovules + Intimate soap combo — customer reviews"
+  },
+  "fem_ovulos_pro_gallery": {
+    "image_1": "Probiotic food + Vaginal ovules combo — combo presentation",
+    "image_2": "Probiotic food + Vaginal ovules combo — combo information",
+    "image_3": "Probiotic food + Vaginal ovules combo — ingredients",
+    "image_4": "Probiotic food + Vaginal ovules combo — comparison with other brands",
+    "image_5": "Probiotic food + Vaginal ovules combo — customer reviews"
+  },
+  "fem_gomas_pro_gallery": {
+    "image_1": "Gummies + Probiotic food combo — combo presentation",
+    "image_2": "Gummies + Probiotic food combo — combo information",
+    "image_3": "Gummies + Probiotic food combo — ingredients",
+    "image_4": "Gummies + Probiotic food combo — comparison with other brands",
+    "image_5": "Gummies + Probiotic food combo — customer reviews"
+  },
+  "fem_duo_gallery": {
+    "image_1": "Probiotic food + Intimate soap combo — combo presentation",
+    "image_2": "Probiotic food + Intimate soap combo — combo information",
+    "image_3": "Probiotic food + Intimate soap combo — ingredients",
+    "image_4": "Probiotic food + Intimate soap combo — comparison with other brands",
+    "image_5": "Probiotic food + Intimate soap combo — customer reviews"
+  },
+  "fem_ovulos_gallery": {
+    "image_1": "Fem vaginal ovules x 6 units — product presentation",
+    "image_2": "Fem vaginal ovules x 6 units — product information",
+    "image_3": "Fem vaginal ovules x 6 units — ingredients",
+    "image_4": "Fem vaginal ovules x 6 units — comparison with other brands",
+    "image_5": "Fem vaginal ovules x 6 units — customer reviews"
+  },
   "fem_anniversary": {
     "play": "Play video",
     "pause": "Pause video"

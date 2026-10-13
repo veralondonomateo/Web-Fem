@@ -4,6 +4,7 @@ import {productsFromStorefront,renderNativeSection,renderScratchCard,renderColle
 import {componentSelectors as selectors,deduplicateIcons} from '../src/lib/performance.ts';
 import {nativeMarkup} from './legacy-preview.ts';
 import {restoreProductGalleries} from './product-gallery.ts';
+import {restoreProductCardPhotos} from './product-card-photos.ts';
 import {productCartControls} from '../src/lib/product-cart.ts';
 import {presentProbioticos} from './product-probioticos.ts';
 export function transformStorefront(html:string,pathname?:string):string {
@@ -130,7 +131,7 @@ export function transformStorefront(html:string,pathname?:string):string {
   let result=$.html().replace(/(?:https?:)?\/\/femprobiotics\.co\/cdn\/shop\/t\/9\/assets\/([a-zA-Z0-9_.-]+)(?:\?v=\d+)?/g, '/__theme/$1');
   if(fullDocument && pathname==='/')result=result.replace(/<!--[\s\S]*?-->/g,comment=>/instant/i.test(comment)?'':comment);
   const native=nativeMarkup(result);
-  if(!/data-fem-layout="PRODUCT_TEMPLATE"/.test(native))return restoreProductGalleries(native);
+  if(!/data-fem-layout="PRODUCT_TEMPLATE"/.test(native))return restoreProductCardPhotos(restoreProductGalleries(native));
   const cartMarkup=load(native,{},fullDocument);
   cartMarkup('[data-fem-layout="PRODUCT_TEMPLATE"]').each((_,node)=>{
     const section=cartMarkup(node);
@@ -142,5 +143,5 @@ export function transformStorefront(html:string,pathname?:string):string {
     const accordion=section.find('[data-fem-type="accordion-container"]').first();
     if(accordion.length)accordion.before(control);else section.find('form').first().append(control);
   });
-  return presentProbioticos(restoreProductGalleries(cartMarkup.html()));
+  return restoreProductCardPhotos(presentProbioticos(restoreProductGalleries(cartMarkup.html())));
 }

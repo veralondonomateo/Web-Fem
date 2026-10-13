@@ -121,9 +121,10 @@
                       class="cart-items__media-container"
                       style="--ratio:{{ ratio }};"
                     >
-                      {%- liquid
+                      {%- capture fem_image_fallback -%}{%- liquid
                         echo item.image | image_url: width: 250 | image_tag: class: 'cart-items__media-image border-style', style: border_override
-                      -%}
+                      -%}{%- endcapture -%}
+                      {% render 'fem-product-image', card_product: item.product, fallback: fem_image_fallback, image_class: 'cart-items__media-image border-style', image_style: border_override %}
                     </a>
                   {%- endif %}
                 </td>

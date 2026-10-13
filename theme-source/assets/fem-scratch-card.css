@@ -48,32 +48,36 @@
 .fem-scratch .fem-scratch__status { min-height:40px; max-width:320px; margin:20px 0 10px; font-size:13px; line-height:1.5; }
 .fem-scratch:not(.fem-scratch--revealed) .fem-scratch__status,.fem-scratch:not(.fem-scratch--revealed) .fem-scratch__steps { visibility:hidden; }
 .fem-scratch .fem-scratch__steps { margin:22px 0 0; font-size:10px; letter-spacing:1px; text-transform:uppercase; }
-@media(max-width:700px) {
-  [data-fem-scratch-details] { padding:36px 20px 24px !important; }
-  .fem-scratch { padding:28px 20px; }
-}
-@media(max-width:480px) {
-  [data-fem-scratch-details] { padding:32px 12px 20px !important; }
-  .fem-scratch-redemption { margin-bottom:12px; }
-  .fem-scratch-redemption h2 { font-size:20px; letter-spacing:-.35px; margin-bottom:12px; }
-  .fem-scratch-redemption p { font-size:12px; line-height:1.5; }
-  [data-fem-scratch-details] input[type="email"] { font-size:16px !important; padding:10px 8px !important; height:48px !important; }
-  [data-fem-scratch-submit] { font-size:12px !important; min-height:48px; padding:12px 6px !important; }
-  [data-fem-scratch-consent] p, [data-fem-scratch-consent] span { font-size:10px !important; }
-  .fem-scratch { padding:28px 12px 20px; border-radius:16px 0 0 16px; }
-  .fem-scratch .fem-scratch__brand { width:100px; margin-bottom:16px; }
-  .fem-scratch .fem-scratch__eyebrow { font-size:8px; letter-spacing:1px; margin-bottom:6px; }
-  .fem-scratch .fem-scratch__title { font-size:24px; letter-spacing:-.5px; margin-bottom:8px; }
-  .fem-scratch .fem-scratch__intro { font-size:11px; margin-bottom:14px; }
-  .fem-scratch__ticket { aspect-ratio:1; border-width:4px; border-radius:14px; }
-  .fem-scratch__prize { gap:4px; padding:6px; font-size:10px; }
-  .fem-scratch__prize > strong { font-size:52px; }
-  .fem-scratch__prize > span:first-child { font-size:8px; letter-spacing:.5px; }
+@media(max-width:749px) {
+  [data-fem-scratch-frame] { width:min(480px,calc(100vw - 24px)) !important; overflow-x:hidden !important; }
+  [data-fem-scratch-form] { width:100% !important; min-width:0 !important; }
+  [data-fem-scratch-layout] { grid-template-columns:minmax(0,1fr) !important; }
+  [data-fem-scratch-details] { padding:24px 22px 20px !important; border-radius:0 0 20px 20px; }
+  [data-fem-scratch-details] > [data-testid="form-row"] > [data-testid="form-component"] { padding-top:6px !important; padding-bottom:6px !important; }
+  .fem-scratch-redemption { margin-bottom:14px; }
+  .fem-scratch-redemption h2 { font-size:24px; letter-spacing:-.5px; margin-bottom:10px; }
+  .fem-scratch-redemption p { font-size:13px; line-height:1.5; }
+  [data-fem-scratch-details] .klaviyo-emailinput > label { position:absolute !important; width:1px !important; height:1px !important; padding:0 !important; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+  [data-fem-scratch-details] input[type="email"] { font-size:16px !important; padding:12px 14px !important; height:48px !important; }
+  [data-fem-scratch-submit] { font-size:15px !important; min-height:48px; padding:12px !important; }
+  [data-fem-scratch-dismiss] { box-sizing:border-box !important; font-size:12px !important; }
+  [data-fem-scratch-details] [data-fem-scratch-consent] > [data-testid="form-component"] { padding-top:10px !important; padding-bottom:0 !important; }
+  [data-fem-scratch-consent] p, [data-fem-scratch-consent] span { font-size:11px !important; }
+  .fem-scratch { padding:24px 22px 20px; border-radius:20px 20px 0 0; }
+  .fem-scratch .fem-scratch__brand { width:110px; margin-bottom:12px; }
+  .fem-scratch .fem-scratch__eyebrow { font-size:9px; letter-spacing:1.5px; margin-bottom:6px; }
+  .fem-scratch .fem-scratch__title { font-size:28px; letter-spacing:-.5px; margin-bottom:8px; }
+  .fem-scratch .fem-scratch__intro { font-size:12px; margin-bottom:14px; }
+  .fem-scratch__ticket { max-width:300px; aspect-ratio:12/7; border-width:4px; border-radius:16px; }
+  .fem-scratch__prize { gap:4px; padding:6px; font-size:11px; }
+  .fem-scratch__prize > strong { font-size:60px; }
+  .fem-scratch__prize > span:first-child { font-size:9px; letter-spacing:1px; }
   .fem-scratch__cover-label { gap:6px; }
   .fem-scratch__cover-label > span { font-size:28px; }
-  .fem-scratch__cover-label > strong { font-size:21px; }
-  .fem-scratch__cover-label > small { max-width:95px; font-size:10px; line-height:1.4; }
-  .fem-scratch .fem-scratch__status { margin:12px 0 8px; min-height:0; font-size:12px; }
-  .fem-scratch .fem-scratch__steps { margin-top:12px; font-size:8px; line-height:1.8; letter-spacing:.5px; }
+  .fem-scratch__cover-label > strong { font-size:23px; }
+  .fem-scratch__cover-label > small { font-size:11px; line-height:1.4; }
+  .fem-scratch .fem-scratch__status { margin:12px 0 0; min-height:0; font-size:12px; }
+  .fem-scratch .fem-scratch__steps { margin-top:10px; font-size:9px; line-height:1.5; letter-spacing:.5px; }
+  .fem-scratch:not(.fem-scratch--revealed) :is(.fem-scratch__status,.fem-scratch__steps) { display:none; }
 }
 @media(prefers-reduced-motion:reduce) { .fem-scratch__cover { transition:none; } }

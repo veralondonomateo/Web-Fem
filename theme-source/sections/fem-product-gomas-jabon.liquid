@@ -10,9 +10,7 @@
   -%}
   {{ 'fem-product-gomas-jabon.css' | asset_url | stylesheet_tag: preload: preload -}}
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Montserrat:wght@400&amp;display=swap" rel="stylesheet">
-  {%- liquid
-    assign product_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image
-  -%}
+
   <form data-fem-type="root" class="ipKKtWyEf2Pnjv694" data-fem-form-product-url="{{ product.url }}" data-fem-form-variant-id="{{ product.selected_or_first_available_variant.id }}" data-fem-form-product-id="{{ product.id }}"
     ><div conditionals="" class="ib76cvgyaL3Q3JT8x" data-fem-type="container" id="ib76cvgyaL3Q3JT8x"
       ><div conditionals="" class="i0lK6PEPx2uug0zo2" data-fem-type="container"
@@ -22,22 +20,8 @@
               <script type="application/json" id="fem-view-slider-iJtumj3E45PebyXr4-params">{"breakpoints":{"0":{"speed":300,"direction":"horizontal","autoHeight":false,"slidesPerView":5,"freeMode":false,"centeredSlides":false,"centerInsufficientSlides":false,"spaceBetween":16},"576":{"speed":300,"direction":"horizontal","autoHeight":false,"slidesPerView":4,"freeMode":false,"centeredSlides":false,"centerInsufficientSlides":false,"spaceBetween":16}},"loop":false,"autoplay":false}</script>
               <div class="fem-view-slider fem-view-slider-thumbs iJtumj3E45PebyXr4" data-fem-slider-id="d9t4TBFY9XFkxny7" id="iJtumj3E45PebyXr4" data-fem-type="thumbnails"
                 ><div class="fem-view-slider-wrapper">
-                  {%- liquid
-                    assign media_without_variant = '' | split: ''
-                    assign featured_image = product.selected_or_first_available_variant.featured_image | default: product_image
 
-                    for media_item in product.media
-                      if media_item.media_type == 'image'
-                        if media_item.media_type == 'image' and media_item.preview_image.src != featured_image.src
-                          assign media_element = media_item | sort
-                          assign media_without_variant = media_without_variant | concat: media_element
-                        endif
-                      endif
-                    endfor
-
-                    assign sorted_media = featured_image | sort | concat: media_without_variant
-                  -%}
-                  {%- for media in sorted_media -%}
+                  {%- for media in (1..5) -%}
                     {%- if forloop.length > 0 -%}
                       {%- assign repeater_index_myMUwvIv3XW5emaT = forloop.index0 -%}
                       <div class="fem-view-slider-slide imyMUwvIv3XW5emaT" data-fem-type="slider-slide"
@@ -52,7 +36,7 @@
                               ><span aria-hidden="true"><img width="500" height="281" class="fem-view-video__sizer" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27500%27%20height=%27281.25%27/%3e"></span
                             ></div>
                           {%- else -%}
-                            <img width="{{ media.preview_image.width | default: media.width }}" height="{{ media.preview_image.height | default: media.height }}" alt="{{ media.alt }}" src="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1280 }}{%- endif -%}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1080 }} 1080w, {{ media | image_url: width: 828 }} 828w, {{ media | image_url: width: 750 }} 750w, {{ media | image_url: width: 640 }} 640w, {{ media | image_url: width: 360 }} 360w, {{ media | image_url: width: 1280 }} 1280w{%- endif -%}" data-fem-dynamic-content-source="REPEATER" decoding="async" loading="eager" fetchpriority="high" class="fem-view-media fem-view-image fem-view-image__main" data-fem-repeater-id="myMUwvIv3XW5emaT" data-fem-repeater-index="{{ repeater_index_myMUwvIv3XW5emaT }}">
+                            {% render 'fem-gomas-jab-gallery-image', index: forloop.index, repeater_id: 'myMUwvIv3XW5emaT', repeater_index: repeater_index_myMUwvIv3XW5emaT, image_role: 'thumbnail' %}
                           {%- endif -%}</div
                       ></div>
                     {%- endif -%}
@@ -61,22 +45,8 @@
               <script type="application/json" id="fem-view-slider-id9t4TBFY9XFkxny7-params">{"breakpoints":{"0":{"speed":300,"direction":"horizontal","autoHeight":false,"slidesPerView":1,"freeMode":false,"centeredSlides":true,"centerInsufficientSlides":true,"spaceBetween":0},"576":{"speed":300,"direction":"horizontal","autoHeight":false,"slidesPerView":1,"freeMode":false,"centeredSlides":true,"centerInsufficientSlides":true,"spaceBetween":0},"769":{"speed":300,"direction":"horizontal","autoHeight":false,"slidesPerView":1,"freeMode":false,"centeredSlides":true,"centerInsufficientSlides":true,"spaceBetween":0}},"loop":false,"autoplay":false}</script>
               <div class="fem-view-slider id9t4TBFY9XFkxny7" data-fem-slider-id="d9t4TBFY9XFkxny7" id="id9t4TBFY9XFkxny7" data-fem-type="slider"
                 ><div class="fem-view-slider-wrapper">
-                  {%- liquid
-                    assign media_without_variant = '' | split: ''
-                    assign featured_image = product.selected_or_first_available_variant.featured_image | default: product_image
 
-                    for media_item in product.media
-                      if media_item.media_type == 'image'
-                        if media_item.media_type == 'image' and media_item.preview_image.src != featured_image.src
-                          assign media_element = media_item | sort
-                          assign media_without_variant = media_without_variant | concat: media_element
-                        endif
-                      endif
-                    endfor
-
-                    assign sorted_media = featured_image | sort | concat: media_without_variant
-                  -%}
-                  {%- for media in sorted_media -%}
+                  {%- for media in (1..5) -%}
                     {%- if forloop.length > 0 -%}
                       {%- assign repeater_index_f52YU7eBHi1tvRVE = forloop.index0 -%}
                       <div class="fem-view-slider-slide if52YU7eBHi1tvRVE" data-fem-type="slider-slide"
@@ -91,7 +61,7 @@
                               ><span aria-hidden="true"><img width="500" height="281" class="fem-view-video__sizer" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27500%27%20height=%27281.25%27/%3e"></span
                             ></div>
                           {%- else -%}
-                            <img width="{{ media.preview_image.width | default: media.width }}" height="{{ media.preview_image.height | default: media.height }}" alt="{{ media.alt }}" src="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1280 }}{%- endif -%}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{%- if media.media_type == 'video' -%}{%- assign mp4_source = media.sources | where: 'format', 'mp4' | first -%}{{ mp4_source.url | default: media.sources[0].url }}{%- else -%}{{ media | image_url: width: 1080 }} 1080w, {{ media | image_url: width: 828 }} 828w, {{ media | image_url: width: 750 }} 750w, {{ media | image_url: width: 640 }} 640w, {{ media | image_url: width: 360 }} 360w, {{ media | image_url: width: 1280 }} 1280w{%- endif -%}" data-fem-dynamic-content-source="REPEATER" decoding="async" loading="eager" fetchpriority="high" class="fem-view-media fem-view-image fem-view-image__main" data-fem-repeater-id="f52YU7eBHi1tvRVE" data-fem-repeater-index="{{ repeater_index_f52YU7eBHi1tvRVE }}">
+                            {% render 'fem-gomas-jab-gallery-image', index: forloop.index, repeater_id: 'f52YU7eBHi1tvRVE', repeater_index: repeater_index_f52YU7eBHi1tvRVE, image_role: 'main' %}
                           {%- endif -%}
                         </button>
                         {%- assign fem_view_lightbox_z_index = 1000 -%}
@@ -102,40 +72,12 @@
                               <script type="application/json" id="fem-view-slider-if52YU7eBHi1tvRVE-lightbox-params">{"breakpoints":{"1025":{"spaceBetween":40}},"loop":false,"autoplay":false}</script>
                               <div class="fem-view-slider if52YU7eBHi1tvRVE-lightbox" data-fem-slider-id="f52YU7eBHi1tvRVE-lightbox" id="if52YU7eBHi1tvRVE-lightbox" data-fem-type="slider"
                                 ><div class="fem-view-slider-wrapper">
-                                  {%- liquid
-                                    assign media_without_variant = '' | split: ''
-                                    assign featured_image = product.selected_or_first_available_variant.featured_image | default: product_image
-                                    for media_item in product.media
-                                      if media_item.media_type == 'image'
-                                        if media_item.media_type == 'image' and media_item.preview_image.src != featured_image.src
-                                          assign media_element = media_item | sort
-                                          assign media_without_variant = media_without_variant | concat: media_element
-                                        endif
-                                      endif
-                                    endfor
 
-                                    assign sorted_media = featured_image | sort | concat: media_without_variant
-                                  -%}
-                                  {%- for media in sorted_media -%}
+                                  {%- for media in (1..5) -%}
                                     {%- if forloop.length > 0 -%}
                                       {%- assign repeater_index_f52YU7eBHi1tvRVE = forloop.index0 -%}
                                       <div class="fem-view-slider-slide">
-                                        <img
-                                          alt="{{ media.alt }}"
-                                          src="{{ media | image_url: width: 3840 }}"
-                                          data-fem-dynamic-content-source="REPEATER"
-                                          data-fem-repeater-id="f52YU7eBHi1tvRVE"
-                                          data-fem-repeater-index="{{ repeater_index_f52YU7eBHi1tvRVE }}"
-                                          width="{{ media.width }}"
-                                          height="{{ media.height }}"
-                                          sizes="(max-width: 3840px) 100vw, 3840px"
-                                          srcSet="{{ media | image_url: width: 2048 }} 2048w, {{ media | image_url: width: 1920 }} 1920w, {{ media | image_url: width: 1200 }} 1200w, {{ media | image_url: width: 1080 }} 1080w, {{ media | image_url: width: 828 }} 828w, {{ media | image_url: width: 750 }} 750w, {{ media | image_url: width: 640 }} 640w, {{ media | image_url: width: 360 }} 360w, {{ media | image_url: width: 3840 }} 3840w"
-                                          decoding="async"
-                                          loading="lazy"
-                                          fetchpriority="auto"
-                                          class="fem-view-media fem-view-image fem-view-image__main"
-                                          style="object-fit:contain"
-                                        >
+                                        {% render 'fem-gomas-jab-gallery-image', index: forloop.index, repeater_id: 'f52YU7eBHi1tvRVE', repeater_index: repeater_index_f52YU7eBHi1tvRVE, image_role: 'zoom' %}
                                         <!--  -->
                                       </div>
                                     {%- endif -%}
@@ -526,7 +468,12 @@
       -%}
       <div class="ilPAEPz1YYQmBJBkZ" data-fem-type="container" data-fem-form-product-url="{{ product_lPAEPz1YYQmBJBkZ.url }}" data-fem-form-variant-id="{{ product_lPAEPz1YYQmBJBkZ_variant.id }}" data-fem-form-product-id="{{ product_lPAEPz1YYQmBJBkZ.id }}"
         ><div class="iSZr3rD3P76YRiUgH" data-fem-type="container"
-          ><div data-fem-type="media" class="i7m8qvumINnbwtCAT"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }} 1080w, {{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }} 828w, {{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }} 750w, {{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }} 640w, {{ 'fem-media-92b469b3dc81a13c.webp' | asset_url }} 360w, {{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }} 1280w" src="{{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }}" width="460" height="512" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }} 1080w, {{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }} 828w, {{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }} 750w, {{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }} 640w, {{ 'fem-media-92b469b3dc81a13c.webp' | asset_url }} 360w, {{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }} 1280w" src="{{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }}" width="460" height="512" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile"></div></div
+          ><div data-fem-type="media" class="i7m8qvumINnbwtCAT">{%- capture fem_image_fallback -%}<img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }} 1080w, {{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }} 828w, {{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }} 750w, {{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }} 640w, {{ 'fem-media-92b469b3dc81a13c.webp' | asset_url }} 360w, {{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }} 1280w" src="{{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }}" width="460" height="512" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet">{%- endcapture -%}
+{%- capture fem_image_attributes -%}{%- endcapture -%}
+{% render 'fem-product-image', card_product: product_lPAEPz1YYQmBJBkZ, fallback: fem_image_fallback, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet', image_attributes: fem_image_attributes, image_style: 'object-fit:contain', loading: 'lazy' %}
+{%- capture fem_image_fallback -%}<img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }} 1080w, {{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }} 828w, {{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }} 750w, {{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }} 640w, {{ 'fem-media-92b469b3dc81a13c.webp' | asset_url }} 360w, {{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }} 1280w" src="{{ 'fem-media-dff44f0c3d0d79a9.webp' | asset_url }}" width="460" height="512" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile">{%- endcapture -%}
+{%- capture fem_image_attributes -%}{%- endcapture -%}
+{% render 'fem-product-image', card_product: product_lPAEPz1YYQmBJBkZ, fallback: fem_image_fallback, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile', image_attributes: fem_image_attributes, image_style: 'object-fit:contain', loading: 'lazy' %}</div></div
         ><div class="iFyc5aTVHGsDzEtV9" data-fem-type="container"
           ><div data-fem-type="text" class="fem-view-rich-text i9kYOSKJxEs2R5wkd"><h3>¿Por qué el Combo Gomas + Jabón Íntimo?</h3></div
           ><div data-fem-type="text" class="fem-view-rich-text iMN1i0egM7sDevr7D"><p>Cuidado femenino diario, consciente y delicioso.</p><p>Este combo acompaña tu ciclo menstrual mientras protege tu zona íntima con suavidad.</p></div

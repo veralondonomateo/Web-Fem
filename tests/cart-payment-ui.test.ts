@@ -11,7 +11,7 @@ test('Drawer persists/relocks the reward, handles update failures, and opens for
  Object.assign(globalThis,{window,matchMedia:()=>({matches:true})});
  const doc=window.document;
  doc.body.innerHTML='<button data-fem-cart-open>Cart</button><a href="https://checkoutfem.com/checkout?product=jabon">Buy soap</a>'+renderNativeSection('cart-drawer',{});
- let state:CartState={items:[{key:'one',variant_id:123,product_id:1,quantity:1,title:'FEM',url:'/products/fem',final_line_price:11000000}],item_count:1,total_price:11000000,total_discount:0,currency:'COP',attributes:{}};
+ let state:CartState={items:[{key:'one',variant_id:123,product_id:1,quantity:1,title:'FEM',url:'/products/combo-gomas-jabon',image:'https://store.test/old-product.png',final_line_price:11000000}],item_count:1,total_price:11000000,total_discount:0,currency:'COP',attributes:{}};
  let reject=false;const calls:string[]=[];
  t.mock.method(globalThis,'fetch',async(url: string | URL | Request,init?: RequestInit)=>{
   const path=String(url);calls.push(path);
@@ -27,6 +27,7 @@ test('Drawer persists/relocks the reward, handles update failures, and opens for
  const {enhanceCartDrawer}=await import('../src/components/cart-drawer.ts');enhanceCartDrawer();
  const settle=async()=>{for(let i=0;i<20;i++)await new Promise(resolve=>setTimeout(resolve,0));};
  await settle();
+ assert.match(doc.querySelector('[data-item-image]')!.getAttribute('src')??'',/fem-gomas-jab-gallery-1\.webp$/);
  const prepaid=doc.querySelector<HTMLInputElement>('[data-cart-payment][value="prepaid"]')!;
  const cod=doc.querySelector<HTMLInputElement>('[data-cart-payment][value="cod"]')!;
  const reward=doc.querySelector<HTMLElement>('[data-cart-satin]')!;

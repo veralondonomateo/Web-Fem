@@ -11,6 +11,8 @@
   @param {object} [selected_product] - The currently selected product.
   @param {boolean} [first_3d_model] - Indicates if this is the first 3D model.
   @param {boolean} [is_main_product_media] - Indicates if this is the main product image.
+  @param {product} [card_product] - Product displayed in a card.
+  @param {number} [photo_index] - Position of a supplied card photo.
 
   @example
   {% render 'product-media', media: media, preview_image_only: false, loading: 'lazy' %}
@@ -32,7 +34,7 @@
       assign fetch_priority = 'high'
     endif
   %}
-  {{
+  {%- capture fem_image_fallback -%}{{
     media.preview_image
     | image_url: width: 2000
     | image_tag:
@@ -44,7 +46,8 @@
       transitionToProduct: settings.transition_to_main_product,
       data_max_resolution: high_res_url,
       fetchpriority: fetch_priority
-  }}
+  }}{%- endcapture -%}
+  {% render 'fem-product-image', card_product: card_product, photo_index: photo_index, fallback: fem_image_fallback, image_class: 'product-media__image', loading: loading, fetchpriority: fetch_priority %}
 
   {% unless preview_image_only %}
     {%- case media.media_type -%}

@@ -32,6 +32,9 @@
 %}
 
 {%- if resource_type == 'product' and settings.transition_to_main_product -%}
+  {%- capture fem_card_photo -%}{% render 'fem-product-photo-data', card_product: resource %}{%- endcapture -%}
+  {%- assign fem_card_photo = fem_card_photo | strip | split: '|' -%}
+  {%- if fem_card_photo[0] != blank -%}{%- assign featured_media_url = fem_card_photo[0] | asset_url -%}{%- endif -%}
   <product-card-link
     data-product-id="{{ resource.id }}"
     data-featured-media-url="{{ featured_media_url }}"
@@ -62,7 +65,7 @@
       {% assign featured_image = resource.featured_image | default: resource.featured_media.preview_image %}
 
       {%- if featured_image != blank -%}
-        {{
+        {%- capture fem_image_fallback -%}{{
           featured_image
           | image_url: width: image_width
           | image_tag:
@@ -72,9 +75,12 @@
             sizes: 'auto',
             transitionToProduct: settings.transition_to_main_product,
             data-media-id: featured_image.id
-        }}
+        }}{%- endcapture -%}
+        {%- if resource_type == 'product' -%}
+          {% render 'fem-product-image', card_product: resource, fallback: fem_image_fallback, image_class: 'resource-card__image' %}
+        {%- else -%}{{ fem_image_fallback }}{%- endif -%}
         {%- if image_hover and resource.media.size > 1 -%}
-          {{
+          {%- capture fem_image_fallback -%}{{
             resource.media[1]
             | image_url: width: image_width
             | image_tag:
@@ -84,7 +90,10 @@
               sizes: 'auto',
               transitionToProduct: settings.transition_to_main_product,
               data-media-id: resource.media[1].id
-          }}
+          }}{%- endcapture -%}
+          {%- if resource_type == 'product' -%}
+            {% render 'fem-product-image', card_product: resource, photo_index: 2, fallback: fem_image_fallback, image_class: 'resource-card__image resource-card__image--secondary', decorative: true %}
+          {%- else -%}{{ fem_image_fallback }}{%- endif -%}
         {%- endif -%}
       {%- else -%}
         <div
@@ -99,11 +108,12 @@
         <div class="resource-card__image-wrapper">
           {% assign resource_products = resource.products | where: 'featured_image' %}
           {% for product in resource_products limit: 4 %}
-            {{
+            {%- capture fem_image_fallback -%}{{
               product.featured_image
               | image_url: width: image_width
               | image_tag: loading: 'lazy', class: 'resource-card__collection-image', sizes: 'auto', widths: widths
-            }}
+            }}{%- endcapture -%}
+            {% render 'fem-product-image', card_product: product, fallback: fem_image_fallback, image_class: 'resource-card__collection-image' %}
           {% endfor %}
         </div>
       {%- endif -%}

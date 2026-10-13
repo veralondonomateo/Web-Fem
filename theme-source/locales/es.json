@@ -8,6 +8,84 @@
  * ------------------------------------------------------------
  */
 {
+  "fem_mom_gallery": {
+    "image_1": "Fem Mom — presentación del producto",
+    "image_2": "Fem Mom — información del producto",
+    "image_3": "Fem Mom — beneficios",
+    "image_4": "Fem Mom — comparación con otras marcas",
+    "image_5": "Fem Mom — información nutricional",
+    "image_6": "Fem Mom — reseñas de clientas"
+  },
+  "fem_combo_mama_gallery": {
+    "image_1": "Combo mamá — presentación del combo",
+    "image_2": "Combo mamá — información del combo",
+    "image_3": "Combo mamá — ingredientes",
+    "image_4": "Combo mamá — comparación con otras marcas",
+    "image_5": "Combo mamá — reseñas de clientas"
+  },
+  "fem_gomas_jab_gallery": {
+    "image_1": "Combo Gomas + Jabón — presentación del combo",
+    "image_2": "Combo Gomas + Jabón — información del combo",
+    "image_3": "Combo Gomas + Jabón — ingredientes",
+    "image_4": "Combo Gomas + Jabón — comparación con otras marcas",
+    "image_5": "Combo Gomas + Jabón — reseñas de clientas"
+  },
+  "fem_pro_jab_ovu_gallery": {
+    "image_1": "Alimento con probióticos + Jabón íntimo + Óvulos Fem homeopáticos — presentación del combo",
+    "image_2": "Alimento con probióticos + Jabón íntimo + Óvulos Fem homeopáticos — información del combo",
+    "image_3": "Alimento con probióticos + Jabón íntimo + Óvulos Fem homeopáticos — ingredientes",
+    "image_4": "Alimento con probióticos + Jabón íntimo + Óvulos Fem homeopáticos — comparación con otras marcas",
+    "image_5": "Alimento con probióticos + Jabón íntimo + Óvulos Fem homeopáticos — reseñas de clientas"
+  },
+  "fem_pro_gom_jab_gallery": {
+    "image_1": "Combo Probiótico + Gomas + Jabón — presentación del combo",
+    "image_2": "Combo Probiótico + Gomas + Jabón — información del combo",
+    "image_3": "Combo Probiótico + Gomas + Jabón — ingredientes",
+    "image_4": "Combo Probiótico + Gomas + Jabón — comparación con otras marcas",
+    "image_5": "Combo Probiótico + Gomas + Jabón — reseñas de clientas"
+  },
+  "fem_combo_compl_gallery": {
+    "image_1": "Combo completo — presentación del combo",
+    "image_2": "Combo completo — información del combo",
+    "image_3": "Combo completo — ingredientes",
+    "image_4": "Combo completo — comparación con otras marcas",
+    "image_5": "Combo completo — reseñas de clientas"
+  },
+  "fem_ovulos_jab_gallery": {
+    "image_1": "Combo Óvulos + Jabón — presentación del combo",
+    "image_2": "Combo Óvulos + Jabón — información del combo",
+    "image_3": "Combo Óvulos + Jabón — ingredientes",
+    "image_4": "Combo Óvulos + Jabón — comparación con otras marcas",
+    "image_5": "Combo Óvulos + Jabón — reseñas de clientas"
+  },
+  "fem_ovulos_pro_gallery": {
+    "image_1": "Combo Probiótico + Óvulos — presentación del combo",
+    "image_2": "Combo Probiótico + Óvulos — información del combo",
+    "image_3": "Combo Probiótico + Óvulos — ingredientes",
+    "image_4": "Combo Probiótico + Óvulos — comparación con otras marcas",
+    "image_5": "Combo Probiótico + Óvulos — reseñas de clientas"
+  },
+  "fem_gomas_pro_gallery": {
+    "image_1": "Combo Gomitas + Alimento con probióticos — presentación del combo",
+    "image_2": "Combo Gomitas + Alimento con probióticos — información del combo",
+    "image_3": "Combo Gomitas + Alimento con probióticos — ingredientes",
+    "image_4": "Combo Gomitas + Alimento con probióticos — comparación con otras marcas",
+    "image_5": "Combo Gomitas + Alimento con probióticos — reseñas de clientas"
+  },
+  "fem_duo_gallery": {
+    "image_1": "Combo alimento con probióticos + Jabón íntimo — presentación del combo",
+    "image_2": "Combo alimento con probióticos + Jabón íntimo — información del combo",
+    "image_3": "Combo alimento con probióticos + Jabón íntimo — ingredientes",
+    "image_4": "Combo alimento con probióticos + Jabón íntimo — comparación con otras marcas",
+    "image_5": "Combo alimento con probióticos + Jabón íntimo — reseñas de clientas"
+  },
+  "fem_ovulos_gallery": {
+    "image_1": "Óvulos Fem x 6 UND — presentación del producto",
+    "image_2": "Óvulos Fem x 6 UND — información del producto",
+    "image_3": "Óvulos Fem x 6 UND — ingredientes",
+    "image_4": "Óvulos Fem x 6 UND — comparación con otras marcas",
+    "image_5": "Óvulos Fem x 6 UND — reseñas de clientas"
+  },
   "fem_anniversary": {
     "play": "Reproducir video",
     "pause": "Pausar video"

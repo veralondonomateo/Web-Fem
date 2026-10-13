@@ -50,6 +50,9 @@
 %}
 
 {%- if settings.transition_to_main_product -%}
+  {%- capture fem_card_photo -%}{% render 'fem-product-photo-data', card_product: product %}{%- endcapture -%}
+  {%- assign fem_card_photo = fem_card_photo | strip | split: '|' -%}
+  {%- if fem_card_photo[0] != blank -%}{%- assign featured_media_url = fem_card_photo[0] | asset_url -%}{%- endif -%}
   <product-card-link
     data-product-id="{{ product.id }}"
     data-featured-media-url="{{ featured_media_url }}"

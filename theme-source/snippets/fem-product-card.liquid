@@ -44,7 +44,10 @@ Product card with live Shopify prices, sale badge and responsive image.
 </div>
 </div>
 <a class="{{ card_classes[5] }}" href="{{ card_product.url }}" rel="noopener noreferrer">
-<img alt="{{ card_image.alt }}" src="{{ card_image | image_url: width: 1280 }}" sizes="(max-width: 600px) 72vw, (max-width: 1024px) 38vw, 300px" srcset="{{ card_image | image_url: width: 1080 }} 1080w, {{ card_image | image_url: width: 828 }} 828w, {{ card_image | image_url: width: 750 }} 750w, {{ card_image | image_url: width: 640 }} 640w, {{ card_image | image_url: width: 360 }} 360w, {{ card_image | image_url: width: 1280 }} 1280w" class="fem-media fem-image fem-image__main" width="{{ card_image.width }}" height="{{ card_image.height }}" loading="lazy" fetchpriority="low" decoding="async">
+{%- capture fem_image_fallback -%}<img alt="{{ card_image.alt }}" src="{{ card_image | image_url: width: 1280 }}" sizes="(max-width: 600px) 72vw, (max-width: 1024px) 38vw, 300px" srcset="{{ card_image | image_url: width: 1080 }} 1080w, {{ card_image | image_url: width: 828 }} 828w, {{ card_image | image_url: width: 750 }} 750w, {{ card_image | image_url: width: 640 }} 640w, {{ card_image | image_url: width: 360 }} 360w, {{ card_image | image_url: width: 1280 }} 1280w" class="fem-media fem-image fem-image__main" width="{{ card_image.width }}" height="{{ card_image.height }}" loading="lazy" fetchpriority="low" decoding="async">{%- endcapture -%}
+{%- capture fem_image_class -%}fem-media fem-image fem-image__main{%- endcapture -%}
+{%- capture fem_image_attributes -%}{%- endcapture -%}
+{% render 'fem-product-image', card_product: card_product, photo_index: 1, fallback: fem_image_fallback, image_class: fem_image_class, image_attributes: fem_image_attributes, loading: 'lazy', fetchpriority: 'low', decorative: false %}
 </a>
 </div>
 <p class="{{ card_classes[6] }}">{{ card_product.title }}</p>

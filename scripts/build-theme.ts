@@ -4,6 +4,7 @@ import {build,transform} from 'esbuild';
 import {improveThemeMarkup} from '../src/lib/theme-quality.ts';
 import {repairNavigation} from '../src/lib/navigation.ts';
 import {componentSelectors,deferComponentScripts,lazySectionImages,deduplicateIcons} from '../src/lib/performance.ts';
+import './sync-product-photos.ts';
 const outputRoot=resolve('theme-dev');
 await mkdir(outputRoot,{recursive:true});
 if((await realpath(outputRoot)).toLowerCase()!==outputRoot.toLowerCase())throw new Error('theme-dev must be a local generated directory, not a symlink');

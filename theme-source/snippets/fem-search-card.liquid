@@ -10,10 +10,16 @@ Product search card matching the Todos los productos collection.
 <a class="fem-search-card{% if hover_image != blank %} fem-search-card--two-images{% endif %}" href="{{ card_product.url | escape }}">
   <div class="fem-search-card__media">
     {%- if card_image != blank -%}
-      <img class="fem-search-card__image" src="{{ card_image | image_url: width: 640 }}" srcset="{{ card_image | image_url: width: 360 }} 360w, {{ card_image | image_url: width: 640 }} 640w, {{ card_image | image_url: width: 960 }} 960w" sizes="(max-width: 575px) 45vw, (max-width: 1024px) 30vw, 320px" alt="{{ card_product.title | escape }}" width="{{ card_image.width }}" height="{{ card_image.height }}" loading="lazy" decoding="async">
+      {%- capture fem_image_fallback -%}<img class="fem-search-card__image" src="{{ card_image | image_url: width: 640 }}" srcset="{{ card_image | image_url: width: 360 }} 360w, {{ card_image | image_url: width: 640 }} 640w, {{ card_image | image_url: width: 960 }} 960w" sizes="(max-width: 575px) 45vw, (max-width: 1024px) 30vw, 320px" alt="{{ card_product.title | escape }}" width="{{ card_image.width }}" height="{{ card_image.height }}" loading="lazy" decoding="async">{%- endcapture -%}
+{%- capture fem_image_class -%}fem-search-card__image{%- endcapture -%}
+{%- capture fem_image_attributes -%}{%- endcapture -%}
+{% render 'fem-product-image', card_product: card_product, photo_index: 1, fallback: fem_image_fallback, image_class: fem_image_class, image_attributes: fem_image_attributes, loading: 'lazy', fetchpriority: 'auto', decorative: false %}
     {%- endif -%}
     {%- if hover_image != blank -%}
-      <img class="fem-search-card__image fem-search-card__image--hover" src="{{ hover_image | image_url: width: 640 }}" srcset="{{ hover_image | image_url: width: 360 }} 360w, {{ hover_image | image_url: width: 640 }} 640w, {{ hover_image | image_url: width: 960 }} 960w" sizes="(max-width: 575px) 45vw, (max-width: 1024px) 30vw, 320px" alt="" width="{{ hover_image.width }}" height="{{ hover_image.height }}" loading="lazy" decoding="async" aria-hidden="true">
+      {%- capture fem_image_fallback -%}<img class="fem-search-card__image fem-search-card__image--hover" src="{{ hover_image | image_url: width: 640 }}" srcset="{{ hover_image | image_url: width: 360 }} 360w, {{ hover_image | image_url: width: 640 }} 640w, {{ hover_image | image_url: width: 960 }} 960w" sizes="(max-width: 575px) 45vw, (max-width: 1024px) 30vw, 320px" alt="" width="{{ hover_image.width }}" height="{{ hover_image.height }}" loading="lazy" decoding="async" aria-hidden="true">{%- endcapture -%}
+{%- capture fem_image_class -%}fem-search-card__image fem-search-card__image--hover{%- endcapture -%}
+{%- capture fem_image_attributes -%}aria-hidden="true"{%- endcapture -%}
+{% render 'fem-product-image', card_product: card_product, photo_index: 2, fallback: fem_image_fallback, image_class: fem_image_class, image_attributes: fem_image_attributes, loading: 'lazy', fetchpriority: 'auto', decorative: true %}
     {%- endif -%}
   </div>
   <div class="fem-search-card__body">

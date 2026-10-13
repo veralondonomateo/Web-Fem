@@ -12,10 +12,11 @@ test('Product galleries retain their assigned photos and serve complete local im
   let checked=0;
   for(const page of pages){
     if(!new URL(page.url).pathname.startsWith('/products/'))continue;
-    // This product intentionally replaces Shopify's five photos with the six supplied files.
-    if(new URL(page.url).pathname==='/products/probiotico-vaginal-en-capsulas-x100-unidades'){checked++;continue;}
+    // These products replace Shopify's original galleries with six supplied files, checked below.
+    if(['/products/probiotico-vaginal-en-capsulas-x100-unidades','/products/fem-mom-impulso-natural-de-leche-materna'].includes(new URL(page.url).pathname)){checked++;continue;}
     const source=load(page.html),result=load(transformStorefront(page.html,new URL(page.url).pathname));
-    const assignedPhotos=new URL(page.url).pathname==='/products/gomitas-sindrome-premestrual-x60'?JSON.parse(readFileSync('server/gomas-gallery.json','utf8')):undefined;
+    const assignedFile:Record<string,string>={'/products/gomitas-sindrome-premestrual-x60':'gomas-gallery.json','/products/ovulos-vaginales-fem':'ovulos-gallery.json','/products/duo-perfecto':'duo-gallery.json','/products/combo-premestrual-x-fem':'gomas-pro-gallery.json','/products/combo-fem-x-ovulos':'ovulos-pro-gallery.json','/products/combo-ovulos-x-jabon':'ovulos-jab-gallery.json','/products/combo-completo':'combo-compl-gallery.json','/products/combo-dia-de-la-mujer':'pro-gom-jab-gallery.json','/products/probiotico-jabon-ovulos':'pro-jab-ovu-gallery.json','/products/combo-gomas-jabon':'gomas-jab-gallery.json','/products/combo-mama':'combo-mama-gallery.json'};
+    const assignedPhotos=assignedFile[new URL(page.url).pathname]?JSON.parse(readFileSync('server/'+assignedFile[new URL(page.url).pathname],'utf8')):undefined;
     const before=source('[data-instant-layout="PRODUCT_TEMPLATE"] [data-instant-type="slider"] img,[data-instant-layout="PRODUCT_TEMPLATE"] [data-instant-type="thumbnails"] img').filter('[data-instant-dynamic-content-source="REPEATER"]');
     const after=result('[data-fem-product-gallery] img').filter('[data-fem-dynamic-content-source="REPEATER"]');
     if(!before.length)continue;
@@ -38,29 +39,34 @@ test('Product galleries retain their assigned photos and serve complete local im
   assert.ok(checked>=17,'Check the full set of product templates');
 });
 
-test('The probiotic product uses all six supplied images in the same order in every gallery view',()=>{
-  const page=pages.find(page=>new URL(page.url).pathname==='/products/probiotico-vaginal-en-capsulas-x100-unidades')!;
-  const photos=JSON.parse(readFileSync('server/probioticos-gallery.json','utf8')) as {asset:string;width:number;height:number;alt:string}[];
-  assert.equal(photos.length,6);
-  const $=load(transformStorefront(page.html,new URL(page.url).pathname));
-  for(const role of ['thumbnails','main','zoom']){
-    const view=$(`[data-fem-product-gallery="${role}"]`).first();
-    const images=view.find('img[data-fem-dynamic-content-source="REPEATER"]').filter((_,image)=>$(image).closest('[data-fem-product-gallery]')[0]===view[0]);
-    assert.equal(images.length,6,role);
-    images.each((index,image)=>{
-      const img=$(image),photo=photos[index];
-      assert.equal(img.attr('src'),'/__theme/'+photo.asset,role);
-      assert.equal(img.attr('alt'),photo.alt);
-      assert.equal(Number(img.attr('width')),photo.width);assert.equal(Number(img.attr('height')),photo.height);
-      assert.equal(img.attr('data-fem-repeater-index'),String(index));
-      assert.ok(existsSync('theme-source/assets/'+photo.asset));
-    });
+test('The probiotic and Fem Mom products use all six supplied images in the same order in every gallery view',()=>{
+  for(const [route,manifest] of [
+    ['/products/probiotico-vaginal-en-capsulas-x100-unidades','probioticos-gallery.json'],
+    ['/products/fem-mom-impulso-natural-de-leche-materna','fem-mom-gallery.json']
+  ]){
+    const page=pages.find(page=>new URL(page.url).pathname===route)!;
+    const photos=JSON.parse(readFileSync('server/'+manifest,'utf8')) as {asset:string;width:number;height:number;alt:string}[];
+    assert.equal(photos.length,6);
+    const $=load(transformStorefront(page.html,route));
+    for(const role of ['thumbnails','main','zoom']){
+      const view=$(`[data-fem-product-gallery="${role}"]`).first();
+      const images=view.find('img[data-fem-dynamic-content-source="REPEATER"]').filter((_,image)=>$(image).closest('[data-fem-product-gallery]')[0]===view[0]);
+      assert.equal(images.length,6,route+' '+role);
+      images.each((index,image)=>{
+        const img=$(image),photo=photos[index];
+        assert.equal(img.attr('src'),'/__theme/'+photo.asset,role);
+        assert.equal(img.attr('alt'),photo.alt);
+        assert.equal(Number(img.attr('width')),photo.width);assert.equal(Number(img.attr('height')),photo.height);
+        assert.equal(img.attr('data-fem-repeater-index'),String(index));
+        assert.ok(existsSync('theme-source/assets/'+photo.asset));
+      });
+    }
+    const buttons=$('[data-fem-product-gallery="main"] > .fem-view-slider-wrapper > * > button');
+    assert.deepEqual(buttons.map((_,button)=>$(button).attr('data-fem-overlay-active-slide')).get(),['0','1','2','3','4','5']);
+    const thumbnailId=$('[data-fem-product-gallery="thumbnails"]').first().attr('id');
+    const config=JSON.parse($(`script[id="fem-view-slider-${thumbnailId}-params"]`).text());
+    assert.ok(Object.values(config.breakpoints).every((point:any)=>point.slidesPerView===6));
   }
-  const buttons=$('[data-fem-product-gallery="main"] > .fem-view-slider-wrapper > * > button');
-  assert.deepEqual(buttons.map((_,button)=>$(button).attr('data-fem-overlay-active-slide')).get(),['0','1','2','3','4','5']);
-  const thumbnailId=$('[data-fem-product-gallery="thumbnails"]').first().attr('id');
-  const config=JSON.parse($(`script[id="fem-view-slider-${thumbnailId}-params"]`).text());
-  assert.ok(Object.values(config.breakpoints).every((point:any)=>point.slidesPerView===6));
 });
 
 test('Pages share the home header structure with a purple variant for maternal products',()=>{

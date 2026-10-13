@@ -1,0 +1,47 @@
+{% doc %}
+Generated product photo lookup, kept in sync with the supplied galleries.
+@param {product} card_product - Product whose photo is requested.
+@param {string} [product_handle] - Explicit product handle.
+@param {number} [photo_index] - Photo position, starting at 1.
+{% enddoc %}
+{%- liquid
+  assign photos = blank
+  assign handle = product_handle | default: card_product.handle
+  if handle == blank
+    assign handle = card_product.url | split: '/products/' | last | split: '?' | first | split: '#' | first
+  endif
+  case handle
+    when 'jabon-intimo-ph-neutro'
+      assign photos = 'fem-jabon-gallery-1.webp|1641|1642,fem-jabon-gallery-2.webp|619|619,fem-jabon-gallery-3.webp|619|619,fem-jabon-gallery-4.webp|619|619,fem-jabon-gallery-5.webp|619|619' | split: ','
+    when 'probiotico-vaginal-en-capsulas-x100-unidades'
+      assign photos = 'fem-probioticos-gallery-1.webp|2000|2000,fem-probioticos-gallery-2.webp|599|599,fem-probioticos-gallery-3.webp|599|599,fem-probioticos-gallery-4.webp|599|599,fem-probioticos-gallery-5.webp|599|599,fem-probioticos-gallery-6.webp|599|599' | split: ','
+    when 'gomitas-sindrome-premestrual-x60'
+      assign photos = 'fem-gomas-gallery-1.webp|1688|1688,fem-gomas-gallery-2.webp|619|619,fem-gomas-gallery-3.webp|619|619,fem-gomas-gallery-4.webp|619|619,fem-gomas-gallery-5.webp|619|619' | split: ','
+    when 'ovulos-vaginales-fem'
+      assign photos = 'fem-ovulos-gallery-1.webp|1725|1725,fem-ovulos-gallery-2.webp|599|599,fem-ovulos-gallery-3.webp|599|599,fem-ovulos-gallery-4.webp|599|599,fem-ovulos-gallery-5.webp|599|599' | split: ','
+    when 'duo-perfecto'
+      assign photos = 'fem-duo-gallery-1.webp|1254|1254,fem-duo-gallery-2.webp|598|598,fem-duo-gallery-3.webp|598|598,fem-duo-gallery-4.webp|598|598,fem-duo-gallery-5.webp|598|598' | split: ','
+    when 'combo-premestrual-x-fem'
+      assign photos = 'fem-gomas-pro-gallery-1.webp|1720|1720,fem-gomas-pro-gallery-2.webp|619|619,fem-gomas-pro-gallery-3.webp|619|619,fem-gomas-pro-gallery-4.webp|619|619,fem-gomas-pro-gallery-5.webp|619|619' | split: ','
+    when 'combo-fem-x-ovulos'
+      assign photos = 'fem-ovulos-pro-gallery-1.webp|1720|1720,fem-ovulos-pro-gallery-2.webp|599|599,fem-ovulos-pro-gallery-3.webp|599|599,fem-ovulos-pro-gallery-4.webp|599|599,fem-ovulos-pro-gallery-5.webp|599|599' | split: ','
+    when 'combo-ovulos-x-jabon'
+      assign photos = 'fem-ovulos-jab-gallery-1.webp|1254|1254,fem-ovulos-jab-gallery-2.webp|619|619,fem-ovulos-jab-gallery-3.webp|619|619,fem-ovulos-jab-gallery-4.webp|619|619,fem-ovulos-jab-gallery-5.webp|619|619' | split: ','
+    when 'combo-completo'
+      assign photos = 'fem-combo-compl-gallery-1.webp|1722|1722,fem-combo-compl-gallery-2.webp|619|619,fem-combo-compl-gallery-3.webp|619|619,fem-combo-compl-gallery-4.webp|619|619,fem-combo-compl-gallery-5.webp|619|619' | split: ','
+    when 'combo-dia-de-la-mujer'
+      assign photos = 'fem-pro-gom-jab-gallery-1.webp|1719|1719,fem-pro-gom-jab-gallery-2.webp|619|619,fem-pro-gom-jab-gallery-3.webp|619|619,fem-pro-gom-jab-gallery-4.webp|619|619,fem-pro-gom-jab-gallery-5.webp|619|619' | split: ','
+    when 'probiotico-jabon-ovulos'
+      assign photos = 'fem-pro-jab-ovu-gallery-1.webp|1720|1720,fem-pro-jab-ovu-gallery-2.webp|619|619,fem-pro-jab-ovu-gallery-3.webp|619|619,fem-pro-jab-ovu-gallery-4.webp|619|619,fem-pro-jab-ovu-gallery-5.webp|619|619' | split: ','
+    when 'combo-gomas-jabon'
+      assign photos = 'fem-gomas-jab-gallery-1.webp|1254|1254,fem-gomas-jab-gallery-2.webp|619|619,fem-gomas-jab-gallery-3.webp|619|619,fem-gomas-jab-gallery-4.webp|619|619,fem-gomas-jab-gallery-5.webp|619|619' | split: ','
+    when 'combo-mama'
+      assign photos = 'fem-combo-mama-gallery-1.webp|1328|1327,fem-combo-mama-gallery-2.webp|619|619,fem-combo-mama-gallery-3.webp|619|619,fem-combo-mama-gallery-4.webp|619|619,fem-combo-mama-gallery-5.webp|619|619' | split: ','
+    when 'fem-mom-impulso-natural-de-leche-materna'
+      assign photos = 'fem-fem-mom-gallery-1.webp|1761|1761,fem-fem-mom-gallery-2.webp|619|619,fem-fem-mom-gallery-3.webp|619|619,fem-fem-mom-gallery-4.webp|619|619,fem-fem-mom-gallery-5.webp|619|619,fem-fem-mom-gallery-6.webp|619|619' | split: ','
+  endcase
+  assign position = photo_index | default: 1 | minus: 1
+  if position >= 0
+    echo photos[position]
+  endif
+-%}

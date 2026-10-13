@@ -17,7 +17,7 @@ export function restoreProductGalleries(html:string):string {
   const $=load(html,{},fullDocument);
   $('[data-fem-layout="PRODUCT_TEMPLATE"]').each((_,root)=>{
     const section=$(root),title=section.find('[data-fem-dynamic-content-source="TITLE"]').first().text().trim();
-    const assignedFile=section.hasClass('iyllIvKHIw2ISoa1k')?'jabon-gallery.json':section.hasClass('iFziHfOxyaRbyU98Z')?'probioticos-gallery.json':section.hasClass('i51ICrVVH9j25O4RJ')?'gomas-gallery.json':undefined;
+    const assignedFile=section.hasClass('iyllIvKHIw2ISoa1k')?'jabon-gallery.json':section.hasClass('iFziHfOxyaRbyU98Z')?'probioticos-gallery.json':section.hasClass('i51ICrVVH9j25O4RJ')?'gomas-gallery.json':section.hasClass('iAu60canUCGIMViZY')?'ovulos-gallery.json':section.hasClass('iRdgsyfq2bLxX865f')?'duo-gallery.json':section.hasClass('iuHBs4abgCJMwqIVy')?'gomas-pro-gallery.json':section.hasClass('ijDWCbMIcVGcJwPSX')?'ovulos-pro-gallery.json':section.hasClass('iyKyQiloViRpl9a1J')?'ovulos-jab-gallery.json':section.hasClass('iX7WaA0KXxZvOdac0')?'combo-compl-gallery.json':section.hasClass('izg3BdNZMjd83DdFH')?'pro-gom-jab-gallery.json':section.hasClass('iQNTWAEkArGNf5gXw')?'pro-jab-ovu-gallery.json':section.hasClass('iI6WNGhZa0FLLm5XT')?'gomas-jab-gallery.json':section.hasClass('iNc9PggwhVQBdgu6q')?'combo-mama-gallery.json':section.hasClass('i5M861mKsQ7EVXmGJ')?'fem-mom-gallery.json':undefined;
     const assignedPhotos:ProductPhoto[]=assignedFile?JSON.parse(readFileSync(new URL('./'+assignedFile,import.meta.url),'utf8')):[];
     const views=section.find('[data-fem-type="slider"],[data-fem-type="thumbnails"]');
     views.each((_,node)=>{
