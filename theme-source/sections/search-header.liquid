@@ -1,5 +1,5 @@
-
-
+{{ 'fem-fonts.css' | asset_url | stylesheet_tag }}
+{{ 'fem-search.css' | asset_url | stylesheet_tag }}
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <div class="section section--page-width color-{{ section.settings.color_scheme }}">
   <div
@@ -16,7 +16,7 @@
     {% endif %}
 
     {% capture heading_text %}
-      <h3>{{ heading_text }}</h3>
+      <h1 class="fem-search-heading">{{ heading_text }}</h1>
     {% endcapture %}
 
     {% content_for 'block', id: 'heading', type: '_heading', text: heading_text %}

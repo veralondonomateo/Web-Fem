@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 import {load} from 'cheerio';
 import {restoreSearchResults} from '../server/search.ts';
 
-const page='<!doctype html><html><head></head><body><main><section id="shopify-section-search" class="shopify-section"><form action="/search" method="get" class="search-page-input__parent"><span class="search__icon">Icono</span><input name="q" value="jabón"><input type="hidden" name="type" value="product"></form></section><section id="collections">Colecciones</section></main></body></html>';
+const page='<!doctype html><html><head></head><body><main><section id="shopify-section-search" class="shopify-section"><div class="search-page__header"><h3>Buscar</h3><form action="/search" method="get" class="search-page-input__parent"><span class="search__icon">Icono</span><input name="q" value="jabón"><input type="hidden" name="type" value="product"></form></div></section><section id="collections">Colecciones</section></main></body></html>';
 const section='<section id="shopify-section-search-results"><results-list section-id="search-results"><product-card><a class="product-card__link" href="/products/jabon?variant=42"><span class="visually-hidden">Jabón Fem</span></a><div class="product-card__content"></div></product-card></results-list></section>';
 const product={title:'Jabón Fem',featured_image:'https://cdn.shopify.com/soap.png',price:10000,variants:[{id:41,price:10000,compare_at_price:null},{id:42,price:15000,compare_at_price:20000}]};
 
@@ -36,6 +36,8 @@ test('Local search restores matching products, selected variant price, images an
   const $=load(await restoreSearchResults(page,url,{'Accept-Language':'es-CO'},request));
   assert.equal($('results-list').length,1);
   assert.equal($('button.search__icon[type=submit]').length,1);
+  assert.equal($('h1.fem-search-heading').text(),'Buscar');
+  assert.equal($('link[href="/__theme/fem-search.css"]').length,1);
   assert.equal($('#shopify-section-search').next().attr('id'),'shopify-section-search-results');
   assert.equal($('#collections').text(),'Colecciones');
   assert.equal($('.fem-search-card img').attr('src'),'https://cdn.shopify.com/soap.png?width=640');
@@ -61,6 +63,24 @@ test('Empty searches, no-match messages and existing results do not trigger fall
     if(url.includes('nomatch'))assert.match(result,/No hay resultados/);
     if(url.startsWith('/products/'))assert.equal(result,html);
   }
+});
+
+test('Suggested products shown before searching use the same cards without requesting a search section',async()=>{
+  const calls:URL[]=[];
+  const request:typeof fetch=async input=>{
+    const url=new URL(String(input));calls.push(url);
+    assert.equal(url.pathname,'/products/jabon.js');
+    return Response.json(product);
+  };
+  const $=load(await restoreSearchResults(page.replace('</main>',section+'</main>'),new URL('http://localhost:3000/search'),{},request));
+  assert.equal(calls.length,1);
+  assert.equal($('product-card').length,0);
+  assert.equal($('.fem-search-card').length,1);
+  assert.equal($('.fem-search-card').attr('href'),'/products/jabon?variant=42');
+  assert.match($('.fem-search-card__price').text(),/150,00/);
+  assert.equal($('.fem-search-card__stars svg').length,5);
+  assert.equal($('.fem-search-card__arrow svg').length,1);
+  assert.equal($('h1.fem-search-heading').text(),'Buscar');
 });
 
 test('Collection-style cards use real secondary images, sale prices and selected-variant availability',async()=>{

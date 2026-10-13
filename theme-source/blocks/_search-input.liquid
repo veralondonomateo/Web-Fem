@@ -38,7 +38,7 @@
       ref="searchPageInput"
       on:keydown="/handleKeyDown"
       value="{{ search.terms | escape }}"
-      placeholder="{{ 'content.search_input_placeholder' | t }}"
+      placeholder="{{ 'fem_search.input_placeholder' | t | escape }}"
     >
     <button
       type="button"

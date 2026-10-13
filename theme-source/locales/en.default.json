@@ -381,6 +381,16 @@
     "revealed": "You have 10% off! Enter your email to redeem it.",
     "steps": "1. Scratch · 2. Reveal · 3. Redeem"
   },
+  "fem_gomas_gallery": {
+    "image_1": "Fenugreek gummies, 60 units — product presentation",
+    "image_2": "Fenugreek gummies, 60 units — product information",
+    "image_3": "Fenugreek gummies, 60 units — ingredients",
+    "image_4": "Fenugreek gummies, 60 units — comparison with other brands",
+    "image_5": "Fenugreek gummies, 60 units — customer reviews"
+  },
+  "fem_search": {
+    "input_placeholder": "Search product"
+  },
   "fem_plans": {
     "breadcrumb": "Breadcrumb",
     "home": "Home",

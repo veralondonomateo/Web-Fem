@@ -397,6 +397,16 @@
     "revealed": "¡Tienes un 10% de descuento! Deja tu correo para redimirlo.",
     "steps": "1. Raspa · 2. Descubre · 3. Redime"
   },
+  "fem_gomas_gallery": {
+    "image_1": "Gomas con fenogreco x 60 UND — presentación del producto",
+    "image_2": "Gomas con fenogreco x 60 UND — información del producto",
+    "image_3": "Gomas con fenogreco x 60 UND — ingredientes",
+    "image_4": "Gomas con fenogreco x 60 UND — comparación con otras marcas",
+    "image_5": "Gomas con fenogreco x 60 UND — reseñas de clientas"
+  },
+  "fem_search": {
+    "input_placeholder": "Buscar producto"
+  },
   "fem_plans": {
     "breadcrumb": "Ruta de navegación",
     "home": "Home",

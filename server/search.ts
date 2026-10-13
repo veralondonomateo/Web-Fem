@@ -1,6 +1,6 @@
 import {load} from 'cheerio';
 import {STORE_ORIGIN} from '../src/lib/navigation.ts';
-import {renderSearchCard,type ProductImage} from './native-home.ts';
+import {renderSearchCard,translateStorefront,type ProductImage} from './native-home.ts';
 
 interface SearchProduct {
   title:string;featured_image:string|null;price:number;available?:boolean;images?:string[];
@@ -14,12 +14,16 @@ export async function restoreSearchResults(html:string,url:URL,headers:HeadersIn
   const fullDocument=/<(?:!doctype|html)\b/i.test(html);
   const $=load(html,{},fullDocument);
   const form=$('form.search-page-input__parent');
+  form.find('input[name="q"]').attr('placeholder',translateStorefront('fem_search.input_placeholder'));
+  const heading=$('.search-page__header :is(h1,h2,h3)').first();
+  if(heading.length)heading.replaceWith($('<h1 class="fem-search-heading"></h1>').text(heading.text()));
+  for(const asset of ['fem-fonts.css','fem-search.css']){
+    if(form.length&&!$(`link[href*="${asset}"]`).length)form.closest('.shopify-section').before(`<link rel="stylesheet" href="/__theme/${asset}">`);
+  }
   const icon=form.find('span.search__icon');
   if(icon.length)icon.replaceWith($('<button type="submit" aria-label="Buscar"></button>').attr('class','button-unstyled '+icon.attr('class')).append(icon.contents()));
   const query=url.searchParams.get('q')?.trim();
-  if(!query || form.find('.search-results__no-results').length)return $.html();
-
-  if(fullDocument && !$('results-list').length){
+  if(query && !form.find('.search-results__no-results').length && fullDocument && !$('results-list').length){
     const endpoint=new URL(url.pathname+url.search,STORE_ORIGIN);
     endpoint.searchParams.delete('sections');
     endpoint.searchParams.set('section_id','search-results');
@@ -35,6 +39,7 @@ export async function restoreSearchResults(html:string,url:URL,headers:HeadersIn
     }
   }
 
+  $('results-list .main-collection-grid__title').remove();
   for(const asset of ['fem-fonts.css','fem-search-card.css']){
     if(!$(`link[href*="${asset}"]`).length)$('results-list').first().before(`<link rel="stylesheet" href="/__theme/${asset}">`);
   }

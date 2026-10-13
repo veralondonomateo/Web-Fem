@@ -15,14 +15,15 @@ test('Product galleries retain their assigned photos and serve complete local im
     // This product intentionally replaces Shopify's five photos with the six supplied files.
     if(new URL(page.url).pathname==='/products/probiotico-vaginal-en-capsulas-x100-unidades'){checked++;continue;}
     const source=load(page.html),result=load(transformStorefront(page.html,new URL(page.url).pathname));
+    const assignedPhotos=new URL(page.url).pathname==='/products/gomitas-sindrome-premestrual-x60'?JSON.parse(readFileSync('server/gomas-gallery.json','utf8')):undefined;
     const before=source('[data-instant-layout="PRODUCT_TEMPLATE"] [data-instant-type="slider"] img,[data-instant-layout="PRODUCT_TEMPLATE"] [data-instant-type="thumbnails"] img').filter('[data-instant-dynamic-content-source="REPEATER"]');
     const after=result('[data-fem-product-gallery] img').filter('[data-fem-dynamic-content-source="REPEATER"]');
     if(!before.length)continue;
     assert.equal(after.length,before.length,page.url);
     before.each((index,image)=>{
       const original=source(image).attr('src')!,url=new URL(original,'https://femprobiotics.co');
-      const photo=photos[url.pathname.split('/').pop()+'?v='+(url.searchParams.get('v')??'')];
       const current=after.eq(index);
+      const photo=assignedPhotos?.[Number(current.attr('data-fem-repeater-index'))]??photos[url.pathname.split('/').pop()+'?v='+(url.searchParams.get('v')??'')];
       if(photo){
         assert.equal(current.attr('src'),'/__theme/'+photo.asset,page.url);
         assert.ok(existsSync('theme-source/assets/'+photo.asset),photo.asset);

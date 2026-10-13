@@ -21,7 +21,10 @@ engine.registerFilter('asset_url',(name:string)=>'/__theme/'+encodeURIComponent(
 engine.registerFilter('stylesheet_tag',(url:string)=>`<link rel="stylesheet" href="${url}">`);
 engine.registerFilter('money',(value:number)=>'$'+new Intl.NumberFormat('es-CO',{minimumFractionDigits:2,maximumFractionDigits:2}).format(value/100));
 const translations=JSON.parse(readFileSync(new URL('../theme-source/locales/es.json',import.meta.url),'utf8').replace(/^\/\*[\s\S]*?\*\/\s*/,''));
-engine.registerFilter('t',(key:string)=>key.split('.').reduce((value,part)=>value?.[part],translations)??key);
+export function translateStorefront(key:string):string {
+  return key.split('.').reduce((value,part)=>value?.[part],translations)??key;
+}
+engine.registerFilter('t',translateStorefront);
 engine.registerFilter('image_url',(image:ProductImage,...args:unknown[])=>{
   if(!image?.src)return '';
   const url=new URL(image.src,'https://femprobiotics.co');

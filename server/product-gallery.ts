@@ -17,7 +17,7 @@ export function restoreProductGalleries(html:string):string {
   const $=load(html,{},fullDocument);
   $('[data-fem-layout="PRODUCT_TEMPLATE"]').each((_,root)=>{
     const section=$(root),title=section.find('[data-fem-dynamic-content-source="TITLE"]').first().text().trim();
-    const assignedFile=section.hasClass('iyllIvKHIw2ISoa1k')?'jabon-gallery.json':section.hasClass('iFziHfOxyaRbyU98Z')?'probioticos-gallery.json':undefined;
+    const assignedFile=section.hasClass('iyllIvKHIw2ISoa1k')?'jabon-gallery.json':section.hasClass('iFziHfOxyaRbyU98Z')?'probioticos-gallery.json':section.hasClass('i51ICrVVH9j25O4RJ')?'gomas-gallery.json':undefined;
     const assignedPhotos:ProductPhoto[]=assignedFile?JSON.parse(readFileSync(new URL('./'+assignedFile,import.meta.url),'utf8')):[];
     const views=section.find('[data-fem-type="slider"],[data-fem-type="thumbnails"]');
     views.each((_,node)=>{

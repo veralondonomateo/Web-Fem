@@ -1,0 +1,25 @@
+{% doc %}
+Renders a supplied gummy product photograph.
+@param {number} index - Photo position from 1 through 5.
+@param {string} repeater_id - Gallery identifier.
+@param {number} repeater_index - Zero-based photo position.
+@param {string} image_role - Main, thumbnail, or zoom image.
+{% enddoc %}
+{%- liquid
+  assign image_size = 619
+  if index == 1
+    assign image_size = 1688
+  endif
+  assign image_asset = 'fem-gomas-gallery-' | append: index | append: '.webp'
+  assign image_alt_key = 'fem_gomas_gallery.image_' | append: index
+  assign image_alt = image_alt_key | t
+  assign image_loading = 'lazy'
+  assign image_priority = 'auto'
+  if image_role == 'thumbnail'
+    assign image_loading = 'eager'
+  elsif image_role == 'main' and index == 1
+    assign image_loading = 'eager'
+    assign image_priority = 'high'
+  endif
+-%}
+<img src="{{ image_asset | asset_url }}" alt="{{ image_alt | escape }}" width="{{ image_size }}" height="{{ image_size }}" loading="{{ image_loading }}" fetchpriority="{{ image_priority }}" decoding="async" class="fem-view-media fem-view-image fem-view-image__main" data-fem-dynamic-content-source="REPEATER" data-fem-repeater-id="{{ repeater_id }}" data-fem-repeater-index="{{ repeater_index }}">
