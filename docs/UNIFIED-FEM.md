@@ -56,8 +56,10 @@ El dashboard es de consulta; las operaciones de atención continúan en CRM. No 
 
 ## Despliegue unificado
 
-`vercel.json` define store, gateway, checkout y crm con bindings privados. Vercel Services está en beta. La raíz sirve la tienda; `/checkout` usa el carrito; `/admin` requiere sesión y `/admin/crm` conserva el login individual original. El build del gateway empaqueta sus plantillas y el contador; las fotos grandes se sirven como recursos estáticos.
+`vercel.json` define store, gateway, checkout, crm y assets con bindings privados. Vercel Services está en beta. La raíz sirve la tienda; `/checkout` usa el carrito; `/admin` requiere sesión y `/admin/crm` conserva el login individual original. El build del gateway empaqueta sus plantillas y el contador; las fotos grandes se sirven como recursos estáticos.
 
 Variables privadas: FEM_CHECKOUT_ENV_JSON, FEM_CRM_ENV_JSON, FEM_ADMIN_PASSWORD_HASH, FEM_INTERNAL_SECRET. Configuración: FEM_LIVE_CHECKOUT=false hasta completar pagos; FEM_MILESTONE_STARTED_AT fija el inicio del contador de demostración. No activar ALLOW_DEV_LOGIN en Vercel. La tabla fem_admin_sessions conserva únicamente hashes de tokens, con RLS y acceso de backend.
 
 Las credenciales de proveedor se recuperan solo en servidor, no se hashean porque deben usarse para autenticar llamadas. No se publican .env ni carpetas internas. Ver docs/security/REVISION-2026-10-13.md para límites pendientes, incluida la carga de archivos grandes en Functions.
+
+El alias de producción es público; las vistas previas y URLs individuales de despliegue mantienen protección de Vercel. Los datos de admin y CRM exigen autenticación propia.

@@ -53,19 +53,24 @@
       "root": "apps/crm",
       "framework": "nextjs",
       "buildCommand": "npm run build"
+    },
+    "assets": {
+      "root": ".",
+      "buildCommand": "npm run vercel-build",
+      "outputDirectory": "public"
     }
   },
   "rewrites": [
     {
       "source": "/milestone-assets/equipo.jpg",
       "destination": {
-        "service": "store"
+        "service": "assets"
       }
     },
     {
       "source": "/__theme/(.*)",
       "destination": {
-        "service": "store"
+        "service": "assets"
       }
     },
     {
