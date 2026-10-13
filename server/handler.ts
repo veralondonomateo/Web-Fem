@@ -1,3 +1,4 @@
+import {privacyMarkup,cookiePolicy} from './privacy.ts';
 import {type IncomingMessage,type ServerResponse} from 'node:http';
 import {readFile,stat} from 'node:fs/promises';
 import {join,basename} from 'node:path';
@@ -20,6 +21,7 @@ async function body(req:IncomingMessage):Promise<Buffer> {
   return Buffer.concat(chunks);
 }
 async function serve(req:IncomingMessage,res:ServerResponse):Promise<void> {
+  if(req.url?.split('?')[0]==='/pages/politica-de-cookies'){res.setHeader('Content-Type','text/html; charset=utf-8');res.setHeader('Cache-Control','no-store');res.end(req.method==='HEAD'?'':cookiePolicy);return;}
   const url=new URL(req.url??'/',`http://127.0.0.1:${port}`);
   const redirect=redirects.get(url.pathname);
   if(redirect){res.writeHead(301,{Location:redirect}).end();return;}
@@ -89,7 +91,7 @@ async function serve(req:IncomingMessage,res:ServerResponse):Promise<void> {
   res.setHeader('X-Robots-Tag','noindex, nofollow');
   res.setHeader('Cache-Control','no-store');
   res.setHeader('Referrer-Policy','strict-origin-when-cross-origin');
-  const cookies=upstream.headers.getSetCookie().map(c=>c.replace(/;\s*domain=[^;]+/ig,'').replace(/;\s*secure\b/ig,process.env.VERCEL?'; Secure':'').replace(/SameSite=None/ig,'SameSite=Lax'));
+  const cookies=upstream.headers.getSetCookie().filter(c=>/(?:^|;\s*)fem_consent=all(?:;|$)/.test(req.headers.cookie||'')||!/^(_shopify_analytics|_shopify_marketing|_fbp|_fbc|_ga|_ttp)=/.test(c)).map(c=>c.replace(/;\s*domain=[^;]+/ig,'').replace(/;\s*secure\b/ig,process.env.VERCEL?'; Secure':'').replace(/SameSite=None/ig,'SameSite=Lax'));
   if(cookies.length)res.setHeader('Set-Cookie',cookies);
   const location=upstream.headers.get('location');
   if(location){const target=new URL(location,STORE_ORIGIN);res.setHeader('Location',target.origin===STORE_ORIGIN&&!/^\/(checkouts|account|customer_authentication|discount|apps|challenge)(\/|$)/.test(target.pathname)?target.pathname+target.search+target.hash:target.href);res.end();return;}
@@ -97,7 +99,7 @@ async function serve(req:IncomingMessage,res:ServerResponse):Promise<void> {
   if(method==='HEAD'){res.end();return;}
   if(type.includes('text/html')){
     const html=await restoreSearchResults(await upstream.text(),url,headers);
-    await sendBody(req,res,transformStorefront(html,url.pathname));
+    await sendBody(req,res,privacyMarkup(transformStorefront(html,url.pathname),req.headers.cookie));
   }
   else if(type.includes('application/json')) {
     const data:unknown=await upstream.json();
