@@ -4,6 +4,7 @@ import {readFileSync} from 'node:fs';
 import {load} from 'cheerio';
 import {transformStorefront} from '../server/transform.ts';
 import {productsFromStorefront,renderNativeSection} from '../server/native-home.ts';
+import {productPhotos} from '../src/lib/product-photos.ts';
 const fixture=readFileSync(new URL('./fixtures/native-home.html',import.meta.url),'utf8');
 const original=load(fixture);
 const rendered=load(transformStorefront(fixture,'/'));
@@ -20,7 +21,7 @@ test('Native homepage keeps every product, live price and product destination',(
    assert.ok(card.text().includes(product.title));
    assert.ok(card.text().includes('$'+new Intl.NumberFormat('es-CO',{minimumFractionDigits:2}).format(product.selected_or_first_available_variant.price/100)));
    assert.equal(card.find('a').last().attr('href'),href);
-   assert.ok(card.find('img').attr('src')?.includes('/cdn/shop/files/'));
+   assert.equal(card.find('img').attr('src'),'/__theme/'+productPhotos[href.split('/products/')[1]][0].asset);
  });
  assert.equal(rendered('.fem-native a[href=""],.fem-native img[src=""]').length,0);
 });
