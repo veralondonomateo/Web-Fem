@@ -32,7 +32,7 @@ export class CartClient {
     this.request=request.bind(globalThis);
   }
   async json<T>(path:string,body?:unknown):Promise<T>{
-    const response=await this.request(this.root+path,{method:body?'POST':'GET',credentials:'same-origin',cache:'no-store',headers:{Accept:'application/json',...(body?{'Content-Type':'application/json'}:{})},body:body?JSON.stringify(body):undefined,signal:AbortSignal.timeout(20000)});
+    const response=await this.request(this.root+path,{method:body?'POST':'GET',credentials:'same-origin',cache:'no-store',headers:{Accept:'application/json',...(body?{'Content-Type':'application/json'}:{}),...(path==='cart/add.js'?{'X-Fem-Cart-State':'1'}:{})},body:body?JSON.stringify(body):undefined,signal:AbortSignal.timeout(20000)});
     const data=await response.json().catch(()=>null);
     if(!response.ok)throw new Error(typeof data?.description==='string'?data.description:'No pudimos actualizar tu carrito. Inténtalo de nuevo.');
     if(!data)throw new Error('No pudimos cargar tu carrito. Inténtalo de nuevo.');
@@ -40,7 +40,7 @@ export class CartClient {
   }
   updateAttributes(attributes:Record<string,string>){return this.json<CartState>('cart/update.js',{attributes});}
   read(){return this.json<CartState>('cart.js');}
-  async add(item:AddItem){await this.json('cart/add.js',{items:[item]});return this.read();}
+  async add(item:AddItem){const result=await this.json<Partial<CartState>>('cart/add.js',{items:[item]});return Array.isArray(result.items)&&typeof result.total_price==='number'&&typeof result.item_count==='number'?result as CartState:this.read();}
   change(key:string,quantity:number){return this.json<CartState>('cart/change.js',{id:key,quantity});}
   async recommendations(productId:number){
     const data=await this.json<{products:CartProduct[]}>(`recommendations/products.json?product_id=${productId}&limit=6&intent=related`);

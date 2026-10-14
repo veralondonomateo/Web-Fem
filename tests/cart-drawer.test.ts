@@ -41,7 +41,7 @@ test('Cart requests preserve the browser fetch receiver for every operation',asy
   assert.deepEqual(await client.add({id:123,quantity:1}),state);
   assert.deepEqual(await client.change('123:custom',2),state);
   assert.deepEqual(await client.recommendations(1),[]);
-  assert.deepEqual(paths,['/cart.js','/cart/add.js','/cart.js','/cart/change.js','/recommendations/products.json?product_id=1&limit=6&intent=related']);
+  assert.deepEqual(paths,['/cart.js','/cart/add.js','/cart/change.js','/recommendations/products.json?product_id=1&limit=6&intent=related']);
 });
 test('Native drawer renders accessible controls, translated copy and no invented promotion deadline',()=>{
   const $=load(renderNativeSection('cart-drawer',{}));
@@ -62,3 +62,5 @@ test('All pages remove the anniversary header strip and install the shared heade
     assert.equal($('[data-instant-layout="CART"]').length,0,fixture.url);
   }
 });
+
+test('Full server cart from add skips the second browser request',async()=>{let calls=0;const client=new CartClient('/',(async(_url,init)=>{calls++;assert.equal(new Headers(init?.headers).get('X-Fem-Cart-State'),'1');return Response.json(state);}) as typeof fetch);assert.deepEqual(await client.add({id:123,quantity:1}),state);assert.equal(calls,1);});

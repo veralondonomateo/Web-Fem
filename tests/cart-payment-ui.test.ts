@@ -25,6 +25,7 @@ test('Drawer persists/relocks the reward, handles update failures, and opens for
   return Response.json(state);
  });
  const {enhanceCartDrawer}=await import('../src/components/cart-drawer.ts');enhanceCartDrawer();
+ (doc.querySelector('[data-fem-cart-open]') as HTMLElement).click();
  const settle=async()=>{for(let i=0;i<20;i++)await new Promise(resolve=>setTimeout(resolve,0));};
  await settle();
  assert.match(doc.querySelector('[data-item-image]')!.getAttribute('src')??'',/fem-gomas-jab-gallery-1\.webp$/);

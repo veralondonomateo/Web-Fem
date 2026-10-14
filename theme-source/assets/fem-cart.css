@@ -43,3 +43,11 @@
 .fem-cart__pay{background:var(--cart-coral);color:#581d18!important}.fem-cart__pay:hover{background:#ffacac}.fem-cart__reward-check{color:#581d18}.fem-cart__price,.fem-cart__variant{color:#581d18}.fem-cart__payment-option:has(:checked){border-color:#f17e7e}.fem-cart :focus-visible{outline-color:#581d18}
 
 .fem-cart__bonnet img{mix-blend-mode:multiply}
+
+/* Compact line controls, with separate accessible buttons for each action. */
+.fem-cart__item{margin-bottom:14px}
+.fem-cart__quantity{height:34px;width:104px;min-height:34px}
+.fem-cart .fem-cart__quantity button{width:34px;height:32px;min-width:0;min-height:32px;padding:0}
+.fem-cart .fem-cart__quantity input{width:34px;height:32px;min-height:0;padding:0;font-size:16px;line-height:32px}
+.fem-cart__item-info{padding-right:34px}
+.fem-cart .fem-cart__remove{width:32px;height:32px;min-width:32px;min-height:32px;padding:0}
