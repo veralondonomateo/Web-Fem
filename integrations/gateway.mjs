@@ -3,21 +3,24 @@ import {createServer} from 'node:http';
 import {readFile,stat} from 'node:fs/promises';
 import {join,basename} from 'node:path';
 import {randomBytes} from 'node:crypto';
-import {root,config,adminPassword,adminPasswordHash,preview,port,publicOrigin} from './config.mjs';
-import {session,issue,equal,verifyPassword,limited,sameOrigin,sessions,revoke} from './auth.mjs';
+import {root,config,crmEnv,preview,port,publicOrigin} from './config.mjs';
+import {session as readSession,issue,limited,sameOrigin,revoke} from './auth.mjs';
 import {dataset,orderDetail} from './data.mjs';
+import {isCartJSON,proxyCart} from './cart-proxy.mjs';
 import {cartPayload,paymentError} from './cart.mjs';
+import {authenticateCentral,authenticateCRM,centralUser} from './identity.mjs';
+const session=async req=>{const value=await readSession(req);return value&&await centralUser(crmEnv)?value:null;};
 import {milestone} from './milestone.mjs';
 const STORE=(process.env.STORE_INTERNAL_URL||'http://127.0.0.1:3001').replace(/\/$/,''),CHECKOUT=(process.env.CHECKOUT_INTERNAL_URL||'http://127.0.0.1:3002').replace(/\/$/,''),CRM=(process.env.CRM_INTERNAL_URL||'http://127.0.0.1:3111').replace(/\/$/,'');
 const secret=process.env.FEM_INTERNAL_SECRET;
-if(!adminPasswordHash||!secret)throw Error('Falta configurar acceso administrador o clave interna');
+if(!crmEnv.SUPABASE_URL||!crmEnv.SUPABASE_SERVICE_ROLE_KEY||!secret)throw Error('Falta configurar acceso administrador o clave interna');
 const visitors=new Map();
 const secure=publicOrigin.startsWith('https:')?'; Secure':'';
 const json=(res,status,value)=>{res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'}).end(JSON.stringify(value));};
 function messagePage(res,title,message,href,label){res.setHeader('Content-Type','text/html; charset=utf-8');res.end('<!doctype html><html lang="es"><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+title+' · FEM</title><link rel="stylesheet" href="/__theme/fem-fonts.css"></head><body style="margin:0;background:#fff7f7;color:#613c46;font-family:Poppins,Arial,sans-serif;display:grid;place-items:center;min-height:100vh"><main style="max-width:500px;text-align:center;padding:40px 24px"><p style="font-size:38px;font-weight:700">fem</p><h1 style="font-size:28px">'+title+'</h1><p style="line-height:1.8">'+message+'</p><a style="display:inline-block;background:#f1b3b9;padding:16px 24px;border-radius:30px;color:inherit;text-decoration:none;margin-top:20px" href="'+href+'">'+label+' →</a></main></body></html>');}
 const redirect=(res,path)=>res.writeHead(302,{Location:path}).end();
 async function body(req){if(req.body!==undefined){const b=Buffer.isBuffer(req.body)?req.body:Buffer.from(typeof req.body==='string'?req.body:JSON.stringify(req.body));if(b.length>1024*1024)throw Object.assign(Error('Solicitud demasiado grande'),{status:413});return b;}const upload=/^\/admin\/crm\/api\/conversations\/[^/]+\/adjunto(?:\?|$)/.test(req.url||'');const max=upload?17*1024*1024:1024*1024;let size=0,chunks=[];for await(const c of req){size+=c.length;if(size>max)throw Object.assign(Error('Solicitud demasiado grande'),{status:413});chunks.push(c);}return Buffer.concat(chunks);}
-function cookies(req){return (req.headers.cookie||'').split(';').filter(c=>!c.trim().startsWith('fem_admin=')).join(';');}
+function cookies(req){return (req.headers.cookie||'').split(';').filter(c=>!/^fem_admin(?:_v2)?=/.test(c.trim())).join(';');}
 async function cart(req){const r=await fetch(STORE+'/cart.js',{headers:{cookie:cookies(req)},signal:AbortSignal.timeout(20000)});if(!r.ok)throw Error('No pudimos cargar el carrito');return r.json();}
 async function proxy(req,res,origin,path,extra={},payload){
  const headers={...req.headers,...extra,host:new URL(origin).host,'accept-encoding':'identity',cookie:cookies(req)};
@@ -50,6 +53,7 @@ async function handler(req,res){
  delete req.headers['x-fem-internal'];delete req.headers['x-fem-cart'];
  if(!['GET','HEAD','OPTIONS'].includes(method)&&!p.includes('/webhooks/')&&!p.includes('/cron/')&&!sameOrigin(req,publicOrigin))return json(res,403,{error:'Origen no autorizado'});
  if(method==='POST'&&p.startsWith('/api/checkout')&&limited(req.socket.remoteAddress+':checkout:'+Math.floor(Date.now()/60000)))return json(res,429,{error:'Demasiadas solicitudes. Espera un momento.'});
+ if(isCartJSON(p))return proxyCart(req,res,method==='POST'?await body(req):undefined);
  if(p==='/api/fem/milestone'&&method==='GET')return json(res,200,milestone());
  if(p==='/camino-al-millon'){res.setHeader('Content-Type','text/html; charset=utf-8');return res.end(Buffer.from(bundledAssets['milestone/index.html'],'base64'));}
  if(p.startsWith('/milestone-assets/')){const name=p.slice('/milestone-assets/'.length);if(!['style.css','app.js','equipo.jpg'].includes(name))return json(res,404,{error:'No encontrado'});res.setHeader('Content-Type',name.endsWith('.css')?'text/css':name.endsWith('.jpg')?'image/jpeg':'text/javascript');return res.end(name.endsWith('.jpg')?await readFile(join(root,'milestone',name)):Buffer.from(bundledAssets['milestone/'+name],'base64'));}
@@ -58,8 +62,8 @@ async function handler(req,res){
  if(p==='/api/fem/presence'&&method==='POST'){const b=JSON.parse((await body(req)).toString());if(!/^[a-f\d-]{36}$/.test(b.id)||typeof b.path!=='string'||b.path.length>300)return json(res,400,{error:'Evento inválido'});for(const [k,v] of visitors)if(v.time<Date.now()-90000)visitors.delete(k);if(visitors.size<10000)visitors.set(b.id,{time:Date.now(),path:b.path.split('?')[0]});return json(res,200,{ok:true});}
  if(p.startsWith('/admin/assets/')){const file=p.slice('/admin/assets/'.length);if(file!==basename(file))return json(res,400,{});try{const data=Buffer.from(bundledAssets['admin/'+file],'base64');res.setHeader('Content-Type',file.endsWith('.css')?'text/css':file.endsWith('.js')?'text/javascript':'application/octet-stream');res.end(data);return;}catch{return json(res,404,{error:'Archivo no encontrado'});}}
  if(p==='/api/fem/session'&&method==='GET')return json(res,200,{authenticated:!!(await session(req)),preview});
- if(p==='/api/fem/login'&&method==='POST'){if(limited(req.socket.remoteAddress))return json(res,429,{error:'Demasiados intentos. Intenta de nuevo en 15 minutos.'});const b=JSON.parse((await body(req)).toString());if(!verifyPassword(b.password,adminPasswordHash))return json(res,401,{error:'Contraseña incorrecta'});res.setHeader('Set-Cookie',`fem_admin=${await issue()}; Path=/; HttpOnly; SameSite=Strict; Max-Age=28800${secure}`);return json(res,200,{ok:true});}
- if(p==='/api/fem/logout'&&method==='POST'){const s=await session(req);if(s)await revoke(s.id);res.setHeader('Set-Cookie',`fem_admin=; Path=/; HttpOnly; SameSite=Strict; Max-Age=0${secure}`);return json(res,200,{ok:true});}
+ if(p==='/api/fem/login'&&method==='POST'){if(limited(req.socket.remoteAddress))return json(res,429,{error:'Demasiados intentos. Intenta de nuevo en 15 minutos.'});const b=JSON.parse((await body(req)).toString());if(!await authenticateCentral(b.email,b.password,crmEnv))return json(res,401,{error:'Correo o contraseña incorrectos, o acceso no autorizado'});res.setHeader('Set-Cookie',`fem_admin_v2=${await issue()}; Path=/; HttpOnly; SameSite=Strict; Max-Age=28800${secure}`);return json(res,200,{ok:true});}
+ if(p==='/api/fem/logout'&&method==='POST'){const s=await session(req);if(s)await revoke(s.id);res.setHeader('Set-Cookie',`fem_admin_v2=; Path=/; HttpOnly; SameSite=Strict; Max-Age=0${secure}`);return json(res,200,{ok:true});}
  if(p.startsWith('/api/fem/')){
  if(!['GET','HEAD'].includes(method))return json(res,405,{error:'Método no permitido'});
  if(!(await session(req)))return json(res,401,{error:'Inicia sesión como administrador'});
@@ -72,7 +76,7 @@ async function handler(req,res){
  }
  if(p==='/admin/crm')return redirect(res,'/admin/crm/login');
  if(p.startsWith('/admin/crm/')){
- if(preview&&!process.env.VERCEL&&p==='/admin/crm/api/auth/login'&&method==='POST'){const b=await body(req),v=JSON.parse(b.toString());if(limited(req.socket.remoteAddress+'crm')||!verifyPassword(v.password,adminPasswordHash))return json(res,401,{error:'Contraseña incorrecta'});return proxy(req,res,CRM,p+u.search,{},b);}
+ if(preview&&!process.env.VERCEL&&p==='/admin/crm/api/auth/login'&&method==='POST'){const b=await body(req),v=JSON.parse(b.toString());if(limited(req.socket.remoteAddress+'crm')||!await authenticateCRM(v.email,v.password,crmEnv))return json(res,401,{error:'Contraseña incorrecta'});return proxy(req,res,CRM,p+u.search,{},b);}
  return proxy(req,res,CRM,p+u.search);
  }
  if(crmPages.has(p.split('/')[1]))return redirect(res,'/admin/crm'+p+u.search);

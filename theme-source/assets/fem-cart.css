@@ -44,6 +44,14 @@
 
 .fem-cart__bonnet img{mix-blend-mode:multiply}
 
+/* Compact line controls, with separate accessible buttons for each action. */
+.fem-cart__item{margin-bottom:14px}
+.fem-cart__quantity{height:34px;width:104px;min-height:34px}
+.fem-cart .fem-cart__quantity button{width:34px;height:32px;min-width:0;min-height:32px;padding:0}
+.fem-cart .fem-cart__quantity input{width:34px;height:32px;min-height:0;padding:0;font-size:16px;line-height:32px}
+.fem-cart__item-info{padding-right:34px}
+.fem-cart .fem-cart__remove{width:32px;height:32px;min-width:32px;min-height:32px;padding:0}
+
 /* Compact drawer: show the order, gifts and payment choices sooner. */
 .fem-cart { --cart-gutter:20px; }
 .fem-cart__header { min-height:64px; padding:8px var(--cart-gutter); border-top-width:2px; }

@@ -235,5 +235,6 @@ export function enhanceCartDrawer():void {
     tick();countdown=setInterval(tick,1000);
   }
   dialog.addEventListener('close',()=>{clearInterval(countdown);countdown=undefined;});
-  status.textContent='';void refresh();
+  // Read on opening the drawer; adding can start immediately without an initial cart request.
+  status.textContent='';
 }

@@ -7,7 +7,7 @@ $('#nav').innerHTML=modules.map(([id,title])=>`<a href="/admin#${id}" data-view=
 let data,view='overview',version=0,products;
 async function api(path,options){const r=await fetch(path,options);const d=await r.json();if(r.status===401){showLogin();throw Error('Tu sesión terminó. Ingresa de nuevo.');}if(!r.ok)throw Error(d.error||'No se pudo cargar');return d;}
 function showLogin(){$('#login').hidden=false;$('#workspace').hidden=true;}
-$('#login-form').onsubmit=async e=>{e.preventDefault();const b=e.submitter;b.disabled=true;$('#login-error').textContent='';try{await api('/api/fem/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:$('#password').value})});$('#password').value='';await start();}catch(e){$('#login-error').textContent=e.message;}finally{b.disabled=false;}};
+$('#login-form').onsubmit=async e=>{e.preventDefault();const b=e.submitter;b.disabled=true;$('#login-error').textContent='';try{await api('/api/fem/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:$('#email').value,password:$('#password').value})});$('#password').value='';await start();}catch(e){$('#login-error').textContent=e.message;}finally{b.disabled=false;}};
 $('#logout').onclick=async()=>{await api('/api/fem/logout',{method:'POST'});data=null;showLogin();};
 $('#menu').onclick=()=>document.body.classList.toggle('nav-open');
 window.addEventListener('hashchange',()=>{document.body.classList.remove('nav-open');render();});

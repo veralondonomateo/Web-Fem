@@ -59,6 +59,11 @@ if [ "$1" = "--reset" ] || [ ! -f "$DB_DIR/.seeded" ]; then
   touch "$DB_DIR/.seeded"
 fi
 
+# Same identities/roles in the isolated preview; gateway verifies the real credentials.
+node -e "
+ const {PrismaClient}=require('@prisma/client');const p=new PrismaClient();
+ Promise.all([['gerencia@grupomsm.co','Gerencia','ADMIN'],['luciana@grupomsm.co','Luciana','AGENT'],['lina@grupomsm.co','Lina','AGENT']].map(([email,name,role])=>p.crmUser.upsert({where:{email},create:{email,name,role,isActive:true},update:{role,isActive:true}}))).then(()=>p.\$disconnect());"
+
 # ── App ──────────────────────────────────────────────────────────────────────
 npx next build
 echo ""
