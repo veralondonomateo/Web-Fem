@@ -9,6 +9,7 @@
     endif
   -%}
   {{ 'fem-product-gomitas.css' | asset_url | stylesheet_tag: preload: preload -}}
+  {{ 'fem-product-cutouts.css' | asset_url | stylesheet_tag }}
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Montserrat:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet">
   {%- liquid
     assign product_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image
@@ -117,7 +118,7 @@
           ></div
         ><div class="inzVU8bQZjOr1j5wr" data-fem-type="container"
           ><div class="isZkNrnZMcDNyVzxw" data-fem-type="container"
-            ><h3 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="ijfHuBv72t5EWeFOm">{{ product.title }}</h3
+            ><h1 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="ijfHuBv72t5EWeFOm">{{ product.title }}</h1
             ><div class="ierDJdriXxYTwgkcl" data-fem-type="container"
               ><div data-fem-type="icon" class="iLnz6W570SjSJeNWN">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
@@ -497,12 +498,7 @@
     <div class="il780vFgvakXAuoaE" data-fem-type="container" id="il780vFgvakXAuoaE" data-fem-form-product-url="{{ product_l780vFgvakXAuoaE.url }}" data-fem-form-variant-id="{{ product_l780vFgvakXAuoaE_variant.id }}" data-fem-form-product-id="{{ product_l780vFgvakXAuoaE.id }}"
       ><div class="icBfOHlU8DB63nos0" data-fem-type="container"
         ><div class="igLL8ZKNv7FOm7OyO" data-fem-type="container"
-          ><div data-fem-type="media" class="iKZL1GT8jcURYCnok">{%- capture fem_image_fallback -%}<img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }} 1080w, {{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }} 828w, {{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }} 750w, {{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }} 640w, {{ 'fem-media-3bb334bd69269297.webp' | asset_url }} 360w, {{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }} 1280w" src="{{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }}" width="460" height="586" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet">{%- endcapture -%}
-{%- capture fem_image_attributes -%}{%- endcapture -%}
-{% render 'fem-product-image', card_product: product_l780vFgvakXAuoaE, fallback: fem_image_fallback, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet', image_attributes: fem_image_attributes, image_style: 'object-fit:contain', loading: 'lazy' %}
-{%- capture fem_image_fallback -%}<img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }} 1080w, {{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }} 828w, {{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }} 750w, {{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }} 640w, {{ 'fem-media-3bb334bd69269297.webp' | asset_url }} 360w, {{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }} 1280w" src="{{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }}" width="460" height="586" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile">{%- endcapture -%}
-{%- capture fem_image_attributes -%}{%- endcapture -%}
-{% render 'fem-product-image', card_product: product_l780vFgvakXAuoaE, fallback: fem_image_fallback, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile', image_attributes: fem_image_attributes, image_style: 'object-fit:contain', loading: 'lazy' %}</div></div
+          ><div data-fem-type="media" class="iKZL1GT8jcURYCnok" data-fem-product-cutout><picture class="fem-product-cutout-picture">{% render 'fem-cutout-sources', photo_asset: 'fem-gomas-why-transparent-v1.webp', photo_width: 1254 %}<img src="{{ 'fem-gomas-why-transparent-v1.webp' | asset_url }}" alt="{{ product.title | escape }} — sin fondo" width="1254" height="1254" decoding="async" loading="lazy" data-fem-preserve-photo class="fem-view-media fem-view-image fem-view-image__main"></picture></div></div
         ><div class="iPHcKdVbKHFVi9gsO" data-fem-type="container"
           ><div data-fem-type="text" class="fem-view-rich-text iegFiOtNHVlZWisxQ"><h3>¿Por qué las Gomitas Premenstruales FEM?</h3></div
           ><div data-fem-type="text" class="fem-view-rich-text iyQWpJskzDYcwFdA9"><p>Cuidado femenino consciente y delicioso.</p><p>Las gomitas FEM acompañan tu ciclo menstrual ayudando a que vivas tu periodo con mayor equilibrio y bienestar.</p></div
@@ -771,12 +767,12 @@
     ><div class="iD59nEJ4X1Zogpp5k fem-view-scroll-trigger fem-view-scroll-trigger--hidden fem-view-reveal--transform" data-fem-scroll-into-view-replay="true" data-fem-scroll-into-view-offset="600" data-fem-type="container" id="iD59nEJ4X1Zogpp5k"
       ><div class="i0jC36OE7EOY8XUe4" data-fem-type="container"
         ><div class="ij632gPJJ0YiqSVpW" data-fem-type="container"
-          ><div data-fem-type="media" class="ilju413iRQjH5ldeu"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }} 1080w, {{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }} 828w, {{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }} 750w, {{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }} 640w, {{ 'fem-media-3bb334bd69269297.webp' | asset_url }} 360w, {{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }} 1280w" src="{{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }}" width="460" height="586" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }} 1080w, {{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }} 828w, {{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }} 750w, {{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }} 640w, {{ 'fem-media-3bb334bd69269297.webp' | asset_url }} 360w, {{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }} 1280w" src="{{ 'fem-media-3dd746ea4ee2e5ac.webp' | asset_url }}" width="460" height="586" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile"></div><div data-fem-type="text" class="fem-view-rich-text iLtXAOcGjzS4EoaKI"><p>Combo día de mujer</p></div></div
+          ><div data-fem-type="media" class="ilju413iRQjH5ldeu">{% render 'fem-sticky-product-image', photo_asset: 'fem-gomas-why-transparent-v1.webp', photo_width: 1254, photo_height: 1254, view_box: '238.8441 128.3608 778.6192 991.8931', display_width: 460, display_height: 586, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet', image_alt: product.title %}{% render 'fem-sticky-product-image', photo_asset: 'fem-gomas-why-transparent-v1.webp', photo_width: 1254, photo_height: 1254, view_box: '238.8441 128.3608 778.6192 991.8931', display_width: 460, display_height: 586, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile', image_alt: product.title %}</div><div data-fem-type="text" class="fem-view-rich-text iLtXAOcGjzS4EoaKI"><p>Combo día de mujer</p></div></div
         ><div class="iB3EZ8a2x9GlBVv3G" data-fem-type="container"
           ><div class="iBPNQyq01VcMKh5qp" data-fem-type="container"
             ><div data-fem-type="text" class="fem-view-rich-text icOlxrfaF2yUGAKMA"><p>Gomitas</p></div
             ><div data-fem-type="text" class="fem-view-rich-text ichVvrWzDQQxDk07n"><p>Premenstruales</p></div></div
-          ><div class="i0qlX7XLQVCyYAiqn" data-fem-type="container"
+          ><div class="i0qlX7XLQVCyYAiqn" data-fem-sticky-prices data-fem-type="container"
             ><div data-fem-type="text" class="fem-view-rich-text iyuKwBNHKghYQf2SX"><p>$ 94.000</p></div
             ><div data-fem-type="text" class="fem-view-rich-text ihJAtILv1muq1SqAP"><p>$ 150.000</p></div></div
           ><div class="iLKTRs6UwXWXSbBzp" data-fem-type="container"

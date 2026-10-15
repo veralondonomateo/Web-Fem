@@ -4070,6 +4070,10 @@
   display:none;
 }
 
+.fem-native.fem-home .fem-featured__layout-5 {
+  display:none;
+}
+
 .fem-native.fem-home .fem-featured__price {
   font-size:15px;
 }

@@ -463,6 +463,7 @@
     "prepaid_cta": "Continuar con pago anticipado →"
   },
   "fem_scratch": {
+    "dismiss": "Seguir explorando",
     "redemption_title": "Ingresa tu correo para redimir tu descuento",
     "redemption_copy": "Te enviaremos los detalles para usarlo en tu primera compra.",
     "eyebrow": "Un regalo para ti",
@@ -483,6 +484,8 @@
     "image_5": "Gomas con fenogreco x 60 UND — reseñas de clientas"
   },
   "fem_search": {
+    "open": "Buscar productos",
+    "short": "Buscar",
     "input_placeholder": "Buscar producto"
   },
   "fem_plans": {
@@ -491,8 +494,43 @@
     "options": "Planes mensuales Fem",
     "recommended": "Recomendado",
     "monthly": "Mensual",
+    "per_month": "/mes",
+    "includes": "Incluye",
     "price_prefix": "Por solo",
     "start": "Empezar mi plan",
     "benefits": "Beneficios de la suscripción Fem"
+  },
+  "fem_collections": {
+    "view_collection": "Ver colección"
+  },
+  "fem_catalog": {
+    "heading": "Encuentra tu producto",
+    "clear": "Limpiar filtros",
+    "category": "Categoría",
+    "all_categories": "Todas",
+    "combos": "Combos Fem",
+    "probiotics": "Probióticos",
+    "soap": "Jabón íntimo",
+    "gummies": "Gomas PMS",
+    "ovules": "Óvulos",
+    "mom": "Fem Mom",
+    "soda": "Sodas",
+    "other": "Otros",
+    "availability": "Disponibilidad",
+    "all_availability": "Todas",
+    "in_stock": "Disponibles",
+    "sold_out": "Agotados",
+    "price": "Precio (COP)",
+    "minimum": "Desde",
+    "maximum": "Hasta",
+    "count_all": "[count] productos",
+    "count_one": "1 producto",
+    "count_filtered": "[count] de [total] productos",
+    "page_suffix": "en esta página",
+    "loading": "Consultando disponibilidad…",
+    "load_error": "No pudimos confirmar la disponibilidad. Selecciona esa opción de nuevo para reintentarlo.",
+    "price_error": "Revisa el precio: el mínimo debe ser mayor o igual a 0 y no superar el máximo.",
+    "empty": "No hay productos con estos filtros. Prueba otro rango o limpia los filtros.",
+    "pagination": "Páginas de productos"
   }
 }

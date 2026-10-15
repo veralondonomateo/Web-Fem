@@ -1,0 +1,56 @@
+.fem-native.fem-home .fem-subscription__section {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);
+  align-items:center;
+  gap:48px;
+  width:100%;
+  max-width:1500px;
+  margin:0 auto;
+  padding:40px 80px 64px;
+  background:#fff;
+  color:#581d18;
+  font-family:Poppins,Arial,sans-serif;
+}
+.fem-native.fem-home .fem-subscription__layout { grid-column:2; grid-row:1; display:block; min-width:0; width:100%; }
+.fem-native.fem-home .fem-subscription__media { width:100%; height:auto; aspect-ratio:1470/1070; border-radius:32px; box-shadow:0 12px 28px #9b3c4618; }
+.fem-home .fem-subscription__media img { width:100%; height:100%; object-fit:cover; object-position:center; border-radius:inherit; }
+.fem-native.fem-home .fem-subscription__layout-2 { position:static; inset:auto; grid-column:1; grid-row:1; min-width:0; width:100%; max-width:none; padding:0; }
+.fem-native.fem-home .fem-subscription__layout-3 { align-items:flex-start; width:100%; max-width:none; padding:0; gap:24px; }
+.fem-native.fem-home .fem-subscription__heading { color:inherit; font-size:40px; font-weight:700; line-height:1.15; letter-spacing:-.035em; text-align:left; }
+.fem-home .fem-subscription__heading h2 { margin:0; font:inherit; }
+.fem-home .fem-subscription__heading em { color:#c64b4b; font-family:'Behind The Nineties Sans','Fem Home Display',Georgia,serif; font-size:1.12em; font-weight:700; letter-spacing:-.025em; }
+.fem-native.fem-home .fem-subscription__layout-4 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; width:100%; }
+.fem-native.fem-home .fem-subscription__layout-5,
+.fem-native.fem-home .fem-subscription__layout-7 { flex-direction:row; align-items:center; gap:12px; width:100%; min-width:0; }
+.fem-native.fem-home .fem-subscription__layout-6,
+.fem-native.fem-home .fem-subscription__layout-8,
+.fem-native.fem-home .fem-subscription__layout-9 { flex:0 0 48px; width:48px; height:48px; padding:0; border:1px solid #ffc8cc; border-radius:16px; background:#ffe7e9; }
+.fem-native.fem-home .fem-subscription__icon { width:24px; height:24px; color:#bb4b56; }
+.fem-native.fem-home .fem-subscription__text { font-size:13px; line-height:1.55; font-weight:500; }
+.fem-native.fem-home .fem-subscription__link { min-height:50px; max-width:100%; padding:14px 28px; border:1px solid transparent; background:#f5797e; color:#581d18; text-decoration:none; transition:background-color .2s ease; }
+.fem-native.fem-home .fem-subscription__text-2 { color:inherit; font-family:Poppins,Arial,sans-serif; font-weight:600; }
+.fem-native.fem-home .fem-subscription__link:hover { transform:none; background:#ffacac; }
+.fem-home .fem-subscription__link:focus-visible { outline:2px solid #581d18; outline-offset:4px; }
+@media(min-width:750px) and (max-width:1024px) {
+  .fem-native.fem-home .fem-subscription__section { gap:32px; padding:36px 48px 56px; }
+  .fem-native.fem-home .fem-subscription__heading { font-size:32px; }
+  .fem-native.fem-home .fem-subscription__layout-4 { grid-template-columns:minmax(0,1fr); gap:14px; }
+}
+@media(max-width:749px) {
+  .fem-native.fem-home .fem-subscription__section { display:flex; flex-direction:column; gap:28px; padding:32px 20px 48px; }
+  .fem-native.fem-home .fem-subscription__media { border-radius:24px; }
+  .fem-native.fem-home .fem-subscription__layout-3 { align-items:flex-start; gap:22px; }
+  .fem-native.fem-home .fem-subscription__heading { font-size:32px; text-align:left; }
+  .fem-native.fem-home .fem-subscription__layout-4 { gap:18px 16px; }
+  .fem-native.fem-home .fem-subscription__layout-5,
+  .fem-native.fem-home .fem-subscription__layout-7 { align-items:flex-start; gap:8px; }
+  .fem-native.fem-home .fem-subscription__layout-6,
+  .fem-native.fem-home .fem-subscription__layout-8,
+  .fem-native.fem-home .fem-subscription__layout-9 { flex-basis:36px; width:36px; height:36px; border-radius:12px; }
+  .fem-native.fem-home .fem-subscription__icon { width:20px; height:20px; }
+  .fem-native.fem-home .fem-subscription__text { font-size:12px; }
+  .fem-native.fem-home .fem-subscription__link { align-self:stretch; width:100%; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .fem-home .fem-subscription__link { transition:none; }
+}

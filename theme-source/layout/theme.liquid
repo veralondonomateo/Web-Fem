@@ -43,6 +43,7 @@
     </script>
 
     {%- render 'stylesheets' -%}
+    {{ 'fem-section-headings.css' | asset_url | stylesheet_tag }}
 
     {%- if settings.favicon != blank -%}
       <link
@@ -106,7 +107,11 @@
       data-product-transition="{{ settings.transition_to_main_product }}"
       data-template="{{ template }}"
     >
-      {{ content_for_layout }}
+      {% if shop.refund_policy != blank and request.path == shop.refund_policy.url %}
+        {% render 'fem-refund-policy', policy: shop.refund_policy %}
+      {% else %}
+        {{ content_for_layout }}
+      {% endif %}
     </main>
 
     {% if template.name == 'index' %}

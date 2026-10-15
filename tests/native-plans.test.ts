@@ -20,15 +20,26 @@ test('Plans render native cards, local photos and accessible benefits with the o
   assert.equal($('.fem-plan').length,4);
   assert.equal($('.fem-plan__badge').length,1);
   assert.equal($('.fem-plan--purple').length,1);
+  assert.deepEqual($('.fem-plan__name').map((_,node)=>$(node).text()).get(),['Dúo Fem','Alimento con probióticos','Dúo Fem doble','Fem Mom']);
   assert.deepEqual($('.fem-plan__price strong').map((_,node)=>$(node).text()).get(),['$114.900','$89.900','$189.900','$89.900']);
+  assert.deepEqual($('.fem-plan__price-period').map((_,node)=>$(node).text()).get(),Array(4).fill('/mes'));
+  assert.equal($('.fem-plan__header .fem-plan__contents').length,4);
   assert.deepEqual($('.fem-plan__button').map((_,node)=>$(node).attr('href')).get(),destinations);
   assert.equal($('[data-fem-cart-add]').length,0);
-  $('.fem-plan__image').each((_,node)=>{
+  const photos=[
+    ['fem-duo-gallery-1.webp',1254,1254],
+    ['fem-probioticos-gallery-1.webp',2000,2000],
+    ['fem-collection-promotions.webp',600,910],
+    ['fem-fem-mom-gallery-1.webp',1761,1761]
+  ];
+  $('.fem-plan__image').each((index,node)=>{
     const image=$(node),src=image.attr('src')!;
-    assert.match(src,/^\/__theme\/fem-plan-.+\.webp$/);
+    const [asset,width,height]=photos[index];
+    assert.equal(src,'/__theme/'+asset);
     assert.ok(existsSync('theme-source/assets/'+src.split('/').pop()));
     assert.ok(image.attr('alt'));
-    assert.ok(Number(image.attr('width'))>0&&Number(image.attr('height'))>0);
+    assert.equal(Number(image.attr('width')),width);
+    assert.equal(Number(image.attr('height')),height);
   });
   assert.equal($('details.fem-plans__benefit').length,6);
   assert.equal($('details[open]').length,0);
@@ -66,6 +77,8 @@ test('Merchant image, content, price and destination overrides render in the nat
   assert.equal($('.fem-plan__image').attr('src'),'/custom.webp');
   assert.equal($('.fem-plan__image').attr('alt'),'Plan personalizado');
   assert.equal($('.fem-plan__price strong').text(),'$99.900');
+  assert.equal($('.fem-plan__name').text(),'Plan personalizado');
+  assert.match($('.fem-plan__contents').text(),/2 productos/);
   assert.equal($('.fem-plan__button').attr('href'),'https://checkout.treli.co/pl/custom');
-  assert.equal($('.fem-plan__features li').length,3);
+  assert.equal($('.fem-plan__features li').length,2);
 });

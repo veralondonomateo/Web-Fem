@@ -1,0 +1,68 @@
+.fem-native.fem-home .fem-bestsellers__section { padding:32px 0 48px; }
+.fem-native.fem-home .fem-bestsellers__layout { row-gap:16px; }
+.fem-home .fem-bestsellers__intro { display:flex; align-items:center; justify-content:space-between; gap:20px; width:100%; }
+.fem-native.fem-home .fem-bestsellers__heading { font-size:32px; text-align:left; }
+.fem-home .fem-bestsellers__all { flex-shrink:0; padding:10px 0; color:#581d18; font:600 14px/1.5 Poppins,Arial,sans-serif; text-underline-offset:4px; }
+.fem-home .fem-home-sources,
+.fem-home .fem-home-specialists { padding:56px 80px; color:#581d18; font-family:Poppins,Arial,sans-serif; }
+.fem-home .fem-home-sources { box-sizing:border-box; width:100%; padding-top:64px; padding-bottom:64px; background:#fff7f7; }
+.fem-home .fem-home-sources__inner { width:100%; max-width:1340px; margin:0 auto; }
+.fem-home .fem-home-sources__intro { max-width:760px; margin:0 0 36px; text-align:left; }
+.fem-home .fem-home-sources__intro h2 { margin:0 0 16px; color:inherit; font:700 44px/1.15 Poppins,Arial,sans-serif; letter-spacing:-.035em; text-wrap:balance; }
+.fem-home .fem-home-sources__intro h2 em { color:#c64b4b; font-family:'Behind The Nineties Sans','Fem Home Display',Georgia,serif; font-size:1.12em; font-weight:700; letter-spacing:-.025em; }
+.fem-home .fem-home-sources__intro p { margin:0; font-size:15px; line-height:1.6; }
+.fem-home .fem-home-sources__grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+.fem-home .fem-home-sources__card,
+.fem-home .fem-home-specialist { display:flex; flex-direction:column; align-items:flex-start; gap:12px; min-width:0; padding:28px; border:1px solid #f7d3d3; border-radius:20px; background:#fff; }
+.fem-home .fem-home-sources__card { gap:14px; padding:30px; border-color:#fff; border-radius:28px; box-shadow:0 6px 24px #9b3c4610; }
+.fem-home .fem-home-sources__icon { display:grid; place-items:center; flex-shrink:0; width:60px; height:60px; margin-bottom:8px; border:1px solid #ffc8cc; border-radius:20px; background:#ffe7e9; }
+.fem-home .fem-home-sources__icon svg { width:30px; height:30px; color:#bb4b56; }
+.fem-home .fem-home-sources__card h3,
+.fem-home .fem-home-specialist h3 { margin:0; color:inherit; font:600 19px/1.35 Poppins,Arial,sans-serif; }
+.fem-home .fem-home-sources__card p,
+.fem-home .fem-home-specialist p { margin:0; color:inherit; font-size:14px; line-height:1.65; }
+.fem-home .fem-home-sources__card a,
+.fem-home .fem-home-specialist a { margin-top:auto; padding:10px 0 0; color:inherit; font:600 14px/1.6 Poppins,Arial,sans-serif; text-decoration:underline; text-underline-offset:4px; overflow-wrap:anywhere; }
+.fem-home .fem-home-sources__card h3 { font-size:20px; font-weight:700; letter-spacing:-.02em; }
+.fem-home .fem-home-sources__card a { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:46px; max-width:100%; margin-top:auto; padding:12px 20px; border:1px solid transparent; border-radius:999px; background:#f5797e; color:#581d18; font-size:13px; line-height:1.5; text-align:center; text-decoration:none; overflow-wrap:normal; transition:background-color .2s ease; }
+.fem-home .fem-home-sources__card p:last-of-type { margin-bottom:12px; }
+.fem-home .fem-home-sources__card a svg { flex-shrink:0; }
+.fem-home .fem-home-sources__card a:hover { background:#ffacac; }
+.fem-home .fem-home-specialists__grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+.fem-home .fem-home-specialist__credentials { font-weight:600; }
+.fem-home .fem-bestsellers__all:focus-visible,
+.fem-home .fem-home-sources a:focus-visible,
+.fem-home .fem-home-specialists a:focus-visible { outline:2px solid #581d18; outline-offset:5px; border-radius:3px; }
+.fem-home .fem-home-sources__card a:focus-visible { border-radius:999px; }
+.fem-native.fem-home .fem-faq__layout-2 { align-items:flex-start; }
+.fem-native.fem-home .fem-faq__heading,
+.fem-native.fem-home .fem-faq__text,
+.fem-native.fem-home .fem-faq__text-2 { text-align:left; }
+@media(max-width:1024px) {
+  .fem-home .fem-home-sources,
+  .fem-home .fem-home-specialists { padding:48px; }
+  .fem-home .fem-home-sources__card { padding:24px; }
+  .fem-home .fem-home-sources__card a { padding-right:14px; padding-left:14px; }
+}
+@media(max-width:749px) {
+  .fem-native.fem-home .fem-bestsellers__section { padding:24px 20px 36px; }
+  .fem-native.fem-home .fem-bestsellers__layout { padding:0; row-gap:8px; }
+  .fem-home .fem-bestsellers__intro { flex-direction:column; align-items:flex-start; gap:4px; }
+  .fem-native.fem-home .fem-bestsellers__heading { max-width:300px; font-size:25px; }
+  .fem-home .fem-bestsellers__all { padding:5px 0; font-size:13px; }
+  .fem-home .fem-home-sources,
+  .fem-home .fem-home-specialists { padding:36px 20px; }
+  .fem-home .fem-home-sources__intro { margin-bottom:26px; }
+  .fem-home .fem-home-sources__intro h2 { font-size:32px; }
+  .fem-home .fem-home-sources__intro h2 em { display:block; }
+  .fem-home .fem-home-sources__intro p { font-size:14px; }
+  .fem-home .fem-home-sources__grid,
+  .fem-home .fem-home-specialists__grid { grid-template-columns:minmax(0,1fr); gap:14px; }
+  .fem-home .fem-home-sources__card,
+  .fem-home .fem-home-specialist { padding:22px; }
+  .fem-home .fem-home-sources__card { padding:26px; }
+  .fem-home .fem-home-sources__card a { width:100%; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .fem-home .fem-home-sources__card a { transition:none; }
+}

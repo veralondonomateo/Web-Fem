@@ -7,7 +7,7 @@ Product search card matching the Todos los productos collection.
   assign card_image = card_variant.featured_image | default: card_product.featured_image
   assign hover_image = card_product.images[1]
 -%}
-<a class="fem-search-card{% if hover_image != blank %} fem-search-card--two-images{% endif %}" href="{{ card_product.url | escape }}">
+<a class="fem-search-card{% if hover_image != blank %} fem-search-card--two-images{% endif %}" href="{{ card_product.url | escape }}" data-fem-catalog-item data-product-title="{{ card_product.title | escape }}" data-product-handle="{{ card_product.handle | escape }}" data-product-url="{{ card_product.url | escape }}" data-product-price="{{ card_variant.price }}" data-product-available="{{ card_product.available | default: card_variant.available, allow_false: true }}">
   <div class="fem-search-card__media">
     {%- if card_image != blank -%}
       {%- capture fem_image_fallback -%}<img class="fem-search-card__image" src="{{ card_image | image_url: width: 640 }}" srcset="{{ card_image | image_url: width: 360 }} 360w, {{ card_image | image_url: width: 640 }} 640w, {{ card_image | image_url: width: 960 }} 960w" sizes="(max-width: 575px) 45vw, (max-width: 1024px) 30vw, 320px" alt="{{ card_product.title | escape }}" width="{{ card_image.width }}" height="{{ card_image.height }}" loading="lazy" decoding="async">{%- endcapture -%}

@@ -9,6 +9,7 @@
     endif
   -%}
   {{ 'fem-product-probiotico-soda.css' | asset_url | stylesheet_tag: preload: preload -}}
+  {{ 'fem-product-cutouts.css' | asset_url | stylesheet_tag }}
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Montserrat:wght@400;800&amp;display=swap" rel="stylesheet">
   {%- liquid
     assign product_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image
@@ -173,7 +174,7 @@
           ></div
         ><div conditionals="" class="iZlQOE9wjGYUFImnx" data-fem-type="container"
           ><div class="iNajqrTrtTZw43o8y" data-fem-type="container"
-            ><h3 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="i7rdPTLX4GXG3LgLl">{{ product.title }}</h3
+            ><h1 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="i7rdPTLX4GXG3LgLl">{{ product.title }}</h1
             ><div class="iQelBnMEkxl6q6Lyz" data-fem-type="container"
               ><div data-fem-type="icon" class="iv7M7e22vqcLx57XV">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
@@ -518,7 +519,7 @@
     ><div class="i0Y29Rfb5MRUwIhAx" data-fem-type="container" id="i0Y29Rfb5MRUwIhAx"
       ><div class="i0T7TOzW7QSpYLRdd" data-fem-type="container"
         ><div class="iYt93uVEUTjWcHhPU" data-fem-type="container"
-          ><div data-fem-type="media" class="iOcQT6vlUedLFjm9o"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }} 1080w, {{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }} 828w, {{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }} 750w, {{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }} 640w, {{ 'fem-media-6bfaf59d6c3886b2.webp' | asset_url }} 360w, {{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }} 1280w" src="{{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }}" width="460" height="343" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }} 1080w, {{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }} 828w, {{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }} 750w, {{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }} 640w, {{ 'fem-media-6bfaf59d6c3886b2.webp' | asset_url }} 360w, {{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }} 1280w" src="{{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }}" width="460" height="343" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile"></div></div
+          ><div data-fem-type="media" class="iOcQT6vlUedLFjm9o" data-fem-product-cutout><picture class="fem-product-cutout-picture">{% render 'fem-cutout-sources', photo_asset: 'fem-media-8c4fb55388b67d0a.webp', photo_width: 460 %}<img src="{{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }}" alt="{{ product.title | escape }} — sin fondo" width="460" height="343" decoding="async" loading="lazy" data-fem-preserve-photo class="fem-view-media fem-view-image fem-view-image__main"></picture></div></div
         ><div class="iuNw5k0i3GkSPuIVY" data-fem-type="container"
           ><div data-fem-type="text" class="fem-view-rich-text iju5y8ywXZPSraXs1"><h3>¿Por qué el probiótico + soda?</h3></div
           ><div data-fem-type="text" class="fem-view-rich-text iqE7rWstFsLZW08Qt"><p>Bienestar diario, práctico y delicioso.</p><p>La Soda Probiótica FEM te permite cuidar tu digestión y equilibrio interno sin cápsulas ni rutinas complicadas.</p></div
@@ -784,12 +785,12 @@
     ><div class="iYgYBIm3bG8PlSrQK fem-view-scroll-trigger fem-view-scroll-trigger--hidden fem-view-reveal--transform" data-fem-scroll-into-view-replay="true" data-fem-scroll-into-view-offset="600" data-fem-type="container" id="iYgYBIm3bG8PlSrQK"
       ><div class="iw0WUIwHptWiP34tl" data-fem-type="container"
         ><div class="iJA4vqtTZXqb2HQYQ" data-fem-type="container"
-          ><div data-fem-type="media" class="iVTrUzTmQbcpKEHIQ"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }} 1080w, {{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }} 828w, {{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }} 750w, {{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }} 640w, {{ 'fem-media-6bfaf59d6c3886b2.webp' | asset_url }} 360w, {{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }} 1280w" src="{{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }}" width="460" height="343" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }} 1080w, {{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }} 828w, {{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }} 750w, {{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }} 640w, {{ 'fem-media-6bfaf59d6c3886b2.webp' | asset_url }} 360w, {{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }} 1280w" src="{{ 'fem-media-8c4fb55388b67d0a.webp' | asset_url }}" width="460" height="343" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile"></div><div data-fem-type="text" class="fem-view-rich-text iXaXGpGWDNLeyloGc"><p>Combo día de mujer</p></div></div
+          ><div data-fem-type="media" class="iVTrUzTmQbcpKEHIQ">{% render 'fem-sticky-product-image', photo_asset: 'fem-media-8c4fb55388b67d0a.webp', photo_width: 460, photo_height: 343, view_box: '0.0000 0.0000 460.0000 343.0000', display_width: 460, display_height: 343, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet', image_alt: product.title %}{% render 'fem-sticky-product-image', photo_asset: 'fem-media-8c4fb55388b67d0a.webp', photo_width: 460, photo_height: 343, view_box: '0.0000 0.0000 460.0000 343.0000', display_width: 460, display_height: 343, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile', image_alt: product.title %}</div><div data-fem-type="text" class="fem-view-rich-text iXaXGpGWDNLeyloGc"><p>Combo día de mujer</p></div></div
         ><div class="iq2S1ZuS5CYRZWt2U" data-fem-type="container"
           ><div class="iY5q1si68fGPTpgWE" data-fem-type="container"
             ><div data-fem-type="text" class="fem-view-rich-text iFZWuFkPXs6GIYPKl"><p>Combo Probiótico</p></div
             ><div data-fem-type="text" class="fem-view-rich-text id8dXByoIeFW0yrvD"><p>Six pack Soda prebiótica</p></div></div
-          ><div class="iifINKCfTtr7EyDBN" data-fem-type="container"
+          ><div class="iifINKCfTtr7EyDBN" data-fem-sticky-prices data-fem-type="container"
             ><p data-fem-dynamic-content-source="PRICE" data-fem-type="text" class="i1li1zWcfMddVJrRN">
               {%- liquid
                 assign variant_price = product.selected_or_first_available_variant.price

@@ -9,6 +9,7 @@
     endif
   -%}
   {{ 'fem-product-gomas-probiotico.css' | asset_url | stylesheet_tag: preload: preload -}}
+  {{ 'fem-product-cutouts.css' | asset_url | stylesheet_tag }}
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Montserrat:wght@400;800&amp;display=swap" rel="stylesheet">
 
   <form data-fem-type="root" class="iRnx6YZUKJfhXVE6i" data-fem-form-product-url="{{ product.url }}" data-fem-form-variant-id="{{ product.selected_or_first_available_variant.id }}" data-fem-form-product-id="{{ product.id }}"
@@ -115,7 +116,7 @@
           ></div
         ><div class="iepHQEztuHqk6fzXR" data-fem-type="container"
           ><div class="ivMJ7htNcCnuOaPHX" data-fem-type="container"
-            ><h3 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="iIbvJuXqNQlkDWCKY">{{ product.title }}</h3
+            ><h1 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="iIbvJuXqNQlkDWCKY">{{ product.title }}</h1
             ><div class="iqIliLtJijqXKkTmM" data-fem-type="container"
               ><div data-fem-type="icon" class="iMvHZG9Hl0GpVlkbN">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
@@ -469,12 +470,7 @@
       -%}
       <div class="ijiy5leWgcjqJyqs2" data-fem-type="container" data-fem-form-product-url="{{ product_jiy5leWgcjqJyqs2.url }}" data-fem-form-variant-id="{{ product_jiy5leWgcjqJyqs2_variant.id }}" data-fem-form-product-id="{{ product_jiy5leWgcjqJyqs2.id }}"
         ><div class="i6fxgQulNwPYPBeq5" data-fem-type="container"
-          ><div data-fem-type="media" class="il1mirXKwZuovAcgR">{%- capture fem_image_fallback -%}<img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-e361ced5881e5718.webp' | asset_url }} 1080w, {{ 'fem-media-e361ced5881e5718.webp' | asset_url }} 828w, {{ 'fem-media-e361ced5881e5718.webp' | asset_url }} 750w, {{ 'fem-media-e361ced5881e5718.webp' | asset_url }} 640w, {{ 'fem-media-49787ee9885d6a6b.webp' | asset_url }} 360w, {{ 'fem-media-e361ced5881e5718.webp' | asset_url }} 1280w" src="{{ 'fem-media-e361ced5881e5718.webp' | asset_url }}" width="460" height="442" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet">{%- endcapture -%}
-{%- capture fem_image_attributes -%}{%- endcapture -%}
-{% render 'fem-product-image', card_product: product_jiy5leWgcjqJyqs2, fallback: fem_image_fallback, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet', image_attributes: fem_image_attributes, image_style: 'object-fit:contain', loading: 'lazy' %}
-{%- capture fem_image_fallback -%}<img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-e361ced5881e5718.webp' | asset_url }} 1080w, {{ 'fem-media-e361ced5881e5718.webp' | asset_url }} 828w, {{ 'fem-media-e361ced5881e5718.webp' | asset_url }} 750w, {{ 'fem-media-e361ced5881e5718.webp' | asset_url }} 640w, {{ 'fem-media-49787ee9885d6a6b.webp' | asset_url }} 360w, {{ 'fem-media-e361ced5881e5718.webp' | asset_url }} 1280w" src="{{ 'fem-media-e361ced5881e5718.webp' | asset_url }}" width="460" height="442" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile">{%- endcapture -%}
-{%- capture fem_image_attributes -%}{%- endcapture -%}
-{% render 'fem-product-image', card_product: product_jiy5leWgcjqJyqs2, fallback: fem_image_fallback, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile', image_attributes: fem_image_attributes, image_style: 'object-fit:contain', loading: 'lazy' %}</div></div
+          ><div data-fem-type="media" class="il1mirXKwZuovAcgR" data-fem-product-cutout><picture class="fem-product-cutout-picture">{% render 'fem-cutout-sources', photo_asset: 'fem-gomas-pro-why-transparent-v1.webp', photo_width: 1254 %}<img src="{{ 'fem-gomas-pro-why-transparent-v1.webp' | asset_url }}" alt="{{ product.title | escape }} — sin fondo" width="1254" height="1254" decoding="async" loading="lazy" data-fem-preserve-photo class="fem-view-media fem-view-image fem-view-image__main"></picture></div></div
         ><div class="ioOW7euFfCTqY9ra0" data-fem-type="container"
           ><div data-fem-type="text" class="fem-view-rich-text i2Bf3QtWbEh9rHMOx"><h3>¿Por qué el Combo gomas + Probióticos fem?</h3></div
           ><div data-fem-type="text" class="fem-view-rich-text iAKIbGuFsjlgFkjgj"><p>Cuidado femenino consciente y completo.</p><p>Este combo acompaña tu ciclo menstrual desde adentro, ayudando a que tu periodo sea más equilibrado y llevadero.</p></div
@@ -725,12 +721,12 @@
     ><div class="i4uM593J5aX1Em58H fem-view-scroll-trigger fem-view-scroll-trigger--hidden fem-view-reveal--transform" data-fem-scroll-into-view-replay="true" data-fem-scroll-into-view-offset="600" data-fem-type="container" id="i4uM593J5aX1Em58H"
       ><div class="igq8MCOreNuEb1Xrd" data-fem-type="container"
         ><div class="iRiBtxooBfnu5ekIR" data-fem-type="container"
-          ><div data-fem-type="media" class="if9CgZGETiMbDE3P3"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-5103f19f5e9af954.webp' | asset_url }} 1080w, {{ 'fem-media-327682cbfb3067cd.webp' | asset_url }} 828w, {{ 'fem-media-b0538de0081d0a02.webp' | asset_url }} 750w, {{ 'fem-media-4bc200501863ff9b.webp' | asset_url }} 640w, {{ 'fem-media-0ebce4bcabb27e8c.webp' | asset_url }} 360w, {{ 'fem-media-5103f19f5e9af954.webp' | asset_url }} 1280w" src="{{ 'fem-media-5103f19f5e9af954.webp' | asset_url }}" width="968" height="930" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-e361ced5881e5718.webp' | asset_url }} 1080w, {{ 'fem-media-e361ced5881e5718.webp' | asset_url }} 828w, {{ 'fem-media-e361ced5881e5718.webp' | asset_url }} 750w, {{ 'fem-media-e361ced5881e5718.webp' | asset_url }} 640w, {{ 'fem-media-49787ee9885d6a6b.webp' | asset_url }} 360w, {{ 'fem-media-e361ced5881e5718.webp' | asset_url }} 1280w" src="{{ 'fem-media-e361ced5881e5718.webp' | asset_url }}" width="460" height="442" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile"></div><div data-fem-type="text" class="fem-view-rich-text iCich5IzikCjvq1Qo"><p>Combo día de mujer</p></div></div
+          ><div data-fem-type="media" class="if9CgZGETiMbDE3P3">{% render 'fem-sticky-product-image', photo_asset: 'fem-gomas-pro-why-transparent-v1.webp', photo_width: 1254, photo_height: 1254, view_box: '87.7614 118.6057 1075.8000 1033.5682', display_width: 968, display_height: 930, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet', image_alt: product.title %}{% render 'fem-sticky-product-image', photo_asset: 'fem-gomas-pro-why-transparent-v1.webp', photo_width: 1254, photo_height: 1254, view_box: '87.4689 117.9330 1076.2679 1034.1531', display_width: 460, display_height: 442, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile', image_alt: product.title %}</div><div data-fem-type="text" class="fem-view-rich-text iCich5IzikCjvq1Qo"><p>Combo día de mujer</p></div></div
         ><div class="itv7njh3WYDi7Nner" data-fem-type="container"
           ><div class="iOJ1AEja8MpFBVPuy" data-fem-type="container"
             ><div data-fem-type="text" class="fem-view-rich-text i1wvljZdMoWf4D1WO"><p>Combo gomas</p></div
             ><div data-fem-type="text" class="fem-view-rich-text iIuLeuKQvwrrCsgvb"><p>+ probióticos fem</p></div></div
-          ><div class="i74lHjB22fxCKDhkC" data-fem-type="container"
+          ><div class="i74lHjB22fxCKDhkC" data-fem-sticky-prices data-fem-type="container"
             ><div data-fem-type="text" class="fem-view-rich-text idGQLdznmGSgJhipA"><p>$ 149,900</p></div
             ><div data-fem-type="text" class="fem-view-rich-text i7TTOtyTHnWdv447H"><p>$ 220.900</p></div></div
           ><div class="iI6IGxCdzi7EHa0Yq" data-fem-type="container"

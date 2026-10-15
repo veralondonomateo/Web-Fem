@@ -2,7 +2,11 @@
 <section class="fem-collections-page{% if section.settings.embedded %} fem-collections-page--embedded{% endif %}" aria-labelledby="collections-title-{{ section.id }}">
   <header class="fem-collections-hero">
     <div class="fem-collections-inner">
-      {% if section.settings.embedded %}<h2{% else %}<h1{% endif %} id="collections-title-{{ section.id }}" class="fem-collections-heading">{{ section.settings.heading | escape }}{% if section.settings.embedded %}</h2>{% else %}</h1>{% endif %}
+      {% if section.settings.embedded %}
+        <h2 id="collections-title-{{ section.id }}" class="fem-collections-heading">{{ section.settings.heading | escape }}</h2>
+      {% else %}
+        <h1 id="collections-title-{{ section.id }}" class="fem-collections-heading">{{ section.settings.heading | escape }}</h1>
+      {% endif %}
       {% if section.settings.description != blank %}<p class="fem-collections-description">{{ section.settings.description | escape }}</p>{% endif %}
       {% unless section.settings.embedded %}
         <nav class="fem-collections-breadcrumb" aria-label="Ruta de navegación"><a href="{{ routes.root_url }}">Home</a><span aria-hidden="true">›</span><span aria-current="page">{{ section.settings.heading | escape }}</span></nav>
@@ -18,28 +22,26 @@
           assign title = block.settings.title | default: target.title
           assign artwork = block.settings.artwork | default: 'all'
           assign photo_asset = 'fem-collection-' | append: artwork | append: '.webp'
-          assign photo_width = 1000
-          case artwork
-            when 'combos'
-              assign photo_height = 1038
-            when 'bestsellers'
-              assign photo_height = 1647
-            when 'promotions'
-              assign photo_width = 980
-              assign photo_height = 1610
-            else
-              assign photo_height = 1236
-          endcase
+          assign photo_width = 600
+          assign photo_height = 910
+          if artwork == 'all'
+            assign photo_height = 899
+          endif
         %}
-        <a class="fem-collection-card" href="{{ destination }}" {{ block.shopify_attributes }}>
+        <a class="fem-collection-card" href="{{ destination | escape }}" aria-labelledby="collection-card-title-{{ section.id }}-{{ block.id | default: forloop.index }}" {{ block.shopify_attributes }}>
+          <div class="fem-collection-card-visual">
           {% if block.settings.image != blank %}
             <img class="fem-collection-card-photo" src="{{ block.settings.image | image_url: width: 1000 }}" alt="" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" loading="lazy" decoding="async">
           {% else %}
             <img class="fem-collection-card-photo" src="{{ photo_asset | asset_url }}" alt="" width="{{ photo_width }}" height="{{ photo_height }}" loading="lazy" decoding="async">
           {% endif %}
           <img class="fem-collection-card-logo" src="{{ 'fem-logo-fem-web-a760cdd1.svg' | asset_url }}" alt="" width="565" height="177" loading="lazy">
-          <span class="fem-collection-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18c0-6 4-10 10-10h4M14 3l5 5-5 5"/></svg></span>
-          <h2 class="fem-collection-card-title">{{ title | escape }}</h2>
+          </div>
+          <h2 id="collection-card-title-{{ section.id }}-{{ block.id | default: forloop.index }}" class="fem-collection-card-title">{{ title | escape }}</h2>
+          <span class="fem-collection-card-cta" aria-hidden="true">
+            <span>{{ 'fem_collections.view_collection' | t }}</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+          </span>
         </a>
       {% endfor %}
     </div>

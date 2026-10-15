@@ -18,16 +18,10 @@
         <li>{% render 'fem-home-hero-icon', icon: 'check' %}{{ section.settings.hero_shipping | escape }}</li>
         <li>{% render 'fem-home-hero-icon', icon: 'check' %}{{ section.settings.hero_guarantee | escape }}</li>
       </ul>
-      <ul class="fem-home-hero__benefits" role="list">
-        <li>{% render 'fem-home-hero-icon', icon: 'capsule' %}<span>{{ section.settings.hero_studies | escape }}</span></li>
-        <li>{% render 'fem-home-hero-icon', icon: 'award' %}<span>{{ section.settings.hero_experts | escape }}</span></li>
-        <li>{% render 'fem-home-hero-icon', icon: 'shield' %}<span>{{ section.settings.hero_formula | escape }}</span></li>
-        <li>{% render 'fem-home-hero-icon', icon: 'seal' %}<span>{{ section.settings.hero_ingredients | escape }}</span></li>
-      </ul>
     </div>
     <div class="fem-home-hero__media">
       {% if section.settings.hero_image != blank %}
-        {{ section.settings.hero_image | image_url: width: 900 | image_tag: class: 'fem-home-hero__image', widths: '300, 450, 654, 900', sizes: '(max-width: 749px) 65vw, 360px', loading: 'eager', fetchpriority: 'high', alt: section.settings.hero_image_alt }}
+        {{ section.settings.hero_image | image_url: width: 660 | image_tag: class: 'fem-home-hero__image', widths: '260, 440, 660', sizes: '(max-width: 749px) 120px, 220px', loading: 'eager', fetchpriority: 'high', alt: section.settings.hero_image_alt }}
       {% else %}
         <img class="fem-home-hero__image" src="{{ 'fem-home-probiotics.webp' | asset_url }}" width="662" height="969" alt="{{ section.settings.hero_image_alt | escape }}" loading="eager" fetchpriority="high" decoding="async">
       {% endif %}

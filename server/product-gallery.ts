@@ -46,8 +46,9 @@ export function restoreProductGalleries(html:string):string {
       if(thumbnails)view.attr('data-fem-type','thumbnails').addClass('fem-view-slider-thumbs');
       view.attr('data-fem-product-gallery',zoom?'zoom':thumbnails?'thumbnails':'main');
       if(thumbnails&&assignedPhotos.length){
-        config.breakpoints??={'0':{slidesPerView:assignedPhotos.length,spaceBetween:14}};
-        for(const point of Object.values(config.breakpoints??{})){point.spaceBetween=14;point.slidesPerView=assignedPhotos.length;}
+        const visibleThumbnails=Math.min(5,assignedPhotos.length);
+        config.breakpoints??={'0':{slidesPerView:visibleThumbnails,spaceBetween:14}};
+        for(const point of Object.values(config.breakpoints??{})){point.spaceBetween=14;point.slidesPerView=visibleThumbnails;}
         if(configNode.length)configNode.text(JSON.stringify(config));
         else view.before($('<script type="application/json">').attr('id',`fem-view-slider-${view.attr('id')}-params`).text(JSON.stringify(config)));
       }

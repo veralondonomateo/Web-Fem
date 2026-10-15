@@ -7,6 +7,8 @@
   --fem-color-text: #000;
   --fem-color-surface: #fff;
   --fem-color-focus: #9f3838;
+  --fem-button-pink: #c64b4b;
+  --fem-button-pink-hover: #ad3f3f;
   --fem-radius-pill: 99px;
   --fem-radius-card: 8px;
   --fem-content-width: 1280px;
@@ -96,3 +98,66 @@ body :is(
 .fem-view .fem-product-error { color: #9f3838; font: 500 14px/1.4 var(--fem-font-body); padding: 12px 0; }
 .fem-view button.fem-product-cart-button { display: flex; justify-content: center; align-items: center; width: 100%; min-height: 44px; padding: 12px 20px; margin: 16px 0; border: 0; border-radius: 99px; background: #f17e7e; color: #fff; font: 700 15px/1.4 var(--fem-font-body); cursor: pointer; }
 .fem-view button.fem-product-cart-button:disabled { opacity: .5; cursor: default; }
+
+/* Only existing pink actions share this palette. An important layer lets the
+   same colors override legacy builder rules without changing their layout. */
+@layer fem-pink-buttons {
+body :is(
+  .fem-home-hero__button:not(.fem-home-hero__button--secondary),
+  .fem-bestsellers__link, .fem-subscription__link,
+  .fem-home-sources__card a, .fem-trust__link, .fem-experts__link,
+  .fem-community__link, .fem-community__text-3, .fem-press__link,
+  .fem-bestsellers__slider-container button,
+  .fem-community__controls button, .fem-press__slider-container button,
+  .fem-faq__link,
+  .fem-header:not([data-fem-header-theme="maternal"]) :is(
+    .fem-header__link-4, .fem-header__link-5, .fem-header__link-6,
+    .fem-header__cart, .fem-header__button-2
+  ),
+  .fem-plan:not(.fem-plan--purple) .fem-plan__button,
+  .contact-form .submit-button, [data-fem-scratch-submit],
+  .fem-cart__close, .fem-cart__pay, [data-cart-recommendation-add],
+  .fem-product-cart-button,
+  /* Pink purchase controls; white secondary and maternal controls are separate. */
+  .fem-view :is(
+    .iUXh9CNHs7qxsWNL9, .iXcSkhFPPOQfMWcCa,
+    .ivzkZ0jC64h40RvOb, .iai16FRd6vrNf1GTd, .iBw5aItiZSEojNqUo, .igdFE3VD3wpTVEaDA,
+    .iAlAUGJpJaMeyMEBY, .im2a4h2Xn2grk0cfT, .iLz3Ki1nfpFZoKjT7, .ikfoD4cBbDZmis3Fi,
+    .i6XGJGCsJsZCW8ehz, .iFa7fSukZe2sKWaZN, .isIc7feLEArZ7e4dI,
+    .iQ4E4Go0doVX0GSQY, .iQvy49pW4GTTLK5RA,
+    .ig9sHJs9yXJmBoGPN, .iP8COozRFzXmAbP2O, .iCeZH7PthdHxHu2Qo, .ie6u7umsmcWZsWcYM,
+    .iW0mzSDSxeo1ERUAa, .i053JUVNndewiDvDI
+  ),
+  /* Existing pink links in the blog, articles and editorial product pages. */
+  .fem-view :is(
+    .iZIEKmUrLXmLfbZn9, .iDxgTIpRpntukaKbs, .iWpvu0OJotZEAUcWA,
+    .i11Bm4SWf7grQLzRK, .iUtJIml4klfuLY0Co, .id92lyhiLF7Z9YY8w,
+    .ibm9Kmv2nK8yLTcDl, .iaNdTRAoQsSZacmho, .iSik6nY26zJJlHHjt,
+    .iqUrH1JdnHIN3Q4m9, .iA3niWInJq8nrxbHQ, .iRfX25QFts2yfHdkK,
+    .ibmM2zqEMiblUbn9B, .iwAVAAR8hK3GvjomM, .i7JYqPTUmcJbihstg,
+    .i8TilcNWeOpTJJqad, .iXmGJCoLnnm5tiHso, .ibvjTtMZ8dxviQcyQ,
+    .i2Z17IYz1G988h1ZX, .ijcoYLSfyf10q18b2, .inpnVW5j39q41TfPR,
+    .i1HuQP7DlbgcLBFp8, .ilUikCo0KRj3qrUtV, .iyqmtD69PC9JRHqIS,
+    .i7svJDjFbDgPjzJBY, .iJLAYKpYEvfaCOli1, .iJVsn9QceriD8xFgb, .iZT4VWz8BXotYPLWt,
+    .iNreChU08yuuM2hWO, .iwP3JixHHMgpi3LZH, .iGEU3lRjikKegkTim,
+    .inICzyNM7jszvHJrH, .i1fGQKDJ3mi0pH01X, .iECEs0XM2j81QdDVU, .iMQVo7C1E8rg7cjiD
+  )
+) {
+  background-color: var(--fem-button-pink) !important;
+  background-image: none !important;
+  border-color: var(--fem-button-pink) !important;
+  color: #fff !important;
+
+  * { color: inherit !important; }
+
+  &:hover:not(:where(:disabled, [aria-disabled="true"], [data-fem-disabled="true"])) {
+    background-color: var(--fem-button-pink-hover) !important;
+    border-color: var(--fem-button-pink-hover) !important;
+  }
+}
+
+/* Keep the plan arrow visible inside its original white circle. */
+body .fem-plan:not(.fem-plan--purple) .fem-plan__button > span {
+  color: var(--fem-button-pink) !important;
+}
+}

@@ -1,0 +1,51 @@
+{% doc %}
+  Product filters progressively enhanced by the shared storefront runtime.
+{% enddoc %}
+{{ 'fem-catalog-filters.css' | asset_url | stylesheet_tag }}
+<form class="fem-catalog-filters" data-fem-catalog-filters hidden novalidate
+  aria-label="{{ 'fem_catalog.heading' | t | escape }}"
+  data-count-all="{{ 'fem_catalog.count_all' | t | escape }}"
+  data-count-one="{{ 'fem_catalog.count_one' | t | escape }}"
+  data-count-filtered="{{ 'fem_catalog.count_filtered' | t | escape }}"
+  data-page-suffix="{{ 'fem_catalog.page_suffix' | t | escape }}"
+  data-loading="{{ 'fem_catalog.loading' | t | escape }}"
+  data-load-error="{{ 'fem_catalog.load_error' | t | escape }}"
+  data-price-error="{{ 'fem_catalog.price_error' | t | escape }}">
+  <div class="fem-catalog-filters__top">
+    <h2>{{ 'fem_catalog.heading' | t }}</h2>
+    <button type="reset" data-fem-filter-reset hidden>{{ 'fem_catalog.clear' | t }}</button>
+  </div>
+  <div class="fem-catalog-filters__fields">
+    <label><span>{{ 'fem_catalog.category' | t }}</span>
+      <select name="fem_category" aria-label="{{ 'fem_catalog.category' | t | escape }}">
+        <option value="">{{ 'fem_catalog.all_categories' | t }}</option>
+        <option value="combos">{{ 'fem_catalog.combos' | t }}</option>
+        <option value="probiotics">{{ 'fem_catalog.probiotics' | t }}</option>
+        <option value="soap">{{ 'fem_catalog.soap' | t }}</option>
+        <option value="gummies">{{ 'fem_catalog.gummies' | t }}</option>
+        <option value="ovules">{{ 'fem_catalog.ovules' | t }}</option>
+        <option value="mom">{{ 'fem_catalog.mom' | t }}</option>
+        <option value="soda">{{ 'fem_catalog.soda' | t }}</option>
+        <option value="other">{{ 'fem_catalog.other' | t }}</option>
+      </select>
+    </label>
+    <label><span>{{ 'fem_catalog.availability' | t }}</span>
+      <select name="fem_available" aria-label="{{ 'fem_catalog.availability' | t | escape }}">
+        <option value="">{{ 'fem_catalog.all_availability' | t }}</option>
+        <option value="true">{{ 'fem_catalog.in_stock' | t }}</option>
+        <option value="false">{{ 'fem_catalog.sold_out' | t }}</option>
+      </select>
+    </label>
+    <fieldset>
+      <legend>{{ 'fem_catalog.price' | t }}</legend>
+      <div class="fem-catalog-filters__prices">
+        <label><span class="fem-catalog-filters__sr">{{ 'fem_catalog.minimum' | t }}</span><input type="number" name="fem_min" min="0" step="any" inputmode="numeric" placeholder="{{ 'fem_catalog.minimum' | t | escape }}"></label>
+        <span aria-hidden="true">–</span>
+        <label><span class="fem-catalog-filters__sr">{{ 'fem_catalog.maximum' | t }}</span><input type="number" name="fem_max" min="0" step="any" inputmode="numeric" placeholder="{{ 'fem_catalog.maximum' | t | escape }}"></label>
+      </div>
+    </fieldset>
+  </div>
+  <p class="fem-catalog-filters__count" data-fem-filter-count role="status" aria-live="polite" aria-atomic="true"></p>
+  <p class="fem-catalog-filters__error" data-fem-filter-error role="alert" hidden></p>
+  <p class="fem-catalog-filters__empty" data-fem-filter-empty hidden>{{ 'fem_catalog.empty' | t }}</p>
+</form>

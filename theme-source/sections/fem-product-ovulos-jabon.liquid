@@ -9,6 +9,7 @@
     endif
   -%}
   {{ 'fem-product-ovulos-jabon.css' | asset_url | stylesheet_tag: preload: preload -}}
+  {{ 'fem-product-cutouts.css' | asset_url | stylesheet_tag }}
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Montserrat:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
 
   <form data-fem-type="root" class="iyuzoEQBFA494TfKA" data-fem-form-product-url="{{ product.url }}" data-fem-form-variant-id="{{ product.selected_or_first_available_variant.id }}" data-fem-form-product-id="{{ product.id }}"
@@ -115,7 +116,7 @@
           ></div
         ><div conditionals="" class="iQuHxFpSvAHeHOu94" data-fem-type="container"
           ><div class="if1QA24TO1jfpm52F" data-fem-type="container"
-            ><h3 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="iMcbmXLsldSc85cNC">{{ product.title }}</h3
+            ><h1 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="iMcbmXLsldSc85cNC">{{ product.title }}</h1
             ><div class="iHox0bCVDgQUP9HSq" data-fem-type="container"
               ><div data-fem-type="icon" class="iNpbgSVundGMd9HPC">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
@@ -485,7 +486,7 @@
     ><div class="i5pQZU4BPUQfQTEgV" data-fem-type="container" id="i5pQZU4BPUQfQTEgV"
       ><div class="ioW1nSi29r1Yj6ZtA" data-fem-type="container"
         ><div class="iKIRDhl7olVt8YlPT" data-fem-type="container"
-          ><div data-fem-type="media" class="irGnc0iREu6QHcEjk"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-89c00151bd596139.webp' | asset_url }} 1080w, {{ 'fem-media-89c00151bd596139.webp' | asset_url }} 828w, {{ 'fem-media-89c00151bd596139.webp' | asset_url }} 750w, {{ 'fem-media-89c00151bd596139.webp' | asset_url }} 640w, {{ 'fem-media-89c00151bd596139.webp' | asset_url }} 360w, {{ 'fem-media-89c00151bd596139.webp' | asset_url }} 1280w" src="{{ 'fem-media-89c00151bd596139.webp' | asset_url }}" width="460" height="389" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-89c00151bd596139.webp' | asset_url }} 1080w, {{ 'fem-media-89c00151bd596139.webp' | asset_url }} 828w, {{ 'fem-media-89c00151bd596139.webp' | asset_url }} 750w, {{ 'fem-media-89c00151bd596139.webp' | asset_url }} 640w, {{ 'fem-media-89c00151bd596139.webp' | asset_url }} 360w, {{ 'fem-media-89c00151bd596139.webp' | asset_url }} 1280w" src="{{ 'fem-media-89c00151bd596139.webp' | asset_url }}" width="460" height="389" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile"></div></div
+          ><div data-fem-type="media" class="irGnc0iREu6QHcEjk" data-fem-product-cutout><picture class="fem-product-cutout-picture">{% render 'fem-cutout-sources', photo_asset: 'fem-ovulos-jab-why-transparent-v1.webp', photo_width: 1254 %}<img src="{{ 'fem-ovulos-jab-why-transparent-v1.webp' | asset_url }}" alt="{{ product.title | escape }} — sin fondo" width="1254" height="1254" decoding="async" loading="lazy" data-fem-preserve-photo class="fem-view-media fem-view-image fem-view-image__main"></picture></div></div
         ><div class="iRd2XXpZrJUjmcCi3" data-fem-type="container"
           ><div data-fem-type="text" class="fem-view-rich-text ie1CvubLS3VkHnXmy"><h3>¿Por qué el Combo Óvulos + Jabón Íntimo FEM?</h3></div
           ><div class="ihYJm1WTw2zJj3DEM" data-fem-type="container"
@@ -753,11 +754,11 @@
     ><div class="iWoALhVApc0RyomnC fem-view-scroll-trigger fem-view-scroll-trigger--hidden fem-view-reveal--transform" data-fem-scroll-into-view-replay="true" data-fem-scroll-into-view-offset="600" data-fem-type="container" id="iWoALhVApc0RyomnC"
       ><div class="iZfyljASg7GdAZKLo" data-fem-type="container"
         ><div class="iHRlMdtLXDI3jVSGc" data-fem-type="container"
-          ><div data-fem-type="media" class="iG8qGK2aeZWfiP4Ny"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-7d24764ad4050622.webp' | asset_url }} 1080w, {{ 'fem-media-7d24764ad4050622.webp' | asset_url }} 828w, {{ 'fem-media-7d24764ad4050622.webp' | asset_url }} 750w, {{ 'fem-media-7d24764ad4050622.webp' | asset_url }} 640w, {{ 'fem-media-bc00dda698043409.webp' | asset_url }} 360w, {{ 'fem-media-7d24764ad4050622.webp' | asset_url }} 1280w" src="{{ 'fem-media-7d24764ad4050622.webp' | asset_url }}" width="1210" height="1024" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-89c00151bd596139.webp' | asset_url }} 1080w, {{ 'fem-media-89c00151bd596139.webp' | asset_url }} 828w, {{ 'fem-media-89c00151bd596139.webp' | asset_url }} 750w, {{ 'fem-media-89c00151bd596139.webp' | asset_url }} 640w, {{ 'fem-media-89c00151bd596139.webp' | asset_url }} 360w, {{ 'fem-media-89c00151bd596139.webp' | asset_url }} 1280w" src="{{ 'fem-media-89c00151bd596139.webp' | asset_url }}" width="460" height="389" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile"></div><div data-fem-type="text" class="fem-view-rich-text ibz5POloVSEcpOplE"><p>Combo día de mujer</p></div></div
+          ><div data-fem-type="media" class="iG8qGK2aeZWfiP4Ny">{% render 'fem-sticky-product-image', photo_asset: 'fem-ovulos-jab-why-transparent-v1.webp', photo_width: 1254, photo_height: 1254, view_box: '123.7921 186.9663 1114.8315 943.4607', display_width: 1210, display_height: 1024, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet', image_alt: product.title %}{% render 'fem-sticky-product-image', photo_asset: 'fem-ovulos-jab-why-transparent-v1.webp', photo_width: 1254, photo_height: 1254, view_box: '121.7992 185.6873 1118.3827 945.7628', display_width: 460, display_height: 389, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile', image_alt: product.title %}</div><div data-fem-type="text" class="fem-view-rich-text ibz5POloVSEcpOplE"><p>Combo día de mujer</p></div></div
         ><div class="iII1RfEzHYHcrGlx6" data-fem-type="container"
           ><div class="iaXmPfklUC7wWYp3O" data-fem-type="container"
             ><div data-fem-type="text" class="fem-view-rich-text iQ9HNJDvttEtgyqS8"><p>Combo óvulos </p></div><div data-fem-type="text" class="fem-view-rich-text ieEV5oqKbUvqw2399"><p>+ Jabón íntimo</p></div></div
-          ><div class="iHsfu5SVNZg7v3O72" data-fem-type="container"
+          ><div class="iHsfu5SVNZg7v3O72" data-fem-sticky-prices data-fem-type="container"
             ><p data-fem-dynamic-content-source="PRICE" data-fem-type="text" class="iUXQhULqE4foexRNF">
               {%- liquid
                 assign variant_price = product.selected_or_first_available_variant.price

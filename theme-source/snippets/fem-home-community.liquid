@@ -1,16 +1,21 @@
-<div class="fem-community__section" id="fem-community__section">
+{% doc %}
+  Renders the Fem community video carousel with Instagram links and native controls.
+  @param {section} section - The home section containing the shared icon definitions.
+{% enddoc %}
+<section class="fem-community__section" id="fem-community__section" aria-labelledby="fem-community-title-{{ section.id }}">
 <div class="fem-community__layout">
 <div class="fem-community__layout-2">
 <div class="fem-copy fem-community__heading">
-<h2>Comunidad Fem</h2>
+<h2 id="fem-community-title-{{ section.id }}">Comunidad <em>Fem</em></h2>
 </div>
+<p class="fem-community__description">Encuentros, historias y momentos para compartir.</p>
 </div>
 <div class="fem-community__layout-3">
-<div class="fem-carousel fem-community__slider-container" data-fem-carousel="{&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;view&quot;:1.3,&quot;gap&quot;:12},&quot;576&quot;:{&quot;view&quot;:2.4,&quot;gap&quot;:10},&quot;769&quot;:{&quot;view&quot;:4,&quot;gap&quot;:10},&quot;1025&quot;:{&quot;view&quot;:5,&quot;gap&quot;:10}},&quot;speed&quot;:500,&quot;loop&quot;:true}">
+<div class="fem-carousel fem-community__slider-container" data-fem-carousel="{&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;view&quot;:1.3,&quot;gap&quot;:14},&quot;576&quot;:{&quot;view&quot;:2.4,&quot;gap&quot;:18},&quot;769&quot;:{&quot;view&quot;:3,&quot;gap&quot;:18},&quot;1025&quot;:{&quot;view&quot;:4,&quot;gap&quot;:18},&quot;1280&quot;:{&quot;view&quot;:5,&quot;gap&quot;:18}},&quot;speed&quot;:500,&quot;loop&quot;:true}">
 <div class="fem-carousel__viewport fem-community__slider" id="fem-community__slider" data-fem-carousel-viewport="" tabindex="0" aria-label="Carrusel">
 <div class="fem-carousel__track" data-fem-carousel-track="">
-<div class="fem-carousel__slide fem-community__slider-slide">
-<div class="fem-carousel__slide fem-community__slider-slide-2">
+<div class="fem-carousel__slide fem-community__slider-slide fem-community__card">
+<div class="fem-carousel__slide fem-community__slider-slide-2 fem-community__card-header">
 <div class="fem-community__layout-4">
 <div class="fem-community__media">
 <img alt="" src="{{ 'fem-isotipo-fem-da0127ea.svg' | asset_url }}" width="198" height="198" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
@@ -47,7 +52,7 @@
 </noscript>
 </div>
 </div>
-<div class="fem-community__layout-6">
+<div class="fem-community__layout-6 fem-community__card-footer">
 <a class="fem-community__text-3" href="https://www.instagram.com/femprobiotics/" target="_blank" rel="noopener noreferrer">
 <div class="fem-copy">
 <p>Ver más en Instagram</p>
@@ -55,8 +60,8 @@
 </a>
 </div>
 </div>
-<div class="fem-carousel__slide fem-community__slider-slide-3">
-<div class="fem-carousel__slide fem-community__slider-slide-2">
+<div class="fem-carousel__slide fem-community__slider-slide-3 fem-community__card">
+<div class="fem-carousel__slide fem-community__slider-slide-2 fem-community__card-header">
 <div class="fem-community__layout-4">
 <div class="fem-community__media">
 <img alt="" src="{{ 'fem-isotipo-fem-da0127ea.svg' | asset_url }}" width="198" height="198" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
@@ -95,7 +100,7 @@
 </div>
 </div>
 </div>
-<div class="fem-community__layout-8">
+<div class="fem-community__layout-8 fem-community__card-footer">
 <a class="fem-community__text-3" href="https://www.instagram.com/femprobiotics/" target="_blank" rel="noopener noreferrer">
 <div class="fem-copy">
 <p>Ver más en Instagram</p>
@@ -103,8 +108,8 @@
 </a>
 </div>
 </div>
-<div class="fem-carousel__slide fem-community__slider-slide-4">
-<div class="fem-carousel__slide fem-community__slider-slide-2">
+<div class="fem-carousel__slide fem-community__slider-slide-4 fem-community__card">
+<div class="fem-carousel__slide fem-community__slider-slide-2 fem-community__card-header">
 <div class="fem-community__layout-4">
 <div class="fem-community__media">
 <img alt="" src="{{ 'fem-isotipo-fem-da0127ea.svg' | asset_url }}" width="198" height="198" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
@@ -143,7 +148,7 @@
 </div>
 </div>
 </div>
-<div class="fem-community__layout-10">
+<div class="fem-community__layout-10 fem-community__card-footer">
 <a class="fem-community__text-3" href="https://www.instagram.com/femprobiotics/" target="_blank" rel="noopener noreferrer">
 <div class="fem-copy">
 <p>Ver más en Instagram</p>
@@ -151,8 +156,8 @@
 </a>
 </div>
 </div>
-<div class="fem-carousel__slide fem-community__slider-slide-5">
-<div class="fem-carousel__slide fem-community__slider-slide-2">
+<div class="fem-carousel__slide fem-community__slider-slide-5 fem-community__card">
+<div class="fem-carousel__slide fem-community__slider-slide-2 fem-community__card-header">
 <div class="fem-community__layout-4">
 <div class="fem-community__media">
 <img alt="" src="{{ 'fem-isotipo-fem-da0127ea.svg' | asset_url }}" width="198" height="198" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
@@ -189,7 +194,7 @@
 </noscript>
 </div>
 </div>
-<div class="fem-community__layout-12">
+<div class="fem-community__layout-12 fem-community__card-footer">
 <a class="fem-community__text-3" href="https://www.instagram.com/femprobiotics/" target="_blank" rel="noopener noreferrer">
 <div class="fem-copy">
 <p>Ver más en Instagram</p>
@@ -197,8 +202,8 @@
 </a>
 </div>
 </div>
-<div class="fem-carousel__slide fem-community__slider-slide-6">
-<div class="fem-carousel__slide fem-community__slider-slide-2">
+<div class="fem-carousel__slide fem-community__slider-slide-6 fem-community__card">
+<div class="fem-carousel__slide fem-community__slider-slide-2 fem-community__card-header">
 <div class="fem-community__layout-4">
 <div class="fem-community__media">
 <img alt="" src="{{ 'fem-isotipo-fem-da0127ea.svg' | asset_url }}" width="198" height="198" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
@@ -237,7 +242,7 @@
 </div>
 </div>
 </div>
-<div class="fem-community__layout-14">
+<div class="fem-community__layout-14 fem-community__card-footer">
 <a class="fem-community__text-3" href="https://www.instagram.com/femprobiotics/" rel="noopener noreferrer">
 <div class="fem-copy">
 <p>Ver más en Instagram</p>
@@ -245,8 +250,8 @@
 </a>
 </div>
 </div>
-<div class="fem-carousel__slide fem-community__slider-slide-7">
-<div class="fem-carousel__slide fem-community__slider-slide-2">
+<div class="fem-carousel__slide fem-community__slider-slide-7 fem-community__card">
+<div class="fem-carousel__slide fem-community__slider-slide-2 fem-community__card-header">
 <div class="fem-community__layout-4">
 <div class="fem-community__media">
 <img alt="" src="{{ 'fem-isotipo-fem-da0127ea.svg' | asset_url }}" width="198" height="198" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
@@ -285,7 +290,7 @@
 </div>
 </div>
 </div>
-<div class="fem-community__layout-16">
+<div class="fem-community__layout-16 fem-community__card-footer">
 <a class="fem-community__text-3" href="https://www.instagram.com/femprobiotics/" target="_blank" rel="noopener noreferrer">
 <div class="fem-copy">
 <p>Ver más en Instagram</p>
@@ -295,6 +300,7 @@
 </div>
 </div>
 </div>
+<div class="fem-community__controls">
 <div class="fem-community__layout-17">
 <button class="fem-slider-button fem-slider-button-prev fem-community__slider-button-prev" type="button" data-fem-carousel-prev="" aria-label="Anterior">
 <div class="fem-community__icon-2">
@@ -321,3 +327,4 @@
 </div>
 </div>
 </div>
+</section>

@@ -8,6 +8,8 @@
   {% render 'contact-form', settings: block.settings, submit_button: content_for_submit_button %}
 {%- enddoc -%}
 
+{{ 'fem-contact-form.css' | asset_url | stylesheet_tag }}
+
 <div
   class="
     contact-form
@@ -48,8 +50,9 @@
     {%- endif -%}
 
     <div class="contact-form__form-row">
+      <div class="contact-form__field">
       <label
-        class="visually-hidden"
+        class="contact-form__label"
         for="ContactForm-name"
       >
         {{- 'blocks.contact_form.name' | t -}}
@@ -63,9 +66,11 @@
         value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
         placeholder="{{ 'blocks.contact_form.name' | t }}"
       >
+      </div>
 
+      <div class="contact-form__field">
       <label
-        class="visually-hidden"
+        class="contact-form__label"
         for="ContactForm-email"
       >
         {{- 'blocks.contact_form.email' | t -}}
@@ -87,10 +92,12 @@
         {% endif %}
         placeholder="{{ 'blocks.contact_form.email' | t }}"
       >
+      </div>
     </div>
 
+    <div class="contact-form__field">
     <label
-      class="visually-hidden"
+      class="contact-form__label"
       for="ContactForm-phone"
     >
       {{- 'blocks.contact_form.phone' | t -}}
@@ -105,9 +112,11 @@
       value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
       placeholder="{{ 'blocks.contact_form.phone' | t }}"
     >
+    </div>
 
+    <div class="contact-form__field">
     <label
-      class="visually-hidden"
+      class="contact-form__label"
       for="ContactForm-body"
     >
       {{- 'blocks.contact_form.comment' | t -}}
@@ -121,6 +130,7 @@
     >
       {{- form.body -}}
     </textarea>
+    </div>
 
     {{ submit_button }}
   {%- endform -%}

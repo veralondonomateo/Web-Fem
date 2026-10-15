@@ -12,7 +12,6 @@ export function presentProbioticos(html:string):string {
   try{variants=JSON.parse(form.find('script[id^="variants__"]').first().text());}catch{return html;}
   const selected=variants.find(v=>String(v.id)===form.attr('data-fem-form-variant-id'))??variants[0];
   if(!selected)return html;
-  section.find('.iKDOqdyPeeOorzNBB').html('<img src="/__theme/fem-probioticos-gallery-3.webp" alt="Alimento con probióticos y prebióticos — tabletas masticables" width="599" height="599" decoding="async" loading="lazy" class="fem-view-media fem-view-image fem-view-image__main">');
   if(!section.find('.fem-probioticos-price').length)section.find('.idcYjy9VppnFOePFZ').after(renderProbioticosSummary(selected));
   section.find('.iDRuhtPkGFL1tKaw0').replaceWith(renderProbioticosDelivery());
   section.find('.iJjyeqLikBIYPlUO3').append(section.find('.icqUWFhkU7uj7KztV'));

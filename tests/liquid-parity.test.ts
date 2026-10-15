@@ -35,7 +35,7 @@ test('Native homepage has no Instant runtime, stylesheet, attributes or remote m
  assert.equal(rendered('.fem-home-hero h1').text(),'Salud femenina');
  assert.deepEqual(rendered('.fem-home-hero__actions a').map((_,el)=>rendered(el).attr('href')).get(),['/collections/todos-los-productos','/pages/quiz1']);
  assert.equal(rendered('.fem-home-hero__image').attr('loading'),'eager');
- assert.equal(rendered('.fem-home-hero__benefits li').length,4);
+ assert.equal(rendered('.fem-home-hero__benefits li').length,0);
 });
 
 test('FAQ copy, article destinations and SVG references survive the migration',()=>{

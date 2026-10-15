@@ -1,12 +1,15 @@
 import {load} from 'cheerio';
 import {repairNavigation,localHref,STORE_ORIGIN} from '../src/lib/navigation.ts';
-import {productsFromStorefront,renderNativeSection,renderScratchCard,renderCollectionsPage,renderPlansPage} from './native-home.ts';
+import {productsFromStorefront,renderNativeSection,renderScratchCard,renderCollectionsPage,renderPlansPage,renderRefundPolicy} from './native-home.ts';
 import {componentSelectors as selectors,deduplicateIcons} from '../src/lib/performance.ts';
 import {nativeMarkup} from './legacy-preview.ts';
 import {restoreProductGalleries} from './product-gallery.ts';
 import {restoreProductCardPhotos} from './product-card-photos.ts';
 import {productCartControls} from '../src/lib/product-cart.ts';
 import {presentProbioticos} from './product-probioticos.ts';
+import {restoreProductCutouts} from './product-cutouts.ts';
+import {restoreCatalogFilters} from './catalog-filters.ts';
+import {restoreCollectionCards} from './collection-cards.ts';
 export function transformStorefront(html:string,pathname?:string):string {
   const fullDocument=/<(?:!doctype|html)\b/i.test(html);
   const $=load(repairNavigation(html),{},fullDocument);
@@ -56,6 +59,12 @@ export function transformStorefront(html:string,pathname?:string):string {
   const collectionsRoot=$('[data-instant-id="jk0iO6ALDrfmfm6c"]');
   const canonical=$('link[rel="canonical"]').attr('href');
   const pagePath=pathname??(canonical?new URL(canonical,STORE_ORIGIN).pathname:'');
+  if(pagePath==='/policies/refund-policy'){
+    const policy=$('.shopify-policy__container').first();
+    const title=policy.find('.shopify-policy__title h1').text().trim();
+    const policyBody=policy.find('.shopify-policy__body .rte').first().html();
+    if(title&&policyBody!==null)policy.replaceWith(renderRefundPolicy({title,body:policyBody}));
+  }
   const plansRoot=$('[data-instant-id="zX2zkAycloBh8C5v"]');
   if(pagePath==='/pages/planes-or-fem'||plansRoot.length){
     $('link[href*="instant-zX2zkAycloBh8C5v"],link[href*="fem-subscription-plans.css"]').remove();
@@ -104,6 +113,20 @@ export function transformStorefront(html:string,pathname?:string):string {
     const form=$(element);const action=form.attr('action')!;
     if (/^\/?contact(?:$|[?#])/.test(action)) form.attr('action',new URL(action,STORE_ORIGIN).href);
   });
+  // Keep the legacy preview aligned with the native contact form's persistent labels.
+  $('.contact-form__form label[for]').each((_,node)=>{
+    const label=$(node),form=label.closest('form'),id=label.attr('for');
+    const field=form.find('input:not([type="hidden"]),textarea').filter((_,input)=>$(input).attr('id')===id).first();
+    if(!field.length)return;
+    label.removeClass('visually-hidden').addClass('contact-form__label');
+    if(!label.parent().hasClass('contact-form__field')){
+      label.wrap('<div class="contact-form__field"></div>');
+      label.after(field);
+    }
+  });
+  if($('.contact-form__form').length&&!$('link[href="/__theme/fem-contact-form.css"]').length){
+    $('.contact-form').first().before('<link rel="stylesheet" href="/__theme/fem-contact-form.css">');
+  }
   $('link[rel="modulepreload"][href^="/__theme/"]').remove();
   $('link[rel="preload"][href="/__theme/overflow-list.css"]').remove();
   if(fullDocument){
@@ -126,15 +149,18 @@ export function transformStorefront(html:string,pathname?:string):string {
   $('meta[name="robots"]').remove();
   if(fullDocument){
     if($('.iyllIvKHIw2ISoa1k').length)$('body').append('<link rel="stylesheet" href="/__theme/fem-product-jabon-gallery.css">');
-    $('head').append('<meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="/__theme/fem-tokens.css"><script type="module" src="/__theme/fem-runtime.js"></script>');
+    $('head').append('<meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="/__theme/fem-tokens.css"><link rel="stylesheet" href="/__theme/fem-section-headings.css"><script type="module" src="/__theme/fem-runtime.js"></script>');
   }
   let result=$.html().replace(/(?:https?:)?\/\/femprobiotics\.co\/cdn\/shop\/t\/9\/assets\/([a-zA-Z0-9_.-]+)(?:\?v=\d+)?/g, '/__theme/$1');
   if(fullDocument && pathname==='/')result=result.replace(/<!--[\s\S]*?-->/g,comment=>/instant/i.test(comment)?'':comment);
-  const native=nativeMarkup(result);
+  const native=restoreCollectionCards(restoreCatalogFilters(nativeMarkup(result)));
   if(!/data-fem-layout="PRODUCT_TEMPLATE"/.test(native))return restoreProductCardPhotos(restoreProductGalleries(native));
   const cartMarkup=load(native,{},fullDocument);
   cartMarkup('[data-fem-layout="PRODUCT_TEMPLATE"]').each((_,node)=>{
     const section=cartMarkup(node);
+    // Match the native Liquid title without changing its styling or commerce attributes.
+    const title=section.find('form[data-fem-type="root"] [data-fem-dynamic-content-source="TITLE"]').first()[0];
+    if(title)title.tagName='h1';
     section.html(productCartControls(section.html()??''));
     if(section.find('[data-fem-cart-add],[data-fem-action-type="add-to-cart"]').length)return;
     const handle=section.find('form[data-fem-form-product-url]').first().attr('data-fem-form-product-url')?.split('/').pop();
@@ -143,5 +169,5 @@ export function transformStorefront(html:string,pathname?:string):string {
     const accordion=section.find('[data-fem-type="accordion-container"]').first();
     if(accordion.length)accordion.before(control);else section.find('form').first().append(control);
   });
-  return restoreProductCardPhotos(presentProbioticos(restoreProductGalleries(cartMarkup.html())));
+  return restoreProductCardPhotos(restoreProductCutouts(presentProbioticos(restoreProductGalleries(cartMarkup.html()))));
 }

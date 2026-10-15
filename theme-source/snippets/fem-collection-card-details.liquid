@@ -1,0 +1,35 @@
+{%- liquid
+  assign card_variant = card_product.selected_or_first_available_variant
+  assign card_price = card_variant.price
+  assign card_compare_at = card_variant.compare_at_price
+  if card_variant.selected_selling_plan_allocation
+    assign card_price = card_variant.selected_selling_plan_allocation.price
+    assign card_compare_at = card_variant.selected_selling_plan_allocation.compare_at_price
+  endif
+  assign card_discount = 0
+  if card_compare_at > card_price and card_compare_at > 0
+    assign card_discount = card_compare_at | minus: card_price | times: 100 | divided_by: card_compare_at | floor
+  endif
+-%}
+<div class="fem-collection-product-card__details">
+  <h3 class="fem-collection-product-card__title" data-fem-dynamic-content-source="TITLE">{{ card_product.title | escape }}</h3>
+  <div class="fem-collection-product-card__prices">
+    <p class="fem-collection-product-card__price" data-fem-dynamic-content-source="PRICE">{{ card_price | money }}</p>
+    {%- if card_compare_at > card_price -%}
+      <span class="fem-collection-product-card__compare" data-fem-dynamic-content-source="COMPARE_AT">{{ card_compare_at | money }}</span>
+    {%- endif -%}
+  </div>
+</div>
+<a class="fem-collection-product-card__cta" href="{{ card_product.url | escape }}" aria-label="Ver producto: {{ card_product.title | escape }}">
+  <span>Ver producto</span>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+    <path d="M2 3h2l2.4 12h12l2-8H5"/>
+    <path d="M7 15l-1 3h13"/>
+    <circle cx="8" cy="21" r="1"/><circle cx="18" cy="21" r="1"/>
+  </svg>
+</a>
+{%- if card_product.available == false -%}
+  <span class="fem-collection-product-card__badge fem-collection-product-card__badge--sold-out">Agotado</span>
+{%- elsif card_discount > 0 -%}
+  <span class="fem-collection-product-card__badge">{{ card_discount }}% OFF</span>
+{%- endif -%}

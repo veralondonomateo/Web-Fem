@@ -5,6 +5,7 @@ const shownKey='fem:welcome-10:shown';
 const photoId='7ccc4632-e3f5-4449-a58e-2025e6346375';
 let revealed=false;
 let initialized=false;
+let deferNativeOpening:((form:HTMLElement)=>boolean)|undefined;
 const isScratchPreview=()=>['localhost','127.0.0.1'].includes(location.hostname)&&new URLSearchParams(location.search).get('fem-scratch')==='1';
 
 function initializeCard(card:HTMLElement):void {
@@ -85,7 +86,12 @@ function prepareRedemption(details:HTMLElement,template:HTMLTemplateElement):voi
     if(/política de privacidad/i.test(text))row.setAttribute('data-fem-scratch-consent','');
     for(const button of row.querySelectorAll<HTMLButtonElement>('button[data-action-id]')){
       if(/lo quiero/i.test(button.textContent??''))button.setAttribute('data-fem-scratch-submit','');
-      if(/no quiero ahorrar/i.test(button.textContent??''))button.setAttribute('data-fem-scratch-dismiss','');
+      if(button.hasAttribute('data-fem-scratch-dismiss')||/no quiero ahorrar|seguir explorando/i.test(button.textContent??'')){
+        button.setAttribute('data-fem-scratch-dismiss','');
+        const label=template.dataset.dismissLabel??'Seguir explorando';
+        if(button.textContent!==label)button.textContent=label;
+        if(button.hasAttribute('aria-label'))button.setAttribute('aria-label',label);
+      }
     }
   }
   if(details.querySelector('.fem-scratch-redemption'))return;
@@ -104,6 +110,7 @@ export function enhanceScratchPromotion(root:ParentNode=document):void {
   const forms=new Set(root.querySelectorAll<HTMLElement>(selector));
   if(root instanceof Element){const parent=root.closest<HTMLElement>(selector);if(parent)forms.add(parent);}
   for(const form of forms){
+    if(deferNativeOpening?.(form))continue;
     const email=form.querySelector<HTMLInputElement>('input[type="email"]');
     if(!email)continue;
     const photo=[...form.querySelectorAll<HTMLImageElement>('img')].find(image=>image.src.includes(photoId));
@@ -126,36 +133,73 @@ export function enhanceScratchPromotion(root:ParentNode=document):void {
 }
 
 export function initializeScratchPromotion():void {
-  enhanceScratchPromotion();
-  if(initialized)return;
+  if(initialized){enhanceScratchPromotion();return;}
   const formId=document.querySelector<HTMLElement>('#fem-scratch-template')?.dataset.formId;
   if(!formId||!/^[a-zA-Z0-9]+$/.test(formId))return;
   initialized=true;
-  let handled=false,timer:number|undefined;
+  let handled=false,ready=false,explored=false,timer:number|undefined;
+  let allowed=isScratchPreview(),nativeRequested=false,deferredClosing=false;
+  if(allowed)document.documentElement.setAttribute('data-fem-welcome-allowed','');
+  const deferredForms=new WeakSet<HTMLElement>();
+  const exploration=new AbortController();
   const remember=()=>{
     handled=true;
     if(timer!==undefined)window.clearTimeout(timer);
+    exploration.abort();
     try { window.sessionStorage.setItem(shownKey,'1'); } catch {}
   };
   const wasShown=()=>{
     try { return window.sessionStorage.getItem(shownKey)==='1'; } catch { return false; }
   };
-  window.addEventListener('klaviyoForms',event=>{
-    enhanceScratchPromotion();
-    const detail=(event as CustomEvent<{formId?:string;type?:string}>).detail;
-    if(detail?.formId===formId&&['open','close','submit'].includes(detail.type??''))remember();
-  });
   const open=()=>{
     const client=window as Window & {_klOnsite?:unknown[][]};
     (client._klOnsite??=[]).push(['openForm',formId]);
   };
-  if(isScratchPreview()){open();return;}
-  if(!document.querySelector('.fem-home')||wasShown())return;
-  timer=window.setTimeout(()=>{
-    if(handled||wasShown())return;
+  const maybeOpen=()=>{
+    if(handled||wasShown()||!ready||!explored||deferredClosing||document.visibilityState==='hidden')return;
+    if(!document.querySelector('.fem-home')&&!nativeRequested)return;
     const form=document.querySelector(`form[data-testid="klaviyo-form-${formId}"]`);
     const bounds=form?.getBoundingClientRect();
-    if(bounds&&bounds.width>0&&bounds.height>0){remember();return;}
+    if(bounds&&bounds.width>0&&bounds.height>0&&!form?.closest('[data-fem-welcome-deferred]')){remember();return;}
+    if(document.activeElement?.matches('input,textarea,select,[contenteditable="true"]')||document.querySelector('dialog[open],#fem-consent-panel'))return;
+    allowed=true;
+    document.documentElement.setAttribute('data-fem-welcome-allowed','');
+    remember();
     open();
-  },2500);
+  };
+  deferNativeOpening=form=>{
+    if(allowed){form.closest('[data-fem-welcome-deferred]')?.removeAttribute('data-fem-welcome-deferred');return false;}
+    nativeRequested=true;
+    // Let Klaviyo release its focus trap and scroll lock through its own close control.
+    const dialog=form.closest<HTMLElement>('[role="dialog"]');
+    const close=dialog?.querySelector<HTMLButtonElement>('button.klaviyo-close-form');
+    if(!dialog||!close)return false;
+    dialog.setAttribute('data-fem-welcome-deferred','');
+    if(!deferredForms.has(form)){
+      deferredForms.add(form);deferredClosing=true;
+      window.setTimeout(()=>{
+        if(close.isConnected)close.click();
+        else {deferredClosing=false;maybeOpen();}
+      },400);
+    }
+    return true;
+  };
+  window.addEventListener('klaviyoForms',event=>{
+    const detail=(event as CustomEvent<{formId?:string;type?:string}>).detail;
+    if(detail?.formId===formId){
+      if(detail.type==='open'&&!allowed)nativeRequested=true;
+      else if(detail.type==='close'&&deferredClosing){deferredClosing=false;maybeOpen();}
+      else if(allowed&&['open','close','submit'].includes(detail.type??''))remember();
+    }
+    enhanceScratchPromotion();
+  });
+  enhanceScratchPromotion();
+  if(allowed){open();return;}
+  if(wasShown())return;
+  window.addEventListener('scroll',()=>{
+    if(window.scrollY>=Math.max(300,window.innerHeight*.75))explored=true;
+    maybeOpen();
+  },{passive:true,signal:exploration.signal});
+  document.addEventListener('visibilitychange',maybeOpen,{signal:exploration.signal});
+  timer=window.setTimeout(()=>{ready=true;maybeOpen();},15000);
 }

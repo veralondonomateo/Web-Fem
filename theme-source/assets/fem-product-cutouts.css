@@ -1,0 +1,39 @@
+/* A transparent product photo blends into each Why section's existing palette. */
+.fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-product-cutout] {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  max-width:100%;
+  height:auto;
+  min-width:0;
+  background:transparent;
+  border-radius:0;
+}
+@media (max-width:575px) {
+  .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-sticky-prices] {
+    display:none;
+  }
+}
+.fem-product-cutout-picture {
+  display:block;
+  width:100%;
+  min-width:0;
+}
+.fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-product-cutout] > img,
+.fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-product-cutout] > picture > img {
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:100%;
+  max-height:520px;
+  aspect-ratio:1;
+  object-fit:contain;
+  filter:saturate(.85);
+}
+@media (max-width:767px) {
+  .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-product-cutout] > img,
+  .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-product-cutout] > picture > img {
+    max-height:400px;
+  }
+}

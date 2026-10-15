@@ -447,6 +447,7 @@
     }
   },
   "fem_scratch": {
+    "dismiss": "Keep exploring",
     "redemption_title": "Enter your email to redeem your discount",
     "redemption_copy": "We will email you the details to use it on your first purchase.",
     "eyebrow": "A gift for you",
@@ -467,6 +468,8 @@
     "image_5": "Fenugreek gummies, 60 units — customer reviews"
   },
   "fem_search": {
+    "open": "Search products",
+    "short": "Search",
     "input_placeholder": "Search product"
   },
   "fem_plans": {
@@ -475,8 +478,43 @@
     "options": "Monthly Fem plans",
     "recommended": "Recommended",
     "monthly": "Monthly",
+    "per_month": "/month",
+    "includes": "Includes",
     "price_prefix": "Only",
     "start": "Start my plan",
     "benefits": "Fem subscription benefits"
+  },
+  "fem_collections": {
+    "view_collection": "View collection"
+  },
+  "fem_catalog": {
+    "heading": "Find your product",
+    "clear": "Clear filters",
+    "category": "Category",
+    "all_categories": "All",
+    "combos": "Fem bundles",
+    "probiotics": "Probiotics",
+    "soap": "Intimate soap",
+    "gummies": "PMS gummies",
+    "ovules": "Ovules",
+    "mom": "Fem Mom",
+    "soda": "Sodas",
+    "other": "Other",
+    "availability": "Availability",
+    "all_availability": "All",
+    "in_stock": "In stock",
+    "sold_out": "Sold out",
+    "price": "Price (COP)",
+    "minimum": "From",
+    "maximum": "To",
+    "count_all": "[count] products",
+    "count_one": "1 product",
+    "count_filtered": "[count] of [total] products",
+    "page_suffix": "on this page",
+    "loading": "Checking availability…",
+    "load_error": "We could not confirm availability. Select that option again to retry.",
+    "price_error": "Check the price: the minimum must be at least 0 and no higher than the maximum.",
+    "empty": "No products match these filters. Try a different range or clear the filters.",
+    "pagination": "Product pages"
   }
 }

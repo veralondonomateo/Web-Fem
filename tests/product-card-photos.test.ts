@@ -86,3 +86,20 @@ test('Product photos update without changing testimonial portraits, icons or PDP
   assert.equal($('img').eq(2).attr('src'),'icon.svg');
   assert.equal($('img').eq(3).attr('src'),'gallery.png');
 });
+
+test('Transparent Why photos preserve the supplied gallery photos',()=>{
+  const route='/products/probiotico-vaginal-en-capsulas-x100-unidades';
+  const page=pages.find(page=>new URL(page.url).pathname===route)!;
+  const source=load(page.html),{variants}=JSON.parse(readFileSync('tests/fixtures/purchase-options.json','utf8'));
+  // The navigation fixture omits the variant JSON required by the product presentation.
+  source('[data-instant-layout="PRODUCT_TEMPLATE"] form[data-instant-form-product-url]').first().append(`<script type="application/json" id="variants__cutout-test">${JSON.stringify(variants)}</script>`);
+  const $=load(transformStorefront(source.html(),route));
+  const cutout=$('#iU9C9YzYgpbCFqY83 img[data-fem-preserve-photo]');
+  assert.equal(cutout.length,1);
+  assert.equal(cutout.attr('src'),'/__theme/fem-probioticos-why-transparent-v1.webp');
+  assert.equal($('[data-fem-product-gallery="main"] img').first().attr('src'),'/__theme/'+productPhotos[route.split('/products/')[1]][0].asset);
+  const other=pages.find(page=>new URL(page.url).pathname==='/products/duo-perfecto')!;
+  const duo=load(transformStorefront(other.html,'/products/duo-perfecto'));
+  assert.equal(duo('[data-fem-product-cutout] img').attr('src'),'/__theme/fem-duo-why-transparent-v1.webp');
+  assert.equal(duo('[data-fem-product-gallery="main"] img').first().attr('src'),'/__theme/'+productPhotos['duo-perfecto'][0].asset);
+});

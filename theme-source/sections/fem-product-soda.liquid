@@ -9,6 +9,7 @@
     endif
   -%}
   {{ 'fem-product-soda.css' | asset_url | stylesheet_tag: preload: preload -}}
+  {{ 'fem-product-cutouts.css' | asset_url | stylesheet_tag }}
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
   {%- liquid
     assign product_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image
@@ -173,7 +174,7 @@
           ></div
         ><div conditionals="" class="iiOSGVvz9tCHEgMPa" data-fem-type="container"
           ><div class="ilah6mEGLHUt9eFnV" data-fem-type="container"
-            ><h3 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="iZlnKAwrdYY3ApP9I">{{ product.title }}</h3
+            ><h1 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="iZlnKAwrdYY3ApP9I">{{ product.title }}</h1
             ><div class="ipv3LDHrKxlipThHh" data-fem-type="container"
               ><div data-fem-type="icon" class="iFBRikfFXaSnNCjCb">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
@@ -515,7 +516,7 @@
     ><div class="iJTHbV8VMVbV0h0yP" data-fem-type="container" id="iJTHbV8VMVbV0h0yP"
       ><div class="i3KZDe5q0loWbloHU" data-fem-type="container"
         ><div class="iWjvJh8qjCwTcqTTn" data-fem-type="container"
-          ><div data-fem-type="media" class="ih2V16tzmZgesChQ4"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-5e3c27053728f3e6.webp' | asset_url }} 1080w, {{ 'fem-media-5e3c27053728f3e6.webp' | asset_url }} 828w, {{ 'fem-media-5e3c27053728f3e6.webp' | asset_url }} 750w, {{ 'fem-media-5e3c27053728f3e6.webp' | asset_url }} 640w, {{ 'fem-media-5e3c27053728f3e6.webp' | asset_url }} 360w, {{ 'fem-media-5e3c27053728f3e6.webp' | asset_url }} 1280w" src="{{ 'fem-media-5e3c27053728f3e6.webp' | asset_url }}" width="300" height="587" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-5e3c27053728f3e6.webp' | asset_url }} 1080w, {{ 'fem-media-5e3c27053728f3e6.webp' | asset_url }} 828w, {{ 'fem-media-5e3c27053728f3e6.webp' | asset_url }} 750w, {{ 'fem-media-5e3c27053728f3e6.webp' | asset_url }} 640w, {{ 'fem-media-5e3c27053728f3e6.webp' | asset_url }} 360w, {{ 'fem-media-5e3c27053728f3e6.webp' | asset_url }} 1280w" src="{{ 'fem-media-5e3c27053728f3e6.webp' | asset_url }}" width="300" height="587" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile"></div></div
+          ><div data-fem-type="media" class="ih2V16tzmZgesChQ4" data-fem-product-cutout><picture class="fem-product-cutout-picture">{% render 'fem-cutout-sources', photo_asset: 'fem-media-5e3c27053728f3e6.webp', photo_width: 300 %}<img src="{{ 'fem-media-5e3c27053728f3e6.webp' | asset_url }}" alt="{{ product.title | escape }} — sin fondo" width="300" height="587" decoding="async" loading="lazy" data-fem-preserve-photo class="fem-view-media fem-view-image fem-view-image__main"></picture></div></div
         ><div class="iwnA70PUrseJaAzDN" data-fem-type="container"
           ><div data-fem-type="text" class="fem-view-rich-text ioPAeCXYpzwg3LoS8"><h3>¿Por qué la Soda Prebiótica FEM?</h3></div
           ><div data-fem-type="text" class="fem-view-rich-text im03bVU1CPCuoEMFI"><p>Bienestar diario, práctico y delicioso.</p><p>La Soda Probiótica FEM te permite cuidar tu digestión y equilibrio interno sin cápsulas ni rutinas complicadas.</p></div

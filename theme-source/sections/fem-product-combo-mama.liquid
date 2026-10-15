@@ -9,6 +9,7 @@
     endif
   -%}
   {{ 'fem-product-combo-mama.css' | asset_url | stylesheet_tag: preload: preload -}}
+  {{ 'fem-product-cutouts.css' | asset_url | stylesheet_tag }}
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Montserrat:wght@300;400;500;700;800&amp;family=Inter:wght@600;700&amp;display=swap" rel="stylesheet">
 
   <form data-fem-type="root" class="ioS3Ylu1cjMTnXzNj" data-fem-form-product-url="{{ product.url }}" data-fem-form-variant-id="{{ product.selected_or_first_available_variant.id }}" data-fem-form-product-id="{{ product.id }}"
@@ -115,7 +116,7 @@
           ></div
         ><div conditionals="" class="iaYO29KH8z7oUX3G2" data-fem-type="container"
           ><div class="iXTIHJJ4iuiseNGnB" data-fem-type="container"
-            ><h3 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="iUff3SlMoBVVSABql">{{ product.title }}</h3
+            ><h1 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="iUff3SlMoBVVSABql">{{ product.title }}</h1
             ><div class="iYBhVxqaw2zxWh3NJ" data-fem-type="container"
               ><div data-fem-type="icon" class="iqXp9TpqDOviKdOvg">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
@@ -820,12 +821,7 @@
       -%}
       <div class="i3j0pzSDb3IjhaonY" data-fem-type="container" data-fem-form-product-url="{{ product_3j0pzSDb3IjhaonY.url }}" data-fem-form-variant-id="{{ product_3j0pzSDb3IjhaonY_variant.id }}" data-fem-form-product-id="{{ product_3j0pzSDb3IjhaonY.id }}"
         ><div class="iKNaNrZu7seStl2LU" data-fem-type="container"
-          ><div data-fem-type="media" class="ipczqfjkSvoaAK2sn">{%- capture fem_image_fallback -%}<img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-955e6aef9ae0f9bc.webp' | asset_url }} 1080w, {{ 'fem-media-133cafa11f895e90.webp' | asset_url }} 828w, {{ 'fem-media-5089e448ec15c2f7.webp' | asset_url }} 750w, {{ 'fem-media-a7d60e124a9e2ea3.webp' | asset_url }} 640w, {{ 'fem-media-f1a5bfb5a68f910d.webp' | asset_url }} 360w, {{ 'fem-media-955e6aef9ae0f9bc.webp' | asset_url }} 1280w" src="{{ 'fem-media-955e6aef9ae0f9bc.webp' | asset_url }}" width="1020" height="1259" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet">{%- endcapture -%}
-{%- capture fem_image_attributes -%}{%- endcapture -%}
-{% render 'fem-product-image', card_product: product_3j0pzSDb3IjhaonY, fallback: fem_image_fallback, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet', image_attributes: fem_image_attributes, image_style: 'object-fit:contain', loading: 'lazy' %}
-{%- capture fem_image_fallback -%}<img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-cd91d060619435f7.webp' | asset_url }} 1080w, {{ 'fem-media-cd91d060619435f7.webp' | asset_url }} 828w, {{ 'fem-media-cd91d060619435f7.webp' | asset_url }} 750w, {{ 'fem-media-cd91d060619435f7.webp' | asset_url }} 640w, {{ 'fem-media-d2a3d81be7efbe90.webp' | asset_url }} 360w, {{ 'fem-media-cd91d060619435f7.webp' | asset_url }} 1280w" src="{{ 'fem-media-cd91d060619435f7.webp' | asset_url }}" width="460" height="568" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile">{%- endcapture -%}
-{%- capture fem_image_attributes -%}{%- endcapture -%}
-{% render 'fem-product-image', card_product: product_3j0pzSDb3IjhaonY, fallback: fem_image_fallback, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile', image_attributes: fem_image_attributes, image_style: 'object-fit:contain', loading: 'lazy' %}</div></div
+          ><div data-fem-type="media" class="ipczqfjkSvoaAK2sn" data-fem-product-cutout><picture class="fem-product-cutout-picture">{% render 'fem-cutout-sources', photo_asset: 'fem-combo-mama-why-transparent-v1.webp', photo_width: 1254 %}<img src="{{ 'fem-combo-mama-why-transparent-v1.webp' | asset_url }}" alt="{{ product.title | escape }} — sin fondo" width="1254" height="1254" decoding="async" loading="lazy" data-fem-preserve-photo class="fem-view-media fem-view-image fem-view-image__main"></picture></div></div
         ><div class="iIV8Dn1ukZrGKQLwC" data-fem-type="container"
           ><div data-fem-type="text" class="fem-view-rich-text iaNgNkAF7992pwA4B"
             ><h3><strong>¿Por qué el </strong></h3><h3><strong>Combo mamá?</strong></h3></div
@@ -1205,12 +1201,12 @@
     ><div class="iM0oNLtTb4m6HSRU4 fem-view-scroll-trigger fem-view-scroll-trigger--hidden fem-view-reveal--transform" data-fem-scroll-into-view-replay="true" data-fem-scroll-into-view-offset="600" data-fem-type="container" id="iM0oNLtTb4m6HSRU4"
       ><div class="iLfF555tCW6A8ImPF" data-fem-type="container"
         ><div class="ikf27M9SQa5FgkJMn" data-fem-type="container"
-          ><div data-fem-type="media" class="ikCqmuTfbBHRcz4wv"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-cd91d060619435f7.webp' | asset_url }} 1080w, {{ 'fem-media-cd91d060619435f7.webp' | asset_url }} 828w, {{ 'fem-media-cd91d060619435f7.webp' | asset_url }} 750w, {{ 'fem-media-cd91d060619435f7.webp' | asset_url }} 640w, {{ 'fem-media-d2a3d81be7efbe90.webp' | asset_url }} 360w, {{ 'fem-media-cd91d060619435f7.webp' | asset_url }} 1280w" src="{{ 'fem-media-cd91d060619435f7.webp' | asset_url }}" width="460" height="568" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-cd91d060619435f7.webp' | asset_url }} 1080w, {{ 'fem-media-cd91d060619435f7.webp' | asset_url }} 828w, {{ 'fem-media-cd91d060619435f7.webp' | asset_url }} 750w, {{ 'fem-media-cd91d060619435f7.webp' | asset_url }} 640w, {{ 'fem-media-d2a3d81be7efbe90.webp' | asset_url }} 360w, {{ 'fem-media-cd91d060619435f7.webp' | asset_url }} 1280w" src="{{ 'fem-media-cd91d060619435f7.webp' | asset_url }}" width="460" height="568" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile"></div><div data-fem-type="text" class="fem-view-rich-text iHOro44xRpwkmhfUh"><p>Combo día de mujer</p></div></div
+          ><div data-fem-type="media" class="ikCqmuTfbBHRcz4wv">{% render 'fem-sticky-product-image', photo_asset: 'fem-combo-mama-why-transparent-v1.webp', photo_width: 1254, photo_height: 1254, view_box: '185.2929 79.6728 903.1579 1115.2037', display_width: 460, display_height: 568, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet', image_alt: product.title %}{% render 'fem-sticky-product-image', photo_asset: 'fem-combo-mama-why-transparent-v1.webp', photo_width: 1254, photo_height: 1254, view_box: '185.2929 79.6728 903.1579 1115.2037', display_width: 460, display_height: 568, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile', image_alt: product.title %}</div><div data-fem-type="text" class="fem-view-rich-text iHOro44xRpwkmhfUh"><p>Combo día de mujer</p></div></div
         ><div class="iD6kPYIKSTZf93f5K" data-fem-type="container"
           ><div class="iYFGiJaD5ln5kKj6Y" data-fem-type="container"
             ><div data-fem-type="text" class="fem-view-rich-text i4glpwOLtzucx0yNO"><p>Fem mom</p></div
             ><div data-fem-type="text" class="fem-view-rich-text iMNXqsMkFRU4ehHhJ"><p>x 60 tabletas</p></div></div
-          ><div class="ihKcCv0kGeik9HVuF" data-fem-type="container"
+          ><div class="ihKcCv0kGeik9HVuF" data-fem-sticky-prices data-fem-type="container"
             ><div data-fem-type="text" class="fem-view-rich-text isNdEpfOLKkizan1i"><p>$ 110.000</p></div
             ><div data-fem-type="text" class="fem-view-rich-text iqb5BLtt70vDa4cb8"><p>$ 129.000</p></div></div
           ><div class="i0glnYBawXhBC1R1V" data-fem-type="container"

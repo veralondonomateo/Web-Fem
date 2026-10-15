@@ -1,0 +1,20 @@
+{% doc %}
+  Refund policy presentation matching the existing privacy page.
+  @param {policy} policy - The store's current policy title and HTML body.
+{% enddoc %}
+{{ 'fem-refund-policy.css' | asset_url | stylesheet_tag }}
+<section class="fem-refund-policy" aria-labelledby="fem-refund-policy-title">
+  <header class="fem-refund-policy__header">
+    <div class="fem-refund-policy__header-inner">
+      <h1 id="fem-refund-policy-title">{{ policy.title | escape }}</h1>
+      <nav class="fem-refund-policy__breadcrumb" aria-label="Ruta de navegación">
+        <a href="{{ routes.root_url }}">Home</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+        <span aria-current="page">{{ policy.title | escape }}</span>
+      </nav>
+    </div>
+  </header>
+  <div class="fem-refund-policy__body">
+    <div class="fem-refund-policy__content rte">{{ policy.body }}</div>
+  </div>
+</section>

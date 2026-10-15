@@ -6,6 +6,7 @@ import {enhanceNativeInteractions} from './native-interactions.ts';
 import {enhanceCartDrawer} from './cart-drawer.ts';
 import {enhancePurchaseSelection} from './purchase-selection.ts';
 import {enhanceCatalogInteractions} from './catalog-interactions.ts';
+import {enhanceCatalogFilters} from './catalog-filters.ts';
 import {enhanceScratchPromotion,initializeScratchPromotion} from './scratch-promotion.ts';
 function boot(): void {
   enhanceCartDrawer();
@@ -17,6 +18,7 @@ function boot(): void {
   enhanceAnniversaryVideo();
   enhanceNativeInteractions();
   enhanceCatalogInteractions();
+  enhanceCatalogFilters();
   initializeScratchPromotion();
   document.documentElement.classList.remove('no-js');
   new MutationObserver(records => {
@@ -38,6 +40,7 @@ function boot(): void {
         enhanceNativeInteractions(root);
         enhancePurchaseSelection(root);
         enhanceCatalogInteractions(root);
+        enhanceCatalogFilters(root);
         enhanceScratchPromotion(root);
       }
     }

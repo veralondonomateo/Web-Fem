@@ -9,6 +9,7 @@
     endif
   -%}
   {{ 'fem-product-probioticos.css' | asset_url | stylesheet_tag: preload: preload -}}
+  {{ 'fem-product-cutouts.css' | asset_url | stylesheet_tag }}
   {{ 'fem-product-probioticos-design.css' | asset_url | stylesheet_tag }}
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Inter:wght@700&amp;family=Montserrat:wght@400&amp;display=swap" rel="stylesheet">
   {%- liquid
@@ -20,7 +21,7 @@
         ><div class="iJjyeqLikBIYPlUO3" data-fem-type="container"
           ><div class="fem-view-slider-container idavGCPlZeiPiaAY2" data-fem-type="slider-container"
             ><div class="fem-view-slider-container i4SPOS5ltcA1g9fJL" data-fem-type="slider-container">
-              <script type="application/json" id="fem-view-slider-iu51ekwQ0lBwTK70u-params">{"breakpoints":{"0":{"speed":300,"direction":"horizontal","autoHeight":false,"slidesPerView":6,"freeMode":false,"centeredSlides":false,"centerInsufficientSlides":false,"spaceBetween":14},"576":{"speed":300,"direction":"horizontal","autoHeight":false,"slidesPerView":6,"freeMode":false,"centeredSlides":false,"centerInsufficientSlides":false,"spaceBetween":14}},"loop":false,"autoplay":false}</script>
+              <script type="application/json" id="fem-view-slider-iu51ekwQ0lBwTK70u-params">{"breakpoints":{"0":{"speed":300,"direction":"horizontal","autoHeight":false,"slidesPerView":5,"freeMode":false,"centeredSlides":false,"centerInsufficientSlides":false,"spaceBetween":14},"576":{"speed":300,"direction":"horizontal","autoHeight":false,"slidesPerView":5,"freeMode":false,"centeredSlides":false,"centerInsufficientSlides":false,"spaceBetween":14}},"loop":false,"autoplay":false}</script>
               <div class="fem-view-slider fem-view-slider-thumbs iu51ekwQ0lBwTK70u" data-fem-slider-id="320coMO02WIMJ6uh" id="iu51ekwQ0lBwTK70u" data-fem-type="thumbnails"
                 ><div class="fem-view-slider-wrapper">
 
@@ -116,7 +117,7 @@
           <div data-fem-type="text" class="fem-view-rich-text icqUWFhkU7uj7KztV"><h3>Registro invima: NSA-3204-2026</h3></div></div
         ><div conditionals="" class="iEmDJcFTTlb59C5RP" data-fem-type="container"
           ><div class="iTiCJxhewQXjxEdk5" data-fem-type="container"
-            ><h3 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="iHRc6Rbjm9onNSNRy">{{ product.title }}</h3
+            ><h1 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="iHRc6Rbjm9onNSNRy">{{ product.title }}</h1
             ><div class="iltxRjA2Uy19E9pQT" data-fem-type="container"
               ><div data-fem-type="icon" class="iMYUJrLPalRkr095j">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
@@ -900,11 +901,7 @@
     -%}
     <div class="iU9C9YzYgpbCFqY83" data-fem-type="container" id="iU9C9YzYgpbCFqY83" data-fem-form-product-url="{{ product_U9C9YzYgpbCFqY83.url }}" data-fem-form-variant-id="{{ product_U9C9YzYgpbCFqY83_variant.id }}" data-fem-form-product-id="{{ product_U9C9YzYgpbCFqY83.id }}"
       ><div class="i7HxVhIhI7u6u2VJb" data-fem-type="container"
-        ><div data-fem-type="media" class="iKDOqdyPeeOorzNBB"><img src="{{ 'fem-probioticos-gallery-3.webp' | asset_url }}" alt="Alimento con probióticos y prebióticos — tabletas masticables" width="599" height="599" decoding="async" loading="lazy" class="fem-view-media fem-view-image fem-view-image__main"></div
-        ><div class="iwZb3LGCQ8UQoIK3w" data-fem-type="container"
-          ><div class="inroccrUoadm4Mcr6" data-fem-type="container"
-            ><div data-fem-type="text" class="fem-view-rich-text iHbmfjCr23KprMX3f"><h2>¿Por qué Fem?</h2></div
-            ><div data-fem-type="text" class="fem-view-rich-text iekhpY7dKm3RyPVRR"><p>Acá te cuento unas de las razones por las que deberías comprar nuestro producto</p></div></div
+        ><div data-fem-type="media" class="iKDOqdyPeeOorzNBB" data-fem-product-cutout><picture class="fem-product-cutout-picture">{% render 'fem-cutout-sources', photo_asset: 'fem-probioticos-why-transparent-v1.webp', photo_width: 1254 %}<img src="{{ 'fem-probioticos-why-transparent-v1.webp' | asset_url }}" alt="{{ product.title | escape }} — sin fondo" width="1254" height="1254" decoding="async" loading="lazy" data-fem-preserve-photo class="fem-view-media fem-view-image fem-view-image__main"></picture></div></div
           ><div class="ircWFotN5iXZdZlMG" data-fem-type="container"
             ><div class="iGnOh50FIMo1GYzGT" data-fem-type="container"
               ><div data-fem-type="icon" class="i8FKmGeXh7HYqEnpg">
@@ -1228,11 +1225,11 @@
     ><div class="iis6sWTYz5ztWUCxL fem-view-scroll-trigger fem-view-scroll-trigger--hidden fem-view-reveal--transform" data-fem-scroll-into-view-replay="true" data-fem-scroll-into-view-offset="600" data-fem-type="container" id="iis6sWTYz5ztWUCxL"
       ><div class="iPW9ogDI3PZj4p0WZ" data-fem-type="container"
         ><div class="izKnomNby1VJj3IXp" data-fem-type="container"
-          ><div data-fem-type="media" class="ilHowfeI67AWN84MK"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-703a572a830b7e93.webp' | asset_url }} 1080w, {{ 'fem-media-703a572a830b7e93.webp' | asset_url }} 828w, {{ 'fem-media-703a572a830b7e93.webp' | asset_url }} 750w, {{ 'fem-media-703a572a830b7e93.webp' | asset_url }} 640w, {{ 'fem-media-703a572a830b7e93.webp' | asset_url }} 360w, {{ 'fem-media-703a572a830b7e93.webp' | asset_url }} 1280w" src="{{ 'fem-media-703a572a830b7e93.webp' | asset_url }}" width="200" height="293" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-703a572a830b7e93.webp' | asset_url }} 1080w, {{ 'fem-media-703a572a830b7e93.webp' | asset_url }} 828w, {{ 'fem-media-703a572a830b7e93.webp' | asset_url }} 750w, {{ 'fem-media-703a572a830b7e93.webp' | asset_url }} 640w, {{ 'fem-media-703a572a830b7e93.webp' | asset_url }} 360w, {{ 'fem-media-703a572a830b7e93.webp' | asset_url }} 1280w" src="{{ 'fem-media-703a572a830b7e93.webp' | asset_url }}" width="200" height="293" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile"></div></div
+          ><div data-fem-type="media" class="ilHowfeI67AWN84MK">{% render 'fem-sticky-product-image', photo_asset: 'fem-probioticos-why-transparent-v1.webp', photo_width: 1254, photo_height: 1254, view_box: '329.2472 182.2809 595.5056 872.4157', display_width: 200, display_height: 293, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet', image_alt: product.title %}{% render 'fem-sticky-product-image', photo_asset: 'fem-probioticos-why-transparent-v1.webp', photo_width: 1254, photo_height: 1254, view_box: '329.2472 182.2809 595.5056 872.4157', display_width: 200, display_height: 293, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile', image_alt: product.title %}</div></div
         ><div class="i9NplJ1IqvmsqfTh3" data-fem-type="container"
           ><div class="igKJ5fo2xBwBUQpKW" data-fem-type="container"
             ><div data-fem-type="text" class="fem-view-rich-text iSj2cfXVNuDVGSCMu"><p>Alimento con probióticos </p></div><div data-fem-type="text" class="fem-view-rich-text iEWWalesJsr2RqfOL"><p>x 60 UND</p></div></div
-          ><div class="iFUKBy9YnNNsRsZVV" data-fem-type="container"
+          ><div class="iFUKBy9YnNNsRsZVV" data-fem-sticky-prices data-fem-type="container"
             ><div data-fem-type="text" class="fem-view-rich-text itvwMvS5hUlZOyKVw"><p>$ 110.000</p></div
             ><div data-fem-type="text" class="fem-view-rich-text iFwRjv8LHtWAPGhPU"><p>$ 169.000</p></div></div
           ><div class="iiMyv4sXIVX0fBe4E" data-fem-type="container"

@@ -9,6 +9,7 @@
     endif
   -%}
   {{ 'fem-product-probiotico-doble.css' | asset_url | stylesheet_tag: preload: preload -}}
+  {{ 'fem-product-cutouts.css' | asset_url | stylesheet_tag }}
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&amp;family=Montserrat:wght@300;400;500;600;700&amp;family=Inter:wght@700&amp;family=Poppins:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet">
   {%- liquid
     assign product_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image
@@ -170,7 +171,7 @@
                   </svg></div></button></div></div></div
         ><div conditionals="" class="iD9n5smanxLkDWqLn" data-fem-type="container"
           ><div class="iIDa6tRrHLkQu8zjf" data-fem-type="container"
-            ><h3 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="iNWZrZ21j30wv2nsx">{{ product.title }}</h3
+            ><h1 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="iNWZrZ21j30wv2nsx">{{ product.title }}</h1
             ><div class="iEfSBHss8ZpadaRsr" data-fem-type="container"
               ><div data-fem-type="icon" class="ikmyThVvTxpt7YvR9">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
@@ -352,7 +353,7 @@
     ><div class="iR8Xau8nTb7KDEuQk" data-fem-type="container" id="iR8Xau8nTb7KDEuQk"
       ><div class="ifoLcdYFOlTrloqOS" data-fem-type="container"
         ><div class="iTSJkGODh0t1Yx4OT" data-fem-type="container"
-          ><div data-fem-type="media" class="iRzdvkfpZubhgiPGk"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-59449debeef8de67.webp' | asset_url }} 1080w, {{ 'fem-media-59449debeef8de67.webp' | asset_url }} 828w, {{ 'fem-media-59449debeef8de67.webp' | asset_url }} 750w, {{ 'fem-media-59449debeef8de67.webp' | asset_url }} 640w, {{ 'fem-media-59449debeef8de67.webp' | asset_url }} 360w, {{ 'fem-media-59449debeef8de67.webp' | asset_url }} 1280w" src="{{ 'fem-media-59449debeef8de67.webp' | asset_url }}" width="353" height="525" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-d7f0099c87c1968c.webp' | asset_url }} 1080w, {{ 'fem-media-d7f0099c87c1968c.webp' | asset_url }} 828w, {{ 'fem-media-d7f0099c87c1968c.webp' | asset_url }} 750w, {{ 'fem-media-d7f0099c87c1968c.webp' | asset_url }} 640w, {{ 'fem-media-e4ec575887fff628.webp' | asset_url }} 360w, {{ 'fem-media-d7f0099c87c1968c.webp' | asset_url }} 1280w" src="{{ 'fem-media-d7f0099c87c1968c.webp' | asset_url }}" width="460" height="446" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile"></div></div
+          ><div data-fem-type="media" class="iRzdvkfpZubhgiPGk" data-fem-product-cutout><picture class="fem-product-cutout-picture">{% render 'fem-cutout-sources', photo_asset: 'fem-media-59449debeef8de67.webp', photo_width: 353 %}<img src="{{ 'fem-media-59449debeef8de67.webp' | asset_url }}" alt="{{ product.title | escape }} — sin fondo" width="353" height="525" decoding="async" loading="lazy" data-fem-preserve-photo class="fem-view-media fem-view-image fem-view-image__main"></picture></div></div
         ><div class="i2gN2ifVihz1HffBG" data-fem-type="container"
           ><div data-fem-type="text" class="fem-view-rich-text iBYSALdgTF1sV82wu"
             ><h3><strong>¿Por qué Fem?</strong></h3></div

@@ -11,7 +11,7 @@ export function restoreProductCardPhotos(html:string):string {
   });
   $('img').each((_,node)=>{
     const image=$(node);
-    if(image.closest('[data-fem-product-gallery]').length||image.attr('data-fem-dynamic-content-source')==='REPEATER')return;
+    if(image.is('[data-fem-preserve-photo]')||image.closest('[data-fem-product-gallery]').length||image.attr('data-fem-dynamic-content-source')==='REPEATER')return;
     const direct=image.closest('a[href*="/products/"]');
     const card=image.closest('[data-fem-form-product-url],.fem-search-card,.fem-carousel__slide,product-card,.resource-card');
     const target=card.attr('data-fem-form-product-url')??direct.attr('href')??card.attr('href')??card.find('a[href*="/products/"]').first().attr('href');

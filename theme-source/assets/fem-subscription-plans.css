@@ -23,20 +23,24 @@
 .fem-plan--purple { --plan-accent: #997ac7; }
 .fem-plan__badge { position: absolute; bottom: 100%; left: 50%; display: flex; align-items: center; gap: 8px; padding: 4px 10px; border-radius: 10px 10px 0 0; background: var(--plan-accent); color: #fff; font-size: 14px; white-space: nowrap; transform: translateX(-50%); }
 .fem-plan__badge svg { width: 18px; height: 18px; }
-.fem-plan__period { margin: 0; padding: 20px 10px; border-bottom: 1px solid #bbb; color: var(--plan-accent); font-family: inherit; font-size: 30px; font-weight: 400; line-height: 1.2; text-align: center; }
-.fem-plan__name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-.fem-plan__body { display: flex; flex: 1; flex-direction: column; padding: 10px 10px 20px; }
-.fem-plan__image { display: block; width: 100%; height: 250px; border-radius: 12px; object-fit: cover; }
-.fem-plan__features { margin: 0; padding: 0; list-style: none; color: #171717; font-size: 12px; line-height: 1.25; }
+.fem-plan__header { display: flex; flex-direction: column; gap: 12px; padding: 24px 20px 20px; border-bottom: 1px solid #f0dede; }
+.fem-plan__name { min-height: 2.5em; margin: 0; color: var(--plan-ink); font-family: inherit; font-size: 22px; font-weight: 700; line-height: 1.25; overflow-wrap: anywhere; }
+.fem-plan__contents { min-height: 4.5em; margin: 0; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+.fem-plan__contents > span { display: block; margin-bottom: 4px; font-size: 11px; font-weight: 600; letter-spacing: .8px; line-height: 1.4; text-transform: uppercase; }
+.fem-plan__body { display: flex; flex: 1; flex-direction: column; padding: 16px 20px 20px; }
+.fem-plan__image { display: block; width: 100%; height: auto; aspect-ratio: 1; border-radius: 12px; object-fit: cover; }
+.fem-plan__image--duo-double { object-position: center bottom; }
+.fem-plan__features { margin: 16px 0 0; padding: 0; list-style: none; color: #171717; font-size: 12px; line-height: 1.25; }
 .fem-plan__features li { display: flex; align-items: center; gap: 6px; min-height: 36px; padding: 8px 0; border-bottom: 1px solid var(--plan-accent); }
 .fem-plan__features strong { font-weight: 600; }
 .fem-plan__check { display: grid; flex: 0 0 16px; place-items: center; width: 16px; height: 16px; border: 1.3px solid currentColor; border-radius: 50%; color: var(--plan-accent); font-size: 10px; line-height: 1; }
 .fem-plan__purchase { margin-top: auto; padding-top: 16px; }
-.fem-plan__price { margin: 0 0 8px; color: var(--plan-ink); font-size: 20px; line-height: 1.5; }
+.fem-plan__price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 6px; margin: 0; color: var(--plan-ink); font-size: 28px; line-height: 1.2; }
+.fem-plan__price-period { font-size: 14px; font-weight: 400; }
 .fem-plan--purple .fem-plan__price strong { color: #4b3377; }
-.fem-plan__button { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 48px; padding: 6px 6px 6px 24px; border-radius: 99px; background: var(--plan-accent); color: #fff; font-size: 14px; font-weight: 700; line-height: 1.3; text-decoration: none; transition: filter .18s ease; }
+.fem-plan__button { display: flex; align-items: center; justify-content: space-between; gap: 6px; min-height: 48px; padding: 6px 6px 6px 12px; border-radius: 99px; background: var(--plan-accent); color: #fff; font-size: 14px; font-weight: 700; line-height: 1.3; text-decoration: none; transition: filter .18s ease; }
 .fem-plan__button:hover { filter: brightness(.94); }
-.fem-plan__button > span { display: grid; flex: 0 0 36px; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: #fff; color: var(--plan-accent); }
+.fem-plan__button > span { display: grid; flex: 0 0 32px; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: #fff; color: var(--plan-accent); }
 .fem-plan__button svg { width: 22px; height: 22px; }
 .fem-plans__benefits { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 20px; margin-top: 70px; }
 .fem-plans__benefit { min-width: 0; padding: 10px; border-radius: 12px; background: #fff; box-shadow: 0 8px 28px #f17e7e12; }
@@ -46,10 +50,12 @@
 .fem-plans__benefit[open] summary svg { transform: rotate(180deg); }
 .fem-plans__answer { padding: 10px 12px; color: #171717; font-size: 14px; line-height: 1.5; overflow-wrap: anywhere; }
 .fem-plans__answer p { margin: 0; }
+@media (min-width: 1101px) and (max-width: 1200px) {
+  .fem-plan__button { font-size: 13px; }
+}
 @media (max-width: 1100px) {
   .fem-plans__inner { width: calc(100% - 80px); }
   .fem-plans__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px 20px; }
-  .fem-plan__image { height: auto; aspect-ratio: 1; }
   .fem-plans__benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 749px) {
@@ -59,6 +65,7 @@
   .fem-plans__description { margin-block: 20px; font-size: 14px; }
   .fem-plans__catalog { padding: 64px 0 40px; }
   .fem-plans__grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .fem-plan__name, .fem-plan__contents { min-height: 0; }
   .fem-plan__features { font-size: 13px; }
   .fem-plan__features li { min-height: 36px; }
   .fem-plans__benefits { grid-template-columns: minmax(0, 1fr); gap: 16px; margin-top: 40px; }

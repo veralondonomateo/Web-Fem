@@ -24,11 +24,11 @@
 .fem-search-card .fem-search-card__title { min-height: 75px; margin: 0; padding: 0 10px; color: #111; font: 600 15px/1.5 Poppins, sans-serif; letter-spacing: .01em; text-align: start; text-wrap: balance; }
 .fem-search-card__stars { display: flex; gap: 2px; padding: 0 10px; color: #ffc100; }
 .fem-search-card__stars svg { width: 15px; height: 15px; }
-.fem-search-card__prices { display: flex; align-items: center; flex-wrap: wrap; gap: 0 8px; padding: 0 55px 0 10px; }
+.fem-search-card__prices { display: flex; align-items: center; flex-wrap: wrap; gap: 0 8px; padding: 0 10px; }
 .fem-search-card__price { color: #e66e5f; font-size: 16px; font-weight: 800; line-height: 1.5; }
 .fem-search-card__compare { color: #afafaf; font-size: 15px; font-weight: 500; line-height: 1.5; }
 .fem-search-card__sold-out { position: absolute; top: 15px; right: 15px; padding: 3px 10px; border-radius: 5px; background: #ed5340; color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .02em; }
-.fem-search-card__arrow { position: absolute; right: 10px; bottom: 30px; display: grid; place-items: center; width: 45px; height: 45px; border-radius: 10px; background: #f17e7e; color: #fff; transition: background-color 125ms ease-in-out; }
+.fem-search-card__arrow { display: none; }
 .fem-search-card__arrow svg { width: 20px; height: 20px; }
 @media (hover: hover) {
   .fem-search-card:hover { background: #fff0ee; box-shadow: 0 12px 36px rgba(237, 83, 64, .18); }

@@ -1,15 +1,18 @@
-<div class="fem-press__section" id="fem-press__section">
+{% doc %}
+  Renders the Fem press carousel with publication logos and links to the original articles.
+{% enddoc %}
+<div class="fem-press__section" id="fem-press__section" role="region" aria-labelledby="fem-press-title-{{ section.id }}">
 <div class="fem-press__layout">
 <div class="fem-press__layout-2">
 <div class="fem-copy fem-press__heading">
-<h2>Fem hoy</h2>
+<h2 id="fem-press-title-{{ section.id }}">Fem <em>hoy</em></h2>
 </div>
 <div class="fem-copy fem-press__text">
 <p>Entérate de nuestras novedades y cómo estamos transformando el bienestar íntimo femenino.</p>
 </div>
 </div>
 <div class="fem-carousel fem-press__slider-container">
-<div class="fem-press__layout-3" data-fem-carousel="{&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;view&quot;:1,&quot;gap&quot;:24},&quot;576&quot;:{&quot;view&quot;:2,&quot;gap&quot;:24}},&quot;speed&quot;:500,&quot;loop&quot;:false}">
+<div class="fem-press__layout-3" data-fem-carousel="{&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;view&quot;:1,&quot;gap&quot;:24},&quot;750&quot;:{&quot;view&quot;:2,&quot;gap&quot;:24},&quot;1025&quot;:{&quot;view&quot;:3,&quot;gap&quot;:24}},&quot;speed&quot;:500,&quot;loop&quot;:false}">
 <button class="fem-slider-button fem-slider-button-prev fem-press__slider-button-prev" type="button" data-fem-carousel-prev="" aria-label="Anterior">
 <div class="fem-press__icon">
 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-icon">
@@ -24,7 +27,7 @@
 <div class="fem-carousel__slide fem-press__slider-slide">
 <div class="fem-press__layout-4">
 <div class="fem-press__media">
-<img alt="" src="{{ 'fem-el-tiempo-logo-22e8361d.svg' | asset_url }}" width="112" height="20" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
+<img alt="El Tiempo" src="{{ 'fem-el-tiempo-logo-22e8361d.svg' | asset_url }}" width="112" height="20" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
 </div>
 </div>
 <div class="fem-press__layout-5">
@@ -50,7 +53,7 @@
 <div class="fem-carousel__slide fem-press__slider-slide">
 <div class="fem-press__layout-6">
 <div class="fem-press__media-2">
-<img alt="" src="{{ 'fem-rcn-noticias-logo-b9001ee0.svg' | asset_url }}" width="112" height="16" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
+<img alt="Noticias RCN" src="{{ 'fem-rcn-noticias-logo-b9001ee0.svg' | asset_url }}" width="112" height="16" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
 </div>
 </div>
 <div class="fem-press__layout-7">
@@ -76,7 +79,7 @@
 <div class="fem-carousel__slide fem-press__slider-slide">
 <div class="fem-press__layout-6">
 <div class="fem-press__media-2">
-<img alt="" src="{{ 'fem-portafolio-logo-2019c53a.svg' | asset_url }}" width="112" height="20" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
+<img alt="Portafolio" src="{{ 'fem-portafolio-logo-2019c53a.svg' | asset_url }}" width="112" height="20" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
 </div>
 </div>
 <div class="fem-press__layout-7">
@@ -102,7 +105,7 @@
 <div class="fem-carousel__slide fem-press__slider-slide">
 <div class="fem-press__layout-6">
 <div class="fem-press__media-2">
-<img alt="" src="{{ 'fem-semana-logo-596be2da.svg' | asset_url }}" width="112" height="22" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
+<img alt="Semana" src="{{ 'fem-semana-logo-596be2da.svg' | asset_url }}" width="112" height="22" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
 </div>
 </div>
 <div class="fem-press__layout-7">
@@ -128,7 +131,7 @@
 <div class="fem-carousel__slide fem-press__slider-slide">
 <div class="fem-press__layout-6">
 <div class="fem-press__media-2">
-<img alt="" src="{{ 'fem-infobae-logo-d6018ccb.svg' | asset_url }}" width="112" height="26" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
+<img alt="Infobae" src="{{ 'fem-infobae-logo-d6018ccb.svg' | asset_url }}" width="112" height="26" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
 </div>
 </div>
 <div class="fem-press__layout-7">
@@ -154,7 +157,7 @@
 <div class="fem-carousel__slide fem-press__slider-slide">
 <div class="fem-press__layout-6">
 <div class="fem-press__media-2">
-<img alt="" src="{{ 'fem-lafm-logo-a7d509f8.svg' | asset_url }}" width="112" height="76" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
+<img alt="La FM" src="{{ 'fem-lafm-logo-a7d509f8.svg' | asset_url }}" width="112" height="76" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
 </div>
 </div>
 <div class="fem-press__layout-7">
@@ -180,7 +183,7 @@
 <div class="fem-carousel__slide fem-press__slider-slide">
 <div class="fem-press__layout-4">
 <div class="fem-press__media">
-<img alt="" src="{{ 'fem-el-tiempo-logo-22e8361d.svg' | asset_url }}" width="112" height="20" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
+<img alt="El Tiempo" src="{{ 'fem-el-tiempo-logo-22e8361d.svg' | asset_url }}" width="112" height="20" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
 </div>
 </div>
 <div class="fem-press__layout-5">
@@ -205,7 +208,7 @@
 </div><div class="fem-carousel__slide fem-press__slider-slide">
 <div class="fem-press__layout-6">
 <div class="fem-press__media-2">
-<img alt="" src="{{ 'fem-rcn-noticias-logo-b9001ee0.svg' | asset_url }}" width="112" height="16" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
+<img alt="Noticias RCN" src="{{ 'fem-rcn-noticias-logo-b9001ee0.svg' | asset_url }}" width="112" height="16" class="fem-media fem-image fem-image__main" loading="lazy" fetchpriority="low" decoding="async">
 </div>
 </div>
 <div class="fem-press__layout-7">

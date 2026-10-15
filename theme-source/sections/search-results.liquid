@@ -6,10 +6,12 @@
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <results-list
+  data-fem-catalog
   class="section product-grid-container spacing-style color-{{ section.settings.color_scheme }}"
   style="--padding-block-start: {{ section.settings.padding-block-start }}px; --padding-block-end: {{ section.settings.padding-block-end }}px;"
   section-id="{{ section.id }}"
 >
+  {% render 'fem-catalog-filters' %}
   {% render 'skip-to-content-link', href: '#ResultsList', text: 'accessibility.skip_to_results_list' %}
 
   <div

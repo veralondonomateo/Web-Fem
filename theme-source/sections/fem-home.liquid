@@ -9,6 +9,11 @@
     endif
   -%}
   {{ 'fem-home.css' | asset_url | stylesheet_tag: preload: preload -}}
+  {{ 'fem-home-clarity.css' | asset_url | stylesheet_tag }}
+  {{ 'fem-home-community.css' | asset_url | stylesheet_tag }}
+  {{ 'fem-home-subscription.css' | asset_url | stylesheet_tag }}
+  {{ 'fem-home-press.css' | asset_url | stylesheet_tag }}
+  {{ 'fem-home-bestsellers.css' | asset_url | stylesheet_tag }}
   <style>
     @font-face {
       font-family: 'Behind The Nineties Sans';
@@ -25,7 +30,6 @@
   </style>
 <div class="fem-home__root">
   {% render 'fem-home-hero', section: section %}
-  {% render 'fem-home-marquee', section: section %}
   {% render 'fem-home-bestsellers', section: section %}
   {% render 'fem-home-subscription', section: section %}
   {% render 'fem-home-trust', section: section %}
@@ -42,21 +46,32 @@
   "name": "Inicio Fem",
   "settings": [
     {"type":"text","id":"hero_heading","label":"Título de portada","default":"Salud femenina"},
-    {"type":"textarea","id":"hero_description","label":"Descripción de portada","default":"Fem Probiotics es tu aliado diario para el equilibrio íntimo, con probióticos, prebióticos y cuidado externo."},
+    {"type":"textarea","id":"hero_description","label":"Descripción de portada","default":"Probióticos, prebióticos y cuidado externo para acompañar tu bienestar."},
     {"type":"text","id":"hero_shop_label","label":"Texto del botón de compra","default":"Compra ahora"},
     {"type":"url","id":"hero_shop_link","label":"Enlace de compra","default":"/collections/todos-los-productos"},
     {"type":"text","id":"hero_quiz_label","label":"Texto del botón del test","default":"Hacer test"},
     {"type":"url","id":"hero_quiz_link","label":"Enlace del test","default":"/pages/quiz1"},
     {"type":"text","id":"hero_shipping","label":"Beneficio de envío","default":"Envío gratis"},
     {"type":"text","id":"hero_guarantee","label":"Garantía","default":"Garantía de devolución de 30 días."},
-    {"type":"text","id":"hero_studies","label":"Beneficio: estudios","default":"Respaldado por estudios clínicos"},
-    {"type":"text","id":"hero_experts","label":"Beneficio: expertas","default":"Recomendado por expertas"},
-    {"type":"text","id":"hero_formula","label":"Beneficio: fórmula","default":"Fórmula libre de sustancias nocivas"},
-    {"type":"text","id":"hero_ingredients","label":"Beneficio: ingredientes","default":"Ingredientes 100% naturales"},
     {"type":"image_picker","id":"hero_image","label":"Imagen de portada"},
     {"type":"text","id":"hero_image_alt","label":"Descripción de la imagen","default":"Fem con prebióticos y probióticos, frasco de 60 unidades"},
     {"type":"color","id":"hero_background","label":"Fondo de portada","default":"#ffacac"},
     {"type":"color","id":"hero_accent","label":"Botones e iconos de portada","default":"#f17e7e"}
+  ],
+  "blocks": [
+    {
+      "type":"expert",
+      "name":"Perfil de especialista",
+      "limit":4,
+      "settings":[
+        {"type":"paragraph","content":"Publica únicamente perfiles de colaboradores reales. Se mostrarán cuando completes nombre, credenciales y enlace de respaldo."},
+        {"type":"text","id":"name","label":"Nombre completo"},
+        {"type":"text","id":"credentials","label":"Especialidad y credenciales"},
+        {"type":"text","id":"affiliation","label":"Institución o afiliación"},
+        {"type":"textarea","id":"contribution","label":"Colaboración concreta con FEM"},
+        {"type":"url","id":"source_url","label":"Perfil profesional o publicación de respaldo"}
+      ]
+    }
   ]
 }
 {% endschema %}

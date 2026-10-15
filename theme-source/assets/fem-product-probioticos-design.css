@@ -2,8 +2,9 @@
 .fem-view.iFziHfOxyaRbyU98Z { --probioticos-coral:#f5797e; --probioticos-ink:#581d18; }
 .fem-view.iFziHfOxyaRbyU98Z .iU9C9YzYgpbCFqY83 { background:#f17e7e; }
 .fem-view.iFziHfOxyaRbyU98Z .iU9C9YzYgpbCFqY83 [data-fem-cart-add] :is([data-fem-type="text"],[data-fem-type="icon"]) { color:#f17e7e; }
-.fem-view.iFziHfOxyaRbyU98Z .iKDOqdyPeeOorzNBB img { display:block; width:100%; height:auto; aspect-ratio:1; object-fit:contain; }
-.fem-view.iFziHfOxyaRbyU98Z .iL7iErhddXPPVFXmy { padding:144px 30px 40px; }
+.fem-view.iFziHfOxyaRbyU98Z .iKDOqdyPeeOorzNBB { background:transparent; }
+.fem-view.iFziHfOxyaRbyU98Z .iKDOqdyPeeOorzNBB img { display:block; width:100%; height:auto; aspect-ratio:1; object-fit:contain; filter:saturate(.85); }
+.fem-view.iFziHfOxyaRbyU98Z .iL7iErhddXPPVFXmy { padding:144px 80px 40px; }
 .fem-view.iFziHfOxyaRbyU98Z .iH8RkM0226OwGVaLM { width:1200px; max-width:100%; margin:0; gap:30px; align-items:flex-start; }
 .fem-view.iFziHfOxyaRbyU98Z :is(.iJjyeqLikBIYPlUO3,.iEmDJcFTTlb59C5RP) { flex:1 1 0; min-width:0; width:auto; }
 .fem-view.iFziHfOxyaRbyU98Z .iJjyeqLikBIYPlUO3 { gap:16px; }

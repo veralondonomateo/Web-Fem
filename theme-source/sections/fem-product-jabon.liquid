@@ -9,6 +9,7 @@
     endif
   -%}
   {{ 'fem-product-jabon.css' | asset_url | stylesheet_tag: preload: preload -}}
+  {{ 'fem-product-cutouts.css' | asset_url | stylesheet_tag }}
   {{ 'fem-product-jabon-gallery.css' | asset_url | stylesheet_tag -}}
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&amp;family=Montserrat:wght@400;600;800&amp;display=swap" rel="stylesheet">
   {%- liquid
@@ -118,7 +119,7 @@
           ></div
         ><div conditionals="" class="iN5QhMUBHty8QffLt" data-fem-type="container"
           ><div class="iRx7woH6sLzc2F286" data-fem-type="container"
-            ><h3 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="iyYwBL2RjUjQ8lmvJ">{{ product.title }}</h3
+            ><h1 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="iyYwBL2RjUjQ8lmvJ">{{ product.title }}</h1
             ><div class="i0lbxDj1T2DiKSXXm" data-fem-type="container"
               ><div data-fem-type="icon" class="itM1tSg4SNO1axuUc">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
@@ -445,12 +446,7 @@
       -%}
       <div class="i78z8dG40BDoZmhZT" data-fem-type="container" data-fem-form-product-url="{{ product_78z8dG40BDoZmhZT.url }}" data-fem-form-variant-id="{{ product_78z8dG40BDoZmhZT_variant.id }}" data-fem-form-product-id="{{ product_78z8dG40BDoZmhZT.id }}"
         ><div class="ieIn54KJinfJvs0CR" data-fem-type="container"
-          ><div data-fem-type="media" class="i9LFQU4Ocsqj4T9u1">{%- capture fem_image_fallback -%}<img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 1080w, {{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 828w, {{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 750w, {{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 640w, {{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 360w, {{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 1280w" src="{{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }}" width="350" height="782" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet">{%- endcapture -%}
-{%- capture fem_image_attributes -%}{%- endcapture -%}
-{% render 'fem-product-image', card_product: product_78z8dG40BDoZmhZT, fallback: fem_image_fallback, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet', image_attributes: fem_image_attributes, image_style: 'object-fit:contain', loading: 'lazy' %}
-{%- capture fem_image_fallback -%}<img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 1080w, {{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 828w, {{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 750w, {{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 640w, {{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 360w, {{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 1280w" src="{{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }}" width="350" height="782" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile">{%- endcapture -%}
-{%- capture fem_image_attributes -%}{%- endcapture -%}
-{% render 'fem-product-image', card_product: product_78z8dG40BDoZmhZT, fallback: fem_image_fallback, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile', image_attributes: fem_image_attributes, image_style: 'object-fit:contain', loading: 'lazy' %}</div></div
+          ><div data-fem-type="media" class="i9LFQU4Ocsqj4T9u1" data-fem-product-cutout><picture class="fem-product-cutout-picture">{% render 'fem-cutout-sources', photo_asset: 'fem-jabon-why-transparent-v1.webp', photo_width: 1254 %}<img src="{{ 'fem-jabon-why-transparent-v1.webp' | asset_url }}" alt="{{ product.title | escape }} — sin fondo" width="1254" height="1254" decoding="async" loading="lazy" data-fem-preserve-photo class="fem-view-media fem-view-image fem-view-image__main"></picture></div></div
         ><div class="ihve6lYEwpiLcYl4w" data-fem-type="container"
           ><div data-fem-type="text" class="fem-view-rich-text iSA6pt8oR5Na3qnAy"
             ><h3><strong>¿Por qué el Jabón Íntimo FEM?</strong></h3></div
@@ -720,12 +716,12 @@
     ><div class="iab1Ejtyk4gSKPEoN fem-view-scroll-trigger fem-view-scroll-trigger--hidden fem-view-reveal--transform" data-fem-scroll-into-view-replay="true" data-fem-scroll-into-view-offset="600" data-fem-type="container" id="iab1Ejtyk4gSKPEoN"
       ><div class="icu4vOS9YreHxKCt1" data-fem-type="container"
         ><div class="imaf5hEvMRZvfOpT1" data-fem-type="container"
-          ><div data-fem-type="media" class="ikhqBj9N0S4zmWNKu"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 1080w, {{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 828w, {{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 750w, {{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 640w, {{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 360w, {{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 1280w" src="{{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }}" width="350" height="782" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 1080w, {{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 828w, {{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 750w, {{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 640w, {{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 360w, {{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }} 1280w" src="{{ 'fem-media-cc52e02b40b66ced.webp' | asset_url }}" width="350" height="782" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile"></div><div data-fem-type="text" class="fem-view-rich-text iwHoGay2XWgcS9CYk"><p>Combo día de mujer</p></div></div
+          ><div data-fem-type="media" class="ikhqBj9N0S4zmWNKu">{% render 'fem-sticky-product-image', photo_asset: 'fem-jabon-why-transparent-v1.webp', photo_width: 1254, photo_height: 1254, view_box: '371.1392 -4.2532 571.5190 1276.9367', display_width: 350, display_height: 782, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet', image_alt: product.title %}{% render 'fem-sticky-product-image', photo_asset: 'fem-jabon-why-transparent-v1.webp', photo_width: 1254, photo_height: 1254, view_box: '371.1392 -4.2532 571.5190 1276.9367', display_width: 350, display_height: 782, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile', image_alt: product.title %}</div><div data-fem-type="text" class="fem-view-rich-text iwHoGay2XWgcS9CYk"><p>Combo día de mujer</p></div></div
         ><div class="iFgFuGPFUt2at0N12" data-fem-type="container"
           ><div class="isXwNLaeOKeOsequm" data-fem-type="container"
             ><div data-fem-type="text" class="fem-view-rich-text is03CgzeRD8YJWfvk"><p>Jabón íntimo</p></div
             ><div data-fem-type="text" class="fem-view-rich-text i0nPpR2YsHnshu5Ao"><p>con PH neutro</p></div></div
-          ><div class="iuDLotePDlU7gjhkU" data-fem-type="container"
+          ><div class="iuDLotePDlU7gjhkU" data-fem-sticky-prices data-fem-type="container"
             ><div data-fem-type="text" class="fem-view-rich-text iW0G08JjgA4xYs3q2"><p>$ 46.900</p></div
             ><div data-fem-type="text" class="fem-view-rich-text is6V28Hv0BPbxX0Wk"><p>$ 75.000</p></div></div
           ><div class="i52isKpGazZa0lFzP" data-fem-type="container"

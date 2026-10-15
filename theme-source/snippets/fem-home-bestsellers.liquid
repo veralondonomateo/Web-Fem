@@ -1,13 +1,19 @@
-<div class="fem-bestsellers__section" id="fem-bestsellers__section">
+{% doc %}
+  Renders the bestselling products carousel with live prices, discounts and product links.
+{% enddoc %}
+<div class="fem-bestsellers__section" id="fem-bestsellers__section" role="region" aria-labelledby="fem-bestsellers-title-{{ section.id }}">
 <div class="fem-bestsellers__layout">
+<div class="fem-bestsellers__intro">
 <div class="fem-copy fem-bestsellers__heading">
-<h2>Nuestros productos más vendidos</h2>
+<h2 id="fem-bestsellers-title-{{ section.id }}">Nuestros productos <em>más vendidos</em></h2>
 </div>
-<div class="fem-carousel fem-bestsellers__slider-container" data-fem-carousel="{&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;view&quot;:1.3,&quot;gap&quot;:12},&quot;576&quot;:{&quot;view&quot;:2.4,&quot;gap&quot;:16},&quot;769&quot;:{&quot;view&quot;:4,&quot;gap&quot;:15},&quot;1025&quot;:{&quot;view&quot;:5,&quot;gap&quot;:15}},&quot;speed&quot;:500,&quot;loop&quot;:false}">
+<a class="fem-bestsellers__all" href="{{ routes.collections_url }}/todos-los-productos">Ver todos los productos</a>
+</div>
+<div class="fem-carousel fem-bestsellers__slider-container" data-fem-carousel="{&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;view&quot;:1.3,&quot;gap&quot;:14},&quot;576&quot;:{&quot;view&quot;:2.4,&quot;gap&quot;:18},&quot;769&quot;:{&quot;view&quot;:3,&quot;gap&quot;:18},&quot;1025&quot;:{&quot;view&quot;:5,&quot;gap&quot;:18},&quot;1280&quot;:{&quot;view&quot;:5,&quot;gap&quot;:18}},&quot;speed&quot;:500,&quot;loop&quot;:false}">
 <div class="fem-carousel__viewport fem-bestsellers__slider" id="fem-bestsellers__slider" data-fem-carousel-viewport="" tabindex="0" aria-label="Carrusel">
 <div class="fem-carousel__track" data-fem-carousel-track="">
               {% assign card_classes = 'fem-bestsellers__slider-slide,fem-bestsellers__layout-2,fem-bestsellers__layout-3,fem-bestsellers__span,fem-bestsellers__text,fem-bestsellers__media,fem-bestsellers__product-title,fem-bestsellers__layout-4,fem-bestsellers__price,fem-bestsellers__span-2,fem-bestsellers__layout-5,fem-bestsellers__link,fem-bestsellers__text-2,fem-bestsellers__icon' | split: ',' %}
-{% render 'fem-product-card', card_product: all_products['duo-perfecto'], card_classes: card_classes, cta_text: 'ver producto', section: section %}
+{% render 'fem-product-card', card_product: all_products['duo-perfecto'], card_classes: card_classes, cta_text: 'Ver producto', section: section %}
               {% assign card_classes = 'fem-bestsellers__slider-slide-2,fem-bestsellers__layout-2,fem-bestsellers__layout-3,fem-bestsellers__span-3,fem-bestsellers__text-3,fem-bestsellers__media,fem-bestsellers__product-title,fem-bestsellers__layout-4,fem-bestsellers__price-2,fem-bestsellers__span-4,fem-bestsellers__layout-5,fem-bestsellers__link,fem-bestsellers__text-4,fem-bestsellers__icon' | split: ',' %}
 {% render 'fem-product-card', card_product: all_products['probiotico-vaginal-en-capsulas-x100-unidades'], card_classes: card_classes, cta_text: 'Ver producto', section: section %}
               {% assign card_classes = 'fem-bestsellers__slider-slide-3,fem-bestsellers__layout-2,fem-bestsellers__layout-3,fem-bestsellers__span-5,fem-bestsellers__text-5,fem-bestsellers__media,fem-bestsellers__product-title,fem-bestsellers__layout-4,fem-bestsellers__price-3,fem-bestsellers__span-6,fem-bestsellers__layout-5,fem-bestsellers__link,fem-bestsellers__text-2,fem-bestsellers__icon' | split: ',' %}

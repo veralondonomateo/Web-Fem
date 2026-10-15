@@ -1,0 +1,66 @@
+.fem-native.fem-home .fem-bestsellers__section {
+  padding:40px 0 48px;
+  background:#fff7f7;
+  color:#581d18;
+  font-family:Poppins,Arial,sans-serif;
+}
+.fem-native.fem-home .fem-bestsellers__layout { width:100%; max-width:1500px; padding:0 80px; row-gap:26px; }
+.fem-home .fem-bestsellers__intro { gap:24px; }
+.fem-native.fem-home .fem-bestsellers__heading { max-width:900px; color:inherit; font-size:40px; font-weight:700; line-height:1.15; letter-spacing:-.035em; text-align:left; }
+.fem-home .fem-bestsellers__heading h2 { margin:0; font:inherit; }
+.fem-home .fem-bestsellers__heading em { color:#c64b4b; font-family:'Behind The Nineties Sans','Fem Home Display',Georgia,serif; font-size:1.12em; font-weight:700; letter-spacing:-.025em; }
+.fem-native.fem-home .fem-bestsellers__all { display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; min-height:46px; padding:12px 20px; border:1px solid #f5bfc4; border-radius:999px; background:#fff; color:#581d18; font:600 14px/1.5 Poppins,Arial,sans-serif; text-align:center; text-decoration:none; transition:background-color .2s ease; }
+.fem-home .fem-bestsellers__all:hover { background:#ffe7e9; }
+.fem-native.fem-home .fem-bestsellers__slider-container { display:grid; grid-template-columns:minmax(0,1fr) 44px 44px minmax(0,1fr); gap:12px; width:100%; overflow:visible; }
+.fem-native.fem-home .fem-bestsellers__slider { grid-column:1/-1; grid-row:1; width:100%; padding:12px 0 20px; }
+.fem-native.fem-home .fem-bestsellers__slider .fem-carousel__track > article {
+  display:grid;
+  grid-template-rows:auto minmax(68px,auto) minmax(48px,auto) minmax(8px,1fr) auto;
+  align-items:stretch;
+  gap:12px;
+  margin:0;
+  padding:14px;
+  border:1px solid #f7d3d3;
+  border-radius:28px;
+  background:#fff;
+  box-shadow:0 5px 16px #9b3c4610;
+}
+.fem-native.fem-home .fem-bestsellers__layout-2 { min-width:0; border-radius:20px; }
+.fem-native.fem-home .fem-bestsellers__layout-3 { top:10px; left:10px; padding:6px 9px; border:1px solid #ffffffa6; background:#fff0f0; }
+.fem-native.fem-home .fem-bestsellers__layout-3,
+.fem-native.fem-home .fem-bestsellers__layout-3 :is(span,.fem-copy,p) { color:#581d18; font-size:11px; font-weight:700; line-height:1.2; }
+.fem-native.fem-home .fem-bestsellers__product-title { margin:0; color:#581d18; font-size:16px; font-weight:600; line-height:1.4; }
+.fem-native.fem-home .fem-bestsellers__layout-4 { display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; gap:2px; min-width:0; }
+.fem-native.fem-home .fem-bestsellers__layout-4 > p { margin:0; color:#581d18; font-size:18px; font-weight:700; line-height:1.5; }
+.fem-native.fem-home .fem-bestsellers__layout-4 > span { color:#936c69; font-size:12px; line-height:1.5; }
+.fem-native.fem-home .fem-bestsellers__layout-5 { min-height:0; }
+.fem-native.fem-home .fem-bestsellers__link { gap:8px; min-height:48px; margin:0; padding:12px 10px; border:1px solid transparent; border-radius:999px; background:#f5797e; color:#581d18; text-decoration:none; transition:background-color .2s ease; }
+.fem-native.fem-home .fem-bestsellers__link .fem-copy { color:inherit; font-weight:600; line-height:1.5; }
+.fem-native.fem-home .fem-bestsellers__icon { flex:0 0 17px; color:inherit; }
+.fem-native.fem-home .fem-bestsellers__link:hover { background:#ffacac; }
+.fem-native.fem-home .fem-bestsellers__layout-6,
+.fem-native.fem-home .fem-bestsellers__layout-7 { position:static; inset:auto; padding:0; grid-row:2; }
+.fem-native.fem-home .fem-bestsellers__layout-6 { grid-column:2; }
+.fem-native.fem-home .fem-bestsellers__layout-7 { grid-column:3; }
+.fem-native.fem-home .fem-bestsellers__slider-button-prev,
+.fem-native.fem-home .fem-bestsellers__slider-button-next { width:44px; height:44px; padding:0; border:1px solid #f5bfc4; border-radius:50%; background:#ffe7e9; box-shadow:none; transition:background-color .2s ease; }
+.fem-native.fem-home .fem-bestsellers__slider-container button:hover { transform:none; }
+.fem-native.fem-home .fem-bestsellers__slider-button-prev:enabled:hover,
+.fem-native.fem-home .fem-bestsellers__slider-button-next:enabled:hover { background:#f5797e; }
+.fem-native.fem-home .fem-bestsellers__icon-2 { width:18px; height:18px; color:#581d18; }
+.fem-home .fem-bestsellers__section :is(a,button,[tabindex]):focus-visible { outline:2px solid #581d18; outline-offset:4px; }
+@media(min-width:750px) and (max-width:1024px) {
+  .fem-native.fem-home .fem-bestsellers__layout { padding:0 48px; }
+  .fem-native.fem-home .fem-bestsellers__heading { font-size:34px; }
+}
+@media(max-width:749px) {
+  .fem-native.fem-home .fem-bestsellers__section { padding:32px 0 40px; }
+  .fem-native.fem-home .fem-bestsellers__layout { padding:0 20px; row-gap:20px; }
+  .fem-home .fem-bestsellers__intro { flex-direction:column; align-items:flex-start; gap:16px; }
+  .fem-native.fem-home .fem-bestsellers__heading { width:100%; max-width:none; font-size:32px; }
+  .fem-native.fem-home .fem-bestsellers__all { min-height:44px; padding:10px 16px; font-size:13px; }
+  .fem-native.fem-home .fem-bestsellers__slider .fem-carousel__track > article { border-radius:24px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .fem-home .fem-bestsellers__section :is(a,button) { transition:none; }
+}

@@ -12,6 +12,11 @@ export interface SearchCardProduct {
   url:string;title:string;featured_image:ProductImage|null;images:ProductImage[];
   selected_or_first_available_variant:{price:number;compare_at_price:number|null;featured_image:ProductImage|null;available:boolean};
 }
+interface SectionDefinition {
+  type:string;settings:Record<string,unknown>;
+  blocks?:Record<string,{type:string;settings:Record<string,unknown>}>;
+  block_order?:string[];
+}
 const engine=new Liquid({root:fileURLToPath(new URL('../theme-source/snippets',import.meta.url)),extname:'.liquid'});
 for(const tag of ['schema','doc'])engine.registerTag(tag,{
   parse(_token,tokens){this.liquid.parser.parseStream(tokens).on(`tag:end${tag}`,function(){this.stop();}).start();},
@@ -41,9 +46,20 @@ export function renderScratchCard():string {
   return engine.renderFileSync('fem-scratch-card');
 }
 
+export function renderRefundPolicy(policy:{title:string;body:string}):string {
+  return engine.renderFileSync('fem-refund-policy',{policy,routes:{root_url:'/'}});
+}
+
+export function renderCatalogFilters():string {
+  return engine.renderFileSync('fem-catalog-filters');
+}
+
+export function renderCollectionCardDetails(card_product:{url:string;title:string;available:boolean;selected_or_first_available_variant:{price:number;compare_at_price:number|null;selected_selling_plan_allocation?:{price:number;compare_at_price:number|null}}}):string {
+  return engine.renderFileSync('fem-collection-card-details',{card_product});
+}
+
 /** Render the same editable sections used by Shopify, without reading legacy page markup. */
 function renderPageTemplate(name:string,embedded=false):string {
-  type SectionDefinition={type:string;settings:Record<string,unknown>;blocks?:Record<string,{type:string;settings:Record<string,unknown>}>;block_order?:string[]};
   const template=JSON.parse(readFileSync(new URL(`../theme-source/templates/${name}.json`,import.meta.url),'utf8')) as {sections:Record<string,SectionDefinition>;order:string[]};
   return (embedded?['main']:template.order).map(id=>{
     const definition=template.sections[id];
@@ -103,9 +119,15 @@ export function renderNativeSection(name:'home'|'header'|'footer'|'cart-drawer',
   const schema=JSON.parse(source.match(/{%\s*schema\s*%}([\s\S]*?){%\s*endschema\s*%}/)?.[1]??'{}');
   const defaults=Object.fromEntries((schema.settings??[]).filter((setting:{id?:string})=>setting.id).map((setting:{id:string;default?:unknown})=>[setting.id,setting.default??'']));
   const saved=JSON.parse(readFileSync(new URL('../theme-source/config/settings_data.json',import.meta.url),'utf8').replace(/^\/\*[\s\S]*?\*\/\s*/,'')).current?.sections?.[`fem-${name}`]?.settings??{};
+  const homeTemplate=name==='home'?JSON.parse(readFileSync(new URL('../theme-source/templates/index.json',import.meta.url),'utf8')) as {sections:Record<string,SectionDefinition>}:null;
+  const homeDefinition=homeTemplate?Object.values(homeTemplate.sections).find(definition=>definition.type==='fem-home'):undefined;
+  const blocks=(homeDefinition?.block_order??[]).flatMap(id=>{
+    const block=homeDefinition?.blocks?.[id];
+    return block?[{id,...block,shopify_attributes:''}]:[];
+  });
   const context={
     product:{handle:pathname.match(/^\/products\/([^/?#]+)/)?.[1]??''},
-    section:{id:`fem-${name}`,settings:{...defaults,...saved},location:name==='home'?'template':name,index:1},
+    section:{id:`fem-${name}`,settings:{...defaults,...homeDefinition?.settings,...saved},blocks,location:name==='home'?'template':name,index:1},
     all_products:products,collections:{'todos-los-productos':{url:'/collections/todos-los-productos'}},
     routes:{root_url:'/',collections_url:'/collections',all_products_collection_url:'/collections/all',account_url:'/account',cart_url:'/cart',search_url:'/search'},
     shop:{money_format:'${{amount}}',enabled_payment_types:[]}

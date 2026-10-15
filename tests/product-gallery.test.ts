@@ -40,9 +40,9 @@ test('Product galleries retain their assigned photos and serve complete local im
 });
 
 test('The probiotic and Fem Mom products use all six supplied images in the same order in every gallery view',()=>{
-  for(const [route,manifest] of [
-    ['/products/probiotico-vaginal-en-capsulas-x100-unidades','probioticos-gallery.json'],
-    ['/products/fem-mom-impulso-natural-de-leche-materna','fem-mom-gallery.json']
+  for(const [route,manifest,section] of [
+    ['/products/probiotico-vaginal-en-capsulas-x100-unidades','probioticos-gallery.json','fem-product-probioticos'],
+    ['/products/fem-mom-impulso-natural-de-leche-materna','fem-mom-gallery.json','fem-product-mom']
   ]){
     const page=pages.find(page=>new URL(page.url).pathname===route)!;
     const photos=JSON.parse(readFileSync('server/'+manifest,'utf8')) as {asset:string;width:number;height:number;alt:string}[];
@@ -65,7 +65,10 @@ test('The probiotic and Fem Mom products use all six supplied images in the same
     assert.deepEqual(buttons.map((_,button)=>$(button).attr('data-fem-overlay-active-slide')).get(),['0','1','2','3','4','5']);
     const thumbnailId=$('[data-fem-product-gallery="thumbnails"]').first().attr('id');
     const config=JSON.parse($(`script[id="fem-view-slider-${thumbnailId}-params"]`).text());
-    assert.ok(Object.values(config.breakpoints).every((point:any)=>point.slidesPerView===6));
+    assert.ok(Object.values(config.breakpoints).every((point:any)=>point.slidesPerView===5));
+    const native=load(readFileSync(`theme-source/sections/${section}.liquid`,'utf8'));
+    const nativeConfig=JSON.parse(native(`script[id="fem-view-slider-${thumbnailId}-params"]`).text());
+    assert.ok(Object.values(nativeConfig.breakpoints).every((point:any)=>point.slidesPerView===5));
   }
 });
 

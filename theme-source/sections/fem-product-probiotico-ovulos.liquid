@@ -9,6 +9,7 @@
     endif
   -%}
   {{ 'fem-product-probiotico-ovulos.css' | asset_url | stylesheet_tag: preload: preload -}}
+  {{ 'fem-product-cutouts.css' | asset_url | stylesheet_tag }}
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;family=Montserrat:wght@400&amp;display=swap" rel="stylesheet">
 
   <form data-fem-type="root" class="iFmJ0hqfU8fUte1On" data-fem-form-product-url="{{ product.url }}" data-fem-form-variant-id="{{ product.selected_or_first_available_variant.id }}" data-fem-form-product-id="{{ product.id }}"
@@ -115,7 +116,7 @@
           ></div
         ><div conditionals="" class="i7ICRyNNIC7xfgMfO" data-fem-type="container"
           ><div class="ijbwg6m87GttCqaJD" data-fem-type="container"
-            ><h3 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="iewfnbsKRqJH8lkQk">{{ product.title }}</h3
+            ><h1 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="iewfnbsKRqJH8lkQk">{{ product.title }}</h1
             ><div class="iQTrvxPP7M5FoNf6p" data-fem-type="container"
               ><div data-fem-type="icon" class="iG8UsD531KqaDq61E">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
@@ -435,9 +436,7 @@
     <div class="iaqBqKhGukupPi05N" data-fem-type="container" id="iaqBqKhGukupPi05N" data-fem-form-product-url="{{ product_aqBqKhGukupPi05N.url }}" data-fem-form-variant-id="{{ product_aqBqKhGukupPi05N_variant.id }}" data-fem-form-product-id="{{ product_aqBqKhGukupPi05N.id }}"
       ><div class="iUR7DAaBixHBp4Fl5" data-fem-type="container"
         ><div class="iCn9xdgHaJ6rdTAuR" data-fem-type="container"
-          ><div data-fem-type="media" class="icBZtHJRDhiCgT7cy">{%- capture fem_image_fallback -%}<img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-b115388b8664be3e.webp' | asset_url }} 1080w, {{ 'fem-media-b115388b8664be3e.webp' | asset_url }} 828w, {{ 'fem-media-b115388b8664be3e.webp' | asset_url }} 750w, {{ 'fem-media-b115388b8664be3e.webp' | asset_url }} 640w, {{ 'fem-media-8aaf53c894f88dd6.webp' | asset_url }} 360w, {{ 'fem-media-b115388b8664be3e.webp' | asset_url }} 1280w" src="{{ 'fem-media-b115388b8664be3e.webp' | asset_url }}" width="452" height="305" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main">{%- endcapture -%}
-{%- capture fem_image_attributes -%}{%- endcapture -%}
-{% render 'fem-product-image', card_product: product_aqBqKhGukupPi05N, fallback: fem_image_fallback, image_class: 'fem-view-media fem-view-image fem-view-image__main', image_attributes: fem_image_attributes, image_style: 'object-fit:contain', loading: 'lazy' %}</div></div
+          ><div data-fem-type="media" class="icBZtHJRDhiCgT7cy" data-fem-product-cutout><picture class="fem-product-cutout-picture">{% render 'fem-cutout-sources', photo_asset: 'fem-ovulos-pro-why-transparent-v1.webp', photo_width: 1254 %}<img src="{{ 'fem-ovulos-pro-why-transparent-v1.webp' | asset_url }}" alt="{{ product.title | escape }} — sin fondo" width="1254" height="1254" decoding="async" loading="lazy" data-fem-preserve-photo class="fem-view-media fem-view-image fem-view-image__main"></picture></div></div
         ><div class="iPmsVoMJIG3XUyzYY" data-fem-type="container"
           ><div class="iCmk0UM6E4ZYEavMU" data-fem-type="container"
             ><div data-fem-type="text" class="fem-view-rich-text iiBCFdE4s0g8YsVnY"><h2>¿Por qué el combo</h2><h2>probióticos + óvulos?</h2></div></div
@@ -702,12 +701,12 @@
     ><div class="iJ0wb3hBXvdTjf91p fem-view-scroll-trigger fem-view-scroll-trigger--hidden fem-view-reveal--transform" data-fem-scroll-into-view-replay="true" data-fem-scroll-into-view-offset="600" data-fem-type="container" id="iJ0wb3hBXvdTjf91p"
       ><div class="iHUYlykdg7fuWX0R2" data-fem-type="container"
         ><div class="ip1snu9rmm978lwbh" data-fem-type="container"
-          ><div data-fem-type="media" class="iEuycJPQfTelM81pj"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-cc4777b05ee647f8.webp' | asset_url }} 1080w, {{ 'fem-media-cc4777b05ee647f8.webp' | asset_url }} 828w, {{ 'fem-media-cc4777b05ee647f8.webp' | asset_url }} 750w, {{ 'fem-media-cc4777b05ee647f8.webp' | asset_url }} 640w, {{ 'fem-media-e1bc90ebdc0abed8.webp' | asset_url }} 360w, {{ 'fem-media-cc4777b05ee647f8.webp' | asset_url }} 1280w" src="{{ 'fem-media-cc4777b05ee647f8.webp' | asset_url }}" width="504" height="588" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main"></div></div
+          ><div data-fem-type="media" class="iEuycJPQfTelM81pj">{% render 'fem-sticky-product-image', photo_asset: 'fem-ovulos-pro-why-transparent-v1.webp', photo_width: 1254, photo_height: 1254, view_box: '117.9118 17.5945 1083.1765 1263.7059', display_width: 504, display_height: 588, image_class: 'fem-view-media fem-view-image fem-view-image__main', image_alt: product.title %}</div></div
         ><div class="icjL2ufKjSSipXGtD" data-fem-type="container"
           ><div class="iVCCvXJFUr6cVn0QU" data-fem-type="container"
             ><div data-fem-type="text" class="fem-view-rich-text iqMsZZ4hYN6VaoNbJ"><p>Combo probióticos</p></div
             ><div data-fem-type="text" class="fem-view-rich-text iyNXTdKSAZnp4vYfp"><p>+ Óvulos</p></div></div
-          ><div class="iIouBVUKh6j4i2pIv" data-fem-type="container"
+          ><div class="iIouBVUKh6j4i2pIv" data-fem-sticky-prices data-fem-type="container"
             ><div data-fem-type="text" class="fem-view-rich-text ikKdXNSSUdjDDRI3w"><p>$ 149.900</p></div
             ><div data-fem-type="text" class="fem-view-rich-text idUOcoXITn2H08A18"><p>$ 189.900</p></div></div
           ><div class="ioEvUGOsgPVZbNLze" data-fem-type="container"

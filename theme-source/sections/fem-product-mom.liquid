@@ -9,6 +9,7 @@
     endif
   -%}
   {{ 'fem-product-mom.css' | asset_url | stylesheet_tag: preload: preload -}}
+  {{ 'fem-product-cutouts.css' | asset_url | stylesheet_tag }}
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Montserrat:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
 
   <form data-fem-type="root" class="i1scvikn14a18OybU" data-fem-form-product-url="{{ product.url }}" data-fem-form-variant-id="{{ product.selected_or_first_available_variant.id }}" data-fem-form-product-id="{{ product.id }}"
@@ -17,7 +18,7 @@
         ><div class="imXLBzUsWVIc9DRnY" data-fem-type="container"
           ><div class="fem-view-slider-container iArC2wB7CaZdbIocR" data-fem-type="slider-container"
             ><div class="fem-view-slider-container iQsujCP090vdq9nZs" data-fem-type="slider-container">
-              <script type="application/json" id="fem-view-slider-i4DM3zqUHOI3UFlqS-params">{"breakpoints":{"0":{"speed":300,"direction":"horizontal","autoHeight":false,"slidesPerView":6,"freeMode":false,"centeredSlides":false,"centerInsufficientSlides":false,"spaceBetween":10},"576":{"speed":300,"direction":"horizontal","autoHeight":false,"slidesPerView":6,"freeMode":false,"centeredSlides":false,"centerInsufficientSlides":false,"spaceBetween":10}},"loop":false,"autoplay":false}</script>
+              <script type="application/json" id="fem-view-slider-i4DM3zqUHOI3UFlqS-params">{"breakpoints":{"0":{"speed":300,"direction":"horizontal","autoHeight":false,"slidesPerView":5,"freeMode":false,"centeredSlides":false,"centerInsufficientSlides":false,"spaceBetween":10},"576":{"speed":300,"direction":"horizontal","autoHeight":false,"slidesPerView":5,"freeMode":false,"centeredSlides":false,"centerInsufficientSlides":false,"spaceBetween":10}},"loop":false,"autoplay":false}</script>
               <div class="fem-view-slider fem-view-slider-thumbs i4DM3zqUHOI3UFlqS" data-fem-slider-id="7MMgegC7PHB2yiqm" id="i4DM3zqUHOI3UFlqS" data-fem-type="thumbnails"
                 ><div class="fem-view-slider-wrapper">
 
@@ -115,7 +116,7 @@
           ></div
         ><div conditionals="" class="iztCj65HL7RMqWQHX" data-fem-type="container"
           ><div class="iWkf8H6t9pjXGDC7A" data-fem-type="container"
-            ><h3 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="iUFNfLQtd9jcIY9Va">{{ product.title }}</h3
+            ><h1 data-fem-dynamic-content-source="TITLE" data-fem-type="text" class="iUFNfLQtd9jcIY9Va">{{ product.title }}</h1
             ><div class="idIu6DJieWisE6R5d" data-fem-type="container"
               ><div data-fem-type="icon" class="iFJWO5C5FDRgqoX8O">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
@@ -1000,12 +1001,7 @@
     <div class="iBTzJrBTSjkeHXzfk" data-fem-type="container" id="iBTzJrBTSjkeHXzfk" data-fem-form-product-url="{{ product_BTzJrBTSjkeHXzfk.url }}" data-fem-form-variant-id="{{ product_BTzJrBTSjkeHXzfk_variant.id }}" data-fem-form-product-id="{{ product_BTzJrBTSjkeHXzfk.id }}"
       ><div class="iEc8XF47QA33XDtLo" data-fem-type="container"
         ><div class="ievBkZ8pXe1DWYeQ7" data-fem-type="container"
-          ><div data-fem-type="media" class="iFAhMsG2VJ2s0zSdm">{%- capture fem_image_fallback -%}<img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-07bf5cc47d4d3a28.webp' | asset_url }} 1080w, {{ 'fem-media-07bf5cc47d4d3a28.webp' | asset_url }} 828w, {{ 'fem-media-07bf5cc47d4d3a28.webp' | asset_url }} 750w, {{ 'fem-media-38dd917bccab9fe4.png' | asset_url }} 640w, {{ 'fem-media-c130d33cd3a795d7.webp' | asset_url }} 360w, {{ 'fem-media-07bf5cc47d4d3a28.webp' | asset_url }} 1280w" src="{{ 'fem-media-07bf5cc47d4d3a28.webp' | asset_url }}" width="644" height="975" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet">{%- endcapture -%}
-{%- capture fem_image_attributes -%}{%- endcapture -%}
-{% render 'fem-product-image', card_product: product_BTzJrBTSjkeHXzfk, fallback: fem_image_fallback, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet', image_attributes: fem_image_attributes, image_style: 'object-fit:contain', loading: 'lazy' %}
-{%- capture fem_image_fallback -%}<img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-8c95bd7608a7fa50.webp' | asset_url }} 1080w, {{ 'fem-media-8c95bd7608a7fa50.webp' | asset_url }} 828w, {{ 'fem-media-8c95bd7608a7fa50.webp' | asset_url }} 750w, {{ 'fem-media-8c95bd7608a7fa50.webp' | asset_url }} 640w, {{ 'fem-media-965ae0ffb4c11d0c.webp' | asset_url }} 360w, {{ 'fem-media-8c95bd7608a7fa50.webp' | asset_url }} 1280w" src="{{ 'fem-media-8c95bd7608a7fa50.webp' | asset_url }}" width="461" height="668" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile">{%- endcapture -%}
-{%- capture fem_image_attributes -%}{%- endcapture -%}
-{% render 'fem-product-image', card_product: product_BTzJrBTSjkeHXzfk, fallback: fem_image_fallback, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile', image_attributes: fem_image_attributes, image_style: 'object-fit:contain', loading: 'lazy' %}</div></div
+          ><div data-fem-type="media" class="iFAhMsG2VJ2s0zSdm" data-fem-product-cutout><picture class="fem-product-cutout-picture">{% render 'fem-cutout-sources', photo_asset: 'fem-fem-mom-why-transparent-v1.webp', photo_width: 1254 %}<img src="{{ 'fem-fem-mom-why-transparent-v1.webp' | asset_url }}" alt="{{ product.title | escape }} — sin fondo" width="1254" height="1254" decoding="async" loading="lazy" data-fem-preserve-photo class="fem-view-media fem-view-image fem-view-image__main"></picture></div></div
         ><div class="iJFUwZwMwUnqIgmVX" data-fem-type="container"
           ><div class="iei9jvHo7Z5KnYJYU" data-fem-type="container"
             ><div data-fem-type="text" class="fem-view-rich-text iWyrSWoqtG0ePtIEe"><h2>¿Por qué Fem mom?</h2></div
@@ -1379,17 +1375,17 @@
     <div class="i9D1py89MsobKaGlj fem-view-scroll-trigger fem-view-scroll-trigger--hidden fem-view-reveal--transform" data-fem-scroll-into-view-replay="true" data-fem-scroll-into-view-offset="600" data-fem-type="container" id="i9D1py89MsobKaGlj" data-fem-form-product-url="{{ product_9D1py89MsobKaGlj.url }}" data-fem-form-variant-id="{{ product_9D1py89MsobKaGlj_variant.id }}" data-fem-form-product-id="{{ product_9D1py89MsobKaGlj.id }}"
       ><div class="iPLOmXf2rXgFoxaZq" data-fem-type="container"
         ><div class="isvfYdpJ8bGINl4H0" data-fem-type="container"
-          ><div data-fem-type="media" class="i6BwXFrpZo6Hmcq4X">{%- capture fem_image_fallback -%}<img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-07bf5cc47d4d3a28.webp' | asset_url }} 1080w, {{ 'fem-media-07bf5cc47d4d3a28.webp' | asset_url }} 828w, {{ 'fem-media-07bf5cc47d4d3a28.webp' | asset_url }} 750w, {{ 'fem-media-38dd917bccab9fe4.png' | asset_url }} 640w, {{ 'fem-media-c130d33cd3a795d7.webp' | asset_url }} 360w, {{ 'fem-media-07bf5cc47d4d3a28.webp' | asset_url }} 1280w" src="{{ 'fem-media-07bf5cc47d4d3a28.webp' | asset_url }}" width="644" height="975" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet">{%- endcapture -%}
+          ><div data-fem-type="media" class="i6BwXFrpZo6Hmcq4X">{%- capture fem_image_fallback -%}{% render 'fem-sticky-product-image', photo_asset: 'fem-fem-mom-why-transparent-v1.webp', photo_width: 1254, photo_height: 1254, view_box: '288.5306 123.8878 679.0476 1028.0612', display_width: 644, display_height: 975, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet', image_alt: product.title %}{%- endcapture -%}
 {%- capture fem_image_attributes -%}{%- endcapture -%}
 {% render 'fem-product-image', card_product: product_9D1py89MsobKaGlj, fallback: fem_image_fallback, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--desktop fem-view-responsive--laptop fem-view-responsive--tablet', image_attributes: fem_image_attributes, image_style: 'object-fit:contain', loading: 'lazy' %}
-{%- capture fem_image_fallback -%}<img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ 'fem-media-8c95bd7608a7fa50.webp' | asset_url }} 1080w, {{ 'fem-media-8c95bd7608a7fa50.webp' | asset_url }} 828w, {{ 'fem-media-8c95bd7608a7fa50.webp' | asset_url }} 750w, {{ 'fem-media-8c95bd7608a7fa50.webp' | asset_url }} 640w, {{ 'fem-media-965ae0ffb4c11d0c.webp' | asset_url }} 360w, {{ 'fem-media-8c95bd7608a7fa50.webp' | asset_url }} 1280w" src="{{ 'fem-media-8c95bd7608a7fa50.webp' | asset_url }}" width="461" height="668" decoding="async" loading="lazy" fetchpriority="auto" class="fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile">{%- endcapture -%}
+{%- capture fem_image_fallback -%}{% render 'fem-sticky-product-image', photo_asset: 'fem-fem-mom-why-transparent-v1.webp', photo_width: 1254, photo_height: 1254, view_box: '284.7702 142.5943 688.9429 998.2948', display_width: 461, display_height: 668, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile', image_alt: product.title %}{%- endcapture -%}
 {%- capture fem_image_attributes -%}{%- endcapture -%}
 {% render 'fem-product-image', card_product: product_9D1py89MsobKaGlj, fallback: fem_image_fallback, image_class: 'fem-view-media fem-view-image fem-view-image__main fem-view-responsive fem-view-responsive--mobile', image_attributes: fem_image_attributes, image_style: 'object-fit:contain', loading: 'lazy' %}</div></div
         ><div class="iH2mhXTEOv5FDWvRh" data-fem-type="container"
           ><div class="iEF7L1ay6h15ZPmjh" data-fem-type="container"
             ><div data-fem-type="text" class="fem-view-rich-text iSrD2RkBYS2k0q3HQ"><p>Fem mom</p></div
             ><div data-fem-type="text" class="fem-view-rich-text iIXEbuZ93rjJ9FUHK"><p>x 60 tabletas</p></div></div
-          ><div class="iclJD2GoERzYRJQx8" data-fem-type="container"
+          ><div class="iclJD2GoERzYRJQx8" data-fem-sticky-prices data-fem-type="container"
             ><p data-fem-dynamic-content-source="PRICE" data-fem-type="text" class="iThlMfTy0Kv70fRoK">
               {%- liquid
                 assign variant_price = product_9D1py89MsobKaGlj_variant.price

@@ -1,0 +1,56 @@
+.fem-native.fem-home .fem-press__section {
+  padding:64px 0;
+  background:#f17e7e;
+  color:#581d18;
+  font-family:Poppins,Arial,sans-serif;
+}
+.fem-native.fem-home .fem-press__layout { width:100%; max-width:1500px; padding:0 80px; gap:28px; }
+.fem-native.fem-home .fem-press__layout-2 { gap:14px; }
+.fem-native.fem-home .fem-press__heading { color:inherit; font-size:44px; font-weight:700; line-height:1.15; letter-spacing:-.035em; text-align:left; }
+.fem-home .fem-press__heading h2 { margin:0; font:inherit; }
+.fem-home .fem-press__heading em { color:#fff7f7; font-family:'Behind The Nineties Sans','Fem Home Display',Georgia,serif; font-size:1.12em; font-weight:700; letter-spacing:-.025em; }
+.fem-native.fem-home .fem-press__text { max-width:620px; color:inherit; font-size:15px; line-height:1.6; text-align:left; }
+.fem-native.fem-home .fem-press__layout-3 { display:grid; grid-template-columns:minmax(0,1fr) 44px 44px minmax(0,1fr); gap:16px 12px; }
+.fem-native.fem-home .fem-press__slider { grid-column:1/-1; grid-row:1; width:100%; padding:12px 0 20px; }
+.fem-native.fem-home .fem-press__slider-slide { align-items:flex-start; gap:24px; min-height:300px; margin:0; padding:30px; border:1px solid #fff; border-radius:28px; background:#fff7f7; box-shadow:0 6px 18px #581d1810; }
+.fem-native.fem-home .fem-press__layout-4,
+.fem-native.fem-home .fem-press__layout-6 { align-items:center; min-height:44px; width:100%; }
+.fem-native.fem-home .fem-press__media,
+.fem-native.fem-home .fem-press__media-2 { flex:0 1 220px; width:220px; max-width:100%; height:44px; }
+.fem-native.fem-home .fem-press__slider-slide img.fem-image.fem-image__main { width:100%; height:100%; object-fit:contain; object-position:left center; }
+.fem-native.fem-home .fem-press__layout-5,
+.fem-native.fem-home .fem-press__layout-7 { flex:1; gap:20px; width:100%; }
+.fem-native.fem-home .fem-press__text-2,
+.fem-native.fem-home .fem-press__text-4 { color:#581d18; font-size:18px; font-weight:600; line-height:1.45; text-wrap:pretty; }
+.fem-home :is(.fem-press__text-2,.fem-press__text-4) strong { font-weight:600; }
+.fem-native.fem-home .fem-press__link { gap:8px; min-height:46px; max-width:100%; margin-top:auto; padding:12px 20px; border:1px solid transparent; border-radius:999px; background:#f5797e; color:#581d18; text-decoration:none; transition:background-color .2s ease; }
+.fem-native.fem-home .fem-press__text-3 { color:inherit; font-family:Poppins,Arial,sans-serif; font-weight:600; line-height:1.5; }
+.fem-native.fem-home .fem-press__icon-2 { flex:0 0 18px; width:18px; height:18px; color:inherit; }
+.fem-native.fem-home .fem-press__link:hover { background:#ffacac; }
+.fem-native.fem-home .fem-press__slider-button-prev,
+.fem-native.fem-home .fem-press__slider-button-next { grid-row:2; width:44px; min-width:44px; height:44px; padding:0; border:1px solid #fff; border-radius:50%; background:#fff0f0; transition:background-color .2s ease; }
+.fem-native.fem-home .fem-press__slider-button-prev { grid-column:2; }
+.fem-native.fem-home .fem-press__slider-button-next { grid-column:3; }
+.fem-native.fem-home .fem-press__slider-button-prev:enabled:hover,
+.fem-native.fem-home .fem-press__slider-button-next:enabled:hover { background:#ffdcdf; opacity:1; }
+.fem-native.fem-home .fem-press__icon { width:18px; height:18px; color:#581d18; }
+/* The legacy single dot is decorative and does not track the active article. */
+.fem-native.fem-home .fem-press__slider-pagination { display:none; }
+.fem-home .fem-press__section :is(a,button,[tabindex]):focus-visible { outline:2px solid #581d18; outline-offset:4px; }
+@media(min-width:750px) and (max-width:1024px) {
+  .fem-native.fem-home .fem-press__layout { padding:0 48px; }
+  .fem-native.fem-home .fem-press__slider-slide { padding:26px; }
+}
+@media(max-width:749px) {
+  .fem-native.fem-home .fem-press__section { padding:44px 0; }
+  .fem-native.fem-home .fem-press__layout { padding:0 20px; gap:24px; }
+  .fem-native.fem-home .fem-press__heading { font-size:34px; }
+  .fem-native.fem-home .fem-press__text { font-size:14px; }
+  .fem-native.fem-home .fem-press__slider-slide { min-height:300px; padding:26px; border-radius:24px; }
+  .fem-native.fem-home .fem-press__text-2,
+  .fem-native.fem-home .fem-press__text-4 { font-size:17px; }
+  .fem-native.fem-home .fem-press__link { padding-right:16px; padding-left:16px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .fem-home .fem-press__section :is(a,button) { transition:none; }
+}

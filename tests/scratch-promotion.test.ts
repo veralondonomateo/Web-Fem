@@ -34,6 +34,7 @@ test('Mouse/touch reveal works without a button and preserves the email form',as
   const {enhanceScratchPromotion}=await import('../src/components/scratch-promotion.ts');
   const form=doc.querySelector('form')!,details=form.querySelector('.details')!,email=form.querySelector('input')!;
   const originalEmail=email.outerHTML,submit=form.querySelector('button')!;let submitted=0;submit.addEventListener('click',()=>submitted++);
+  const dismiss=form.querySelector('[data-action-id="existing-close"]')!;let dismissed=0;dismiss.addEventListener('click',()=>dismissed++);
   enhanceScratchPromotion(doc as unknown as Document);
   assert.equal(doc.querySelectorAll('.fem-scratch').length,1);
   assert.ok(form.closest('[data-fem-scratch-frame]'));
@@ -62,9 +63,12 @@ test('Mouse/touch reveal works without a button and preserves the email form',as
   assert.equal(details.querySelector('h2')!.textContent,'Ingresa tu correo para redimir tu descuento');
   assert.equal(details.querySelectorAll('[data-fem-scratch-old-heading]').length,2);
   assert.ok(details.querySelector('[data-fem-scratch-consent]'));
+  assert.equal(details.querySelector('[data-fem-scratch-dismiss]'),dismiss);
+  assert.equal(dismiss.textContent,'Seguir explorando');
   enhanceScratchPromotion(canvas as unknown as Element);assert.equal(doc.querySelectorAll('.fem-scratch').length,1);
   assert.equal(details.querySelectorAll('.fem-scratch-redemption').length,1);
   (submit as any).click();assert.equal(submitted,1);
+  (dismiss as any).click();assert.equal(dismissed,1);
   form.remove();doc.body.insertAdjacentHTML('beforeend',markup('QX2wGL',false));enhanceScratchPromotion(doc as unknown as Document);
   assert.ok(doc.querySelector('.fem-scratch--revealed'));
   assert.equal(doc.querySelectorAll('.fem-scratch').length,1);
@@ -114,18 +118,24 @@ test('Preview and theme share a single translated template without injecting ext
   assert.equal((transformStorefront(html,'/').match(/id="fem-scratch-template"/g)||[]).length,1);
 });
 
-test('Home opens the welcome popup once, and dismissal is remembered across page loads',async t=>{
+test('Home waits for both reading time and exploration, and opens only once per session',async t=>{
   const window=environment('<main class="fem-home"></main><div style="display:none">'+markup()+'</div>');
   t.after(()=>window.happyDOM.close());
   const callbacks:(()=>void)[]=[];
-  window.setTimeout=((callback:()=>void,delay:number)=>{assert.equal(delay,2500);callbacks.push(callback);return callbacks.length;}) as any;
+  window.setTimeout=((callback:()=>void,delay:number)=>{assert.equal(delay,15000);callbacks.push(callback);return callbacks.length;}) as any;
   const moduleURL=new URL('../src/components/scratch-promotion.ts',import.meta.url);moduleURL.search='auto-open';
   const {initializeScratchPromotion}=await import(moduleURL.href);
   initializeScratchPromotion();initializeScratchPromotion();
   assert.equal(callbacks.length,1);
   assert.equal((window as any)._klOnsite,undefined);
   callbacks[0]();
+  assert.equal((window as any)._klOnsite,undefined);
+  Object.defineProperty(window,'scrollY',{value:100,configurable:true});window.dispatchEvent(new window.Event('scroll'));
+  assert.equal((window as any)._klOnsite,undefined);
+  Object.defineProperty(window,'scrollY',{value:window.innerHeight,configurable:true});window.dispatchEvent(new window.Event('scroll'));
   assert.deepEqual((window as any)._klOnsite,[['openForm','QX2wGL']]);
+  window.dispatchEvent(new window.Event('scroll'));callbacks[0]();
+  assert.equal((window as any)._klOnsite.length,1);
   window.dispatchEvent(new window.CustomEvent('klaviyoForms',{detail:{formId:'QX2wGL',type:'close'}}));
   assert.equal(window.sessionStorage.getItem('fem:welcome-10:shown'),'1');
   moduleURL.search='auto-open-next-page';
@@ -134,25 +144,66 @@ test('Home opens the welcome popup once, and dismissal is remembered across page
   assert.equal((window as any)._klOnsite.length,1);
 });
 
-test('Automatic popup respects a native Klaviyo opening and does not force it on product pages',async t=>{
-  const window=environment('<main class="fem-home"></main>');
+test('Scrolling early still waits, and the welcome popup does not interrupt a form or cart',async t=>{
+  const window=environment('<main class="fem-home"><input type="search"><dialog open></dialog></main>');
   t.after(()=>window.happyDOM.close());
-  let callback:(()=>void)|undefined,cleared=false;
+  let callback:(()=>void)|undefined;
   window.setTimeout=((fn:()=>void)=>{callback=fn;return 1;}) as any;
-  window.clearTimeout=(()=>{cleared=true;}) as any;
-  const moduleURL=new URL('../src/components/scratch-promotion.ts',import.meta.url);moduleURL.search='native-open';
+  const moduleURL=new URL('../src/components/scratch-promotion.ts',import.meta.url);moduleURL.search='exploration-first';
   (await import(moduleURL.href)).initializeScratchPromotion();
-  window.dispatchEvent(new window.CustomEvent('klaviyoForms',{detail:{formId:'another-form',type:'open'}}));
-  assert.equal(cleared,false);
-  window.dispatchEvent(new window.CustomEvent('klaviyoForms',{detail:{formId:'QX2wGL',type:'open'}}));
-  assert.equal(cleared,true);
+  Object.defineProperty(window,'scrollY',{value:window.innerHeight,configurable:true});window.dispatchEvent(new window.Event('scroll'));
+  assert.equal((window as any)._klOnsite,undefined);
   callback!();
   assert.equal((window as any)._klOnsite,undefined);
-  window.document.querySelector('main')!.className='product';
-  window.sessionStorage.clear();callback=undefined;
-  moduleURL.search='product-page';
+  window.document.querySelector('dialog')!.remove();
+  const input=window.document.querySelector('input')!;input.focus();
+  window.dispatchEvent(new window.Event('scroll'));
+  assert.equal((window as any)._klOnsite,undefined);
+  input.blur();window.dispatchEvent(new window.Event('scroll'));
+  assert.deepEqual((window as any)._klOnsite,[['openForm','QX2wGL']]);
+});
+
+test('An early native Klaviyo opening is deferred without locking the page or recording a user dismissal',async t=>{
+  const window=environment('<main class="fem-home"></main>');
+  t.after(()=>window.happyDOM.close());
+  let callback:(()=>void)|undefined,closeCallback:(()=>void)|undefined,cleared=false;
+  window.setTimeout=((fn:()=>void,delay:number)=>{if(delay===400)closeCallback=fn;else callback=fn;return 1;}) as any;
+  window.clearTimeout=(()=>{cleared=true;}) as any;
+  const moduleURL=new URL('../src/components/scratch-promotion.ts',import.meta.url);moduleURL.search='native-open';
+  const {initializeScratchPromotion,enhanceScratchPromotion}=await import(moduleURL.href);
+  initializeScratchPromotion();
+  window.dispatchEvent(new window.CustomEvent('klaviyoForms',{detail:{formId:'another-form',type:'open'}}));
+  assert.equal(cleared,false);
+  window.document.body.insertAdjacentHTML('beforeend','<div role="dialog"><button class="klaviyo-close-form">Close dialog</button>'+markup()+'</div>');
+  let closed=0;
+  window.document.querySelector('.klaviyo-close-form')!.addEventListener('click',()=>{
+    closed++;
+    window.document.querySelector('[role="dialog"]')!.remove();
+    window.dispatchEvent(new window.CustomEvent('klaviyoForms',{detail:{formId:'QX2wGL',type:'close'}}));
+  });
+  window.dispatchEvent(new window.CustomEvent('klaviyoForms',{detail:{formId:'QX2wGL',type:'open'}}));
+  assert.ok(window.document.querySelector('[data-fem-welcome-deferred]'));
+  closeCallback!();
+  assert.equal(closed,1);
+  assert.equal(cleared,false);
+  assert.equal(window.sessionStorage.getItem('fem:welcome-10:shown'),null);
+  callback!();
+  assert.equal((window as any)._klOnsite,undefined);
+  Object.defineProperty(window,'scrollY',{value:window.innerHeight,configurable:true});window.dispatchEvent(new window.Event('scroll'));
+  assert.equal(cleared,true);
+  assert.deepEqual((window as any)._klOnsite,[['openForm','QX2wGL']]);
+  window.document.body.insertAdjacentHTML('beforeend',markup());enhanceScratchPromotion(window.document);
+  assert.ok(window.document.querySelector('.fem-scratch'));
+});
+
+test('Other pages do not force a welcome form without a native request',async t=>{
+  const window=environment('<main class="product"></main>');
+  t.after(()=>window.happyDOM.close());
+  let callback:(()=>void)|undefined;
+  window.setTimeout=((fn:()=>void)=>{callback=fn;return 1;}) as any;
+  const moduleURL=new URL('../src/components/scratch-promotion.ts',import.meta.url);moduleURL.search='product-page';
   (await import(moduleURL.href)).initializeScratchPromotion();
-  assert.equal(callback,undefined);
+  Object.defineProperty(window,'scrollY',{value:window.innerHeight,configurable:true});window.dispatchEvent(new window.Event('scroll'));callback!();
   assert.equal((window as any)._klOnsite,undefined);
 });
 

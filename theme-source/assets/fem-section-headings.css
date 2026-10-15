@@ -1,0 +1,165 @@
+body :is(
+  .fem-collections-hero, .fem-plans__hero, .fem-refund-policy__header,
+  .fem-view > [data-fem-type="root"] > [data-fem-type="container"]:has(.iHq9qSQRPOkpe9jMI,.ivRcDCgwQNRbdzHUj,.iJegbXpv1hKR2N2tF,.iLamdYOkqSIDISelb,.i0m9TIhDiQhKHbURR,.i7uGB5GYNmSwBVOae,.iBCZDudm4PjNAiZJA,.iH5KsA716ClBgjX1H,.inHzBZBZboO7kEiQj)
+) {
+  margin-top:0 !important;
+  padding-top:144px !important;
+  padding-bottom:48px !important;
+}
+body :is(
+  .fem-collections-hero > .fem-collections-inner, .fem-plans__hero > .fem-plans__inner,
+  .fem-refund-policy__header-inner,
+  .iLtmJqBahU7d0VRib,.i0moWleZHGFDpjfiy,.irxaUIdU08Ff1e62O,.i7npI02NUBCbqt4Kb,.ioP4QPk7aIvzYTFKS,
+  .itUQB1Z8QgtAOILCn,.ioM0UErTpREBFZoFq,.injIgBYW2l8gE7GRO,.iR3DHGK0lbSow7eDV
+) {
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:flex-start !important;
+  gap:20px !important;
+  min-width:0;
+}
+body :is(.iK12SR8G3QlYdas8a,.i9wqtHygNXUZTeAwE) { align-items:flex-start !important; }
+body :is(
+  .fem-collections-heading,.fem-plans__hero h1,.fem-refund-policy__header h1,.fem-search-heading,.shopify-policy__title h1,
+  .iHq9qSQRPOkpe9jMI,.ivRcDCgwQNRbdzHUj,.iJegbXpv1hKR2N2tF,.iLamdYOkqSIDISelb,.i0m9TIhDiQhKHbURR,
+  .i7uGB5GYNmSwBVOae,.iBCZDudm4PjNAiZJA,.iH5KsA716ClBgjX1H,.inHzBZBZboO7kEiQj
+) {
+  display:block !important;
+  width:fit-content !important;
+  max-width:100% !important;
+  height:auto !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  color:#581d18 !important;
+  font:700 48px/1.15 Poppins,Arial,sans-serif !important;
+  letter-spacing:-.035em !important;
+  text-align:left !important;
+  text-wrap:balance;
+  overflow-wrap:anywhere;
+}
+body :is(
+  .ivRcDCgwQNRbdzHUj,.iJegbXpv1hKR2N2tF,.iLamdYOkqSIDISelb,.i0m9TIhDiQhKHbURR,
+  .i7uGB5GYNmSwBVOae,.iBCZDudm4PjNAiZJA,.iH5KsA716ClBgjX1H,.inHzBZBZboO7kEiQj
+) :is(h1,h2,h3,p) { margin:0 !important; color:inherit !important; font:inherit !important; letter-spacing:inherit !important; }
+body :is(
+  .fem-collections-heading,.fem-plans__hero h1,.fem-refund-policy__header h1,.fem-search-heading,.shopify-policy__title h1,
+  .iHq9qSQRPOkpe9jMI,.ivRcDCgwQNRbdzHUj,.iJegbXpv1hKR2N2tF,.iLamdYOkqSIDISelb,.i0m9TIhDiQhKHbURR,
+  .i7uGB5GYNmSwBVOae,.iBCZDudm4PjNAiZJA,.iH5KsA716ClBgjX1H,.inHzBZBZboO7kEiQj
+)::after {
+  content:"";
+  display:block;
+  width:64px;
+  height:4px;
+  margin-top:18px;
+  border-radius:999px;
+  background:#c64b4b;
+}
+body :is(
+  .fem-collections-description,.fem-plans__description,
+  .iJUlT7arlA9VA0FUr,.iUBMpcnMcC36Evn49,.iHusigNQUFkrXAIyI,.iPl4zDMOrw5fH3NMb,.iHM25wVt1jorJAwFo,.ije0DIXaFMSF1vobw,.i3VacH5Eblf3v0DdE,.i1oSQaCFGeOjCGwBl,.iUFdQbpYpxFvv8QhP
+) {
+  max-width:720px;
+  margin:0 !important;
+  color:#75433e !important;
+  font:400 16px/1.7 Poppins,Arial,sans-serif !important;
+  letter-spacing:0 !important;
+  text-align:left !important;
+}
+body :is(
+  .fem-collections-breadcrumb,.fem-plans__breadcrumb,.fem-refund-policy__breadcrumb,
+  .iemoiUGRReOETq9WA,.iwoEM4wcnCEDwWQzh,.ik4M47U2u2ceTYmyu,.ix6wAjjzumLB1KYIH,.iWIey3KaZ9iH4Vi02,.iXnx6dnW3JW7R20jV,.i6fdBzoLq00br4XTA,.i9YH5ollz9FqPXPKZ,.ilGUh2mgovOljfl4q
+) {
+  box-sizing:border-box;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  flex-wrap:wrap !important;
+  gap:8px !important;
+  width:fit-content !important;
+  max-width:100%;
+  min-height:0 !important;
+  margin:2px 0 0 !important;
+  padding:10px 14px !important;
+  border:1px solid #f7d3d3;
+  border-radius:20px;
+  background:#fff7f7;
+  color:#75433e !important;
+  font:500 11px/1.5 Poppins,Arial,sans-serif !important;
+  letter-spacing:.05em !important;
+  text-transform:uppercase;
+}
+body :is(
+  .fem-collections-breadcrumb,.fem-plans__breadcrumb,.fem-refund-policy__breadcrumb,
+  .iemoiUGRReOETq9WA,.iwoEM4wcnCEDwWQzh,.ik4M47U2u2ceTYmyu,.ix6wAjjzumLB1KYIH,.iWIey3KaZ9iH4Vi02,.iXnx6dnW3JW7R20jV,.i6fdBzoLq00br4XTA,.i9YH5ollz9FqPXPKZ,.ilGUh2mgovOljfl4q
+) :is(a,p,div,span) {
+  min-width:0;
+  margin:0 !important;
+  padding:0 !important;
+  color:inherit !important;
+  font:inherit !important;
+  letter-spacing:inherit !important;
+  overflow-wrap:anywhere;
+}
+body :is(.fem-collections-breadcrumb,.fem-plans__breadcrumb,.fem-refund-policy__breadcrumb) [aria-current] { font-weight:700 !important; }
+body :is(.iemoiUGRReOETq9WA,.iwoEM4wcnCEDwWQzh,.ik4M47U2u2ceTYmyu,.ix6wAjjzumLB1KYIH,.iWIey3KaZ9iH4Vi02,.iXnx6dnW3JW7R20jV,.i6fdBzoLq00br4XTA,.i9YH5ollz9FqPXPKZ,.ilGUh2mgovOljfl4q) [data-fem-type="icon"] {
+  flex:0 0 12px;
+  width:12px;
+  height:12px;
+  color:#c64b4b !important;
+}
+body :is(
+  .fem-bestsellers__heading,.fem-subscription__heading,.fem-community__heading,.fem-press__heading,.fem-faq__heading,
+  .fem-home-sources__intro h2,.fem-collections-comparison > header h2,.fem-collections-faq header h2,
+  .i6VUFJLyQ8aqaHx9u,.iKcysyCh0hdWnPjH6,.iOnMgm2mfbCpjQelG,.iMnHUGBDl8Nez7WJo
+) {
+  max-width:100%;
+  font:700 44px/1.16 Poppins,Arial,sans-serif !important;
+  letter-spacing:-.035em !important;
+  text-align:left !important;
+  text-wrap:balance;
+  overflow-wrap:anywhere;
+}
+body :is(.fem-bestsellers__heading,.fem-subscription__heading,.fem-community__heading,.fem-press__heading,.fem-faq__heading) h2 {
+  margin:0 !important;
+  color:inherit !important;
+  font:inherit !important;
+  letter-spacing:inherit !important;
+  text-align:inherit !important;
+}
+body :is(.fem-collections-comparison > header,.fem-collections-faq header) { text-align:left !important; }
+body .fem-collections-comparison > header { max-width:1200px; margin-inline:auto; }
+body :is(.i6VUFJLyQ8aqaHx9u,.iKcysyCh0hdWnPjH6,.iOnMgm2mfbCpjQelG,.iMnHUGBDl8Nez7WJo) h3 { margin:0; font:inherit !important; }
+body .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] :is(.i6wjNadWANL8Q7tWd,.ij5TqKCb8hOZj6Bdb,.iE3JgZAVR6hemATKQ,.i24TFTExKVzi4hSps,.igxV0vXrVJVpv9Uth,.iGlIGPN9IH9sHhHen,.iyZXNZkLeyhoyzzGv,.iTpI9er7PEpSIoh8w,.iaNgNkAF7992pwA4B,.iPuiq6lSlKo0NIEyO,.iT8H3eComdL7RIoXc,.ihZKpyRoMLoSV0Q6R,.iOzO1ChgbCweF8Msm,.iFJVKwKf1svHSe9gO,.itcbmMU9x731k6IHU,.iVLEsAwk7pWSHhqmB,.id77qF9OHL0Ijiv25,.ifI3r2uCW1lIj8mMZ,.iiChxpiKSLvbeQei3,.i0fZEo59476Bfpq3Q,.i53jmhmOKGggsI7cg,.ikNJuw18a0qYAeTWV,.iFdiflgOaeVJZFpFW,.iJFGtL2GZ6CQYCPQ7,.ioRJt0sis8xOuAJuT,.ilKLdfWEMMIOso8mb,.inYngYonvkHqzPfQT,.iRsxATro939U4fwyL,.ibSnu380yF0LDvDO8,.i9kYOSKJxEs2R5wkd,.ipJOfFbZW9y7e7RW4,.iy0JQtBYXqD42wiQv,.ioiyw8Uo2aVJkF9Hl,.irDPJnXZYZwhPK5Jn,.iyAbs73EuWXZQOIgW,.i2Bf3QtWbEh9rHMOx,.idusCJiTPRack9ekX,.iZb7bE4OJT0N5PjhE,.iRrSKcf3Na5KeUFj3,.i8MI4EW9SaYDrdX8B,.ipZOCLH1PR9xOKw2W,.imxF7DzLHalR8vMX6,.iegFiOtNHVlZWisxQ,.i0YdDO3czeZeW3Nxq,.itt3KALnFyDlRGuid,.iRmBcuaFYAQ9Yyroi,.iXwBsgdVPtz7TW9fn,.i2bGS6Fks0a0F0Dvv,.iJgk1XMlHKRGLlsBu,.i5ujHNXjVHRhqnsH1,.it3gfwWIFVUq3FAeq,.iSA6pt8oR5Na3qnAy,.iimXuecPgkKGT7Lks,.inJxEs8hNGc1VXNQt,.iUGZgIZogzzt6ZZjH,.iDeai9c40cKuW8XDP,.irwPma6zoghH4gTwv,.i0QJl7S3LmQTDo2kx,.ixIuk4kdnQgdhl6nK,.iumRalnaVy7nUwrm1,.ihfgJbreuMYmstrl9,.iKFFWnwIGBstWZyHa,.iBprIt17qtbNTJvDM,.ix5cvrKwP0L2319IB,.iCyXRdfT8AkcVs48Y,.iWyrSWoqtG0ePtIEe,.iQZlTWfjS4AtceOkW,.iXGHtTUjSHRolz32F,.ihJKfBgLmVzd585Gz,.i7uAYdNT8cxbuHuCi,.iYPxzr5lTKrjuZITt,.iy6aEVGgoOLNot3Ni,.ie1CvubLS3VkHnXmy,.iStfcRcPnMPkGaACP,.ig9fYdP34h5bdAorC,.iYl2O9SWqy39AewrS,.i6ukhoFYorpSuoN0C,.i5zFuGJShOtjC7Wwb,.iMf3Bu56Z5XAeiAOP,.ipA5kvc0hcqIazSy6,.iWXcsTojELKrVRgQN,.iKCAvqHHQv3ywKPUr,.ihnGRXlISa6jAvOnd,.ih2iCGzJFGkg1ZuAc,.idvoE9b1wWZaoAa2E,.isNfpnQASDAQ5eMcf,.iBYSALdgTF1sV82wu,.i2Db5uBFH8QybiIbl,.iWQqVDCoRb0sWaxA4,.iWRG6qMgHlKnWmHBF,.iLp0zaDPzXRTzLcep,.ioMpAM2YGGIF8s4nd,.iUB0DT8qJMXGADJgv,.i1hr1aFMkq8Hqv3Ce,.ixBla8aBllV8VUbsY,.ihXZAME2V4oPunKsQ,.iJfVLEX5gs9auDaSM,.ipcLonjvRqVJm5mKD,.ih4JCHWsQjnJISjvE,.iHMNRbjSff6PiROIM,.i14hSVGLQ0NdBilqS,.iiBCFdE4s0g8YsVnY,.ivN7RjvFfzSvZrmKh,.iXFfSEWshRoEvyUNe,.iUFI4SMGtdmE0afjS,.iBR2p3klGa64AlSpJ,.icEIQSLmBaE7bjKFf,.iju5y8ywXZPSraXs1,.iLUG33Q7Us1zKlYfy,.iOI1ICwEZdgcn7zRv,.i6czdayHQ9K9CUNjI,.iTBymrPEE04ZonOCf,.iJ40FN2kwszGcmbHN,.it4oExgLx2mCVsdtB,.islX4hzLEnUqc54W0,.ikXMnGXoKZgNZw5Xd,.iYWkrArLaMsVsLT5T,.iWNHp1sWrTeBukZGg,.iLIMSaGfBh3c3YM9P,.ioPAeCXYpzwg3LoS8,.iHtEqbm0xhOsvMyb5,.iOcQQLRIO0mFcY7p0,.inoh2OmsEn7gId66E,.iU1eJ1joRbTdPmT84,.iHddRCzR6s4s3onAm,.illphGFr7D98c2wsY,.iUZBRrMMRIFYMFLjy,.ijFJAPMn2YXYnDtvM,.iIYHuLPGvKsvRv0IS) > :is(h2,h3) {
+  max-width:100%;
+  margin:0;
+  font:700 44px/1.16 Poppins,Arial,sans-serif !important;
+  letter-spacing:-.035em;
+  text-align:left;
+  text-wrap:balance;
+  overflow-wrap:anywhere;
+}
+@media(max-width:749px) {
+  body :is(
+    .fem-collections-hero,.fem-plans__hero,.fem-refund-policy__header,
+    .fem-view > [data-fem-type="root"] > [data-fem-type="container"]:has(.iHq9qSQRPOkpe9jMI,.ivRcDCgwQNRbdzHUj,.iJegbXpv1hKR2N2tF,.iLamdYOkqSIDISelb,.i0m9TIhDiQhKHbURR,.i7uGB5GYNmSwBVOae,.iBCZDudm4PjNAiZJA,.iH5KsA716ClBgjX1H,.inHzBZBZboO7kEiQj)
+  ) { padding-top:104px !important; padding-bottom:32px !important; }
+  body :is(
+    .fem-collections-heading,.fem-plans__hero h1,.fem-refund-policy__header h1,.fem-search-heading,.shopify-policy__title h1,
+    .iHq9qSQRPOkpe9jMI,.ivRcDCgwQNRbdzHUj,.iJegbXpv1hKR2N2tF,.iLamdYOkqSIDISelb,.i0m9TIhDiQhKHbURR,
+    .i7uGB5GYNmSwBVOae,.iBCZDudm4PjNAiZJA,.iH5KsA716ClBgjX1H,.inHzBZBZboO7kEiQj
+  ) { font-size:32px !important; }
+  body :is(.fem-collections-description,.fem-plans__description,.iJUlT7arlA9VA0FUr,.iUBMpcnMcC36Evn49,.iHusigNQUFkrXAIyI,.iPl4zDMOrw5fH3NMb,.iHM25wVt1jorJAwFo,.ije0DIXaFMSF1vobw,.i3VacH5Eblf3v0DdE,.i1oSQaCFGeOjCGwBl,.iUFdQbpYpxFvv8QhP) { font-size:14px !important; }
+  body :is(
+    .fem-bestsellers__heading,.fem-subscription__heading,.fem-community__heading,.fem-press__heading,.fem-faq__heading,
+    .fem-home-sources__intro h2,.fem-collections-comparison > header h2,.fem-collections-faq header h2,
+    .i6VUFJLyQ8aqaHx9u,.iKcysyCh0hdWnPjH6,.iOnMgm2mfbCpjQelG,.iMnHUGBDl8Nez7WJo
+  ), body .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] :is(.i6wjNadWANL8Q7tWd,.ij5TqKCb8hOZj6Bdb,.iE3JgZAVR6hemATKQ,.i24TFTExKVzi4hSps,.igxV0vXrVJVpv9Uth,.iGlIGPN9IH9sHhHen,.iyZXNZkLeyhoyzzGv,.iTpI9er7PEpSIoh8w,.iaNgNkAF7992pwA4B,.iPuiq6lSlKo0NIEyO,.iT8H3eComdL7RIoXc,.ihZKpyRoMLoSV0Q6R,.iOzO1ChgbCweF8Msm,.iFJVKwKf1svHSe9gO,.itcbmMU9x731k6IHU,.iVLEsAwk7pWSHhqmB,.id77qF9OHL0Ijiv25,.ifI3r2uCW1lIj8mMZ,.iiChxpiKSLvbeQei3,.i0fZEo59476Bfpq3Q,.i53jmhmOKGggsI7cg,.ikNJuw18a0qYAeTWV,.iFdiflgOaeVJZFpFW,.iJFGtL2GZ6CQYCPQ7,.ioRJt0sis8xOuAJuT,.ilKLdfWEMMIOso8mb,.inYngYonvkHqzPfQT,.iRsxATro939U4fwyL,.ibSnu380yF0LDvDO8,.i9kYOSKJxEs2R5wkd,.ipJOfFbZW9y7e7RW4,.iy0JQtBYXqD42wiQv,.ioiyw8Uo2aVJkF9Hl,.irDPJnXZYZwhPK5Jn,.iyAbs73EuWXZQOIgW,.i2Bf3QtWbEh9rHMOx,.idusCJiTPRack9ekX,.iZb7bE4OJT0N5PjhE,.iRrSKcf3Na5KeUFj3,.i8MI4EW9SaYDrdX8B,.ipZOCLH1PR9xOKw2W,.imxF7DzLHalR8vMX6,.iegFiOtNHVlZWisxQ,.i0YdDO3czeZeW3Nxq,.itt3KALnFyDlRGuid,.iRmBcuaFYAQ9Yyroi,.iXwBsgdVPtz7TW9fn,.i2bGS6Fks0a0F0Dvv,.iJgk1XMlHKRGLlsBu,.i5ujHNXjVHRhqnsH1,.it3gfwWIFVUq3FAeq,.iSA6pt8oR5Na3qnAy,.iimXuecPgkKGT7Lks,.inJxEs8hNGc1VXNQt,.iUGZgIZogzzt6ZZjH,.iDeai9c40cKuW8XDP,.irwPma6zoghH4gTwv,.i0QJl7S3LmQTDo2kx,.ixIuk4kdnQgdhl6nK,.iumRalnaVy7nUwrm1,.ihfgJbreuMYmstrl9,.iKFFWnwIGBstWZyHa,.iBprIt17qtbNTJvDM,.ix5cvrKwP0L2319IB,.iCyXRdfT8AkcVs48Y,.iWyrSWoqtG0ePtIEe,.iQZlTWfjS4AtceOkW,.iXGHtTUjSHRolz32F,.ihJKfBgLmVzd585Gz,.i7uAYdNT8cxbuHuCi,.iYPxzr5lTKrjuZITt,.iy6aEVGgoOLNot3Ni,.ie1CvubLS3VkHnXmy,.iStfcRcPnMPkGaACP,.ig9fYdP34h5bdAorC,.iYl2O9SWqy39AewrS,.i6ukhoFYorpSuoN0C,.i5zFuGJShOtjC7Wwb,.iMf3Bu56Z5XAeiAOP,.ipA5kvc0hcqIazSy6,.iWXcsTojELKrVRgQN,.iKCAvqHHQv3ywKPUr,.ihnGRXlISa6jAvOnd,.ih2iCGzJFGkg1ZuAc,.idvoE9b1wWZaoAa2E,.isNfpnQASDAQ5eMcf,.iBYSALdgTF1sV82wu,.i2Db5uBFH8QybiIbl,.iWQqVDCoRb0sWaxA4,.iWRG6qMgHlKnWmHBF,.iLp0zaDPzXRTzLcep,.ioMpAM2YGGIF8s4nd,.iUB0DT8qJMXGADJgv,.i1hr1aFMkq8Hqv3Ce,.ixBla8aBllV8VUbsY,.ihXZAME2V4oPunKsQ,.iJfVLEX5gs9auDaSM,.ipcLonjvRqVJm5mKD,.ih4JCHWsQjnJISjvE,.iHMNRbjSff6PiROIM,.i14hSVGLQ0NdBilqS,.iiBCFdE4s0g8YsVnY,.ivN7RjvFfzSvZrmKh,.iXFfSEWshRoEvyUNe,.iUFI4SMGtdmE0afjS,.iBR2p3klGa64AlSpJ,.icEIQSLmBaE7bjKFf,.iju5y8ywXZPSraXs1,.iLUG33Q7Us1zKlYfy,.iOI1ICwEZdgcn7zRv,.i6czdayHQ9K9CUNjI,.iTBymrPEE04ZonOCf,.iJ40FN2kwszGcmbHN,.it4oExgLx2mCVsdtB,.islX4hzLEnUqc54W0,.ikXMnGXoKZgNZw5Xd,.iYWkrArLaMsVsLT5T,.iWNHp1sWrTeBukZGg,.iLIMSaGfBh3c3YM9P,.ioPAeCXYpzwg3LoS8,.iHtEqbm0xhOsvMyb5,.iOcQQLRIO0mFcY7p0,.inoh2OmsEn7gId66E,.iU1eJ1joRbTdPmT84,.iHddRCzR6s4s3onAm,.illphGFr7D98c2wsY,.iUZBRrMMRIFYMFLjy,.ijFJAPMn2YXYnDtvM,.iIYHuLPGvKsvRv0IS) > :is(h2,h3) { font-size:30px !important; }
+  body .fem-collections-page--embedded .fem-collections-hero { padding-top:40px !important; }
+}
+@media(min-width:750px) {
+  body .fem-collections-page--embedded .fem-collections-hero { padding-top:60px !important; }
+}
+
+body .shopify-policy__title { text-align:left; }
+body .search-page__header { --horizontal-alignment:flex-start; align-items:flex-start; }

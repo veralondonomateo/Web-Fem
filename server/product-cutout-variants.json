@@ -1,0 +1,352 @@
+{
+  "format": "webp",
+  "quality": 92,
+  "widths": [
+    384,
+    768
+  ],
+  "images": {
+    "fem-combo-compl-why-transparent-v2.webp": {
+      "original_bytes": 992030,
+      "original_sha256": "091963f3a9048e6caec78eb39bf6b4346d67df3f5099ee7caca27cbb5c579b3c",
+      "variants": [
+        {
+          "asset": "fem-combo-compl-why-transparent-v2-384.webp",
+          "width": 384,
+          "height": 384,
+          "bytes": 37808
+        },
+        {
+          "asset": "fem-combo-compl-why-transparent-v2-768.webp",
+          "width": 768,
+          "height": 768,
+          "bytes": 111030
+        }
+      ]
+    },
+    "fem-combo-mama-why-transparent-v1.webp": {
+      "original_bytes": 656948,
+      "original_sha256": "9252b82433a0c9f0b7c94656a662edd4f3674f495ec62b3747fb2cb12068d47c",
+      "variants": [
+        {
+          "asset": "fem-combo-mama-why-transparent-v1-384.webp",
+          "width": 384,
+          "height": 384,
+          "bytes": 29560
+        },
+        {
+          "asset": "fem-combo-mama-why-transparent-v1-768.webp",
+          "width": 768,
+          "height": 768,
+          "bytes": 81212
+        }
+      ]
+    },
+    "fem-duo-why-transparent-v1.webp": {
+      "original_bytes": 737076,
+      "original_sha256": "639739067a55c0854463a299fa4938e5cdc11a2995774420dadb3dc3651d966b",
+      "variants": [
+        {
+          "asset": "fem-duo-why-transparent-v1-384.webp",
+          "width": 384,
+          "height": 384,
+          "bytes": 31406
+        },
+        {
+          "asset": "fem-duo-why-transparent-v1-768.webp",
+          "width": 768,
+          "height": 768,
+          "bytes": 90098
+        }
+      ]
+    },
+    "fem-fem-mom-why-transparent-v1.webp": {
+      "original_bytes": 524136,
+      "original_sha256": "809a56a935a945fea7c81aa4edc88b6e80128438a949916eceb3b25c5bd804e3",
+      "variants": [
+        {
+          "asset": "fem-fem-mom-why-transparent-v1-384.webp",
+          "width": 384,
+          "height": 384,
+          "bytes": 18490
+        },
+        {
+          "asset": "fem-fem-mom-why-transparent-v1-768.webp",
+          "width": 768,
+          "height": 768,
+          "bytes": 50096
+        }
+      ]
+    },
+    "fem-gomas-jab-why-transparent-v1.webp": {
+      "original_bytes": 969028,
+      "original_sha256": "467dbd83ca530b15ee0f7f0dae5b90bb11ef9ac2fd1a12a735fd63576e499c59",
+      "variants": [
+        {
+          "asset": "fem-gomas-jab-why-transparent-v1-384.webp",
+          "width": 384,
+          "height": 384,
+          "bytes": 37262
+        },
+        {
+          "asset": "fem-gomas-jab-why-transparent-v1-768.webp",
+          "width": 768,
+          "height": 768,
+          "bytes": 112452
+        }
+      ]
+    },
+    "fem-gomas-pro-why-transparent-v1.webp": {
+      "original_bytes": 866924,
+      "original_sha256": "7d30f304aaa6bfda644db62d284c44e3f6cba45a20c761b7d25729353cc12050",
+      "variants": [
+        {
+          "asset": "fem-gomas-pro-why-transparent-v1-384.webp",
+          "width": 384,
+          "height": 384,
+          "bytes": 30486
+        },
+        {
+          "asset": "fem-gomas-pro-why-transparent-v1-768.webp",
+          "width": 768,
+          "height": 768,
+          "bytes": 93732
+        }
+      ]
+    },
+    "fem-gomas-why-transparent-v1.webp": {
+      "original_bytes": 859384,
+      "original_sha256": "5b3471b4141807453f1e44236fda0c1dfa8b8885fc30d952cecda500417e1282",
+      "variants": [
+        {
+          "asset": "fem-gomas-why-transparent-v1-384.webp",
+          "width": 384,
+          "height": 384,
+          "bytes": 29510
+        },
+        {
+          "asset": "fem-gomas-why-transparent-v1-768.webp",
+          "width": 768,
+          "height": 768,
+          "bytes": 89956
+        }
+      ]
+    },
+    "fem-jabon-why-transparent-v1.webp": {
+      "original_bytes": 547664,
+      "original_sha256": "70d1af691c279d840a831b10204d590cb230e62028fb928cb0727e440deebb87",
+      "variants": [
+        {
+          "asset": "fem-jabon-why-transparent-v1-384.webp",
+          "width": 384,
+          "height": 384,
+          "bytes": 25076
+        },
+        {
+          "asset": "fem-jabon-why-transparent-v1-768.webp",
+          "width": 768,
+          "height": 768,
+          "bytes": 69674
+        }
+      ]
+    },
+    "fem-media-07bf5cc47d4d3a28.webp": {
+      "original_bytes": 809258,
+      "original_sha256": "8443a204952d84c967126ea6c29ff1df81a967c411df56e96be12480584c8ded",
+      "variants": [
+        {
+          "asset": "fem-media-07bf5cc47d4d3a28-384.webp",
+          "width": 384,
+          "height": 581,
+          "bytes": 85954
+        },
+        {
+          "asset": "fem-media-07bf5cc47d4d3a28-644.webp",
+          "width": 644,
+          "height": 975,
+          "bytes": 226382
+        }
+      ]
+    },
+    "fem-media-1650e3d1594c87f9.webp": {
+      "original_bytes": 63326,
+      "original_sha256": "b942005d0dd1774c6f9fe3ecd6da804c0bd4750787e021393216f79ce6ca12f7",
+      "variants": [
+        {
+          "asset": "fem-media-1650e3d1594c87f9-384.webp",
+          "width": 384,
+          "height": 372,
+          "bytes": 25502
+        },
+        {
+          "asset": "fem-media-1650e3d1594c87f9.webp",
+          "width": 859,
+          "height": 833,
+          "bytes": 63326
+        }
+      ]
+    },
+    "fem-media-59449debeef8de67.webp": {
+      "original_bytes": 21790,
+      "original_sha256": "2f5f0787346bbb01de248dcfa8b6ab8024a7b34b1f51c71765ccb557f98d269e",
+      "variants": [
+        {
+          "asset": "fem-media-59449debeef8de67.webp",
+          "width": 353,
+          "height": 525,
+          "bytes": 21790
+        }
+      ]
+    },
+    "fem-media-5e3c27053728f3e6.webp": {
+      "original_bytes": 44368,
+      "original_sha256": "e1c165a3e805483a9f41601ada073933029360ea6ec9545563186caa4fe68da6",
+      "variants": [
+        {
+          "asset": "fem-media-5e3c27053728f3e6.webp",
+          "width": 300,
+          "height": 587,
+          "bytes": 44368
+        }
+      ]
+    },
+    "fem-media-6dde072b5ea8f72a.webp": {
+      "original_bytes": 143726,
+      "original_sha256": "9f3f80fa5d1dbe29348c27b3853088f500c0e3d9aeb76b16dc848ef22fb02589",
+      "variants": [
+        {
+          "asset": "fem-media-6dde072b5ea8f72a-384.webp",
+          "width": 384,
+          "height": 522,
+          "bytes": 70128
+        },
+        {
+          "asset": "fem-media-6dde072b5ea8f72a.webp",
+          "width": 803,
+          "height": 1091,
+          "bytes": 143726
+        }
+      ]
+    },
+    "fem-media-8c4fb55388b67d0a.webp": {
+      "original_bytes": 30618,
+      "original_sha256": "4a9649d72904e1c4616b6277d6bde699d9bb9dc937a2af0cab3a01790e2717e0",
+      "variants": [
+        {
+          "asset": "fem-media-8c4fb55388b67d0a.webp",
+          "width": 460,
+          "height": 343,
+          "bytes": 30618
+        }
+      ]
+    },
+    "fem-ovulos-jab-why-transparent-v1.webp": {
+      "original_bytes": 627854,
+      "original_sha256": "62a7fbdf54bc75ae9839e13cf48c907a9a3c891bf85a3aaccea475222dbab323",
+      "variants": [
+        {
+          "asset": "fem-ovulos-jab-why-transparent-v1-384.webp",
+          "width": 384,
+          "height": 384,
+          "bytes": 30028
+        },
+        {
+          "asset": "fem-ovulos-jab-why-transparent-v1-768.webp",
+          "width": 768,
+          "height": 768,
+          "bytes": 80014
+        }
+      ]
+    },
+    "fem-ovulos-pro-why-transparent-v1.webp": {
+      "original_bytes": 502606,
+      "original_sha256": "f3fc0b72cc76412bc87684ed9e320ad111a486e5ee4d0992f1b51d4a84c02e48",
+      "variants": [
+        {
+          "asset": "fem-ovulos-pro-why-transparent-v1-384.webp",
+          "width": 384,
+          "height": 384,
+          "bytes": 22768
+        },
+        {
+          "asset": "fem-ovulos-pro-why-transparent-v1-768.webp",
+          "width": 768,
+          "height": 768,
+          "bytes": 61704
+        }
+      ]
+    },
+    "fem-ovulos-why-transparent-v1.webp": {
+      "original_bytes": 327250,
+      "original_sha256": "424f578ea27e7a321581062b4c4e25ef97095ed50f7e1e1126d676eb490fbd9c",
+      "variants": [
+        {
+          "asset": "fem-ovulos-why-transparent-v1-384.webp",
+          "width": 384,
+          "height": 384,
+          "bytes": 8492
+        },
+        {
+          "asset": "fem-ovulos-why-transparent-v1-768.webp",
+          "width": 768,
+          "height": 768,
+          "bytes": 23624
+        }
+      ]
+    },
+    "fem-pro-gom-jab-why-transparent-v1.webp": {
+      "original_bytes": 1200564,
+      "original_sha256": "503fae69b2a16bfcdc00ef759363e380ea4fbac16617e4a0cd2a07cefe002f90",
+      "variants": [
+        {
+          "asset": "fem-pro-gom-jab-why-transparent-v1-384.webp",
+          "width": 384,
+          "height": 384,
+          "bytes": 44802
+        },
+        {
+          "asset": "fem-pro-gom-jab-why-transparent-v1-768.webp",
+          "width": 768,
+          "height": 768,
+          "bytes": 136892
+        }
+      ]
+    },
+    "fem-pro-jab-ovu-why-transparent-v1.webp": {
+      "original_bytes": 802280,
+      "original_sha256": "a4dcb33d719c7cb6a56a5fc749b0c8c7e46d9deba0c502dba3f0df3bc6b9d1a8",
+      "variants": [
+        {
+          "asset": "fem-pro-jab-ovu-why-transparent-v1-384.webp",
+          "width": 384,
+          "height": 384,
+          "bytes": 32214
+        },
+        {
+          "asset": "fem-pro-jab-ovu-why-transparent-v1-768.webp",
+          "width": 768,
+          "height": 768,
+          "bytes": 87148
+        }
+      ]
+    },
+    "fem-probioticos-why-transparent-v1.webp": {
+      "original_bytes": 455374,
+      "original_sha256": "c663dc929caed02f589ff782713fea5b9b132ed06ea476bfc69cde18f0c7cddc",
+      "variants": [
+        {
+          "asset": "fem-probioticos-why-transparent-v1-384.webp",
+          "width": 384,
+          "height": 384,
+          "bytes": 18370
+        },
+        {
+          "asset": "fem-probioticos-why-transparent-v1-768.webp",
+          "width": 768,
+          "height": 768,
+          "bytes": 53492
+        }
+      ]
+    }
+  }
+}

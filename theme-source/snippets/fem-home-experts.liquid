@@ -1,37 +1,27 @@
 {% doc %}
-Renders the homepage experts section.
+  Renders real collaborator profiles only when name, credentials and source are supplied.
+  @param {section} section - Homepage section with optional expert blocks.
 {% enddoc %}
-<div class="fem-experts__section" id="fem-experts__section">
-<div class="fem-experts__layout">
-<div class="fem-experts__media">
-<img alt=""
-  sizes="auto, (max-width: 575px) calc(100vw - 40px), (max-width: 1024px) 100vw, 50vw"
-  srcset="{{ 'fem-home-experts-640.webp' | asset_url }} 640w, {{ 'fem-home-experts-960.webp' | asset_url }} 960w, {{ 'fem-home-experts-1159.webp' | asset_url }} 1159w"
-  src="{{ 'fem-home-experts-1159.webp' | asset_url }}"
-  width="1159" height="1251" class="fem-media fem-image fem-image__main"
-  loading="lazy" fetchpriority="low" decoding="async">
-</div>
-</div>
-<div class="fem-experts__layout-2">
-<div class="fem-experts__layout-3">
-<div class="fem-copy fem-experts__heading">
-<h2>Respaldado por expertos</h2>
-</div>
-<div class="fem-copy fem-experts__text">
-<p>El cuidado íntimo merece información confiable y productos formulados con propósito. </p>
-<p>
-</p>
-<p>En FEM trabajamos con profesionales y especialistas para desarrollar soluciones pensadas para acompañar el bienestar femenino desde adentro.</p>
-</div>
-<div class="fem-copy fem-experts__text-2">
-<p>Porque cuando se trata de tu salud íntima, queremos que te sientas segura con lo que eliges.</p>
-</div>
-
-          <a class="fem-experts__link" href="{{ routes.collections_url }}/todos-los-productos" rel="noopener noreferrer">
-<div class="fem-copy fem-experts__text-3">
-<p>Empezar a cuidarme ahora</p>
-</div>
-</a>
-</div>
-</div>
-</div>
+{%- capture expert_profiles -%}
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'expert' and block.settings.name != blank and block.settings.credentials != blank and block.settings.source_url != blank -%}
+      <article class="fem-home-specialist" {{ block.shopify_attributes }}>
+        <h3>{{ block.settings.name | escape }}</h3>
+        <p class="fem-home-specialist__credentials">{{ block.settings.credentials | escape }}</p>
+        {% if block.settings.affiliation != blank %}<p>{{ block.settings.affiliation | escape }}</p>{% endif %}
+        {% if block.settings.contribution != blank %}<p>{{ block.settings.contribution | escape }}</p>{% endif %}
+        <a href="{{ block.settings.source_url | escape }}" target="_blank" rel="noopener noreferrer">Ver perfil o publicación <span class="fem-home-sources__new-tab">(abre otra pestaña)</span></a>
+      </article>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{% if expert_profiles != blank %}
+  <section class="fem-home-specialists" aria-labelledby="fem-home-specialists-title-{{ section.id }}">
+    <div class="fem-home-sources__inner">
+      <header class="fem-home-sources__intro">
+        <h2 id="fem-home-specialists-title-{{ section.id }}">Profesionales que colaboran con FEM</h2>
+      </header>
+      <div class="fem-home-specialists__grid">{{ expert_profiles }}</div>
+    </div>
+  </section>
+{% endif %}

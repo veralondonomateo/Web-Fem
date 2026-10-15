@@ -32,36 +32,103 @@
 .fem-collections-breadcrumb > span[aria-hidden] { color: #bbb; font-size: 14px; line-height: 1; }
 .fem-collections-catalog { padding-block: 80px; background: #fff7f7; }
 .fem-collections-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
-.fem-collection-card { position: relative; display: block; height: 450px; overflow: hidden; border-radius: 12px; background: #f4b5bc; color: #fff; text-decoration: none; isolation: isolate; }
-.fem-collection-card-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; z-index: -1; }
-.fem-collection-card-logo { position: absolute; top: 20px; left: 20px; width: 60px; height: auto; }
-.fem-collection-card-arrow { position: absolute; top: 10px; right: 10px; display: grid; place-items: center; width: 50px; height: 50px; border-radius: 12px; background: var(--collections-coral); }
-.fem-collection-card-arrow svg { width: 26px; height: 26px; }
-.fem-collection-card-title { margin: 92px 20px 0; color: inherit; font-size: 38px; font-weight: 800; line-height: 1; letter-spacing: -.8px; overflow-wrap: normal; }
-.fem-collection-card:hover .fem-collection-card-photo { transform: scale(1.035); }
+.fem-collection-card {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #f7d3d3;
+  border-radius: 28px;
+  background: #fff;
+  color: var(--collections-ink);
+  box-shadow: 0 5px 16px #9b3c4610;
+  text-decoration: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.fem-collection-card-visual {
+  position: relative;
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #f4b5bc;
+}
+.fem-collection-card-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  transition: transform .25s ease;
+}
+.fem-collection-card-logo { position: absolute; top: 16px; left: 16px; width: 56px; height: auto; }
+.fem-collection-card-title {
+  flex: 1;
+  min-width: 0;
+  min-height: 2.6em;
+  margin: 0 4px;
+  color: inherit;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -.3px;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.fem-collection-card-cta {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 10px;
+  border: 1px solid var(--fem-button-pink,#c64b4b);
+  border-radius: 999px;
+  background: var(--fem-button-pink,#c64b4b);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.fem-collection-card-cta svg { flex: 0 0 18px; width: 18px; height: 18px; }
+.fem-collection-card-cta > span { white-space: nowrap; }
+@media (hover: hover) and (pointer: fine) {
+  .fem-collection-card:hover { border-color: #ecb6b6; box-shadow: 0 8px 22px #9b3c461a; }
+  .fem-collection-card:hover .fem-collection-card-photo { transform: scale(1.025); }
+  .fem-collection-card:hover .fem-collection-card-cta { background: var(--fem-button-pink-hover,#ad3f3f); border-color: var(--fem-button-pink-hover,#ad3f3f); }
+}
 .fem-collection-card:focus-visible,
 .fem-collections-contact:focus-visible,
 .fem-collections-breadcrumb a:focus-visible,
 .fem-collections-question summary:focus-visible { outline: 3px solid var(--collections-ink); outline-offset: 4px; }
-.fem-collections-comparison { padding: 76px 40px 80px; }
-.fem-collections-comparison > header { text-align: center; margin-bottom: 34px; }
-.fem-collections-comparison h2 { margin: 0 0 8px; color: inherit; font-size: 44px; font-weight: 700; line-height: 1.1; letter-spacing: normal; }
-.fem-collections-comparison header p { margin: 0; }
-.fem-collections-table { width: min(1000px, 100%); margin-inline: auto; border-collapse: separate; border-spacing: 0; table-layout: fixed; color: inherit; }
+.fem-collections-comparison { padding: 64px 80px 72px; }
+.fem-collections-comparison > header { text-align: left; margin-bottom: 32px; }
+.fem-collections-comparison h2 { margin: 0 0 16px; color: inherit; font-size: 44px; font-weight: 700; line-height: 1.16; letter-spacing: -.035em; scroll-margin-top: 110px; }
+.fem-collections-comparison h2::after { content: ''; display: block; width: 64px; height: 4px; margin-top: 18px; border-radius: 999px; background: #c64b4b; }
+.fem-collections-comparison header p { max-width: 760px; margin: 0; color: #75433e; font-size: 16px; line-height: 1.65; }
+.fem-collections-comparison-card { max-width: 1200px; margin-inline: auto; overflow: hidden; border: 1px solid #f7d3d3; border-radius: 28px; background: #fff; box-shadow: 0 6px 24px #9b3c4610; }
+.fem-collections-table { width: 100%; margin: 0; border-collapse: separate; border-spacing: 0; table-layout: fixed; color: inherit; }
 .fem-collections-table th,
-.fem-collections-table td { padding: 20px 24px; text-align: center; border: 0; }
-.fem-collections-table thead th { height: 120px; color: #161616; font-size: 18px; font-weight: 600; }
-.fem-collections-table th:first-child { width: 74%; text-align: left; }
-.fem-collections-table th:nth-child(2) { width: 14%; }
-.fem-collections-table th:nth-child(3) { width: 12%; }
-.fem-collections-table tbody th { height: 76px; font-size: 18px; font-weight: 400; }
-.fem-collections-table tr > :not(.fem-collections-table-fem) { border-bottom: 1px solid #e4d5d5; }
-.fem-collections-table .fem-collections-table-fem { background: var(--collections-coral); color: #fff; }
-.fem-collections-table thead .fem-collections-table-fem { border-radius: 45px 45px 0 0; }
-.fem-collections-table tbody tr:last-child .fem-collections-table-fem { border-radius: 0 0 45px 45px; padding-bottom: 32px; }
-.fem-collections-table-fem img { display: block; width: 80px; height: auto; margin: auto; }
-.fem-collections-table td svg { display: block; width: 26px; height: 26px; margin: auto; color: #9b9b9b; }
-.fem-collections-table .fem-collections-table-fem svg { color: #fff; }
+.fem-collections-table td { padding: 20px 28px; text-align: center; border: 0; border-bottom: 1px solid #f1dddd; }
+.fem-collections-table thead th { height: 92px; background: #fff7f7; color: #75433e; font-size: 16px; font-weight: 600; }
+.fem-collections-table th:first-child { width: 58%; text-align: left; }
+.fem-collections-table th:nth-child(2),
+.fem-collections-table th:nth-child(3) { width: 21%; }
+.fem-collections-table thead th:first-child { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.fem-collections-table tbody th { height: 76px; background: #fff; font-size: 16px; font-weight: 500; line-height: 1.5; overflow-wrap: anywhere; }
+.fem-collections-table .fem-collections-table-fem { border-inline: 1px solid #f3d1d1; background: #fff0f0; color: #c64b4b; }
+.fem-collections-table thead .fem-collections-table-fem { border-color: #c64b4b; border-radius: 0; background: #c64b4b; color: #fff; }
+.fem-collections-table tbody tr:last-child > * { border-bottom: 0; }
+.fem-collections-table tbody tr:last-child .fem-collections-table-fem { border-radius: 0; padding-bottom: 20px; }
+.fem-collections-table-fem img { display: block; width: 72px; max-width: 100%; height: auto; margin: auto; }
+.fem-collections-table td svg { display: block; width: 28px; height: 28px; margin: auto; color: #a48d8a; }
+.fem-collections-table .fem-collections-table-fem svg { color: #c64b4b; }
 .fem-collections-faq { padding: 70px 0 80px; }
 .fem-collections-faq-layout { display: grid; grid-template-columns: 386px minmax(0, 1fr); gap: 60px; }
 .fem-collections-faq h2 { margin: 0 0 40px; color: var(--collections-coral); font-size: 42px; font-weight: 700; line-height: 1.1; letter-spacing: -.8px; }
@@ -88,8 +155,7 @@
   .fem-collections-faq-layout { grid-template-columns: 1fr; gap: 32px; }
   .fem-collections-faq-layout > header { text-align: center; }
   .fem-collections-faq h2 { margin-bottom: 28px; }
-  .fem-collections-table th:first-child { width: 66%; }
-  .fem-collections-table th:nth-child(2), .fem-collections-table th:nth-child(3) { width: 17%; }
+  .fem-collections-comparison { padding-inline: 40px; }
 }
 @media (max-width: 599px) {
   .fem-collections-hero { padding: 100px 0 24px; }
@@ -98,28 +164,37 @@
   .fem-collections-description { margin: 24px 0; font-size: 14px; line-height: 1.45; }
   .fem-collections-breadcrumb { font-size: 11px; gap: 8px; }
   .fem-collections-catalog { padding: 24px 0 74px; }
-  .fem-collection-card { height: 300px; }
-  .fem-collection-card-logo { top: 20px; left: 10px; width: 40px; }
-  .fem-collection-card-arrow { width: 40px; height: 40px; }
-  .fem-collection-card-arrow svg { width: 24px; height: 24px; }
-  .fem-collection-card-title { margin: 66px 10px 0; font-size: 24px; letter-spacing: -.4px; }
-  .fem-collections-comparison { padding: 40px 14px 32px; }
-  .fem-collections-comparison > header { margin-bottom: 14px; }
-  .fem-collections-comparison h2 { font-size: 24px; letter-spacing: -.4px; margin-bottom: 6px; }
-  .fem-collections-comparison header p { font-size: 12px; line-height: 1.4; }
-  .fem-collections-table th, .fem-collections-table td { padding: 16px 4px; }
-  .fem-collections-table thead th { height: 86px; font-size: 12px; }
-  .fem-collections-table tbody th { height: 58px; font-size: 12px; line-height: 1.35; }
+  .fem-collections-grid { gap: 14px; }
+  .fem-collection-card { gap: 12px; padding: 10px; border-radius: 24px; }
+  .fem-collection-card-visual { border-radius: 16px; }
+  .fem-collection-card-logo { top: 12px; left: 12px; width: 40px; }
+  .fem-collection-card-title { margin-inline: 2px; font-size: 18px; letter-spacing: -.2px; }
+  .fem-collection-card-cta { gap: 6px; min-height: 44px; padding: 10px 4px; font-size: clamp(11px,3.2vw,14px); }
+  .fem-collection-card-cta svg { flex-basis: 16px; width: 16px; height: 16px; }
+.fem-collections-comparison { padding: 40px 20px 48px; }
+  .fem-collections-comparison > header { margin-bottom: 24px; }
+  .fem-collections-comparison h2 { margin-bottom: 14px; }
+  .fem-collections-comparison header p { font-size: 14px; line-height: 1.6; }
+  .fem-collections-comparison-card { border-radius: 24px; }
+  .fem-collections-table th, .fem-collections-table td { padding: 16px 10px; }
+  .fem-collections-table th:first-child { width: 56%; }
+  .fem-collections-table th:nth-child(2), .fem-collections-table th:nth-child(3) { width: 22%; }
+  .fem-collections-table thead th { height: 72px; font-size: 12px; }
+  .fem-collections-table thead th:first-child { font-size: 10px; letter-spacing: .02em; }
+  .fem-collections-table tbody th { height: 72px; font-size: 13px; line-height: 1.5; }
   .fem-collections-table-fem img { width: 44px; }
-  .fem-collections-table td svg { width: 18px; height: 18px; }
-  .fem-collections-table thead .fem-collections-table-fem { border-radius: 12px 12px 0 0; }
-  .fem-collections-table tbody tr:last-child .fem-collections-table-fem { border-radius: 0 0 12px 12px; padding-bottom: 22px; }
+  .fem-collections-table td svg { width: 24px; height: 24px; }
+  .fem-collections-table tbody tr:last-child .fem-collections-table-fem { padding-bottom: 16px; }
   .fem-collections-faq { padding: 38px 0 50px; }
   .fem-collections-faq h2 { font-size: 24px; letter-spacing: -.4px; margin-bottom: 28px; }
   .fem-collections-faq header p { margin-bottom: 32px; }
   .fem-collections-question { padding: 24px; }
   .fem-collections-page--embedded .fem-collections-hero { padding-top: 40px; }
 }
+@media (max-width: 359px) {
+  .fem-collection-card-cta svg { display: none; }
+}
 @media (prefers-reduced-motion: reduce) {
+  .fem-collection-card,
   .fem-collection-card-photo { transition: none; }
 }

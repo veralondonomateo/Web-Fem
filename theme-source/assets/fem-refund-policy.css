@@ -1,0 +1,45 @@
+.fem-refund-policy {
+  width:100%;
+  background:#fff;
+  color:#581d18;
+  font-family:Poppins,Arial,sans-serif;
+}
+.fem-refund-policy, .fem-refund-policy * { box-sizing:border-box; }
+.fem-refund-policy__header { padding:150px 80px 40px; border-bottom:1px solid #e0dcd2; }
+.fem-refund-policy__header-inner { display:flex; flex-direction:column; align-items:flex-start; gap:24px; width:100%; max-width:1500px; margin-inline:auto; }
+.fem-refund-policy h1 { width:fit-content; max-width:100%; margin:0; padding:0 0 10px; border-bottom:2px solid #f17e7e; color:#581d18; font:700 48px/1.15 Poppins,Arial,sans-serif; letter-spacing:-.01em; text-align:left; }
+.fem-refund-policy__breadcrumb { display:flex; align-items:center; flex-wrap:wrap; gap:10px; color:#581d18; font:500 13px/1.5 Poppins,Arial,sans-serif; letter-spacing:.12em; text-transform:uppercase; }
+.fem-refund-policy__breadcrumb a { color:inherit; text-decoration:none; }
+.fem-refund-policy__breadcrumb a:hover { color:#c64b4b; text-decoration:underline; }
+.fem-refund-policy__breadcrumb svg { flex:0 0 14px; width:14px; height:14px; }
+.fem-refund-policy__breadcrumb [aria-current] { font-weight:600; }
+.fem-refund-policy__body { width:100%; padding:40px 80px 80px; background:#fff7f7; }
+.fem-refund-policy__content { width:100%; max-width:1300px; margin-inline:auto; color:#000; font:400 16px/1.4 Poppins,Arial,sans-serif; overflow-wrap:anywhere; }
+.fem-refund-policy__content :is(p,li,ul,ol,span,a,strong,em) { font-family:inherit; }
+.fem-refund-policy__content > :is(p,ul,ol) { margin:0 0 20px; }
+.fem-refund-policy__content > :last-child { margin-bottom:0; }
+.fem-refund-policy__content > p:first-child { font-size:18px; }
+.fem-refund-policy__content > p:not(:first-child) > strong:first-child,
+.fem-refund-policy__content :is(h2,h3) { display:block; margin:0 0 20px; color:#000001; font:400 40px/1.15 Poppins,Arial,sans-serif; }
+.fem-refund-policy__content > p:not(:first-child) > strong:only-child { margin-bottom:0; }
+.fem-refund-policy__content > p:has(> strong:first-child) > br:first-of-type { display:none; }
+.fem-refund-policy__content :is(ul,ol) { padding-left:1.5em; }
+.fem-refund-policy__content li { margin-bottom:10px; }
+.fem-refund-policy__content a { color:#581d18; text-underline-offset:3px; }
+.fem-refund-policy a:focus-visible { outline:2px solid #581d18; outline-offset:4px; }
+@media(min-width:576px) and (max-width:1024px) {
+  .fem-refund-policy__header { padding:120px 64px 40px; }
+  .fem-refund-policy__body { padding-inline:64px; }
+}
+@media(max-width:575px) {
+  .fem-refund-policy__header { padding:102px 29px 20px; }
+  .fem-refund-policy h1 { font-size:25px; }
+  .fem-refund-policy__breadcrumb { gap:5px; font-size:11px; letter-spacing:.12em; }
+  .fem-refund-policy__breadcrumb svg { flex-basis:12px; width:12px; height:12px; }
+  .fem-refund-policy__body { padding:20px 20px 80px; }
+  .fem-refund-policy__content { max-width:440px; }
+  .fem-refund-policy__content > :is(p,ul,ol) { margin-bottom:16px; }
+  .fem-refund-policy__content > p:not(:first-child) > strong:first-child,
+  .fem-refund-policy__content :is(h2,h3) { margin-bottom:16px; font-size:20px; font-weight:600; }
+  .fem-refund-policy__content > p:not(:first-child) > strong:only-child { margin-bottom:0; }
+}

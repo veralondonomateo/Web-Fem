@@ -16,35 +16,45 @@
         {% for block in plans %}
           {% liquid
             assign artwork = block.settings.artwork | default: 'duo'
-            assign image_asset = 'fem-plan-' | append: artwork | append: '.webp'
-            assign image_width = 590
-            assign image_height = 590
-            if artwork == 'mom'
-              assign image_width = 580
-              assign image_height = 580
-            elsif artwork == 'probiotics'
-              assign image_height = 589
-            endif
+            assign image_asset = 'fem-duo-gallery-1.webp'
+            assign image_width = 1254
+            assign image_height = 1254
+            case artwork
+              when 'probiotics'
+                assign image_asset = 'fem-probioticos-gallery-1.webp'
+                assign image_width = 2000
+                assign image_height = 2000
+              when 'duo-double'
+                assign image_asset = 'fem-collection-promotions.webp'
+                assign image_width = 600
+                assign image_height = 910
+              when 'mom'
+                assign image_asset = 'fem-fem-mom-gallery-1.webp'
+                assign image_width = 1761
+                assign image_height = 1761
+            endcase
             assign benefits = block.settings.benefits | newline_to_br | split: '<br />'
           %}
           <article class="fem-plan{% if block.settings.palette == 'purple' %} fem-plan--purple{% endif %}" aria-labelledby="plan-{{ section.id }}-{{ block.id }}" {{ block.shopify_attributes }}>
             {% if block.settings.recommended %}<span class="fem-plan__badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="m13 2-9 12h7l-1 8 10-13h-7z"/></svg>{{ 'fem_plans.recommended' | t }}</span>{% endif %}
-            <h2 id="plan-{{ section.id }}-{{ block.id }}" class="fem-plan__period"><span class="fem-plan__name">{{ block.settings.title | escape }}: </span>{{ 'fem_plans.monthly' | t }}</h2>
+            <header class="fem-plan__header">
+              <h2 id="plan-{{ section.id }}-{{ block.id }}" class="fem-plan__name">{{ block.settings.title | escape }}</h2>
+              <p class="fem-plan__price"><strong>{{ block.settings.price | escape }}</strong> <span class="fem-plan__price-period">{{ 'fem_plans.per_month' | t }}</span></p>
+              <p class="fem-plan__contents"><span>{{ 'fem_plans.includes' | t }}</span> {{ block.settings.contents | escape }}</p>
+            </header>
             <div class="fem-plan__body">
               {% if block.settings.image != blank %}
                 <img class="fem-plan__image" src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" loading="lazy" decoding="async">
               {% else %}
-                <img class="fem-plan__image" src="{{ image_asset | asset_url }}" alt="{{ block.settings.title | escape }}" width="{{ image_width }}" height="{{ image_height }}" loading="lazy" decoding="async">
+                <img class="fem-plan__image{% if artwork == 'duo-double' %} fem-plan__image--duo-double{% endif %}" src="{{ image_asset | asset_url }}" alt="{{ block.settings.title | escape }}" width="{{ image_width }}" height="{{ image_height }}" loading="lazy" decoding="async">
               {% endif %}
               <ul class="fem-plan__features">
-                <li><span class="fem-plan__check" aria-hidden="true">✓</span><strong>{{ block.settings.contents | escape }}</strong></li>
                 {% for benefit in benefits %}
                   {% assign text = benefit | strip %}
                   {% if text != blank %}<li><span class="fem-plan__check" aria-hidden="true">✓</span><span>{{ text | escape }}</span></li>{% endif %}
                 {% endfor %}
               </ul>
               <div class="fem-plan__purchase">
-                <p class="fem-plan__price">{{ 'fem_plans.price_prefix' | t }} <strong>{{ block.settings.price | escape }}</strong></p>
                 {% if block.settings.link != blank %}
                   <a class="fem-plan__button" href="{{ block.settings.link | escape }}" aria-label="{{ 'fem_plans.start' | t | escape }}: {{ block.settings.title | escape }}">{{ 'fem_plans.start' | t }}<span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></a>
                 {% endif %}

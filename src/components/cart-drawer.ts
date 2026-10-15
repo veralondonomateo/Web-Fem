@@ -67,7 +67,9 @@ export function enhanceCartDrawer():void {
     const reward=find('[data-cart-satin]');reward.dataset.unlocked=String(unlocked);
     find('[data-cart-satin-state]').textContent=unlocked?config.labels.rewardUnlocked:config.labels.rewardLocked;
     find('[data-cart-satin-badge]').textContent=unlocked?config.labels.rewardFree:config.labels.rewardExclusive;
-    find('[data-cart-payment-note]').textContent=unlocked?config.labels.prepaidNote:config.labels.codNote;
+    const paymentNote=find('[data-cart-payment-note]');
+    paymentNote.hidden=unlocked;
+    paymentNote.textContent=unlocked?'':config.labels.codNote;
     checkout.textContent=unlocked?config.labels.prepaidCta:config.labels.codCta;
   }
   function render(state:CartState):void {
