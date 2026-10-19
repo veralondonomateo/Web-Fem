@@ -26,5 +26,10 @@ export function restoreCollectionCards(html:string):string {
     card.children('.ixLXGfiktdwt3LXw9,.iMidEZvz2oLuj6AEt,.iff5HNbQDjlDIevHh').remove();
     card.append(details);
   });
+  // Keep the published collection banner in sync with its native Liquid title.
+  $('[data-fem-layout="COLLECTION_TEMPLATE"] .iJszcoozRHmwYL55H').each((_,node)=>{
+    const title=$(node);
+    if(!title.find('em').length&&title.text().trim()==='FEM PROBIOTICS')title.html('<p>FEM <em>PROBIOTICS</em></p>');
+  });
   return $.html();
 }

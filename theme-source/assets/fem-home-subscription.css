@@ -18,7 +18,7 @@
 .fem-native.fem-home .fem-subscription__layout-3 { align-items:flex-start; width:100%; max-width:none; padding:0; gap:24px; }
 .fem-native.fem-home .fem-subscription__heading { color:inherit; font-size:40px; font-weight:700; line-height:1.15; letter-spacing:-.035em; text-align:left; }
 .fem-home .fem-subscription__heading h2 { margin:0; font:inherit; }
-.fem-home .fem-subscription__heading em { color:#c64b4b; font-family:'Behind The Nineties Sans','Fem Home Display',Georgia,serif; font-size:1.12em; font-weight:700; letter-spacing:-.025em; }
+.fem-home .fem-subscription__heading em { color:#c64b4b; font-family:var(--fem-font-editorial); font-size:1.12em; font-weight:700; letter-spacing:-.025em; }
 .fem-native.fem-home .fem-subscription__layout-4 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; width:100%; }
 .fem-native.fem-home .fem-subscription__layout-5,
 .fem-native.fem-home .fem-subscription__layout-7 { flex-direction:row; align-items:center; gap:12px; width:100%; min-width:0; }

@@ -1,0 +1,70 @@
+/* Home FAQ: brand typography and contact actions around the original accordion. */
+.fem-native.fem-home .fem-faq__layout-2 {
+  align-items:flex-start;
+  gap:14px;
+  min-width:0;
+  text-align:left;
+}
+.fem-home .fem-faq__heading em {
+  color:#c64b4b;
+  font-family:var(--fem-font-editorial);
+  font-size:1.12em;
+  font-weight:700;
+  letter-spacing:-.025em;
+}
+.fem-home .fem-faq__heading h2::after {
+  content:'';
+  display:block;
+  width:64px;
+  height:4px;
+  margin-top:22px;
+  border-radius:999px;
+  background:#c64b4b;
+}
+.fem-native.fem-home .fem-faq__text {
+  margin:8px 0 0;
+  font-size:18px;
+  line-height:1.45;
+  text-align:left;
+}
+.fem-native.fem-home .fem-faq__text-2 {
+  color:#75433e;
+  font-size:15px;
+  line-height:1.65;
+  text-align:left;
+}
+.fem-native.fem-home .fem-faq__layout-3 {
+  flex-wrap:wrap;
+  justify-content:flex-start;
+  gap:12px;
+  margin-top:8px;
+}
+.fem-native.fem-home :is(.fem-faq__link,.fem-faq__link-2) {
+  gap:8px;
+  min-height:48px;
+  max-width:100%;
+  padding:12px 22px;
+  border:1px solid transparent;
+  border-radius:999px;
+  color:#fff;
+  text-decoration:none;
+}
+.fem-native.fem-home :is(.fem-faq__text-3,.fem-faq__text-4) {
+  color:inherit;
+  font-family:Poppins,Arial,sans-serif;
+  font-size:14px;
+  font-weight:600;
+  line-height:1.5;
+}
+.fem-native.fem-home .fem-faq__link-2:hover { background:#40b954; }
+.fem-home .fem-faq__layout-3 a:focus-visible {
+  outline:2px solid #581d18;
+  outline-offset:4px;
+}
+@media(max-width:749px) {
+  .fem-home .fem-faq__heading h2::after { margin-top:18px; }
+  .fem-native.fem-home .fem-faq__text { font-size:17px; }
+  .fem-native.fem-home .fem-faq__text-2 { font-size:14px; }
+  .fem-native.fem-home .fem-faq__layout-3 { gap:10px; }
+  .fem-native.fem-home :is(.fem-faq__link,.fem-faq__link-2) { padding-inline:18px; }
+}

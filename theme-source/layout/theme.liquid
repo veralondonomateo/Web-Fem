@@ -43,7 +43,11 @@
     </script>
 
     {%- render 'stylesheets' -%}
+    {{ 'fem-typography.css' | asset_url | stylesheet_tag }}
     {{ 'fem-section-headings.css' | asset_url | stylesheet_tag }}
+    {% if template.name == 'product' %}
+      {{ 'fem-product-accordions.css' | asset_url | stylesheet_tag }}
+    {% endif %}
 
     {%- if settings.favicon != blank -%}
       <link

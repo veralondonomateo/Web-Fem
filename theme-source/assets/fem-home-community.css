@@ -8,7 +8,7 @@
 .fem-native.fem-home .fem-community__layout-2 { align-items:flex-start; gap:14px; padding:0; }
 .fem-native.fem-home .fem-community__heading { color:inherit; font-size:44px; line-height:1.15; letter-spacing:-.035em; text-align:left; }
 .fem-home .fem-community__heading h2 { margin:0; font:inherit; }
-.fem-home .fem-community__heading em { color:#c64b4b; font-family:'Behind The Nineties Sans','Fem Home Display',Georgia,serif; font-size:1.12em; font-weight:700; letter-spacing:-.025em; }
+.fem-home .fem-community__heading em { color:#c64b4b; font-family:var(--fem-font-editorial); font-size:1.12em; font-weight:700; letter-spacing:-.025em; }
 .fem-home .fem-community__description { max-width:520px; margin:0; font-size:14px; line-height:1.6; text-align:left; text-wrap:balance; }
 .fem-native.fem-home .fem-community__layout-3 { width:100%; padding:0; }
 .fem-native.fem-home .fem-community__slider-container { overflow:visible; }

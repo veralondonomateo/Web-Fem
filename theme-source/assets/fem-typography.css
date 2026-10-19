@@ -1,0 +1,15 @@
+@font-face {
+  font-family:'Fem Home Display';
+  src:url('./fem-behind-the-nineties-sans-bd-it-6a2c3006.woff2') format('woff2');
+  font-weight:700;
+  font-style:italic;
+  font-display:swap;
+}
+:root { --fem-font-editorial:'Fem Home Display',Georgia,serif; }
+/* Use the hero's real italic face without adding a second synthetic slant. */
+body :is(em,blockquote,#content-rl-w .detail-star-ia) {
+  font-family:var(--fem-font-editorial) !important;
+  font-weight:700 !important;
+  font-style:italic !important;
+  font-synthesis:none;
+}

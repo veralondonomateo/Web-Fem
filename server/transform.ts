@@ -10,6 +10,7 @@ import {presentProbioticos} from './product-probioticos.ts';
 import {restoreProductCutouts} from './product-cutouts.ts';
 import {restoreCatalogFilters} from './catalog-filters.ts';
 import {restoreCollectionCards} from './collection-cards.ts';
+import {accentProductAccordionTitles} from './product-accordions.ts';
 export function transformStorefront(html:string,pathname?:string):string {
   const fullDocument=/<(?:!doctype|html)\b/i.test(html);
   const $=load(repairNavigation(html),{},fullDocument);
@@ -149,13 +150,15 @@ export function transformStorefront(html:string,pathname?:string):string {
   $('meta[name="robots"]').remove();
   if(fullDocument){
     if($('.iyllIvKHIw2ISoa1k').length)$('body').append('<link rel="stylesheet" href="/__theme/fem-product-jabon-gallery.css">');
-    $('head').append('<meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="/__theme/fem-tokens.css"><link rel="stylesheet" href="/__theme/fem-section-headings.css"><script type="module" src="/__theme/fem-runtime.js"></script>');
+    if($('[data-instant-layout="PRODUCT_TEMPLATE"],[data-fem-layout="PRODUCT_TEMPLATE"]').length)$('head').append('<link rel="stylesheet" href="/__theme/fem-product-accordions.css">');
+    $('head').append('<meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="/__theme/fem-typography.css"><link rel="stylesheet" href="/__theme/fem-tokens.css"><link rel="stylesheet" href="/__theme/fem-section-headings.css"><script type="module" src="/__theme/fem-runtime.js"></script>');
   }
   let result=$.html().replace(/(?:https?:)?\/\/femprobiotics\.co\/cdn\/shop\/t\/9\/assets\/([a-zA-Z0-9_.-]+)(?:\?v=\d+)?/g, '/__theme/$1');
   if(fullDocument && pathname==='/')result=result.replace(/<!--[\s\S]*?-->/g,comment=>/instant/i.test(comment)?'':comment);
   const native=restoreCollectionCards(restoreCatalogFilters(nativeMarkup(result)));
   if(!/data-fem-layout="PRODUCT_TEMPLATE"/.test(native))return restoreProductCardPhotos(restoreProductGalleries(native));
   const cartMarkup=load(native,{},fullDocument);
+  accentProductAccordionTitles(cartMarkup);
   cartMarkup('[data-fem-layout="PRODUCT_TEMPLATE"]').each((_,node)=>{
     const section=cartMarkup(node);
     // Match the native Liquid title without changing its styling or commerce attributes.

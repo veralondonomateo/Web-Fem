@@ -1,7 +1,8 @@
 <section class="fem-collections-faq" aria-labelledby="collections-faq-{{ section.id }}">
   <div class="fem-collections-inner fem-collections-faq-layout">
     <header>
-      <h2 id="collections-faq-{{ section.id }}">{{ section.settings.heading | escape }}</h2>
+      {% assign faq_heading_words = section.settings.heading | split: ' ' %}
+      <h2 id="collections-faq-{{ section.id }}">{% for word in faq_heading_words %}{% unless forloop.first %} {% endunless %}{% if forloop.last %}<em>{{ word | escape }}</em>{% else %}{{ word | escape }}{% endif %}{% endfor %}</h2>
       <h3>{{ section.settings.subheading | escape }}</h3>
       <p>{{ section.settings.description | escape }}</p>
       {% if section.settings.contact_url != blank %}<a class="fem-collections-contact" href="{{ section.settings.contact_url }}">{{ section.settings.contact_label | escape }} <span aria-hidden="true">→</span></a>{% endif %}

@@ -9,7 +9,7 @@
 .fem-home .fem-home-sources__inner { width:100%; max-width:1340px; margin:0 auto; }
 .fem-home .fem-home-sources__intro { max-width:760px; margin:0 0 36px; text-align:left; }
 .fem-home .fem-home-sources__intro h2 { margin:0 0 16px; color:inherit; font:700 44px/1.15 Poppins,Arial,sans-serif; letter-spacing:-.035em; text-wrap:balance; }
-.fem-home .fem-home-sources__intro h2 em { color:#c64b4b; font-family:'Behind The Nineties Sans','Fem Home Display',Georgia,serif; font-size:1.12em; font-weight:700; letter-spacing:-.025em; }
+.fem-home .fem-home-sources__intro h2 em { color:#c64b4b; font-family:var(--fem-font-editorial); font-size:1.12em; font-weight:700; letter-spacing:-.025em; }
 .fem-home .fem-home-sources__intro p { margin:0; font-size:15px; line-height:1.6; }
 .fem-home .fem-home-sources__grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
 .fem-home .fem-home-sources__card,

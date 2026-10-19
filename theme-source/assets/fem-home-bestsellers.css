@@ -8,7 +8,7 @@
 .fem-home .fem-bestsellers__intro { gap:24px; }
 .fem-native.fem-home .fem-bestsellers__heading { max-width:900px; color:inherit; font-size:40px; font-weight:700; line-height:1.15; letter-spacing:-.035em; text-align:left; }
 .fem-home .fem-bestsellers__heading h2 { margin:0; font:inherit; }
-.fem-home .fem-bestsellers__heading em { color:#c64b4b; font-family:'Behind The Nineties Sans','Fem Home Display',Georgia,serif; font-size:1.12em; font-weight:700; letter-spacing:-.025em; }
+.fem-home .fem-bestsellers__heading em { color:#c64b4b; font-family:var(--fem-font-editorial); font-size:1.12em; font-weight:700; letter-spacing:-.025em; }
 .fem-native.fem-home .fem-bestsellers__all { display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; min-height:46px; padding:12px 20px; border:1px solid #f5bfc4; border-radius:999px; background:#fff; color:#581d18; font:600 14px/1.5 Poppins,Arial,sans-serif; text-align:center; text-decoration:none; transition:background-color .2s ease; }
 .fem-home .fem-bestsellers__all:hover { background:#ffe7e9; }
 .fem-native.fem-home .fem-bestsellers__slider-container { display:grid; grid-template-columns:minmax(0,1fr) 44px 44px minmax(0,1fr); gap:12px; width:100%; overflow:visible; }

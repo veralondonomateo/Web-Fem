@@ -1,0 +1,44 @@
+/* Typography only: each product retains its accordion surfaces and controls. */
+body .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-type="accordion-header"] [data-fem-type="text"] {
+  min-width:0;
+  color:#581d18 !important;
+  font:600 15px/1.45 Poppins,Arial,sans-serif !important;
+  letter-spacing:-.015em;
+  text-align:left;
+}
+body .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-type="accordion-header"] strong {
+  font-weight:inherit;
+}
+body .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-type="accordion-header"] [data-fem-type="text"] :is(p,h2,h3,h4,h5,h6) {
+  color:inherit !important;
+  font:inherit !important;
+  letter-spacing:inherit;
+  text-align:inherit;
+}
+body .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-type="accordion-header"] .fem-product-accordion__accent {
+  display:inline;
+  color:#c64b4b;
+  font-family:var(--fem-font-editorial);
+  font-size:1.16em !important;
+  font-style:italic;
+  font-weight:700;
+  letter-spacing:-.025em;
+}
+body .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-type="accordion-content"] [data-fem-type="text"] {
+  color:#75433e !important;
+  font:400 14px/1.65 Poppins,Arial,sans-serif !important;
+}
+body .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-type="accordion-content"] strong {
+  color:#581d18;
+  font-weight:600;
+}
+body .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-type="accordion-content"] a {
+  color:#c64b4b;
+  text-underline-offset:3px;
+}
+@media(max-width:599px) {
+  body .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-type="accordion-header"] [data-fem-type="text"] {
+    font-size:14px !important;
+    line-height:1.5 !important;
+  }
+}

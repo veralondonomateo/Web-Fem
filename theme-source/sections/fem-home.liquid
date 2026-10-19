@@ -14,20 +14,7 @@
   {{ 'fem-home-subscription.css' | asset_url | stylesheet_tag }}
   {{ 'fem-home-press.css' | asset_url | stylesheet_tag }}
   {{ 'fem-home-bestsellers.css' | asset_url | stylesheet_tag }}
-  <style>
-    @font-face {
-      font-family: 'Behind The Nineties Sans';
-      src: url('{{ 'fem-behind-the-nineties-sans-bd-it-6a2c3006.woff2' | asset_url }}') format('woff2');
-      font-weight: 700;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'Behind The Nineties Sans';
-      src: url('{{ 'fem-behind-the-nineties-sans-xbd-it-f489499c.woff2' | asset_url }}') format('woff2');
-      font-weight: 800;
-      font-display: swap;
-    }
-  </style>
+  {{ 'fem-home-faq.css' | asset_url | stylesheet_tag }}
 <div class="fem-home__root">
   {% render 'fem-home-hero', section: section %}
   {% render 'fem-home-bestsellers', section: section %}
