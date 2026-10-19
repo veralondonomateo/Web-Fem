@@ -8,8 +8,6 @@
   data-count-one="{{ 'fem_catalog.count_one' | t | escape }}"
   data-count-filtered="{{ 'fem_catalog.count_filtered' | t | escape }}"
   data-page-suffix="{{ 'fem_catalog.page_suffix' | t | escape }}"
-  data-loading="{{ 'fem_catalog.loading' | t | escape }}"
-  data-load-error="{{ 'fem_catalog.load_error' | t | escape }}"
   data-price-error="{{ 'fem_catalog.price_error' | t | escape }}">
   <div class="fem-catalog-filters__top">
     <h2>{{ 'fem_catalog.heading' | t }}</h2>
@@ -27,13 +25,6 @@
         <option value="mom">{{ 'fem_catalog.mom' | t }}</option>
         <option value="soda">{{ 'fem_catalog.soda' | t }}</option>
         <option value="other">{{ 'fem_catalog.other' | t }}</option>
-      </select>
-    </label>
-    <label><span>{{ 'fem_catalog.availability' | t }}</span>
-      <select name="fem_available" aria-label="{{ 'fem_catalog.availability' | t | escape }}">
-        <option value="">{{ 'fem_catalog.all_availability' | t }}</option>
-        <option value="true">{{ 'fem_catalog.in_stock' | t }}</option>
-        <option value="false">{{ 'fem_catalog.sold_out' | t }}</option>
       </select>
     </label>
     <fieldset>

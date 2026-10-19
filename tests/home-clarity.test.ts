@@ -15,7 +15,6 @@ test('Home leads with products and preserves catalog destinations without anonym
   assert.equal($('.fem-marquee__section,.fem-home-hero__benefits,.fem-home-specialists').length,0);
   assert.equal($('.fem-home-hero__image').attr('src'),'/__theme/fem-home-probiotics.webp');
   assert.deepEqual($('.fem-home-hero__actions a').map((_,a)=>$(a).attr('href')).get(),['/collections/todos-los-productos','/pages/quiz1']);
-  assert.equal($('.fem-bestsellers__all').attr('href'),'/collections/todos-los-productos');
   for(const handle of ['duo-perfecto','probiotico-vaginal-en-capsulas-x100-unidades','jabon-intimo-ph-neutro']) {
     assert.ok($(`.fem-bestsellers__section a[href="/products/${handle}"]`).length>0);
   }

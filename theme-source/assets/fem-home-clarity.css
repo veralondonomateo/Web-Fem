@@ -60,8 +60,13 @@
   .fem-home .fem-home-specialists__grid { grid-template-columns:minmax(0,1fr); gap:14px; }
   .fem-home .fem-home-sources__card,
   .fem-home .fem-home-specialist { padding:22px; }
-  .fem-home .fem-home-sources__card { padding:26px; }
-  .fem-home .fem-home-sources__card a { width:100%; }
+  .fem-home .fem-home-sources__card { gap:10px; padding:18px; border-radius:20px; }
+  .fem-home .fem-home-sources__icon { width:42px; height:42px; margin-bottom:2px; border-radius:14px; }
+  .fem-home .fem-home-sources__icon svg { width:22px; height:22px; }
+  .fem-home .fem-home-sources__card h3 { font-size:17px; }
+  .fem-home .fem-home-sources__card p { font-size:13px; line-height:1.55; }
+  .fem-home .fem-home-sources__card p:last-of-type { margin-bottom:4px; }
+  .fem-home .fem-home-sources__card a { width:100%; min-height:44px; padding:10px 14px; font-size:12px; }
 }
 @media(prefers-reduced-motion:reduce) {
   .fem-home .fem-home-sources__card a { transition:none; }

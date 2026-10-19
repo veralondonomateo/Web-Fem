@@ -46,10 +46,24 @@
   .fem-native.fem-home .fem-press__layout { padding:0 20px; gap:24px; }
   .fem-native.fem-home .fem-press__heading { font-size:34px; }
   .fem-native.fem-home .fem-press__text { font-size:14px; }
-  .fem-native.fem-home .fem-press__slider-slide { min-height:300px; padding:26px; border-radius:24px; }
+  .fem-native.fem-home .fem-press__slider-slide { gap:16px; min-height:246px; padding:18px; border-radius:20px; }
+  .fem-native.fem-home .fem-press__layout-4,
+  .fem-native.fem-home .fem-press__layout-6 { min-height:32px; }
+  .fem-native.fem-home .fem-press__media,
+  .fem-native.fem-home .fem-press__media-2 { flex-basis:160px; width:160px; height:32px; }
+  .fem-native.fem-home .fem-press__layout-5,
+  .fem-native.fem-home .fem-press__layout-7 { gap:14px; }
   .fem-native.fem-home .fem-press__text-2,
-  .fem-native.fem-home .fem-press__text-4 { font-size:17px; }
-  .fem-native.fem-home .fem-press__link { padding-right:16px; padding-left:16px; }
+  .fem-native.fem-home .fem-press__text-4 { font-size:14px; }
+  .fem-native.fem-home .fem-press__link { --fem-font-button-size:12px; gap:6px; min-height:44px; padding:10px 12px; }
+  .fem-native.fem-home .fem-press__icon-2 { flex-basis:14px; width:14px; height:14px; }
+}
+@media(max-width:359px) {
+  .fem-native.fem-home .fem-press__slider-slide { gap:12px; padding:14px; }
+  .fem-native.fem-home .fem-press__text-2,
+  .fem-native.fem-home .fem-press__text-4 { font-size:13px; }
+  .fem-native.fem-home .fem-press__link { gap:4px; padding-right:8px; padding-left:8px; }
+  .fem-native.fem-home .fem-press__icon-2 { flex-basis:12px; width:12px; height:12px; }
 }
 @media(prefers-reduced-motion:reduce) {
   .fem-home .fem-press__section :is(a,button) { transition:none; }

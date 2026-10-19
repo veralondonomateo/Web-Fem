@@ -4,7 +4,7 @@
 [data-fem-catalog][data-fem-catalog] .fem-catalog-filters__top { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:18px; }
 [data-fem-catalog][data-fem-catalog] .fem-catalog-filters__top h2 { margin:0; color:inherit; font:600 18px/1.35 Poppins,Arial,sans-serif; }
 [data-fem-catalog][data-fem-catalog] .fem-catalog-filters__top button { min-height:44px; padding:8px 12px; border:0; border-radius:24px; background:#fff; color:#581d18; font:500 13px/1.4 Poppins,Arial,sans-serif; text-decoration:underline; cursor:pointer; }
-[data-fem-catalog][data-fem-catalog] .fem-catalog-filters__fields { display:grid; grid-template-columns:1fr 1fr 1.25fr; align-items:start; gap:20px; }
+[data-fem-catalog][data-fem-catalog] .fem-catalog-filters__fields { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.25fr); align-items:start; gap:20px; }
 [data-fem-catalog][data-fem-catalog] .fem-catalog-filters label { display:flex; flex-direction:column; min-width:0; gap:7px; font:500 13px/1.5 Poppins,Arial,sans-serif; }
 [data-fem-catalog][data-fem-catalog] .fem-catalog-filters :is(select,input) { display:block; width:100%; min-width:0; height:48px; margin:0; padding:10px 12px; border:1px solid #debaba; border-radius:12px; background:#fff; color:#581d18; font:400 14px/1.5 Poppins,Arial,sans-serif; }
 [data-fem-catalog][data-fem-catalog] .fem-catalog-filters select { padding-right:28px; }
@@ -23,13 +23,19 @@
 [data-fem-catalog][data-fem-catalog] [data-fem-catalog-list] > .fem-catalog-filters { margin-bottom:0; }
 results-list[data-fem-catalog] > .fem-catalog-filters { width:min(1280px,calc(100% - 160px)); margin-inline:auto; }
 @media(max-width:749px) {
-  [data-fem-catalog][data-fem-catalog] .fem-catalog-filters { margin-bottom:20px; padding:18px 16px; border-radius:16px; }
-  [data-fem-catalog][data-fem-catalog] .fem-catalog-filters__top { flex-direction:column; align-items:flex-start; gap:6px; margin-bottom:12px; }
-  [data-fem-catalog][data-fem-catalog] .fem-catalog-filters__top h2 { font-size:16px; }
-  [data-fem-catalog][data-fem-catalog] .fem-catalog-filters__fields { grid-template-columns:minmax(0,1fr); gap:14px; }
-  [data-fem-catalog][data-fem-catalog] .fem-catalog-filters__prices { grid-template-columns:minmax(0,1fr); gap:12px; }
+  [data-fem-catalog][data-fem-catalog] .fem-catalog-filters { margin-bottom:20px; padding:14px; border-radius:16px; font-size:12px; }
+  [data-fem-catalog][data-fem-catalog] .fem-catalog-filters__top { flex-direction:column; align-items:flex-start; gap:4px; margin-bottom:10px; }
+  [data-fem-catalog][data-fem-catalog] .fem-catalog-filters__top h2 { font-size:14px; }
+  [data-fem-catalog][data-fem-catalog] .fem-catalog-filters__top button { padding:6px 10px; font-size:12px !important; }
+  [data-fem-catalog][data-fem-catalog] .fem-catalog-filters__fields { grid-template-columns:minmax(0,1fr); gap:10px; }
+  [data-fem-catalog][data-fem-catalog] .fem-catalog-filters label { gap:5px; font-size:12px; }
+  [data-fem-catalog][data-fem-catalog] .fem-catalog-filters legend { margin-bottom:5px; font-size:12px; }
+  [data-fem-catalog][data-fem-catalog] .fem-catalog-filters__prices { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
   [data-fem-catalog][data-fem-catalog] .fem-catalog-filters__prices > span[aria-hidden="true"] { display:none; }
   [data-fem-catalog][data-fem-catalog] .fem-catalog-filters fieldset { grid-column:1/-1; }
-  [data-fem-catalog][data-fem-catalog] .fem-catalog-filters :is(select,input) { font-size:16px; padding-inline:10px; }
+  [data-fem-catalog][data-fem-catalog] .fem-catalog-filters :is(select,input) { height:44px; padding:8px 10px; border-radius:10px; font-size:14px; }
+  [data-fem-catalog][data-fem-catalog] .fem-catalog-filters select { padding-right:28px; }
+  [data-fem-catalog][data-fem-catalog] .fem-catalog-filters__count { min-height:18px; margin-top:12px; font-size:12px; }
+  [data-fem-catalog][data-fem-catalog] .fem-catalog-filters__error, [data-fem-catalog][data-fem-catalog] .fem-catalog-filters__empty { font-size:12px; }
   results-list[data-fem-catalog] > .fem-catalog-filters { width:calc(100% - 32px); }
 }

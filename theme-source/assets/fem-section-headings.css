@@ -140,6 +140,22 @@ body .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] :is(.i6wjNadWANL8Q7tWd,.ij5Tq
   overflow-wrap:anywhere;
 }
 @media(max-width:749px) {
+  body .fem-view[data-fem-layout="COLLECTION_TEMPLATE"] .iemoiUGRReOETq9WA {
+    flex-wrap:nowrap !important;
+    gap:4px !important;
+    padding:9px 10px !important;
+    font-size:clamp(9px,2.6vw,10px) !important;
+    letter-spacing:0 !important;
+    white-space:nowrap;
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+  body .fem-view[data-fem-layout="COLLECTION_TEMPLATE"] .iemoiUGRReOETq9WA :is(a,p,div,span) {
+    white-space:nowrap !important;
+    overflow-wrap:normal;
+  }
+  body .fem-view[data-fem-layout="COLLECTION_TEMPLATE"] .iemoiUGRReOETq9WA > * { flex-shrink:0; }
+  body .fem-view[data-fem-layout="COLLECTION_TEMPLATE"] .iemoiUGRReOETq9WA > [data-fem-type="icon"] { flex:0 0 9px; width:9px; height:9px; }
   body :is(
     .fem-collections-hero,.fem-plans__hero,.fem-refund-policy__header,
     .fem-view > [data-fem-type="root"] > [data-fem-type="container"]:has(.iHq9qSQRPOkpe9jMI,.ivRcDCgwQNRbdzHUj,.iJegbXpv1hKR2N2tF,.iLamdYOkqSIDISelb,.i0m9TIhDiQhKHbURR,.i7uGB5GYNmSwBVOae,.iBCZDudm4PjNAiZJA,.iH5KsA716ClBgjX1H,.inHzBZBZboO7kEiQj)

@@ -8,7 +8,7 @@
   white-space:nowrap;
 }
 
-/* The collection invitation keeps its original photo and coral overlay. */
+/* A white community panel keeps the collection invitation clear and readable. */
 body .fem-view.iC4vjxcdrCgVz59cD .i0hJ5t7Pl6puSsPdI {
   height:700px;
   overflow:hidden;
@@ -19,6 +19,7 @@ body .fem-view.iC4vjxcdrCgVz59cD .iIPkLkVhNoSLWU6o5 {
   gap:24px;
   padding:44px max(80px,calc((100% - 1280px)/2));
   border-radius:32px 32px 0 0;
+  background:#fff;
 }
 body .fem-view.iC4vjxcdrCgVz59cD .iJszcoozRHmwYL55H {
   padding:0;
@@ -32,7 +33,7 @@ body .fem-view.iC4vjxcdrCgVz59cD .iJszcoozRHmwYL55H p {
   font:inherit;
 }
 body .fem-view.iC4vjxcdrCgVz59cD .iJszcoozRHmwYL55H em {
-  color:#fff;
+  color:#c64b4b;
   font:italic 700 1.12em/1.15 var(--fem-font-editorial);
   letter-spacing:-.025em;
 }

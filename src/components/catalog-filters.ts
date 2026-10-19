@@ -1,6 +1,5 @@
 const controllers=new WeakMap<HTMLElement,()=>void>();
-const availabilityRequests=new Map<string,Promise<boolean>>();
-const keys=['fem_category','fem_available','fem_min','fem_max'] as const;
+const keys=['fem_category','fem_min','fem_max'] as const;
 
 export function productCategory(title:string,handle=''):string {
   const text=(title+' '+handle).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
@@ -17,25 +16,23 @@ export function productCategory(title:string,handle=''):string {
 function initialize(scope:HTMLElement):()=>void {
   const form=scope.querySelector<HTMLFormElement>('[data-fem-catalog-filters]')!;
   const category=form.elements.namedItem('fem_category') as HTMLSelectElement;
-  const available=form.elements.namedItem('fem_available') as HTMLSelectElement;
   const minimum=form.elements.namedItem('fem_min') as HTMLInputElement;
   const maximum=form.elements.namedItem('fem_max') as HTMLInputElement;
   const count=form.querySelector<HTMLElement>('[data-fem-filter-count]')!;
   const error=form.querySelector<HTMLElement>('[data-fem-filter-error]')!;
   const empty=form.querySelector<HTMLElement>('[data-fem-filter-empty]')!;
   const reset=form.querySelector<HTMLButtonElement>('[data-fem-filter-reset]')!;
-  let revision=0;
   const readURL=()=>{
     const params=new URL(location.href).searchParams;
     for(const name of keys){const control=form.elements.namedItem(name) as HTMLInputElement;control.value=params.get(name)??'';}
   };
   const writeURL=()=>{
     const url=new URL(location.href);
+    url.searchParams.delete('fem_available');
     for(const name of keys){const value=(form.elements.namedItem(name) as HTMLInputElement).value;if(value)url.searchParams.set(name,value);else url.searchParams.delete(name);}
     if(url.href!==location.href)window.history.replaceState(window.history.state,'',url);
   };
-  const update=async()=>{
-    const current=++revision;
+  const update=()=>{
     const cards=[...scope.querySelectorAll<HTMLElement>('[data-fem-catalog-item]')];
     const categories=new Set(cards.map(card=>productCategory(card.dataset.productTitle??'',card.dataset.productHandle)));
     for(const option of category.options)if(option.value){option.hidden=!categories.has(option.value);option.disabled=option.hidden;}
@@ -47,36 +44,10 @@ function initialize(scope:HTMLElement):()=>void {
     if(!minimum.validity.valid||!maximum.validity.valid||min<0||max<0||min>max){
       error.hidden=false;error.textContent=form.dataset.priceError??'';return;
     }
-    if(available.value){
-      const pending=cards.filter(card=>!['true','false'].includes(card.dataset.productAvailable??''));
-      if(pending.length){
-        form.setAttribute('aria-busy','true');count.textContent=form.dataset.loading??'';
-        const queue=[...pending];
-        await Promise.all(Array.from({length:Math.min(4,queue.length)},async()=>{
-          while(queue.length){
-            const card=queue.shift()!,handle=card.dataset.productHandle;
-            if(!handle||!/^[-\w]+$/.test(handle))continue;
-            const productURL=new URL(card.dataset.productUrl??'/products/'+handle,location.href);
-            if(productURL.origin!==location.origin)continue;
-            const endpoint=productURL.pathname+'.js';
-            if(!availabilityRequests.has(endpoint))availabilityRequests.set(endpoint,fetch(endpoint,{signal:AbortSignal.timeout(10000)}).then(async response=>{
-              if(!response.ok)throw new Error('Product unavailable');
-              const data=await response.json();if(typeof data.available!=='boolean')throw new Error('Missing availability');return data.available as boolean;
-            }).catch(reason=>{availabilityRequests.delete(endpoint);throw reason;}));
-            try {card.dataset.productAvailable=String(await availabilityRequests.get(endpoint));}catch{/* Keep cards visible if availability cannot be verified. */}
-          }
-        }));
-        if(current!==revision)return;
-        form.removeAttribute('aria-busy');
-        if(pending.some(card=>!['true','false'].includes(card.dataset.productAvailable??''))){
-          available.value='';error.hidden=false;error.textContent=form.dataset.loadError??'';
-        }
-      }
-    }
     let shown=0;
     for(const card of cards){
       const price=Number(card.dataset.productPrice)/100;
-      const matches=(!category.value||productCategory(card.dataset.productTitle??'',card.dataset.productHandle)===category.value)&&(!available.value||card.dataset.productAvailable===available.value)&&price>=min&&price<=max;
+      const matches=(!category.value||productCategory(card.dataset.productTitle??'',card.dataset.productHandle)===category.value)&&price>=min&&price<=max;
       card.hidden=!matches;
       const item=card.closest<HTMLElement>('.product-grid__item');if(item)item.toggleAttribute('data-fem-filter-hidden',!matches);
       if(matches)shown++;
