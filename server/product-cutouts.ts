@@ -29,7 +29,8 @@ export function restoreProductCutouts(html:string):string {
         const original=$(node),width=Number(original.attr('width')),height=Number(original.attr('height'));
         const dimensions=photo.stickyFrames.find(frame=>frame.media===className&&frame.width===width&&frame.height===height&&frame.className===original.attr('class'));
         if(!dimensions)return;
-        const frame=$('<svg xmlns="http://www.w3.org/2000/svg"><image /></svg>').attr({width:String(width),height:String(height),viewBox:dimensions.viewBox,preserveAspectRatio:'xMidYMid meet',role:'img','aria-label':title,class:original.attr('class')??'fem-view-media',style:`width:100%;height:auto;aspect-ratio:${width}/${height};filter:saturate(.85)`,'data-fem-sticky-product-photo':''});
+        const filter=photo.asset==='fem-probioticos-why-transparent-v1.webp'?'saturate(.75) contrast(.9) brightness(1.11) hue-rotate(5deg)':'saturate(.85)';
+        const frame=$('<svg xmlns="http://www.w3.org/2000/svg"><image /></svg>').attr({width:String(width),height:String(height),viewBox:dimensions.viewBox,preserveAspectRatio:'xMidYMid meet',role:'img','aria-label':title,class:original.attr('class')??'fem-view-media',style:`width:100%;height:auto;aspect-ratio:${width}/${height};filter:${filter}`,'data-fem-sticky-product-photo':''});
         frame.find('image').attr({href:'/__theme/'+(mobile[0]?.asset??photo.asset),width:String(photo.width),height:String(photo.height)});
         original.replaceWith(frame);
       });

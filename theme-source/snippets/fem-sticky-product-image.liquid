@@ -11,6 +11,12 @@ The view box excludes empty transparent margins without modifying the photo pixe
 @param {string} [image_alt] - Product description.
 {% enddoc %}
 {%- capture preview_asset -%}{% render 'fem-cutout-preview-asset', photo_asset: photo_asset %}{%- endcapture -%}
-<svg xmlns="http://www.w3.org/2000/svg" width="{{ display_width }}" height="{{ display_height }}" viewBox="{{ view_box | escape }}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="{{ image_alt | default: 'Producto Fem' | escape }}" class="{{ image_class | escape }}" style="width:100%;height:auto;aspect-ratio:{{ display_width }}/{{ display_height }};filter:saturate(.85)" data-fem-sticky-product-photo>
+{%- liquid
+  assign photo_filter = 'saturate(.85)'
+  if photo_asset == 'fem-probioticos-why-transparent-v1.webp'
+    assign photo_filter = 'saturate(.75) contrast(.9) brightness(1.11) hue-rotate(5deg)'
+  endif
+-%}
+<svg xmlns="http://www.w3.org/2000/svg" width="{{ display_width }}" height="{{ display_height }}" viewBox="{{ view_box | escape }}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="{{ image_alt | default: 'Producto Fem' | escape }}" class="{{ image_class | escape }}" style="width:100%;height:auto;aspect-ratio:{{ display_width }}/{{ display_height }};filter:{{ photo_filter }}" data-fem-sticky-product-photo>
   <image href="{{ preview_asset | asset_url }}" width="{{ photo_width }}" height="{{ photo_height }}" />
 </svg>

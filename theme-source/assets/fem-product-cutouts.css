@@ -31,6 +31,9 @@
   object-fit:contain;
   filter:saturate(.85);
 }
+.fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-product-cutout] > picture > img[src*="fem-probioticos-why-transparent-v1"] {
+  filter:saturate(.75) contrast(.9) brightness(1.11) hue-rotate(5deg);
+}
 @media (max-width:767px) {
   .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-product-cutout] > img,
   .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-product-cutout] > picture > img {
