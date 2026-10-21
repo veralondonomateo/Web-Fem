@@ -1,4 +1,4 @@
-import { getProducts, type ShopifyProduct } from "@/lib/shopify";
+import { getProducts, type CommerceProduct } from "@/lib/commerce";
 import PruebasAdminClient from "./PruebasAdminClient";
 
 export const metadata = {
@@ -14,8 +14,8 @@ export default async function AdminPruebasPage() {
   // navegador: el módulo va sin contraseña, y así no queda expuesto un
   // endpoint que devuelva inventario y precios de costo a quien lo llame.
   const productos = await getProducts().catch((err) => {
-    console.error("[Pruebas] No se pudo leer el catálogo de Shopify:", err);
-    return [] as ShopifyProduct[];
+    console.error("[Pruebas] No se pudo leer el catálogo FEM:", err);
+    return [] as CommerceProduct[];
   });
 
   return (

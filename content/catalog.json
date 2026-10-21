@@ -1,0 +1,3670 @@
+[
+  {
+    "id": 8684239388760,
+    "title": "COMBO 2 PROBIÓTICOS + 2 JABONES",
+    "handle": "combo-2-probioticos-2-jabones",
+    "description": "<p>Este combo está diseñado para brindar un <strong data-start=\"221\" data-end=\"269\">cuidado completo de la salud íntima femenina</strong>, actuando desde el interior y el exterior para mantener el equilibrio natural de la zona íntima 🌸<br>💗 <strong data-start=\"769\" data-end=\"794\">Beneficios del combo:</strong><br data-start=\"794\" data-end=\"797\">• Equilibra el pH vaginal<br data-start=\"822\" data-end=\"825\">• Fortalece la flora vaginal<br data-start=\"853\" data-end=\"856\">• Ayuda a prevenir infecciones y malos olores<br data-start=\"901\" data-end=\"904\">• Brinda limpieza suave y protección diaria<br></p>",
+    "published_at": "2026-03-04T15:14:12-06:00",
+    "created_at": "2026-03-04T15:14:11-06:00",
+    "vendor": "Fem Probiotics",
+    "type": "",
+    "tags": [],
+    "price": 18990000,
+    "price_min": 21990000,
+    "price_max": 21990000,
+    "available": false,
+    "price_varies": false,
+    "compare_at_price": 25990000,
+    "compare_at_price_min": 25990000,
+    "compare_at_price_max": 25990000,
+    "compare_at_price_varies": false,
+    "variants": [
+      {
+        "id": 43824835395672,
+        "title": "Default Title",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "sku": "182017",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": false,
+        "name": "COMBO 2 PROBIÓTICOS + 2 JABONES",
+        "public_title": null,
+        "options": [
+          "Default Title"
+        ],
+        "price": 18990000,
+        "weight": 0,
+        "compare_at_price": 25990000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      }
+    ],
+    "images": [
+      "/__theme/fem-owned-f8b3904776c5c94008e1.webp",
+      "/__theme/fem-owned-2046188843ccd7beb6b8.webp",
+      "/__theme/fem-owned-6b999185e44b26295af8.webp",
+      "/__theme/fem-owned-0745094635105935ea19.webp",
+      "/__theme/fem-owned-3d01bb3131f50a2ee6f3.webp"
+    ],
+    "featured_image": "/__theme/fem-owned-f8b3904776c5c94008e1.webp",
+    "options": [
+      {
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Default Title"
+        ]
+      }
+    ],
+    "url": "/products/combo-2-probioticos-2-jabones",
+    "media": [
+      {
+        "alt": null,
+        "id": 37181258399832,
+        "position": 1,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 1000,
+          "width": 1000,
+          "src": "/__theme/fem-owned-f8b3904776c5c94008e1.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 1000,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-f8b3904776c5c94008e1.webp",
+        "width": 1000
+      },
+      {
+        "alt": null,
+        "id": 35872484458584,
+        "position": 2,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-2046188843ccd7beb6b8.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-2046188843ccd7beb6b8.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35872484556888,
+        "position": 3,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-6b999185e44b26295af8.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-6b999185e44b26295af8.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35872484524120,
+        "position": 4,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-0745094635105935ea19.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-0745094635105935ea19.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35872484491352,
+        "position": 5,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-3d01bb3131f50a2ee6f3.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-3d01bb3131f50a2ee6f3.webp",
+        "width": 903
+      }
+    ],
+    "requires_selling_plan": false,
+    "selling_plan_groups": [],
+    "aliases": []
+  },
+  {
+    "id": 8534304587864,
+    "title": "Combo Completo",
+    "handle": "combo-completo",
+    "description": "<p>El Combo Completo fem complementa tu rutina de bienestar femenino, apoyando el equilibrio íntimo, el cuidado diario y el bienestar durante tu ciclo.</p>",
+    "published_at": "2025-11-25T15:54:42-06:00",
+    "created_at": "2025-11-25T15:54:40-06:00",
+    "vendor": "Fem Probiotics",
+    "type": "",
+    "tags": [],
+    "price": 26290000,
+    "price_min": 26290000,
+    "price_max": 26290000,
+    "available": true,
+    "price_varies": false,
+    "compare_at_price": 30200000,
+    "compare_at_price_min": 30200000,
+    "compare_at_price_max": 30200000,
+    "compare_at_price_varies": false,
+    "variants": [
+      {
+        "id": 43429476008024,
+        "title": "Default Title",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "sku": "175209",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Combo Completo",
+        "public_title": null,
+        "options": [
+          "Default Title"
+        ],
+        "price": 26290000,
+        "weight": 0,
+        "compare_at_price": 30200000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      }
+    ],
+    "images": [
+      "/__theme/fem-owned-f3e5394aef767d0f893a.webp",
+      "/__theme/fem-owned-3bb9793cfdde05bd87b0.webp",
+      "/__theme/fem-owned-1c42e2b71fd794676848.webp",
+      "/__theme/fem-owned-450d6f5a17e691d679e8.webp",
+      "/__theme/fem-owned-b023202d8d19c7f942fe.webp"
+    ],
+    "featured_image": "/__theme/fem-owned-f3e5394aef767d0f893a.webp",
+    "options": [
+      {
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Default Title"
+        ]
+      }
+    ],
+    "url": "/products/combo-completo",
+    "media": [
+      {
+        "alt": null,
+        "id": 37222983270488,
+        "position": 1,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 590,
+          "width": 590,
+          "src": "/__theme/fem-owned-f3e5394aef767d0f893a.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 590,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-f3e5394aef767d0f893a.webp",
+        "width": 590
+      },
+      {
+        "alt": null,
+        "id": 35911655293016,
+        "position": 2,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-3bb9793cfdde05bd87b0.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-3bb9793cfdde05bd87b0.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35911655227480,
+        "position": 3,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-1c42e2b71fd794676848.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-1c42e2b71fd794676848.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35911655194712,
+        "position": 4,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-450d6f5a17e691d679e8.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-450d6f5a17e691d679e8.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35911655260248,
+        "position": 5,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-b023202d8d19c7f942fe.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-b023202d8d19c7f942fe.webp",
+        "width": 903
+      }
+    ],
+    "requires_selling_plan": false,
+    "selling_plan_groups": [],
+    "aliases": []
+  },
+  {
+    "id": 8687279571032,
+    "title": "Combo Probiótico + Gomas + Jabón",
+    "handle": "combo-dia-de-la-mujer",
+    "description": "",
+    "published_at": "2026-03-08T18:32:29-05:00",
+    "created_at": "2026-03-07T07:52:58-06:00",
+    "vendor": "Fem Probiotics",
+    "type": "",
+    "tags": [],
+    "price": 18990000,
+    "price_min": 18990000,
+    "price_max": 18990000,
+    "available": true,
+    "price_varies": false,
+    "compare_at_price": 25000000,
+    "compare_at_price_min": 25000000,
+    "compare_at_price_max": 25000000,
+    "compare_at_price_varies": false,
+    "variants": [
+      {
+        "id": 43833957711960,
+        "title": "Default Title",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "sku": "219920",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Combo Probiótico + Gomas + Jabón",
+        "public_title": null,
+        "options": [
+          "Default Title"
+        ],
+        "price": 18990000,
+        "weight": 0,
+        "compare_at_price": 25000000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      }
+    ],
+    "images": [
+      "/__theme/fem-owned-469e59eac4dc22584b4c.webp",
+      "/__theme/fem-owned-c71e1d64b43d1d23fb45.webp",
+      "/__theme/fem-owned-38dee6170bdb9b02f87c.webp",
+      "/__theme/fem-owned-c8d4caea660c1f52bb90.webp",
+      "/__theme/fem-owned-fcb6cde6b48174ce29e5.webp"
+    ],
+    "featured_image": "/__theme/fem-owned-469e59eac4dc22584b4c.webp",
+    "options": [
+      {
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Default Title"
+        ]
+      }
+    ],
+    "url": "/products/combo-dia-de-la-mujer",
+    "media": [
+      {
+        "alt": null,
+        "id": 37223018201176,
+        "position": 1,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 590,
+          "width": 590,
+          "src": "/__theme/fem-owned-469e59eac4dc22584b4c.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 590,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-469e59eac4dc22584b4c.webp",
+        "width": 590
+      },
+      {
+        "alt": null,
+        "id": 35911623475288,
+        "position": 2,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-c71e1d64b43d1d23fb45.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-c71e1d64b43d1d23fb45.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35911623540824,
+        "position": 3,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-38dee6170bdb9b02f87c.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-38dee6170bdb9b02f87c.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35911623442520,
+        "position": 4,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-c8d4caea660c1f52bb90.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-c8d4caea660c1f52bb90.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35911623508056,
+        "position": 5,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-fcb6cde6b48174ce29e5.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-fcb6cde6b48174ce29e5.webp",
+        "width": 903
+      }
+    ],
+    "requires_selling_plan": false,
+    "selling_plan_groups": [],
+    "aliases": []
+  },
+  {
+    "id": 8440126406744,
+    "title": "Combo Probiótico + Óvulos",
+    "handle": "combo-fem-x-ovulos",
+    "description": "",
+    "published_at": "2025-09-12T15:14:20-05:00",
+    "created_at": "2025-08-01T12:57:17-05:00",
+    "vendor": "Fem Probiotics",
+    "type": "",
+    "tags": [],
+    "price": 14990000,
+    "price_min": 14990000,
+    "price_max": 14990000,
+    "available": true,
+    "price_varies": false,
+    "compare_at_price": 18900000,
+    "compare_at_price_min": 18900000,
+    "compare_at_price_max": 18900000,
+    "compare_at_price_varies": false,
+    "variants": [
+      {
+        "id": 43661879410776,
+        "title": "Default Title",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "sku": "122772",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Combo Probiótico + Óvulos",
+        "public_title": null,
+        "options": [
+          "Default Title"
+        ],
+        "price": 14990000,
+        "weight": 0,
+        "compare_at_price": 18900000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      }
+    ],
+    "images": [
+      "/__theme/fem-owned-a9593dd5f97a16acf3b2.webp",
+      "/__theme/fem-owned-bd3f3fe739224d50af25.webp",
+      "/__theme/fem-owned-52615bc841986cc27edb.webp",
+      "/__theme/fem-owned-d1c74598c62bd648f6b9.webp",
+      "/__theme/fem-owned-a41c95464439745f6d62.webp"
+    ],
+    "featured_image": "/__theme/fem-owned-a9593dd5f97a16acf3b2.webp",
+    "options": [
+      {
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Default Title"
+        ]
+      }
+    ],
+    "url": "/products/combo-fem-x-ovulos",
+    "media": [
+      {
+        "alt": null,
+        "id": 37222395019352,
+        "position": 1,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 590,
+          "width": 590,
+          "src": "/__theme/fem-owned-a9593dd5f97a16acf3b2.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 590,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-a9593dd5f97a16acf3b2.webp",
+        "width": 590
+      },
+      {
+        "alt": null,
+        "id": 35898610057304,
+        "position": 2,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-bd3f3fe739224d50af25.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-bd3f3fe739224d50af25.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35898610122840,
+        "position": 3,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-52615bc841986cc27edb.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-52615bc841986cc27edb.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35898610090072,
+        "position": 4,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-d1c74598c62bd648f6b9.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-d1c74598c62bd648f6b9.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35898609991768,
+        "position": 5,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-a41c95464439745f6d62.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-a41c95464439745f6d62.webp",
+        "width": 903
+      }
+    ],
+    "requires_selling_plan": false,
+    "selling_plan_groups": [],
+    "aliases": []
+  },
+  {
+    "id": 8493931069528,
+    "title": "Combo Gomas + Jabón",
+    "handle": "combo-gomas-jabon",
+    "description": "<p><span>Formuladas con </span><strong><span>canangucha, maca y fenogreco</span></strong><span>, ideales para acompañarte durante tu ciclo y apoyar tu bienestar, energía y equilibrio de una forma deliciosa y práctica.</span></p>",
+    "published_at": "2025-10-14T16:13:59-05:00",
+    "created_at": "2025-10-14T16:13:58-05:00",
+    "vendor": "Fem Probiotics",
+    "type": "",
+    "tags": [],
+    "price": 11690000,
+    "price_min": 11690000,
+    "price_max": 11690000,
+    "available": true,
+    "price_varies": false,
+    "compare_at_price": 14990000,
+    "compare_at_price_min": 14990000,
+    "compare_at_price_max": 14990000,
+    "compare_at_price_varies": false,
+    "variants": [
+      {
+        "id": 43665116725336,
+        "title": "Default Title",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "sku": null,
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Combo Gomas + Jabón",
+        "public_title": null,
+        "options": [
+          "Default Title"
+        ],
+        "price": 11690000,
+        "weight": 0,
+        "compare_at_price": 14990000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      }
+    ],
+    "images": [
+      "/__theme/fem-owned-b707a987a2d28266f388.webp",
+      "/__theme/fem-owned-5e0903d2b5d2b4d67be1.webp",
+      "/__theme/fem-owned-c79c328443772e7661b9.webp",
+      "/__theme/fem-owned-3a9d19b76e28174bb6e7.webp",
+      "/__theme/fem-owned-0f9ea6c628bef19a20ae.webp"
+    ],
+    "featured_image": "/__theme/fem-owned-b707a987a2d28266f388.webp",
+    "options": [
+      {
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Default Title"
+        ]
+      }
+    ],
+    "url": "/products/combo-gomas-jabon",
+    "media": [
+      {
+        "alt": null,
+        "id": 37222822871128,
+        "position": 1,
+        "preview_image": {
+          "aspect_ratio": 1.014,
+          "height": 582,
+          "width": 590,
+          "src": "/__theme/fem-owned-b707a987a2d28266f388.webp"
+        },
+        "aspect_ratio": 1.014,
+        "height": 582,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-b707a987a2d28266f388.webp",
+        "width": 590
+      },
+      {
+        "alt": null,
+        "id": 35899106000984,
+        "position": 2,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-5e0903d2b5d2b4d67be1.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-5e0903d2b5d2b4d67be1.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35900418490456,
+        "position": 3,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-c79c328443772e7661b9.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-c79c328443772e7661b9.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35899106066520,
+        "position": 4,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-3a9d19b76e28174bb6e7.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-3a9d19b76e28174bb6e7.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35899105935448,
+        "position": 5,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-0f9ea6c628bef19a20ae.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-0f9ea6c628bef19a20ae.webp",
+        "width": 903
+      }
+    ],
+    "requires_selling_plan": false,
+    "selling_plan_groups": [],
+    "aliases": []
+  },
+  {
+    "id": 8908911181912,
+    "title": "Combo mamá",
+    "handle": "combo-mama",
+    "description": "<p>Acompaña tu bienestar durante la maternidad, combinando apoyo nutricional con una rutina de higiene íntima suave, fresca y pensada para ti.</p>",
+    "published_at": "2026-08-03T14:49:07-05:00",
+    "created_at": "2026-08-03T14:49:06-05:00",
+    "vendor": "Fem Probiotics",
+    "type": "",
+    "tags": [],
+    "price": 12990000,
+    "price_min": 12990000,
+    "price_max": 12990000,
+    "available": true,
+    "price_varies": false,
+    "compare_at_price": 14990000,
+    "compare_at_price_min": 14990000,
+    "compare_at_price_max": 14990000,
+    "compare_at_price_varies": false,
+    "variants": [
+      {
+        "id": 44496568746072,
+        "title": "Default Title",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "sku": null,
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Combo mamá",
+        "public_title": null,
+        "options": [
+          "Default Title"
+        ],
+        "price": 12990000,
+        "weight": 0,
+        "compare_at_price": 14990000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      }
+    ],
+    "images": [
+      "/__theme/fem-owned-ab7ba63835a53a79ee9a.webp",
+      "/__theme/fem-owned-2c73c0522e34a475b733.webp",
+      "/__theme/fem-owned-c167eb549816f9c36afa.webp",
+      "/__theme/fem-owned-c8d3002346e98db36b9a.webp",
+      "/__theme/fem-owned-7fb73570f8d4fca1461a.webp"
+    ],
+    "featured_image": "/__theme/fem-owned-ab7ba63835a53a79ee9a.webp",
+    "options": [
+      {
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Default Title"
+        ]
+      }
+    ],
+    "url": "/products/combo-mama",
+    "media": [
+      {
+        "alt": null,
+        "id": 37223093076056,
+        "position": 1,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 590,
+          "width": 590,
+          "src": "/__theme/fem-owned-ab7ba63835a53a79ee9a.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 590,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-ab7ba63835a53a79ee9a.webp",
+        "width": 590
+      },
+      {
+        "alt": null,
+        "id": 36962426617944,
+        "position": 2,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-2c73c0522e34a475b733.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-2c73c0522e34a475b733.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 36962426552408,
+        "position": 3,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-c167eb549816f9c36afa.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-c167eb549816f9c36afa.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 36962426519640,
+        "position": 4,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-c8d3002346e98db36b9a.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-c8d3002346e98db36b9a.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 36962426585176,
+        "position": 5,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-7fb73570f8d4fca1461a.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-7fb73570f8d4fca1461a.webp",
+        "width": 903
+      }
+    ],
+    "requires_selling_plan": false,
+    "selling_plan_groups": [],
+    "aliases": []
+  },
+  {
+    "id": 8437985476696,
+    "title": "Combo Óvulos + Jabón",
+    "handle": "combo-ovulos-x-jabon",
+    "description": "",
+    "published_at": "2025-09-12T15:14:18-05:00",
+    "created_at": "2025-07-29T11:51:12-05:00",
+    "vendor": "Fem Probiotics",
+    "type": "",
+    "tags": [],
+    "price": 11990000,
+    "price_min": 11990000,
+    "price_max": 11990000,
+    "available": true,
+    "price_varies": false,
+    "compare_at_price": 12990000,
+    "compare_at_price_min": 12990000,
+    "compare_at_price_max": 12990000,
+    "compare_at_price_varies": false,
+    "variants": [
+      {
+        "id": 43665097883736,
+        "title": "Default Title",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "sku": "122436",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Combo Óvulos + Jabón",
+        "public_title": null,
+        "options": [
+          "Default Title"
+        ],
+        "price": 11990000,
+        "weight": 0,
+        "compare_at_price": 12990000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      }
+    ],
+    "images": [
+      "/__theme/fem-owned-0b696214814690f53947.webp",
+      "/__theme/fem-owned-448261cccbfac8b0f161.webp",
+      "/__theme/fem-owned-ff58e547f7536d8d99a7.webp",
+      "/__theme/fem-owned-6c12aad1009b7bd8bdeb.webp",
+      "/__theme/fem-owned-306dd50b445c1dfbde0d.webp"
+    ],
+    "featured_image": "/__theme/fem-owned-0b696214814690f53947.webp",
+    "options": [
+      {
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Default Title"
+        ]
+      }
+    ],
+    "url": "/products/combo-ovulos-x-jabon",
+    "media": [
+      {
+        "alt": null,
+        "id": 37222686982232,
+        "position": 1,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 590,
+          "width": 590,
+          "src": "/__theme/fem-owned-0b696214814690f53947.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 590,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-0b696214814690f53947.webp",
+        "width": 590
+      },
+      {
+        "alt": null,
+        "id": 35898921386072,
+        "position": 2,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-448261cccbfac8b0f161.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-448261cccbfac8b0f161.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35898921418840,
+        "position": 3,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-ff58e547f7536d8d99a7.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-ff58e547f7536d8d99a7.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35898921451608,
+        "position": 4,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-6c12aad1009b7bd8bdeb.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-6c12aad1009b7bd8bdeb.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35898921320536,
+        "position": 5,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-306dd50b445c1dfbde0d.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-306dd50b445c1dfbde0d.webp",
+        "width": 903
+      }
+    ],
+    "requires_selling_plan": false,
+    "selling_plan_groups": [],
+    "aliases": []
+  },
+  {
+    "id": 8437989081176,
+    "title": "Combo Gomitas + Alimento con probióticos",
+    "handle": "combo-premestrual-x-fem",
+    "description": "",
+    "published_at": "2025-09-12T15:14:19-05:00",
+    "created_at": "2025-07-29T11:53:43-05:00",
+    "vendor": "Fem Probiotics",
+    "type": "",
+    "tags": [],
+    "price": 14990000,
+    "price_min": 14990000,
+    "price_max": 14990000,
+    "available": true,
+    "price_varies": false,
+    "compare_at_price": 19990000,
+    "compare_at_price_min": 19990000,
+    "compare_at_price_max": 19990000,
+    "compare_at_price_varies": false,
+    "variants": [
+      {
+        "id": 43665080483928,
+        "title": "Default Title",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "sku": "122439",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Combo Gomitas + Alimento con probióticos",
+        "public_title": null,
+        "options": [
+          "Default Title"
+        ],
+        "price": 14990000,
+        "weight": 0,
+        "compare_at_price": 19990000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      }
+    ],
+    "images": [
+      "/__theme/fem-owned-6ed42f407589a97940d6.webp",
+      "/__theme/fem-owned-fd9d77976f6326561d88.webp",
+      "/__theme/fem-owned-0438c01bd63ea46c7f3f.webp",
+      "/__theme/fem-owned-f2bc0c517d2df97b82b4.webp",
+      "/__theme/fem-owned-6da2c5e224a794441193.webp"
+    ],
+    "featured_image": "/__theme/fem-owned-6ed42f407589a97940d6.webp",
+    "options": [
+      {
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Default Title"
+        ]
+      }
+    ],
+    "url": "/products/combo-premestrual-x-fem",
+    "media": [
+      {
+        "alt": null,
+        "id": 37222636585048,
+        "position": 1,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 590,
+          "width": 590,
+          "src": "/__theme/fem-owned-6ed42f407589a97940d6.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 590,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-6ed42f407589a97940d6.webp",
+        "width": 590
+      },
+      {
+        "alt": null,
+        "id": 35898678509656,
+        "position": 2,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-fd9d77976f6326561d88.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-fd9d77976f6326561d88.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35898678542424,
+        "position": 3,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-0438c01bd63ea46c7f3f.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-0438c01bd63ea46c7f3f.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35898678476888,
+        "position": 4,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-f2bc0c517d2df97b82b4.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-f2bc0c517d2df97b82b4.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35898678444120,
+        "position": 5,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-6da2c5e224a794441193.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-6da2c5e224a794441193.webp",
+        "width": 903
+      }
+    ],
+    "requires_selling_plan": false,
+    "selling_plan_groups": [],
+    "aliases": []
+  },
+  {
+    "id": 8751473950808,
+    "title": "Combo Probiótico + Six pack de Soda Prebiótica",
+    "handle": "combo-probiotico-soda",
+    "description": "<p>Combina bienestar íntimo y digestivo en una sola rutina, apoyando el equilibrio de tu microbiota de forma práctica y deliciosa.</p>",
+    "published_at": "2026-04-29T15:04:11-05:00",
+    "created_at": "2026-04-27T10:37:38-05:00",
+    "vendor": "Fem Probiotics",
+    "type": "",
+    "tags": [],
+    "price": 14990000,
+    "price_min": 14990000,
+    "price_max": 14990000,
+    "available": false,
+    "price_varies": false,
+    "compare_at_price": 18990000,
+    "compare_at_price_min": 18990000,
+    "compare_at_price_max": 18990000,
+    "compare_at_price_varies": false,
+    "variants": [
+      {
+        "id": 44041401598040,
+        "title": "Default Title",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "sku": "219273",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": false,
+        "name": "Combo Probiótico + Six pack de Soda Prebiótica",
+        "public_title": null,
+        "options": [
+          "Default Title"
+        ],
+        "price": 14990000,
+        "weight": 0,
+        "compare_at_price": 18990000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      }
+    ],
+    "images": [
+      "/__theme/fem-owned-6e5240fe7f47168fbfc0.webp",
+      "/__theme/fem-owned-2848ace2472bafe7fefd.webp",
+      "/__theme/fem-owned-ad288a6e7fbc48540c5a.webp",
+      "/__theme/fem-owned-e48a3b89a5e08dd38c23.webp",
+      "/__theme/fem-owned-c8843bb24e6ed53a868a.webp"
+    ],
+    "featured_image": "/__theme/fem-owned-6e5240fe7f47168fbfc0.webp",
+    "options": [
+      {
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Default Title"
+        ]
+      }
+    ],
+    "url": "/products/combo-probiotico-soda",
+    "media": [
+      {
+        "alt": null,
+        "id": 37223041826904,
+        "position": 1,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 590,
+          "width": 590,
+          "src": "/__theme/fem-owned-6e5240fe7f47168fbfc0.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 590,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-6e5240fe7f47168fbfc0.webp",
+        "width": 590
+      },
+      {
+        "alt": null,
+        "id": 35911694483544,
+        "position": 2,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-2848ace2472bafe7fefd.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-2848ace2472bafe7fefd.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35911694418008,
+        "position": 3,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-ad288a6e7fbc48540c5a.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-ad288a6e7fbc48540c5a.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35911694385240,
+        "position": 4,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-e48a3b89a5e08dd38c23.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-e48a3b89a5e08dd38c23.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35911694450776,
+        "position": 5,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-c8843bb24e6ed53a868a.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-c8843bb24e6ed53a868a.webp",
+        "width": 903
+      }
+    ],
+    "requires_selling_plan": false,
+    "selling_plan_groups": [],
+    "aliases": []
+  },
+  {
+    "id": 8396656803928,
+    "title": "Combo alimento con probióticos + Jabón íntimo",
+    "handle": "duo-perfecto",
+    "description": "",
+    "published_at": "2026-09-17T07:51:33-05:00",
+    "created_at": "2025-06-09T12:59:08-05:00",
+    "vendor": "Fem Probiotics",
+    "type": "",
+    "tags": [],
+    "price": 12990000,
+    "price_min": 11490000,
+    "price_max": 25980000,
+    "available": true,
+    "price_varies": true,
+    "compare_at_price": 13990000,
+    "compare_at_price_min": 13990000,
+    "compare_at_price_max": 17890000,
+    "compare_at_price_varies": true,
+    "variants": [
+      {
+        "id": 43656647606360,
+        "title": "Compra Única 1 / 1 Unidad",
+        "option1": "Compra Única 1",
+        "option2": "1 Unidad",
+        "option3": null,
+        "sku": "423967",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Combo alimento con probióticos + Jabón íntimo - Compra Única 1 / 1 Unidad",
+        "public_title": "Compra Única 1 / 1 Unidad",
+        "options": [
+          "Compra Única 1",
+          "1 Unidad"
+        ],
+        "price": 12990000,
+        "weight": 0,
+        "compare_at_price": 14990000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 43656647704664,
+        "title": "Compra Única 1 / 2 Unidades",
+        "option1": "Compra Única 1",
+        "option2": "2 Unidades",
+        "option3": null,
+        "sku": "423970",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Combo alimento con probióticos + Jabón íntimo - Compra Única 1 / 2 Unidades",
+        "public_title": "Compra Única 1 / 2 Unidades",
+        "options": [
+          "Compra Única 1",
+          "2 Unidades"
+        ],
+        "price": 25980000,
+        "weight": 0,
+        "compare_at_price": 17890000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 44093818568792,
+        "title": "Compra única 2 / 1 Unidad",
+        "option1": "Compra única 2",
+        "option2": "1 Unidad",
+        "option3": null,
+        "sku": null,
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Combo alimento con probióticos + Jabón íntimo - Compra única 2 / 1 Unidad",
+        "public_title": "Compra única 2 / 1 Unidad",
+        "options": [
+          "Compra única 2",
+          "1 Unidad"
+        ],
+        "price": 12990000,
+        "weight": 0,
+        "compare_at_price": 14990000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 44093818601560,
+        "title": "Compra única 2 / 2 Unidades",
+        "option1": "Compra única 2",
+        "option2": "2 Unidades",
+        "option3": null,
+        "sku": null,
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Combo alimento con probióticos + Jabón íntimo - Compra única 2 / 2 Unidades",
+        "public_title": "Compra única 2 / 2 Unidades",
+        "options": [
+          "Compra única 2",
+          "2 Unidades"
+        ],
+        "price": 25980000,
+        "weight": 0,
+        "compare_at_price": 13990000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 43656647639128,
+        "title": "Suscripción 1 / 1 Unidad",
+        "option1": "Suscripción 1",
+        "option2": "1 Unidad",
+        "option3": null,
+        "sku": "423968",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": false,
+        "name": "Combo alimento con probióticos + Jabón íntimo - Suscripción 1 / 1 Unidad",
+        "public_title": "Suscripción 1 / 1 Unidad",
+        "options": [
+          "Suscripción 1",
+          "1 Unidad"
+        ],
+        "price": 11490000,
+        "weight": 0,
+        "compare_at_price": 13990000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 43656647737432,
+        "title": "Suscripción 1 / 2 Unidades",
+        "option1": "Suscripción 1",
+        "option2": "2 Unidades",
+        "option3": null,
+        "sku": null,
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Combo alimento con probióticos + Jabón íntimo - Suscripción 1 / 2 Unidades",
+        "public_title": "Suscripción 1 / 2 Unidades",
+        "options": [
+          "Suscripción 1",
+          "2 Unidades"
+        ],
+        "price": 18990000,
+        "weight": 0,
+        "compare_at_price": 13990000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 43915542298712,
+        "title": "Suscripción 2 / 1 Unidad",
+        "option1": "Suscripción 2",
+        "option2": "1 Unidad",
+        "option3": null,
+        "sku": null,
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Combo alimento con probióticos + Jabón íntimo - Suscripción 2 / 1 Unidad",
+        "public_title": "Suscripción 2 / 1 Unidad",
+        "options": [
+          "Suscripción 2",
+          "1 Unidad"
+        ],
+        "price": 11490000,
+        "weight": 0,
+        "compare_at_price": 13990000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 43915542331480,
+        "title": "Suscripción 2 / 2 Unidades",
+        "option1": "Suscripción 2",
+        "option2": "2 Unidades",
+        "option3": null,
+        "sku": "423972",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Combo alimento con probióticos + Jabón íntimo - Suscripción 2 / 2 Unidades",
+        "public_title": "Suscripción 2 / 2 Unidades",
+        "options": [
+          "Suscripción 2",
+          "2 Unidades"
+        ],
+        "price": 18990000,
+        "weight": 0,
+        "compare_at_price": 13990000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      }
+    ],
+    "images": [
+      "/__theme/fem-plan-duo.webp",
+      "/__theme/fem-owned-bb77e44d7023a396a6ce.webp",
+      "/__theme/fem-owned-d33e2080ca2c54ce02f7.webp",
+      "/__theme/fem-owned-5b0c5e9fc28d6e76eb93.webp",
+      "/__theme/fem-owned-b92cbf6626372a06a65f.webp"
+    ],
+    "featured_image": "/__theme/fem-plan-duo.webp",
+    "options": [
+      {
+        "name": "Tipo de compra",
+        "position": 1,
+        "values": [
+          "Compra Única 1",
+          "Compra única 2",
+          "Suscripción 1",
+          "Suscripción 2"
+        ]
+      },
+      {
+        "name": "Cantidad",
+        "position": 2,
+        "values": [
+          "1 Unidad",
+          "2 Unidades"
+        ]
+      }
+    ],
+    "url": "/products/duo-perfecto",
+    "media": [
+      {
+        "alt": null,
+        "id": 37221915754584,
+        "position": 1,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 590,
+          "width": 590,
+          "src": "/__theme/fem-plan-duo.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 590,
+        "media_type": "image",
+        "src": "/__theme/fem-plan-duo.webp",
+        "width": 590
+      },
+      {
+        "alt": null,
+        "id": 37222229835864,
+        "position": 2,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 580,
+          "width": 580,
+          "src": "/__theme/fem-owned-bb77e44d7023a396a6ce.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 580,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-bb77e44d7023a396a6ce.webp",
+        "width": 580
+      },
+      {
+        "alt": null,
+        "id": 37222229770328,
+        "position": 3,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 580,
+          "width": 580,
+          "src": "/__theme/fem-owned-d33e2080ca2c54ce02f7.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 580,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-d33e2080ca2c54ce02f7.webp",
+        "width": 580
+      },
+      {
+        "alt": null,
+        "id": 37222229868632,
+        "position": 4,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 580,
+          "width": 580,
+          "src": "/__theme/fem-owned-5b0c5e9fc28d6e76eb93.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 580,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-5b0c5e9fc28d6e76eb93.webp",
+        "width": 580
+      },
+      {
+        "alt": null,
+        "id": 37222229803096,
+        "position": 5,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 580,
+          "width": 580,
+          "src": "/__theme/fem-owned-b92cbf6626372a06a65f.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 580,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-b92cbf6626372a06a65f.webp",
+        "width": 580
+      }
+    ],
+    "requires_selling_plan": false,
+    "selling_plan_groups": [],
+    "aliases": []
+  },
+  {
+    "id": 8783491235928,
+    "title": "FEM MOM 2 UNIDADES",
+    "handle": "fem-mom-2-unidades",
+    "description": "",
+    "published_at": "2026-05-23T10:15:21-05:00",
+    "created_at": "2026-05-23T10:15:20-05:00",
+    "vendor": "Fem Probiotics",
+    "type": "",
+    "tags": [],
+    "price": 14990000,
+    "price_min": 14990000,
+    "price_max": 14990000,
+    "available": false,
+    "price_varies": false,
+    "compare_at_price": null,
+    "compare_at_price_min": 0,
+    "compare_at_price_max": 0,
+    "compare_at_price_varies": false,
+    "variants": [
+      {
+        "id": 44135263109208,
+        "title": "Default Title",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "sku": null,
+        "requires_shipping": true,
+        "taxable": true,
+        "featured_image": null,
+        "available": false,
+        "name": "FEM MOM 2 UNIDADES",
+        "public_title": null,
+        "options": [
+          "Default Title"
+        ],
+        "price": 14990000,
+        "weight": 0,
+        "compare_at_price": null,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      }
+    ],
+    "images": [
+      "/__theme/fem-plan-mom.webp",
+      "/__theme/fem-owned-05089a2b61b77036f054.webp",
+      "/__theme/fem-owned-70e9865352213074814f.webp",
+      "/__theme/fem-owned-fbcb08b70734a0070ed5.webp",
+      "/__theme/fem-owned-6c1cf7cea7673d794f40.webp",
+      "/__theme/fem-owned-d3609f49d4fff8200355.webp"
+    ],
+    "featured_image": "/__theme/fem-plan-mom.webp",
+    "options": [
+      {
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Default Title"
+        ]
+      }
+    ],
+    "url": "/products/fem-mom-2-unidades",
+    "media": [
+      {
+        "alt": null,
+        "id": 37222156042328,
+        "position": 1,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 580,
+          "width": 580,
+          "src": "/__theme/fem-plan-mom.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 580,
+        "media_type": "image",
+        "src": "/__theme/fem-plan-mom.webp",
+        "width": 580
+      },
+      {
+        "alt": null,
+        "id": 37222361366616,
+        "position": 2,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-05089a2b61b77036f054.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-05089a2b61b77036f054.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 37222361333848,
+        "position": 3,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-70e9865352213074814f.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-70e9865352213074814f.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 37222361301080,
+        "position": 4,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-fbcb08b70734a0070ed5.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-fbcb08b70734a0070ed5.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 37222361432152,
+        "position": 5,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-6c1cf7cea7673d794f40.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-6c1cf7cea7673d794f40.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 37222361464920,
+        "position": 6,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-d3609f49d4fff8200355.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-d3609f49d4fff8200355.webp",
+        "width": 903
+      }
+    ],
+    "requires_selling_plan": false,
+    "selling_plan_groups": [],
+    "aliases": []
+  },
+  {
+    "id": 8547520675928,
+    "title": "Fem Mom x 60 tabletas",
+    "handle": "fem-mom-impulso-natural-de-leche-materna",
+    "description": "",
+    "published_at": "2025-12-11T13:24:57-06:00",
+    "created_at": "2025-12-11T13:24:54-06:00",
+    "vendor": "Fem Probiotics",
+    "type": "",
+    "tags": [],
+    "price": 11000000,
+    "price_min": 8990000,
+    "price_max": 19990000,
+    "available": true,
+    "price_varies": true,
+    "compare_at_price": 15000000,
+    "compare_at_price_min": 15000000,
+    "compare_at_price_max": 15000000,
+    "compare_at_price_varies": false,
+    "variants": [
+      {
+        "id": 43661534298200,
+        "title": "Compra única 1 / 1 unidad",
+        "option1": "Compra única 1",
+        "option2": "1 unidad",
+        "option3": null,
+        "sku": "423958",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Fem Mom x 60 tabletas - Compra única 1 / 1 unidad",
+        "public_title": "Compra única 1 / 1 unidad",
+        "options": [
+          "Compra única 1",
+          "1 unidad"
+        ],
+        "price": 11000000,
+        "weight": 0,
+        "compare_at_price": 15000000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 43661534330968,
+        "title": "Compra única 1 / 2 unidades",
+        "option1": "Compra única 1",
+        "option2": "2 unidades",
+        "option3": null,
+        "sku": "423961",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Fem Mom x 60 tabletas - Compra única 1 / 2 unidades",
+        "public_title": "Compra única 1 / 2 unidades",
+        "options": [
+          "Compra única 1",
+          "2 unidades"
+        ],
+        "price": 19990000,
+        "weight": 0,
+        "compare_at_price": 15000000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 44093825384536,
+        "title": "Compra única 2 / 1 unidad",
+        "option1": "Compra única 2",
+        "option2": "1 unidad",
+        "option3": null,
+        "sku": null,
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Fem Mom x 60 tabletas - Compra única 2 / 1 unidad",
+        "public_title": "Compra única 2 / 1 unidad",
+        "options": [
+          "Compra única 2",
+          "1 unidad"
+        ],
+        "price": 11000000,
+        "weight": 0,
+        "compare_at_price": 15000000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 44093825417304,
+        "title": "Compra única 2 / 2 unidades",
+        "option1": "Compra única 2",
+        "option2": "2 unidades",
+        "option3": null,
+        "sku": null,
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Fem Mom x 60 tabletas - Compra única 2 / 2 unidades",
+        "public_title": "Compra única 2 / 2 unidades",
+        "options": [
+          "Compra única 2",
+          "2 unidades"
+        ],
+        "price": 19990000,
+        "weight": 0,
+        "compare_at_price": 15000000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 43661534363736,
+        "title": "Suscripción 1 / 1 unidad",
+        "option1": "Suscripción 1",
+        "option2": "1 unidad",
+        "option3": null,
+        "sku": "423959",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Fem Mom x 60 tabletas - Suscripción 1 / 1 unidad",
+        "public_title": "Suscripción 1 / 1 unidad",
+        "options": [
+          "Suscripción 1",
+          "1 unidad"
+        ],
+        "price": 8990000,
+        "weight": 0,
+        "compare_at_price": 15000000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 43661534396504,
+        "title": "Suscripción 1 / 2 unidades",
+        "option1": "Suscripción 1",
+        "option2": "2 unidades",
+        "option3": null,
+        "sku": null,
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Fem Mom x 60 tabletas - Suscripción 1 / 2 unidades",
+        "public_title": "Suscripción 1 / 2 unidades",
+        "options": [
+          "Suscripción 1",
+          "2 unidades"
+        ],
+        "price": 14990000,
+        "weight": 0,
+        "compare_at_price": 15000000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 43661534429272,
+        "title": "Suscripción 2 / 1 unidad",
+        "option1": "Suscripción 2",
+        "option2": "1 unidad",
+        "option3": null,
+        "sku": null,
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Fem Mom x 60 tabletas - Suscripción 2 / 1 unidad",
+        "public_title": "Suscripción 2 / 1 unidad",
+        "options": [
+          "Suscripción 2",
+          "1 unidad"
+        ],
+        "price": 8990000,
+        "weight": 0,
+        "compare_at_price": 15000000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 43661534462040,
+        "title": "Suscripción 2 / 2 unidades",
+        "option1": "Suscripción 2",
+        "option2": "2 unidades",
+        "option3": null,
+        "sku": "423963",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Fem Mom x 60 tabletas - Suscripción 2 / 2 unidades",
+        "public_title": "Suscripción 2 / 2 unidades",
+        "options": [
+          "Suscripción 2",
+          "2 unidades"
+        ],
+        "price": 14990000,
+        "weight": 0,
+        "compare_at_price": 15000000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      }
+    ],
+    "images": [
+      "/__theme/fem-plan-mom.webp",
+      "/__theme/fem-owned-05089a2b61b77036f054.webp",
+      "/__theme/fem-owned-70e9865352213074814f.webp",
+      "/__theme/fem-owned-6c1cf7cea7673d794f40.webp",
+      "/__theme/fem-owned-fbcb08b70734a0070ed5.webp",
+      "/__theme/fem-owned-d3609f49d4fff8200355.webp"
+    ],
+    "featured_image": "/__theme/fem-plan-mom.webp",
+    "options": [
+      {
+        "name": "Tipo de compra",
+        "position": 1,
+        "values": [
+          "Compra única 1",
+          "Compra única 2",
+          "Suscripción 1",
+          "Suscripción 2"
+        ]
+      },
+      {
+        "name": "Cantidad",
+        "position": 2,
+        "values": [
+          "1 unidad",
+          "2 unidades"
+        ]
+      }
+    ],
+    "url": "/products/fem-mom-impulso-natural-de-leche-materna",
+    "media": [
+      {
+        "alt": null,
+        "id": 37222156042328,
+        "position": 1,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 580,
+          "width": 580,
+          "src": "/__theme/fem-plan-mom.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 580,
+        "media_type": "image",
+        "src": "/__theme/fem-plan-mom.webp",
+        "width": 580
+      },
+      {
+        "alt": null,
+        "id": 37222361366616,
+        "position": 2,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-05089a2b61b77036f054.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-05089a2b61b77036f054.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 37222361333848,
+        "position": 3,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-70e9865352213074814f.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-70e9865352213074814f.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 37222361432152,
+        "position": 4,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-6c1cf7cea7673d794f40.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-6c1cf7cea7673d794f40.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 37222361301080,
+        "position": 5,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-fbcb08b70734a0070ed5.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-fbcb08b70734a0070ed5.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 37222361464920,
+        "position": 6,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-d3609f49d4fff8200355.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-d3609f49d4fff8200355.webp",
+        "width": 903
+      }
+    ],
+    "requires_selling_plan": false,
+    "selling_plan_groups": [],
+    "aliases": []
+  },
+  {
+    "id": 8636546187352,
+    "title": "Alimento con probióticos x2 UND",
+    "handle": "fem-probioticos-vaginales-2-unidades",
+    "description": "",
+    "published_at": "2026-02-11T07:46:44-06:00",
+    "created_at": "2026-01-15T13:30:18-06:00",
+    "vendor": "Fem Probiotics",
+    "type": "",
+    "tags": [],
+    "price": 14990000,
+    "price_min": 14990000,
+    "price_max": 14990000,
+    "available": true,
+    "price_varies": false,
+    "compare_at_price": 21990000,
+    "compare_at_price_min": 21990000,
+    "compare_at_price_max": 21990000,
+    "compare_at_price_varies": false,
+    "variants": [
+      {
+        "id": 43664844390488,
+        "title": "Default Title",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "sku": "169304",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Alimento con probióticos x2 UND",
+        "public_title": null,
+        "options": [
+          "Default Title"
+        ],
+        "price": 14990000,
+        "weight": 0,
+        "compare_at_price": 21990000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      }
+    ],
+    "images": [
+      "/__theme/fem-owned-289855e7c917d539da27.webp",
+      "/__theme/fem-owned-402307cfda09cd2e449a.webp",
+      "/__theme/fem-owned-292feec2a5aab2d43ef8.webp",
+      "/__theme/fem-owned-3c69a352a73e2711518d.webp",
+      "/__theme/fem-owned-aacc219823f7b53fce0e.webp"
+    ],
+    "featured_image": "/__theme/fem-owned-289855e7c917d539da27.webp",
+    "options": [
+      {
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Default Title"
+        ]
+      }
+    ],
+    "url": "/products/fem-probioticos-vaginales-2-unidades",
+    "media": [
+      {
+        "alt": null,
+        "id": 37220829233240,
+        "position": 1,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 650,
+          "width": 650,
+          "src": "/__theme/fem-owned-289855e7c917d539da27.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 650,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-289855e7c917d539da27.webp",
+        "width": 650
+      },
+      {
+        "alt": null,
+        "id": 37221186273368,
+        "position": 2,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 580,
+          "width": 580,
+          "src": "/__theme/fem-owned-402307cfda09cd2e449a.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 580,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-402307cfda09cd2e449a.webp",
+        "width": 580
+      },
+      {
+        "alt": null,
+        "id": 37221186338904,
+        "position": 3,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 580,
+          "width": 580,
+          "src": "/__theme/fem-owned-292feec2a5aab2d43ef8.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 580,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-292feec2a5aab2d43ef8.webp",
+        "width": 580
+      },
+      {
+        "alt": null,
+        "id": 37221186469976,
+        "position": 4,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 580,
+          "width": 580,
+          "src": "/__theme/fem-owned-3c69a352a73e2711518d.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 580,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-3c69a352a73e2711518d.webp",
+        "width": 580
+      },
+      {
+        "alt": null,
+        "id": 37221186306136,
+        "position": 5,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 580,
+          "width": 580,
+          "src": "/__theme/fem-owned-aacc219823f7b53fce0e.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 580,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-aacc219823f7b53fce0e.webp",
+        "width": 580
+      }
+    ],
+    "requires_selling_plan": false,
+    "selling_plan_groups": [],
+    "aliases": []
+  },
+  {
+    "id": 8437984297048,
+    "title": "Gomitas con fenogreco x 60 UND",
+    "handle": "gomitas-sindrome-premestrual-x60",
+    "description": "<p><span>Formuladas con </span><strong><span>canangucha, maca y fenogreco</span></strong><span>, ideales para acompañarte durante tu ciclo y apoyar tu bienestar, energía y equilibrio de una forma deliciosa y práctica. </span></p>",
+    "published_at": "2025-09-12T15:14:17-05:00",
+    "created_at": "2025-07-29T11:49:29-05:00",
+    "vendor": "Fem Probiotics",
+    "type": "",
+    "tags": [],
+    "price": 9990000,
+    "price_min": 9990000,
+    "price_max": 9990000,
+    "available": true,
+    "price_varies": false,
+    "compare_at_price": 15000000,
+    "compare_at_price_min": 15000000,
+    "compare_at_price_max": 15000000,
+    "compare_at_price_varies": false,
+    "variants": [
+      {
+        "id": 43665105748056,
+        "title": "Default Title",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "sku": "117705",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Gomitas con fenogreco x 60 UND",
+        "public_title": null,
+        "options": [
+          "Default Title"
+        ],
+        "price": 9990000,
+        "weight": 0,
+        "compare_at_price": 15000000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      }
+    ],
+    "images": [
+      "/__theme/fem-owned-3869d12ed5aeeff526b7.webp",
+      "/__theme/fem-owned-dc05eab695c3d607b241.webp",
+      "/__theme/fem-owned-867b3d0fa9065b4c61a1.webp",
+      "/__theme/fem-owned-146ef58f6a71a2429aed.webp",
+      "/__theme/fem-owned-70fa6c1bc73296c9c25b.webp"
+    ],
+    "featured_image": "/__theme/fem-owned-3869d12ed5aeeff526b7.webp",
+    "options": [
+      {
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Default Title"
+        ]
+      }
+    ],
+    "url": "/products/gomitas-sindrome-premestrual-x60",
+    "media": [
+      {
+        "alt": null,
+        "id": 37222769950808,
+        "position": 1,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 590,
+          "width": 590,
+          "src": "/__theme/fem-owned-3869d12ed5aeeff526b7.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 590,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-3869d12ed5aeeff526b7.webp",
+        "width": 590
+      },
+      {
+        "alt": null,
+        "id": 35898337853528,
+        "position": 2,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-dc05eab695c3d607b241.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-dc05eab695c3d607b241.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35898337820760,
+        "position": 3,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-867b3d0fa9065b4c61a1.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-867b3d0fa9065b4c61a1.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35898337787992,
+        "position": 4,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-146ef58f6a71a2429aed.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-146ef58f6a71a2429aed.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35898337886296,
+        "position": 5,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-70fa6c1bc73296c9c25b.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-70fa6c1bc73296c9c25b.webp",
+        "width": 903
+      }
+    ],
+    "requires_selling_plan": false,
+    "selling_plan_groups": [],
+    "aliases": []
+  },
+  {
+    "id": 8280830902360,
+    "title": "Jabón íntimo pH neutro x 200 ml",
+    "handle": "jabon-intimo-ph-neutro",
+    "description": "<p>El Jabón Íntimo FEM limpia suavemente la zona íntima externa, ayudando a mantener una sensación de frescura, limpieza y bienestar en tu rutina diaria.</p>",
+    "published_at": "2025-02-17T19:54:15-06:00",
+    "created_at": "2025-02-06T14:14:49-06:00",
+    "vendor": "Fem Probiotics",
+    "type": "Otro",
+    "tags": [],
+    "price": 4690000,
+    "price_min": 4690000,
+    "price_max": 4690000,
+    "available": true,
+    "price_varies": false,
+    "compare_at_price": 7500000,
+    "compare_at_price_min": 7500000,
+    "compare_at_price_max": 7500000,
+    "compare_at_price_varies": false,
+    "variants": [
+      {
+        "id": 43661845299288,
+        "title": "Default Title",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "sku": "117700",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Jabón íntimo pH neutro x 200 ml",
+        "public_title": null,
+        "options": [
+          "Default Title"
+        ],
+        "price": 4690000,
+        "weight": 0,
+        "compare_at_price": 7500000,
+        "barcode": "1065842",
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      }
+    ],
+    "images": [
+      "/__theme/fem-owned-393ead38965d956ac617.webp",
+      "/__theme/fem-owned-572981bf6ac9db4cd226.webp",
+      "/__theme/fem-owned-84f8f44dddb27090c140.webp",
+      "/__theme/fem-owned-51d56370de0c2d845ba3.webp",
+      "/__theme/fem-owned-ebed99f27d439e034066.webp"
+    ],
+    "featured_image": "/__theme/fem-owned-393ead38965d956ac617.webp",
+    "options": [
+      {
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Default Title"
+        ]
+      }
+    ],
+    "url": "/products/jabon-intimo-ph-neutro",
+    "media": [
+      {
+        "alt": null,
+        "id": 37222873661528,
+        "position": 1,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 590,
+          "width": 590,
+          "src": "/__theme/fem-owned-393ead38965d956ac617.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 590,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-393ead38965d956ac617.webp",
+        "width": 590
+      },
+      {
+        "alt": null,
+        "id": 35899516354648,
+        "position": 2,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-572981bf6ac9db4cd226.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-572981bf6ac9db4cd226.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35899516387416,
+        "position": 3,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-84f8f44dddb27090c140.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-84f8f44dddb27090c140.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35899516321880,
+        "position": 4,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-51d56370de0c2d845ba3.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-51d56370de0c2d845ba3.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35899516289112,
+        "position": 5,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-ebed99f27d439e034066.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-ebed99f27d439e034066.webp",
+        "width": 903
+      }
+    ],
+    "requires_selling_plan": false,
+    "selling_plan_groups": [],
+    "aliases": []
+  },
+  {
+    "id": 8428406014040,
+    "title": "Óvulos Fem x 6 UND",
+    "handle": "ovulos-vaginales-fem",
+    "description": "",
+    "published_at": "2025-09-12T15:14:16-05:00",
+    "created_at": "2025-07-16T09:04:02-05:00",
+    "vendor": "Fem Probiotics",
+    "type": "",
+    "tags": [],
+    "price": 8490000,
+    "price_min": 8490000,
+    "price_max": 8490000,
+    "available": true,
+    "price_varies": false,
+    "compare_at_price": 11990000,
+    "compare_at_price_min": 11990000,
+    "compare_at_price_max": 11990000,
+    "compare_at_price_varies": false,
+    "variants": [
+      {
+        "id": 43665049747544,
+        "title": "Default Title",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "sku": "117701",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Óvulos Fem x 6 UND",
+        "public_title": null,
+        "options": [
+          "Default Title"
+        ],
+        "price": 8490000,
+        "weight": 0,
+        "compare_at_price": 11990000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      }
+    ],
+    "images": [
+      "/__theme/fem-owned-11cd9a990bc8a4a4c025.webp",
+      "/__theme/fem-owned-ce0ecca4648eb5e518dd.webp",
+      "/__theme/fem-owned-6be5ae73eb34d72d99e5.webp",
+      "/__theme/fem-owned-cf2d65d51fc9772527ba.webp",
+      "/__theme/fem-owned-cea22d1ea942f032a8b1.webp"
+    ],
+    "featured_image": "/__theme/fem-owned-11cd9a990bc8a4a4c025.webp",
+    "options": [
+      {
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Default Title"
+        ]
+      }
+    ],
+    "url": "/products/ovulos-vaginales-fem",
+    "media": [
+      {
+        "alt": null,
+        "id": 37222602899544,
+        "position": 1,
+        "preview_image": {
+          "aspect_ratio": 0.983,
+          "height": 600,
+          "width": 590,
+          "src": "/__theme/fem-owned-11cd9a990bc8a4a4c025.webp"
+        },
+        "aspect_ratio": 0.983,
+        "height": 600,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-11cd9a990bc8a4a4c025.webp",
+        "width": 590
+      },
+      {
+        "alt": null,
+        "id": 35898641219672,
+        "position": 2,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-ce0ecca4648eb5e518dd.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-ce0ecca4648eb5e518dd.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35898641121368,
+        "position": 3,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-6be5ae73eb34d72d99e5.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-6be5ae73eb34d72d99e5.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35898641154136,
+        "position": 4,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-cf2d65d51fc9772527ba.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-cf2d65d51fc9772527ba.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35898641186904,
+        "position": 5,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-cea22d1ea942f032a8b1.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-cea22d1ea942f032a8b1.webp",
+        "width": 903
+      }
+    ],
+    "requires_selling_plan": false,
+    "selling_plan_groups": [],
+    "aliases": []
+  },
+  {
+    "id": 8627711410264,
+    "title": "Alimento con probióticos + Jabón íntimo + Óvulos Fem homeopáticos",
+    "handle": "probiotico-jabon-ovulos",
+    "description": "<p>Este reúne tres aliados para complementar tu rutina de cuidado íntimo, apoyando el equilibrio, la frescura y el bienestar femenino desde adentro y por fuera.</p>",
+    "published_at": "2026-01-05T11:40:00-06:00",
+    "created_at": "2026-01-05T11:39:59-06:00",
+    "vendor": "Fem Probiotics",
+    "type": "",
+    "tags": [],
+    "price": 16990000,
+    "price_min": 16990000,
+    "price_max": 16990000,
+    "available": true,
+    "price_varies": false,
+    "compare_at_price": 20000000,
+    "compare_at_price_min": 20000000,
+    "compare_at_price_max": 20000000,
+    "compare_at_price_varies": false,
+    "variants": [
+      {
+        "id": 43640489869400,
+        "title": "Default Title",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "sku": "173210",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Alimento con probióticos + Jabón íntimo + Óvulos Fem homeopáticos",
+        "public_title": null,
+        "options": [
+          "Default Title"
+        ],
+        "price": 16990000,
+        "weight": 0,
+        "compare_at_price": 20000000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      }
+    ],
+    "images": [
+      "/__theme/fem-owned-f7dc2444405a06e4b4f8.webp",
+      "/__theme/fem-owned-e827048d75b3504ab9db.webp",
+      "/__theme/fem-owned-3a40000864aec5db8e32.webp",
+      "/__theme/fem-owned-8374fb00af82e334f8a2.webp",
+      "/__theme/fem-owned-afc08998439f841c4fdc.webp"
+    ],
+    "featured_image": "/__theme/fem-owned-f7dc2444405a06e4b4f8.webp",
+    "options": [
+      {
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Default Title"
+        ]
+      }
+    ],
+    "url": "/products/probiotico-jabon-ovulos",
+    "media": [
+      {
+        "alt": null,
+        "id": 37222931824728,
+        "position": 1,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 590,
+          "width": 590,
+          "src": "/__theme/fem-owned-f7dc2444405a06e4b4f8.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 590,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-f7dc2444405a06e4b4f8.webp",
+        "width": 590
+      },
+      {
+        "alt": null,
+        "id": 35900478128216,
+        "position": 2,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-e827048d75b3504ab9db.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-e827048d75b3504ab9db.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35900478226520,
+        "position": 3,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-3a40000864aec5db8e32.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-3a40000864aec5db8e32.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35900478160984,
+        "position": 4,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-8374fb00af82e334f8a2.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-8374fb00af82e334f8a2.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35900478193752,
+        "position": 5,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-afc08998439f841c4fdc.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-afc08998439f841c4fdc.webp",
+        "width": 903
+      }
+    ],
+    "requires_selling_plan": false,
+    "selling_plan_groups": [],
+    "aliases": []
+  },
+  {
+    "id": 8114545754200,
+    "title": "Alimento con probióticos y prebióticos x 60 UND",
+    "handle": "probiotico-vaginal-en-capsulas-x60-unidades",
+    "description": "<p>🌿 <strong>Producto</strong>: Fem Probiotics<br>💊 <strong>Cantidad</strong>: 60 cápsulas<br>🕐 <strong>Modo de uso</strong>: Tomar 2 cápsulas al día después de cualquier comida.<br>💰 <strong>Precio</strong>: $99.900 COP<br>🚚 <strong>Envíos</strong>: A toda Colombia, con entrega en <strong>2-3 días hábiles</strong>.<br>🌸 <strong>Beneficios</strong>:</p>\n<ul>\n<li>Restaura y mantiene la flora vaginal.</li>\n<li>Ayuda a eliminar malos olores.</li>\n<li>Combate infecciones por hongos como la candidiasis.</li>\n<li>Apoya el equilibrio del pH vaginal.</li>\n</ul>\n<p>⚠️ <strong>Cuidados del producto</strong>:</p>\n<ul>\n<li>Guardar en un lugar fresco y seco.</li>\n<li>No exceder la dosis diaria recomendada.</li>\n<li>Producto para mayores de 18 años.</li>\n<li>En caso de síntomas graves, consultar con un médico.</li>\n</ul>\n<p> </p>",
+    "published_at": "2025-02-17T19:54:01-06:00",
+    "created_at": "2024-08-31T17:29:34-05:00",
+    "vendor": "Fem Probiotics",
+    "type": "Otro",
+    "tags": [],
+    "price": 11000000,
+    "price_min": 8990000,
+    "price_max": 19990000,
+    "available": true,
+    "price_varies": true,
+    "compare_at_price": 14900000,
+    "compare_at_price_min": 14900000,
+    "compare_at_price_max": 29980000,
+    "compare_at_price_varies": true,
+    "variants": [
+      {
+        "id": 43659069325400,
+        "title": "Compra Única 1 / 1 unidad",
+        "option1": "Compra Única 1",
+        "option2": "1 unidad",
+        "option3": null,
+        "sku": "423945",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Alimento con probióticos y prebióticos x 60 UND - Compra Única 1 / 1 unidad",
+        "public_title": "Compra Única 1 / 1 unidad",
+        "options": [
+          "Compra Única 1",
+          "1 unidad"
+        ],
+        "price": 11000000,
+        "weight": 200,
+        "compare_at_price": 14990000,
+        "barcode": "1692464",
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 43659069358168,
+        "title": "Compra Única 1 / 2 unidades",
+        "option1": "Compra Única 1",
+        "option2": "2 unidades",
+        "option3": null,
+        "sku": "423948",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Alimento con probióticos y prebióticos x 60 UND - Compra Única 1 / 2 unidades",
+        "public_title": "Compra Única 1 / 2 unidades",
+        "options": [
+          "Compra Única 1",
+          "2 unidades"
+        ],
+        "price": 19990000,
+        "weight": 200,
+        "compare_at_price": 29980000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 44093805658200,
+        "title": "Compra Única 2 / 1 unidad",
+        "option1": "Compra Única 2",
+        "option2": "1 unidad",
+        "option3": null,
+        "sku": null,
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Alimento con probióticos y prebióticos x 60 UND - Compra Única 2 / 1 unidad",
+        "public_title": "Compra Única 2 / 1 unidad",
+        "options": [
+          "Compra Única 2",
+          "1 unidad"
+        ],
+        "price": 11000000,
+        "weight": 200,
+        "compare_at_price": 14900000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 44093805690968,
+        "title": "Compra Única 2 / 2 unidades",
+        "option1": "Compra Única 2",
+        "option2": "2 unidades",
+        "option3": null,
+        "sku": null,
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Alimento con probióticos y prebióticos x 60 UND - Compra Única 2 / 2 unidades",
+        "public_title": "Compra Única 2 / 2 unidades",
+        "options": [
+          "Compra Única 2",
+          "2 unidades"
+        ],
+        "price": 19990000,
+        "weight": 200,
+        "compare_at_price": 29980000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 43659069390936,
+        "title": "Suscripción 1 / 1 unidad",
+        "option1": "Suscripción 1",
+        "option2": "1 unidad",
+        "option3": null,
+        "sku": "423946",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Alimento con probióticos y prebióticos x 60 UND - Suscripción 1 / 1 unidad",
+        "public_title": "Suscripción 1 / 1 unidad",
+        "options": [
+          "Suscripción 1",
+          "1 unidad"
+        ],
+        "price": 8990000,
+        "weight": 200,
+        "compare_at_price": 14990000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 43659069423704,
+        "title": "Suscripción 1 / 2 unidades",
+        "option1": "Suscripción 1",
+        "option2": "2 unidades",
+        "option3": null,
+        "sku": "423949",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Alimento con probióticos y prebióticos x 60 UND - Suscripción 1 / 2 unidades",
+        "public_title": "Suscripción 1 / 2 unidades",
+        "options": [
+          "Suscripción 1",
+          "2 unidades"
+        ],
+        "price": 14990000,
+        "weight": 200,
+        "compare_at_price": 29980000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 43659069456472,
+        "title": "Suscripción 2 / 1 unidad",
+        "option1": "Suscripción 2",
+        "option2": "1 unidad",
+        "option3": null,
+        "sku": "423947",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Alimento con probióticos y prebióticos x 60 UND - Suscripción 2 / 1 unidad",
+        "public_title": "Suscripción 2 / 1 unidad",
+        "options": [
+          "Suscripción 2",
+          "1 unidad"
+        ],
+        "price": 8990000,
+        "weight": 200,
+        "compare_at_price": 14990000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      },
+      {
+        "id": 43659069489240,
+        "title": "Suscripción 2 / 2 unidades",
+        "option1": "Suscripción 2",
+        "option2": "2 unidades",
+        "option3": null,
+        "sku": "423950",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": true,
+        "name": "Alimento con probióticos y prebióticos x 60 UND - Suscripción 2 / 2 unidades",
+        "public_title": "Suscripción 2 / 2 unidades",
+        "options": [
+          "Suscripción 2",
+          "2 unidades"
+        ],
+        "price": 14990000,
+        "weight": 200,
+        "compare_at_price": 29980000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      }
+    ],
+    "images": [
+      "/__theme/fem-plan-probiotics.webp",
+      "/__theme/fem-owned-402307cfda09cd2e449a.webp",
+      "/__theme/fem-owned-292feec2a5aab2d43ef8.webp",
+      "/__theme/fem-owned-3c69a352a73e2711518d.webp",
+      "/__theme/fem-owned-aacc219823f7b53fce0e.webp"
+    ],
+    "featured_image": "/__theme/fem-plan-probiotics.webp",
+    "options": [
+      {
+        "name": "Tipo de compra",
+        "position": 1,
+        "values": [
+          "Compra Única 1",
+          "Compra Única 2",
+          "Suscripción 1",
+          "Suscripción 2"
+        ]
+      },
+      {
+        "name": "Cantidad",
+        "position": 2,
+        "values": [
+          "1 unidad",
+          "2 unidades"
+        ]
+      }
+    ],
+    "url": "/products/probiotico-vaginal-en-capsulas-x60-unidades",
+    "media": [
+      {
+        "alt": null,
+        "id": 37222566625368,
+        "position": 1,
+        "preview_image": {
+          "aspect_ratio": 1.002,
+          "height": 589,
+          "width": 590,
+          "src": "/__theme/fem-plan-probiotics.webp"
+        },
+        "aspect_ratio": 1.002,
+        "height": 589,
+        "media_type": "image",
+        "src": "/__theme/fem-plan-probiotics.webp",
+        "width": 590
+      },
+      {
+        "alt": null,
+        "id": 37221186273368,
+        "position": 2,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 580,
+          "width": 580,
+          "src": "/__theme/fem-owned-402307cfda09cd2e449a.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 580,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-402307cfda09cd2e449a.webp",
+        "width": 580
+      },
+      {
+        "alt": null,
+        "id": 37221186338904,
+        "position": 3,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 580,
+          "width": 580,
+          "src": "/__theme/fem-owned-292feec2a5aab2d43ef8.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 580,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-292feec2a5aab2d43ef8.webp",
+        "width": 580
+      },
+      {
+        "alt": null,
+        "id": 37221186469976,
+        "position": 4,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 580,
+          "width": 580,
+          "src": "/__theme/fem-owned-3c69a352a73e2711518d.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 580,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-3c69a352a73e2711518d.webp",
+        "width": 580
+      },
+      {
+        "alt": null,
+        "id": 37221186306136,
+        "position": 5,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 580,
+          "width": 580,
+          "src": "/__theme/fem-owned-aacc219823f7b53fce0e.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 580,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-aacc219823f7b53fce0e.webp",
+        "width": 580
+      }
+    ],
+    "requires_selling_plan": false,
+    "selling_plan_groups": [],
+    "aliases": [
+      "probiotico-vaginal-en-capsulas-x100-unidades"
+    ]
+  },
+  {
+    "id": 8437984886872,
+    "title": "Soda Prebiótica x 6 UND",
+    "handle": "soda-probiotica-x12-unidades",
+    "description": "<p>La Soda Prebiótica FEM es una bebida refrescante y deliciosa que aporta prebióticos y fibra para apoyar tu bienestar digestivo y cuidar tu microbiota desde adentro.</p>",
+    "published_at": "2025-09-12T15:14:17-05:00",
+    "created_at": "2025-07-29T11:50:12-05:00",
+    "vendor": "Fem Probiotics",
+    "type": "",
+    "tags": [],
+    "price": 6990000,
+    "price_min": 6990000,
+    "price_max": 6990000,
+    "available": false,
+    "price_varies": false,
+    "compare_at_price": 9990000,
+    "compare_at_price_min": 9990000,
+    "compare_at_price_max": 9990000,
+    "compare_at_price_varies": false,
+    "variants": [
+      {
+        "id": 43087005352024,
+        "title": "Default Title",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "sku": "219246",
+        "requires_shipping": true,
+        "taxable": false,
+        "featured_image": null,
+        "available": false,
+        "name": "Soda Prebiótica x 6 UND",
+        "public_title": null,
+        "options": [
+          "Default Title"
+        ],
+        "price": 6990000,
+        "weight": 0,
+        "compare_at_price": 9990000,
+        "barcode": null,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": [],
+        "stock": null
+      }
+    ],
+    "images": [
+      "/__theme/fem-owned-0b48520b748e37e73df0.webp",
+      "/__theme/fem-owned-067053098d60cb48bc05.webp",
+      "/__theme/fem-owned-8cdb466dc612f49f3880.webp",
+      "/__theme/fem-owned-94381d6d51d665d6ea69.webp",
+      "/__theme/fem-owned-fac64feaa2a904a3ace2.webp"
+    ],
+    "featured_image": "/__theme/fem-owned-0b48520b748e37e73df0.webp",
+    "options": [
+      {
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Default Title"
+        ]
+      }
+    ],
+    "url": "/products/soda-probiotica-x12-unidades",
+    "media": [
+      {
+        "alt": null,
+        "id": 37222851838040,
+        "position": 1,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 590,
+          "width": 590,
+          "src": "/__theme/fem-owned-0b48520b748e37e73df0.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 590,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-0b48520b748e37e73df0.webp",
+        "width": 590
+      },
+      {
+        "alt": null,
+        "id": 35899274231896,
+        "position": 2,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-067053098d60cb48bc05.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-067053098d60cb48bc05.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35899274264664,
+        "position": 3,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-8cdb466dc612f49f3880.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-8cdb466dc612f49f3880.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 35899274199128,
+        "position": 4,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-94381d6d51d665d6ea69.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-94381d6d51d665d6ea69.webp",
+        "width": 903
+      },
+      {
+        "alt": null,
+        "id": 34783557812312,
+        "position": 5,
+        "preview_image": {
+          "aspect_ratio": 1,
+          "height": 903,
+          "width": 903,
+          "src": "/__theme/fem-owned-fac64feaa2a904a3ace2.webp"
+        },
+        "aspect_ratio": 1,
+        "height": 903,
+        "media_type": "image",
+        "src": "/__theme/fem-owned-fac64feaa2a904a3ace2.webp",
+        "width": 903
+      }
+    ],
+    "requires_selling_plan": false,
+    "selling_plan_groups": [],
+    "aliases": []
+  }
+]

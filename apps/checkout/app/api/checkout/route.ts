@@ -8,6 +8,7 @@ import { coberturaSendura } from "@/lib/cobertura-sendura";
 import { senduraActivo } from "@/lib/despacho";
 import { COUPON_CODES, COUPON_USAGE_LIMITS } from "@/lib/coupons";
 import { soloPagoAnticipado, MENSAJE_SOLO_PAGO_ANTICIPADO } from "@/lib/zonas-pago-anticipado";
+import {validateOwnedItems} from '@/lib/commerce';
 
 const client = new MercadoPagoConfig({
   accessToken: process.env.MP_ACCESS_TOKEN!,
@@ -96,6 +97,11 @@ export async function POST(req: NextRequest) {
   if(body.privacyAccepted !== true) return NextResponse.json({error:"Acepta el tratamiento de datos para gestionar el pedido",codigo:"consentimiento_requerido"},{status:400});
   if (!body.items || body.items.length === 0) {
     return NextResponse.json({ error: "La orden no tiene productos" }, { status: 400 });
+  }
+  try { body.items = await validateOwnedItems(body.items); } catch(error) { return NextResponse.json({error:error instanceof Error?error.message:'Carrito inválido',codigo:'carrito_cambiado'},{status:409}); }
+  const subtotal = body.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  if (body.subtotal !== subtotal || body.shipping !== 0 || !Number.isFinite(body.total)) {
+    return NextResponse.json({error:'Tu carrito cambió. Revisa el total antes de continuar.',codigo:'carrito_cambiado'},{status:409});
   }
 
   if (!["mercadopago", "contraentrega"].includes(body.paymentMethod)) {
@@ -338,8 +344,8 @@ export async function POST(req: NextRequest) {
     );
 
     if (itemsError) {
-      // No bloqueamos — la orden ya existe, los items se pueden recuperar
       console.error("Supabase items insert error:", itemsError);
+      return NextResponse.json({error:'No pudimos guardar los productos. Inténtalo nuevamente.'},{status:503});
     }
   }
 
@@ -395,7 +401,7 @@ export async function POST(req: NextRequest) {
     const destino =
       senduraActivo() && coberturaSendura(body.state, body.city).cubierta
         ? "sendura"
-        : "shopify";
+        : "fem";
 
     return NextResponse.json({
       type: "contraentrega",

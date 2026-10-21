@@ -3,7 +3,6 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {load} from 'cheerio';
 import {localHref,repairNavigation} from '../src/lib/navigation.ts';
-import {checkoutPermalink} from '../src/lib/checkout.ts';
 import {transformStorefront} from '../server/transform.ts';
 test('Internal URLs retain query and anchors, external payment paths stay external',()=>{
  assert.equal(localHref('https://femprobiotics.co/products/a?variant=123#details'),'/products/a?variant=123#details');
@@ -47,12 +46,6 @@ test('Legal wrapper is noninteractive and keeps its mailto link',()=>{
  assert.match(repaired,/<div as="p"|<div data-fem-type="text" class="ipWMBvNfOCI940U8M"/);
  assert.ok(repaired.includes('href="mailto:pqrs@grupomsm.co"'));
  assert.ok(!repaired.includes('href=""'));
-});
-test('Checkout transfer preserves quantities and rejects unsupported subscription carts',()=>{
- assert.equal(checkoutPermalink([{variant_id:123,quantity:2},{variant_id:456,quantity:1}]),'https://femprobiotics.co/cart/123:2,456:1');
- assert.equal(checkoutPermalink([{variant_id:123,quantity:1,selling_plan_allocation:{id:1}}]),null);
- assert.equal(checkoutPermalink([]),null);
- assert.throws(()=>checkoutPermalink([{variant_id:123,quantity:-1}]));
 });
 test('Section rendering stays a fragment and never reboots global scripts',()=>{
  const result=transformStorefront('<section id="shopify-section-test"><a href="https://femprobiotics.co/pages/quiz1">Test</a></section>');

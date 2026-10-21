@@ -1,4 +1,4 @@
-const origin='https://femprobiotics.co';
+const origin=(process.env.STORE_INTERNAL_URL||'http://127.0.0.1:3001').replace(/\/$/,'');
 export const isCartJSON=path=>/^\/cart(?:\/(?:add|change|update|clear))?\.js$/.test(path);
 export function mergeCookies(current,updates){const jar=new Map(current.split(';').map(x=>x.trim()).filter(Boolean).map(x=>{const n=x.indexOf('=');return [x.slice(0,n),x.slice(n+1)];}));for(const cookie of updates){const pair=cookie.split(';')[0],n=pair.indexOf('=');jar.set(pair.slice(0,n),pair.slice(n+1));}return [...jar].map(([k,v])=>`${k}=${v}`).join('; ');}
 // Cart requests bypass the storefront rendering service; no shared cart cache.

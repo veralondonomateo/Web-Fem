@@ -37,7 +37,7 @@ interface Prueba {
   payment_method: string;
   items: Array<{ name: string; variant?: string; quantity: number; price: number }>;
   total: number;
-  carrier: "sendura" | "shopify";
+  carrier: "sendura" | "fem" | "shopify";
   cobertura: boolean;
   motivo: string | null;
   status: "ok" | "error";
@@ -89,7 +89,7 @@ export default function PruebasAdminClient({ productos }: { productos: Producto[
   }, [cargar]);
 
   const aSendura = pruebas.filter((p) => p.carrier === "sendura");
-  const aShopify = pruebas.filter((p) => p.carrier === "shopify");
+  const aFEM = pruebas.filter((p) => p.carrier === "fem");
   const fallidas = pruebas.filter((p) => p.status === "error");
 
   return (
@@ -128,8 +128,7 @@ export default function PruebasAdminClient({ productos }: { productos: Producto[
 
       <div className="bg-amber-50 border-b border-amber-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-2.5 text-xs text-amber-900">
-          Los pedidos que envíes aquí son <strong>reales</strong> en Sendura y en Shopify — hay
-          que anularlos a mano. No tocan la tabla de ventas, ni Mercado Pago, ni Meta, ni el CRM.
+          Las pruebas con Sendura generan guías <strong>reales</strong> que debes anular a mano. Fuera de su cobertura se guarda una simulación FEM sin guía ni cobro.
         </div>
       </div>
 
@@ -141,7 +140,7 @@ export default function PruebasAdminClient({ productos }: { productos: Producto[
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               <Tarjeta etiqueta="Pruebas" valor={pruebas.length} />
               <Tarjeta etiqueta="A Sendura" valor={aSendura.length} color="text-emerald-700" />
-              <Tarjeta etiqueta="A Shopify" valor={aShopify.length} color="text-blue-700" />
+              <Tarjeta etiqueta="Simulaciones FEM" valor={aFEM.length} color="text-blue-700" />
               <Tarjeta
                 etiqueta="Fallidas"
                 valor={fallidas.length}
@@ -362,7 +361,7 @@ function ProbadorCobertura() {
                     : "bg-gray-100 text-gray-500"
                 }`}
               >
-                {r.cobertura.cubierta ? "Sendura" : "Shopify"}
+                {r.cobertura.cubierta ? "Sendura" : "FEM (simulación)"}
               </span>
               <span className="text-gray-900 flex-1 truncate">{r.city}</span>
               <span className="text-gray-400 flex-shrink-0">{r.state}</span>

@@ -1,6 +1,6 @@
 export function cartPayload(c){
  if(!c.items?.length)return null;
- if(c.currency!=='COP'||c.items.some(i=>i.selling_plan_allocation))throw Error('Este carrito necesita el checkout de Shopify para validar su moneda o suscripción.');
+ if(c.currency!=='COP'||c.items.some(i=>i.selling_plan_allocation||/suscripci[oó]n/i.test(i.variant_title??'')))throw Error('Continúa en Planes FEM para autorizar tu suscripción. El checkout integrado procesa compras únicas en COP.');
  if(!Number.isFinite(c.total_price)||c.total_price<=0||c.items.some(i=>!Number.isInteger(i.quantity)||i.quantity<1||!Number.isFinite(i.final_line_price)||i.final_line_price<0||!Number.isSafeInteger(i.variant_id)))throw Error('Carrito inválido');
  return {items:c.items.map(i=>({id:i.key,name:i.product_title||i.title,variant:i.variant_title,price:i.final_line_price/100/i.quantity,quantity:i.quantity,image:i.featured_image?.url||i.image||'',shopifyVariantId:i.variant_id})),payment:c.attributes?.fem_payment_preference==='prepaid'?'mercadopago':'contraentrega',total:c.total_price/100,cupon:null};
 }

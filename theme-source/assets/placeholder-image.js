@@ -3,7 +3,7 @@ import { preloadImage, onDocumentReady } from '@theme/utilities';
 /** @type {Record<string, number>} */
 const cache = {};
 
-const shopName = window.Shopify.shop;
+const shopName = 'FEM';
 // We want to encode shop-url to an integer dividable by Theme.placeholder.general.length
 // to get a starting number that is unique to the shop
 const shopPlaceholderSeed = shopName.split('-').reduce((acc, char) => acc + char.charCodeAt(0), 0);
@@ -12,7 +12,7 @@ const counters = {
   general: shopPlaceholderSeed % Theme.placeholders.general.length,
 };
 
-const isEditorRequest = window.Shopify.visualPreviewMode || window.Shopify.designMode;
+const isEditorRequest = document.documentElement.hasAttribute('data-fem-theme-editor');
 
 if (isEditorRequest) {
   onDocumentReady(() => {

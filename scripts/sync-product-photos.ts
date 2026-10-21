@@ -3,6 +3,7 @@ import {readFileSync,writeFileSync} from 'node:fs';
 const galleries:Record<string,string>={
   'jabon-intimo-ph-neutro':'jabon-gallery.json',
   'probiotico-vaginal-en-capsulas-x100-unidades':'probioticos-gallery.json',
+  'probiotico-vaginal-en-capsulas-x60-unidades':'probioticos-gallery.json',
   'gomitas-sindrome-premestrual-x60':'gomas-gallery.json',
   'ovulos-vaginales-fem':'ovulos-gallery.json',
   'duo-perfecto':'duo-gallery.json',

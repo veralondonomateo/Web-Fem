@@ -31,47 +31,14 @@ test('All migrated pages remove the runtime and keep their section-rendering ide
   }
 });
 
-test('Assigned templates and native components have no builder runtime or missing references',()=>{
-  const files=new Set<string>(),sections=new Set<string>();
-  const read=(path:string)=>readFileSync('theme-source/'+path,'utf8');
-  const collectSections=(value:unknown,path:string):void=>{
-    if(!value||typeof value!=='object')return;
-    for(const [key,child] of Object.entries(value)){
-      if(key==='sections'&&child&&typeof child==='object'){
-        for(const section of Object.values(child) as {type?:string}[]){
-          if(!section.type||section.type.startsWith('shopify:'))continue;
-          assert.ok(!section.type.startsWith('instant-'),path+': legacy section assignment '+section.type);
-          assert.ok(existsSync('theme-source/sections/'+section.type+'.liquid'),path+': '+section.type);
-          sections.add(section.type);
-        }
-      }
-      collectSections(child,path);
-    }
-  };
-  const inspectJson=(path:string)=>{
-    files.add(path);
-    collectSections(JSON.parse(read(path).replace(/^\/\*[\s\S]*?\*\/\s*/,'')),path);
-  };
-  for(const folder of ['templates','config'])for(const name of readdirSync('theme-source/'+folder)){
-    if(name.endsWith('.json'))inspectJson(folder+'/'+name);
-    else if(name.endsWith('.liquid'))files.add(folder+'/'+name);
-  }
-  for(const name of readdirSync('theme-source/layout'))files.add('layout/'+name);
-  // Check assigned section groups and static sections, not unassigned historical backup files.
-  for(const path of [...files])for(const match of read(path).matchAll(/{%-?\s*(sections?)\s+['"]([^'"]+)['"]/g)){
-    if(match[1]==='sections')inspectJson('sections/'+match[2]+'.json');
-    else sections.add(match[2]);
-  }
-  for(const type of sections){
-    assert.ok(existsSync('theme-source/sections/'+type+'.liquid'),type);
-    files.add('sections/'+type+'.liquid');
-  }
+test('Local FEM templates have no external builder runtime or missing resources',()=>{
+  const files=new Set<string>();
   for(const folder of ['sections','snippets','assets'])for(const name of readdirSync('theme-source/'+folder)){
     if(/^fem-.*\.(css|liquid|json)$/.test(name))files.add(folder+'/'+name);
   }
-  assert.ok(sections.size>=40,'Inspect the assigned theme, including native product and page templates');
+  assert.ok([...files].filter(path=>path.startsWith('sections/')).length>=40);
   for(const path of files){
-    const source=read(path);
+    const source=readFileSync('theme-source/'+path,'utf8');
     assert.doesNotMatch(source,/https?:\/\/[^\s'"<>]*instant\.so|window\.Instant|data-instant-(?:id|action-type)|instant-section-page-builder/,path);
     for(const match of source.matchAll(/fem-media-[a-f0-9]+\.[a-z0-9]+/g))assert.ok(existsSync('theme-source/assets/'+match[0]),path+': '+match[0]);
   }

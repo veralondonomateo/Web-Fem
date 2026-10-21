@@ -56,3 +56,28 @@ test('A product without a discount hides its badge and comparison price',()=>{
  assert.match(card.find('.fem-bestsellers__layout-3').attr('style')??'',/display:\s*none/);
  assert.match(card.find('.fem-bestsellers__span-2').attr('style')??'',/display:\s*none/);
 });
+
+test('The second bestseller uses the current Shopify probiotic handle, its gallery and live price',()=>{
+ const oldHandle='probiotico-vaginal-en-capsulas-x100-unidades';
+ const handle='probiotico-vaginal-en-capsulas-x60-unidades';
+ const home=load(transformStorefront(fixture.replaceAll(oldHandle,handle),'/'));
+ const card=home('.fem-bestsellers__section article').eq(1);
+ assert.equal(home('.fem-bestsellers__section article').length,8);
+ assert.equal(card.find('a').first().attr('href'),'/products/'+handle);
+ assert.equal(card.find('a').last().attr('href'),'/products/'+handle);
+ assert.equal(card.find('.fem-bestsellers__product-title').text(),'Alimento con probióticos y prebióticos x 60 UND');
+ assert.equal(card.find('.fem-bestsellers__price-2').text().trim(),'$110.000,00');
+ assert.equal(card.find('img').attr('src'),'/__theme/'+productPhotos[handle][0].asset);
+ assert.doesNotMatch(card.text(),/NaN/);
+ assert.equal(home('.fem-featured__link').attr('href'),'/products/'+handle);
+});
+
+test('Unavailable bestseller products never render blank images, empty destinations or NaN prices',()=>{
+ const products=productsFromStorefront(fixture);
+ delete products['probiotico-vaginal-en-capsulas-x100-unidades'];
+ const home=load(renderNativeSection('home',products));
+ const cards=home('.fem-bestsellers__section');
+ assert.equal(cards.find('article').length,7);
+ assert.equal(cards.find('img[src=""],a[href=""]').length,0);
+ assert.doesNotMatch(cards.text(),/NaN/);
+});

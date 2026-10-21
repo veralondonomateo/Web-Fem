@@ -1,6 +1,6 @@
 import {readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
-import {Liquid} from 'liquidjs';
+import {Liquid,defaultOperators,type Context} from 'liquidjs';
 import {load,type CheerioAPI} from 'cheerio';
 
 export interface ProductImage {src:string;width:number;height:number;alt:string}
@@ -17,7 +17,10 @@ interface SectionDefinition {
   blocks?:Record<string,{type:string;settings:Record<string,unknown>}>;
   block_order?:string[];
 }
-const engine=new Liquid({root:fileURLToPath(new URL('../theme-source/snippets',import.meta.url)),extname:'.liquid'});
+const engine=new Liquid({root:fileURLToPath(new URL('../theme-source/snippets',import.meta.url)),extname:'.liquid',operators:{...defaultOperators,
+  '==':(left:unknown,right:unknown,context:Context)=>defaultOperators['=='](left??null,right??null,context),
+  '!=':(left:unknown,right:unknown,context:Context)=>defaultOperators['!='](left??null,right??null,context)
+}});
 for(const tag of ['schema','doc'])engine.registerTag(tag,{
   parse(_token,tokens){this.liquid.parser.parseStream(tokens).on(`tag:end${tag}`,function(){this.stop();}).start();},
   render(){return '';}
@@ -30,16 +33,29 @@ export function translateStorefront(key:string):string {
   return key.split('.').reduce((value,part)=>value?.[part],translations)??key;
 }
 engine.registerFilter('t',translateStorefront);
+engine.registerFilter('json',(value:unknown)=>JSON.stringify(value));
+engine.registerFilter('url_param_escape',(value:string)=>encodeURIComponent(value));
 engine.registerFilter('image_url',(image:ProductImage,...args:unknown[])=>{
   if(!image?.src)return '';
   const url=new URL(image.src,'https://femprobiotics.co');
   const width=(args.find(arg=>Array.isArray(arg)&&arg[0]==='width') as [string,number]|undefined)?.[1];
   if(width)url.searchParams.set('width',String(width));
-  return url.href;
+  return image.src.startsWith('/')&&!image.src.startsWith('//')?url.pathname+url.search:url.href;
 });
 
 export function renderSearchCard(card_product:SearchCardProduct):string {
   return engine.renderFileSync('fem-search-card',{card_product});
+}
+
+/** Render an existing product design using a FEM-owned catalog object. */
+export function renderOwnedProductSection(name:string,product:Record<string,unknown>,all_products:Record<string,unknown>,id:string):string {
+  if(!/^fem-product-[a-z-]+$/.test(name))throw Error('Invalid product template');
+  let source=readFileSync(new URL(`../theme-source/sections/${name}.liquid`,import.meta.url),'utf8');
+  const schema=JSON.parse(source.match(/{%\s*schema\s*%}([\s\S]*?){%\s*endschema\s*%}/)?.[1]??'{}');
+  const settings=Object.fromEntries((schema.settings??[]).filter((s:{id?:string})=>s.id).map((s:{id:string;default?:unknown})=>[s.id,s.default??'']));
+  source=source.replace(/{%-?\s*style\s*-?%}/g,'<style>').replace(/{%-?\s*endstyle\s*-?%}/g,'</style>');
+  const context={product,all_products,section:{id,settings,blocks:[],location:'template',index:1},shop:{money_format:'${{amount}}',enabled_payment_types:[]},routes:{root_url:'/',cart_url:'/cart',search_url:'/search'},request:{page_type:'product'}};
+  return engine.parseAndRenderSync(source,context,{globals:context});
 }
 
 export function renderScratchCard():string {
@@ -105,7 +121,7 @@ export function productsFromStorefront(html:string|CheerioAPI):Record<string,Hom
     if(!handle)return;
     const title=card.find('[data-instant-dynamic-content-source="TITLE"]').first().text().trim();
     const price=money(card.find('[data-instant-dynamic-content-source="PRICE"]').first().text());
-    if(!title||!price)return;
+    if(!title||!Number.isFinite(price)||price<=0)return;
     const image=card.find('img').first();
     const featured_image={src:image.attr('src')??'',width:Number(image.attr('width'))||1280,height:Number(image.attr('height'))||1280,alt:image.attr('alt')??title};
     const compare=money(card.find('[data-instant-dynamic-content-source="COMPARE_AT"]').first().text());

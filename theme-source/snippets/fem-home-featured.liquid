@@ -1,8 +1,8 @@
 
     <aside class="fem-featured__section fem-reveal fem-reveal--hidden fem-reveal--transform" id="fem-featured__section" data-fem-reveal="600" data-fem-replay="true">
       {%- liquid
-        assign product_featured_2_handle = 'probiotico-vaginal-en-capsulas-x100-unidades'
-        assign product_featured_2 = all_products[product_featured_2_handle]
+        assign product_featured_2_handle = 'probiotico-vaginal-en-capsulas-x60-unidades'
+        assign product_featured_2 = all_products[product_featured_2_handle] | default: all_products['probiotico-vaginal-en-capsulas-x100-unidades']
         assign product_featured_2_variant = product_featured_2.selected_or_first_available_variant
         if product_featured_2.selected_variant
           assign product_featured_2_variant = product_featured_2.selected_variant

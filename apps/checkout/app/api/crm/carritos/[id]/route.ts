@@ -3,7 +3,7 @@ import { createServerClient } from "@/lib/supabase";
 import { autorizado, hidratar, COLUMNAS_COLA } from "@/lib/crm";
 import { FilaCarrito, crearToken, estaSuprimido, yaCompro, CarritoCRM } from "@/lib/carritos";
 import { restaurarCarrito, CarritoRestaurado } from "@/lib/restaurar-carrito";
-import { getProducts, ShopifyProduct } from "@/lib/shopify";
+import { getProducts, CommerceProduct } from "@/lib/commerce";
 
 /**
  * Lo que abre un link, en la forma que el CRM compara contra `productos` y
@@ -93,7 +93,7 @@ export async function GET(
   ]);
 
   // Qué abre cada link, con la misma función que usa /checkout.
-  const catalogo = await getProducts().catch(() => [] as ShopifyProduct[]);
+  const catalogo = await getProducts().catch(() => [] as CommerceProduct[]);
   const [restaura, restauraDescuento] = await Promise.all([
     restaurarCarrito(supabase, crearToken(fila.tipo, fila.origen_id), catalogo),
     restaurarCarrito(supabase, crearToken(fila.tipo, fila.origen_id, true), catalogo),

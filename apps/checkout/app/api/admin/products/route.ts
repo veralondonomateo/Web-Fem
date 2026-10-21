@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getProducts } from "@/lib/shopify";
+import { getProducts } from "@/lib/commerce";
 
 export async function GET(req: NextRequest) {
   const pw = req.headers.get("x-admin-password");
@@ -10,7 +10,7 @@ export async function GET(req: NextRequest) {
     const products = await getProducts();
     return NextResponse.json({ products });
   } catch (err) {
-    console.error("[Admin] Error Shopify:", err);
-    return NextResponse.json({ error: "Error al conectar con Shopify" }, { status: 500 });
+    console.error("[Admin] Error de catálogo FEM:", err);
+    return NextResponse.json({ error: "No se pudo leer el catálogo FEM" }, { status: 500 });
   }
 }

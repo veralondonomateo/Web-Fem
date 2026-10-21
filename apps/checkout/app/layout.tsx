@@ -18,9 +18,6 @@ export default async function RootLayout({
   return (
     <html lang="es" className="h-full">
       <head><link rel="stylesheet" href="/__theme/fem-fonts.css" />
-        {/* Las imágenes de producto (LCP) vienen del CDN de Shopify: abrimos la
-            conexión antes de que el HTML termine de parsearse. */}
-        <link rel="preconnect" href="https://cdn.shopify.com" crossOrigin="" />
         {/* Los pixeles cargan después del load; basta resolver el DNS por adelantado. */}
         <link rel="dns-prefetch" href="https://connect.facebook.net" />
         <link rel="dns-prefetch" href="https://analytics.tiktok.com" />

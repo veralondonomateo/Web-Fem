@@ -25,5 +25,5 @@
   .fem-home-hero__actions { gap:10px; }
   .fem-home .fem-home-hero__button { flex:1 1 auto; gap:8px; padding:12px; font-size:15px; white-space:nowrap; }
   .fem-home .fem-home-hero__guarantees { gap:8px 14px; font-size:12px; }
-  .fem-home .fem-home-hero__image { width:120px; }
+  .fem-home .fem-home-hero__image { width:180px; }
 }

@@ -7,7 +7,7 @@
       "functions": {
         "api/store.ts": {
           "maxDuration": 60,
-          "includeFiles": "{audit/redirects.json,docs/review.html,server/*.json,theme-source/{snippets,sections,templates,locales,config}/**}"
+          "includeFiles": "{dist/pages/**,dist/{pages,cards,assets}.json,content/catalog.json,audit/redirects.json,docs/review.html}"
         }
       },
       "root": ".",

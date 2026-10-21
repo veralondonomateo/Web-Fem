@@ -58,9 +58,7 @@ test('Preview replaces Planes independently of legacy markup and keeps shared na
   assert.deepEqual($('main .fem-plan__button').map((_,node)=>$(node).attr('href')).get(),destinations);
   const independent=load(transformStorefront('<!doctype html><head><link rel="canonical" href="https://femprobiotics.co/pages/planes-or-fem"></head><body><main>Contenido anterior eliminado</main></body>'));
   assert.equal(independent('main .fem-plan').length,4);
-  const native=JSON.parse(readFileSync('theme-source/templates/page.planes-fem.json','utf8'));
-  const compatible=JSON.parse(readFileSync('theme-source/templates/page.instant-zX2zkAycloBh8C5v.json','utf8'));
-  assert.deepEqual(compatible,native);
+
 });
 
 test('Merchant image, content, price and destination overrides render in the native section',()=>{

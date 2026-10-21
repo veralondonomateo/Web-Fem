@@ -8,8 +8,10 @@ import {enhancePurchaseSelection} from './purchase-selection.ts';
 import {enhanceCatalogInteractions} from './catalog-interactions.ts';
 import {enhanceCatalogFilters} from './catalog-filters.ts';
 import {enhanceScratchPromotion,initializeScratchPromotion} from './scratch-promotion.ts';
+import {initializeOwnedWelcome} from './owned-welcome.ts';
 function boot(): void {
   enhanceCartDrawer();
+  if(document.body.hasAttribute('data-fem-open-cart-on-load'))document.querySelector<HTMLElement>('[data-fem-cart-open]')?.click();
   enhancePurchaseSelection();
   loadPresentComponents();
   bindLazySearchShortcut();
@@ -19,6 +21,7 @@ function boot(): void {
   enhanceNativeInteractions();
   enhanceCatalogInteractions();
   enhanceCatalogFilters();
+  initializeOwnedWelcome();
   initializeScratchPromotion();
   document.documentElement.classList.remove('no-js');
   new MutationObserver(records => {

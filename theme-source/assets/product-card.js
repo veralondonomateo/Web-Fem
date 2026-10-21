@@ -354,7 +354,7 @@ export class ProductCard extends Component {
       url.searchParams.set('page', parent.dataset.page);
     }
 
-    if (!window.Shopify.designMode) {
+    if (!document.documentElement.hasAttribute('data-fem-theme-editor')) {
       history.replaceState({}, '', url.toString());
     }
 

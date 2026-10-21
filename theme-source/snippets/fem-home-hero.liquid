@@ -21,7 +21,7 @@
     </div>
     <div class="fem-home-hero__media">
       {% if section.settings.hero_image != blank %}
-        {{ section.settings.hero_image | image_url: width: 660 | image_tag: class: 'fem-home-hero__image', widths: '260, 440, 660', sizes: '(max-width: 749px) 120px, 220px', loading: 'eager', fetchpriority: 'high', alt: section.settings.hero_image_alt }}
+        {{ section.settings.hero_image | image_url: width: 660 | image_tag: class: 'fem-home-hero__image', widths: '260, 440, 660', sizes: '(max-width: 749px) 180px, 220px', loading: 'eager', fetchpriority: 'high', alt: section.settings.hero_image_alt }}
       {% else %}
         <img class="fem-home-hero__image" src="{{ 'fem-home-probiotics.webp' | asset_url }}" width="662" height="969" alt="{{ section.settings.hero_image_alt | escape }}" loading="eager" fetchpriority="high" decoding="async">
       {% endif %}

@@ -1,5 +1,6 @@
 node_modules/
 theme-dev/
+/dist/
 .cache/
 .env*
 !.env.example
@@ -17,6 +18,7 @@ audit/*
 !audit/storefront-products.json
 apps/**/node_modules/
 apps/**/.next/
+apps/checkout/public/__theme/
 apps/**/.env*
 apps/**/.vercel/
 apps/**/*.tsbuildinfo

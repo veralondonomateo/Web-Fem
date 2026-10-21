@@ -1,18 +1,18 @@
-import {privacyMarkup,cookiePolicy} from './privacy.ts';
+import {cookiePolicy} from './cookie-policy.ts';
 import {type IncomingMessage,type ServerResponse} from 'node:http';
 import {readFile,stat} from 'node:fs/promises';
 import {join,basename} from 'node:path';
-import {STORE_ORIGIN} from '../src/lib/navigation.ts';
-import {checkoutPermalink,type CheckoutLine} from '../src/lib/checkout.ts';
-import {transformStorefront} from './transform.ts';
-import {sendBody} from './response.ts';
+import {sendBody,preferredEncoding} from './response.ts';
 import {readAsset} from './assets.ts';
-import {restoreSearchResults} from './search.ts';
+import {renderOwnedBody,ownedPaths,productCard} from './owned-renderer.ts';
+import {catalog,productByHandle,searchCatalog} from './catalog.ts';
+import {readCartCookie,cartCookie,cartState,mutateCart} from './local-cart.ts';
+import {handleCommerceProxy,saveContact} from './owned-commerce.ts';
 const port=Number(process.env.PORT ?? 3000);
+const assets=(await import(new URL('../dist/assets.json',import.meta.url).href,{with:{type:'json'}})).default as {version:string;files:Record<string,{etag:string;bytes:number}>};
 const redirectData=JSON.parse(await readFile('audit/redirects.json','utf8')) as {path:string;target:string}[];
 const redirects=new Map(redirectData.map(row=>[row.path,row.target]));
-const mime:Record<string,string>={css:'text/css',js:'text/javascript',svg:'image/svg+xml',json:'application/json',woff2:'font/woff2',ttf:'font/ttf',png:'image/png',jpg:'image/jpeg',jpeg:'image/jpeg',webp:'image/webp',mp4:'video/mp4'};
-const upstreamPaths=/^\/(?:$|products(?:\/|\.json)|collections(?:\/|$|\.json)|pages\/|blogs\/|policies\/|search(?:\/|$|\.json)|cart(?:\/|$|\.js)|cdn\/|recommendations\/|localization|robots\.txt|sitemap.*\.xml|favicon\.ico)/;
+const mime:Record<string,string>={css:'text/css',js:'text/javascript',svg:'image/svg+xml',json:'application/json',woff:'font/woff',woff2:'font/woff2',ttf:'font/ttf',png:'image/png',jpg:'image/jpeg',jpeg:'image/jpeg',webp:'image/webp',avif:'image/avif',gif:'image/gif',mp4:'video/mp4',webm:'video/webm'};
 async function body(req:IncomingMessage):Promise<Buffer> {
   const parsed=(req as IncomingMessage & {body?:unknown}).body;
   if(parsed!==undefined){const value=Buffer.isBuffer(parsed)?parsed:Buffer.from(typeof parsed==='string'?parsed:JSON.stringify(parsed));if(value.length>1024*1024)throw Error('Request too large');return value;}
@@ -25,20 +25,29 @@ async function serve(req:IncomingMessage,res:ServerResponse):Promise<void> {
   const url=new URL(req.url??'/',`http://127.0.0.1:${port}`);
   const redirect=redirects.get(url.pathname);
   if(redirect){res.writeHead(301,{Location:redirect}).end();return;}
-  if(url.pathname==='/__health'){res.setHeader('Content-Type','application/json');res.end(JSON.stringify({ok:true,mode:'shopify-connected-review',origin:STORE_ORIGIN}));return;}
+  if(url.pathname==='/__health'){res.setHeader('Content-Type','application/json');res.end(JSON.stringify({ok:true,mode:'independent',catalog:catalog.length}));return;}
   if(url.pathname.startsWith('/__theme/')){
     const name=decodeURIComponent(url.pathname.slice('/__theme/'.length));
     if(name!==basename(name)||name.includes('\0')){res.writeHead(400).end();return;}
-    const file=join(process.cwd(),'theme-dev/assets',name);
+    const file=join(process.cwd(),'dist/assets',name);
     try{
       const metadata=await stat(file);
       if(!metadata.isFile()){res.writeHead(404).end();return;}
-      const etag=`W/"${metadata.size.toString(16)}-${metadata.mtimeMs.toString(16)}"`;
+      const etag='W/"'+(assets.files[name]?.etag??`${metadata.size.toString(16)}-${metadata.mtimeMs.toString(16)}`)+'"';
       res.setHeader('Content-Type',mime[name.split('.').pop()!]??'application/octet-stream');
-      res.setHeader('Cache-Control','no-cache');
+      res.setHeader('Cache-Control',url.searchParams.get('v')===assets.version?'public, max-age=31536000, immutable':'no-cache');
       res.setHeader('ETag',etag);
+      if(/\.(?:css|js|json|svg)$/.test(name))res.setHeader('Vary','Accept-Encoding');
       if(['GET','HEAD'].includes(req.method??'GET') && req.headers['if-none-match']?.split(',').map(v=>v.trim()).includes(etag)){
         res.writeHead(304).end();return;
+      }
+      const encoding=/\.(?:css|js|json|svg)$/.test(name)?preferredEncoding(req.headers['accept-encoding']??''):null;
+      if(encoding){
+        try{
+          const encoded=await readAsset(file+(encoding==='br'?'.br':'.gz'),etag);
+          res.setHeader('Content-Encoding',encoding);res.setHeader('Content-Length',encoded.length);
+          res.end(req.method==='HEAD'?undefined:encoded);return;
+        }catch{/* Small resources need no compressed copy. */}
       }
       const data=await readAsset(file,etag);
       if(name.endsWith('.mp4')){
@@ -62,55 +71,40 @@ async function serve(req:IncomingMessage,res:ServerResponse):Promise<void> {
   if(url.pathname==='/__review'){
     res.setHeader('Content-Type','text/html; charset=utf-8');res.end(await readFile('docs/review.html','utf8'));return;
   }
-  if(url.pathname==='/checkout'){
-    const response=await fetch(STORE_ORIGIN+'/cart.js',{headers:{Cookie:req.headers.cookie??''},signal:AbortSignal.timeout(15000)});
-    if(!response.ok)throw new Error('Shopify cart unavailable');
-    const cart=await response.json() as {items:CheckoutLine[];attributes?:Record<string,string>};
-    const target=checkoutPermalink(cart.items,cart.attributes);
-    if(target){res.writeHead(302,{Location:target}).end();return;}
-    res.setHeader('Content-Type','text/html; charset=utf-8');
-    res.end('<h1>Continúa en la tienda oficial</h1><p>Los planes de suscripción y los atributos especiales se validan en Shopify. Esta vista local no puede transferirlos mediante un enlace de carrito.</p><a href="https://femprobiotics.co/cart">Abrir tienda oficial</a><br><a href="/cart">Volver al carrito local</a>');return;
-  }
-  if(/^\/(checkout|checkouts|account|customer_authentication|discount|apps|challenge)(\/|$)/.test(url.pathname)){
-    res.writeHead(302,{Location:STORE_ORIGIN+url.pathname+url.search}).end();return;
-  }
-  if(!upstreamPaths.test(url.pathname)){res.writeHead(404,{'Content-Type':'text/html; charset=utf-8'}).end('<h1>Página no encontrada</h1><a href="/">Volver a Fem</a>');return;}
   const method=req.method??'GET';
-  if(!['GET','HEAD'].includes(method)&&!(method==='POST'&&/^\/cart(?:\/(add|change|update|clear)(\.js)?)?$/.test(url.pathname))){res.writeHead(405).end('Este formulario se completa en la tienda oficial.');return;}
-  if(method==='POST') {
+  if(!['GET','HEAD','POST'].includes(method)){res.writeHead(405).end();return;}
+  if(method==='POST'){
     const origin=req.headers.origin;
-    const allowed=process.env.VERCEL ? [`https://${req.headers.host}`] : [`http://localhost:${port}`,`http://127.0.0.1:${port}`];
-    if(origin&&!allowed.includes(origin)&&!(process.env.FEM_INTERNAL_SECRET&&req.headers['x-fem-internal']===process.env.FEM_INTERNAL_SECRET)){res.writeHead(403).end();return;}
+    const host=req.headers.host??'localhost:'+port;
+    if(origin&&!['http://'+host,'https://'+host].includes(origin)&&!(process.env.FEM_INTERNAL_SECRET&&req.headers['x-fem-internal']===process.env.FEM_INTERNAL_SECRET)){res.writeHead(403).end();return;}
   }
-  const headers:Record<string,string>={'User-Agent':req.headers['user-agent']??'Fem Local Review','Accept':req.headers.accept??'*/*','Accept-Language':req.headers['accept-language']??'es-CO,es;q=0.9'};
-  if(req.headers.cookie)headers.Cookie=req.headers.cookie;
-  if(req.headers['content-type'])headers['Content-Type']=req.headers['content-type'];
-  const payload=method==='POST'?await body(req):undefined;
-  const upstream=await fetch(STORE_ORIGIN+url.pathname+url.search,{method,headers,body:payload ? new Uint8Array(payload) : undefined,redirect:'manual',signal:AbortSignal.timeout(30000)});
-  res.statusCode=upstream.status;
-  res.setHeader('X-Robots-Tag','noindex, nofollow');
-  res.setHeader('Cache-Control','no-store');
-  res.setHeader('Referrer-Policy','strict-origin-when-cross-origin');
-  const cookies=upstream.headers.getSetCookie().filter(c=>/(?:^|;\s*)fem_consent=all(?:;|$)/.test(req.headers.cookie||'')||!/^(_shopify_analytics|_shopify_marketing|_fbp|_fbc|_ga|_ttp)=/.test(c)).map(c=>c.replace(/;\s*domain=[^;]+/ig,'').replace(/;\s*secure\b/ig,process.env.VERCEL?'; Secure':'').replace(/SameSite=None/ig,'SameSite=Lax'));
-  if(cookies.length)res.setHeader('Set-Cookie',cookies);
-  const location=upstream.headers.get('location');
-  if(location){const target=new URL(location,STORE_ORIGIN);res.setHeader('Location',target.origin===STORE_ORIGIN&&!/^\/(checkouts|account|customer_authentication|discount|apps|challenge)(\/|$)/.test(target.pathname)?target.pathname+target.search+target.hash:target.href);res.end();return;}
-  const type=upstream.headers.get('content-type')??'application/octet-stream';res.setHeader('Content-Type',type);
-  if(method==='HEAD'){res.end();return;}
-  if(type.includes('text/html')){
-    const html=await restoreSearchResults(await upstream.text(),url,headers);
-    await sendBody(req,res,privacyMarkup(transformStorefront(html,url.pathname),req.headers.cookie));
+  const json=async(value:unknown,status=200)=>{res.statusCode=status;res.setHeader('Content-Type','application/json; charset=utf-8');res.setHeader('Cache-Control','private, no-store');await sendBody(req,res,JSON.stringify(value));};
+  if(/^\/cart(?:\/(?:add|change|update|clear))?\.js$/.test(url.pathname)){
+    let cart=readCartCookie(req.headers.cookie);
+    const action=url.pathname.match(/^\/cart\/(\w+)\.js$/)?.[1];
+    if(method==='POST'&&action){const raw=(await body(req)).toString();const input=req.headers['content-type']?.includes('application/json')?JSON.parse(raw):Object.fromEntries(new URLSearchParams(raw));cart=mutateCart(cart,action,input);res.setHeader('Set-Cookie',cartCookie(cart,!!process.env.VERCEL));}
+    else if(action||method==='POST'){res.writeHead(405).end();return;}
+    await json(cartState(cart));return;
   }
-  else if(type.includes('application/json')) {
-    const data:unknown=await upstream.json();
-    const transformSections=(value:unknown):unknown=>{
-      if(typeof value==='string'&&/^\s*</.test(value))return transformStorefront(value);
-      if(Array.isArray(value))return value.map(transformSections);
-      if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).map(([key,item])=>[key,transformSections(item)]));
-      return value;
-    };
-    await sendBody(req,res,JSON.stringify(transformSections(data)));
+  if(url.pathname==='/products.json'){await json({products:catalog});return;}
+  const productJSON=url.pathname.match(/^\/products\/([^/]+)\.(?:js|json)$/);
+  if(productJSON){const p=productByHandle(productJSON[1]);await json(p??{error:'Producto no encontrado'},p?200:404);return;}
+  if(url.pathname==='/recommendations/products.json'){const id=Number(url.searchParams.get('product_id'));await json({products:catalog.filter(p=>p.id!==id&&p.available).slice(0,6)});return;}
+  if(url.pathname==='/search/suggest.json'){await json({resources:{results:{products:searchCatalog(url.searchParams.get('q')??'').slice(0,6)}}});return;}
+  if(url.pathname==='/search/suggest'){
+    res.setHeader('Content-Type','text/html; charset=utf-8');
+    const matches=searchCatalog(url.searchParams.get('q')??'').slice(0,6);
+    await sendBody(req,res,'<div id="predictive-search-results" ref="predictiveSearchResults"><div id="predictive-search-products" class="fem-owned-search-grid">'+matches.map(productCard).join('')+'</div></div>');return;
   }
-  else res.end(Buffer.from(await upstream.arrayBuffer()));
+  if(url.pathname==='/contact'&&method==='POST'){await saveContact(req,res,(await body(req)).toString());return;}
+  if(await handleCommerceProxy(req,res,url,()=>body(req)))return;
+  if(method==='POST'){res.writeHead(405).end();return;}
+  if(url.pathname==='/robots.txt'){res.setHeader('Content-Type','text/plain');res.end('User-agent: *\nAllow: /\nDisallow: /cart\nDisallow: /checkout\n');return;}
+  if(url.pathname==='/sitemap.xml'){res.setHeader('Content-Type','application/xml');res.end('<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+ownedPaths().map(p=>'<url><loc>'+url.origin+p+'</loc></url>').join('')+'</urlset>');return;}
+  const html=renderOwnedBody(url,req.headers.cookie);
+  if(!html){res.writeHead(404,{'Content-Type':'text/html; charset=utf-8'}).end('<h1>Página no encontrada</h1><a href="/">Volver a Fem</a>');return;}
+  res.setHeader('Content-Type','text/html; charset=utf-8');res.setHeader('Cache-Control','no-store');
+  if(url.searchParams.has('sections')){const ids=url.searchParams.get('sections')!.split(',').slice(0,10);await json(Object.fromEntries(ids.map(id=>[id,html.toString()])));return;}
+  await sendBody(req,res,html);
 }
-export default async function handler(req:IncomingMessage,res:ServerResponse):Promise<void>{try{await serve(req,res);}catch(error){console.error(error instanceof Error?error.message:error);if(!res.headersSent)res.writeHead(502,{"Content-Type":"text/html; charset=utf-8"});res.end('<h1>No pudimos consultar Shopify</h1><p>Inténtalo nuevamente.</p><a href="/">Volver a intentar</a>');}}
+export default async function handler(req:IncomingMessage,res:ServerResponse):Promise<void>{try{await serve(req,res);}catch(error){const status=(error as {status?:number}).status??500;console.error(error instanceof Error?error.message:error);if(!res.headersSent)res.writeHead(status,{'Content-Type':'application/json; charset=utf-8'});res.end(JSON.stringify({description:error instanceof Error?error.message:'No pudimos procesar la solicitud. Inténtalo nuevamente.'}));}}

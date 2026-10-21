@@ -1,7 +1,7 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 
 // Protocolo de reserva compartido por los tres procesos que pueden crear una
-// orden en Shopify: /api/checkout/finalize, el webhook de Mercado Pago y el
+// registro de preparación FEM: /api/checkout/finalize, el webhook de Mercado Pago y el
 // cron de rescate.
 //
 // Antes solo finalize y el webhook se coordinaban entre sí; el cron creaba
@@ -50,10 +50,11 @@ export function isProcessingActive(
  * despachó — dos entregas del mismo pedido.
  */
 export function estaDespachado(orden: {
+  fem_order_id?: number | string | null;
   shopify_order_id?: number | string | null;
   sendura_order_id?: string | null;
 }): boolean {
-  return !!orden.shopify_order_id || !!orden.sendura_order_id;
+  return !!orden.fem_order_id || !!orden.shopify_order_id || !!orden.sendura_order_id;
 }
 
 /**
@@ -61,7 +62,7 @@ export function estaDespachado(orden: {
  * Devuelve false si otro proceso ganó la carrera o si la orden ya se despachó
  * por cualquiera de los dos operadores.
  */
-export async function claimOrderForShopify(
+export async function claimOrderForFulfillment(
   supabase: SupabaseClient,
   orderId: string,
   currentError: string | null
@@ -70,6 +71,7 @@ export async function claimOrderForShopify(
     .from("orders")
     .update({ shopify_error: processingMarker() })
     .eq("id", orderId)
+    .is("fem_order_id", null)
     .is("shopify_order_id", null)
     .is("sendura_order_id", null);
 

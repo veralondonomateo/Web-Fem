@@ -2,7 +2,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { verificarToken, CUPON_RECUPERACION, TipoCarrito } from "@/lib/carritos";
 import { getCouponRate, normalizeCoupon } from "@/lib/coupons";
 import { VARIANT_IDS, VARIANTES_CAMPANA } from "@/lib/catalog";
-import type { ShopifyProduct } from "@/lib/shopify";
+import type { CommerceProduct } from "@/lib/commerce";
 
 /**
  * Reconstruye el carrito que la clienta dejó, a partir del token de
@@ -100,7 +100,7 @@ function aNumero(v: unknown): number {
   return 0;
 }
 
-function productoDeVariante(catalogo: ShopifyProduct[], variantId: number) {
+function productoDeVariante(catalogo: CommerceProduct[], variantId: number) {
   for (const p of catalogo) {
     const v = p.variants.find((x) => x.id === variantId);
     if (v) return { producto: p, variante: v };
@@ -117,7 +117,7 @@ function productoDeVariante(catalogo: ShopifyProduct[], variantId: number) {
  */
 function resolverVariante(
   linea: LineaGuardada,
-  catalogo: ShopifyProduct[],
+  catalogo: CommerceProduct[],
   variantePrincipal: number | null
 ): number | null {
   if (linea.variantId) return linea.variantId;
@@ -175,7 +175,7 @@ function cuponGuardado(codigo: string | null, subtotal: number, total: number): 
 export async function restaurarCarrito(
   supabase: SupabaseClient,
   token: string,
-  catalogo: ShopifyProduct[]
+  catalogo: CommerceProduct[]
 ): Promise<CarritoRestaurado> {
   const verificado = verificarToken(token);
   if (!verificado) return { disponible: false, motivo: "token_invalido" };

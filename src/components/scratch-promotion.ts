@@ -152,6 +152,7 @@ export function initializeScratchPromotion():void {
     try { return window.sessionStorage.getItem(shownKey)==='1'; } catch { return false; }
   };
   const open=()=>{
+    if(document.documentElement.hasAttribute('data-fem-independent')){window.dispatchEvent(new CustomEvent('fem:welcome-open'));return;}
     const client=window as Window & {_klOnsite?:unknown[][]};
     (client._klOnsite??=[]).push(['openForm',formId]);
   };

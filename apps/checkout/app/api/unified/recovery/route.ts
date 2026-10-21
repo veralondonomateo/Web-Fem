@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase';
-import { getProducts } from '@/lib/shopify';
+import { getProducts } from '@/lib/commerce';
 import { restaurarCarrito } from '@/lib/restaurar-carrito';
 export async function GET(req: NextRequest) {
   if (!process.env.FEM_INTERNAL_SECRET || req.headers.get('x-fem-internal') !== process.env.FEM_INTERNAL_SECRET)

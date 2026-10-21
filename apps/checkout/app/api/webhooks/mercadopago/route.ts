@@ -4,7 +4,7 @@ import { createServerClient } from "@/lib/supabase";
 import { sendPurchaseEvent } from "@/lib/meta";
 import { mapMPStatus } from "@/lib/mp";
 import { sendAlert } from "@/lib/alert";
-import { claimOrderForShopify, estaDespachado, isProcessingActive } from "@/lib/order-sync";
+import { claimOrderForFulfillment, estaDespachado, isProcessingActive } from "@/lib/order-sync";
 import { camposDeResultado, despacharPedido, DespachoEnRevision } from "@/lib/despacho";
 
 const WEBHOOK_MAX_AGE_MS = 5 * 60 * 1000; // 5 minutos
@@ -176,7 +176,7 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // Crear orden en Shopify cuando el pago es aprobado
+    // Crear registro de preparación FEM cuando el pago es aprobado
     if (status === "approved") {
       const { data: order } = await supabase
         .from("orders")
@@ -186,13 +186,13 @@ export async function POST(req: NextRequest) {
 
       if (order && !estaDespachado(order)) {
         // Pre-claim: previene que dos procesos concurrentes creen ambos una
-        // orden en Shopify. Mismo protocolo que finalize y el cron.
+        // registro de preparación FEM. Mismo protocolo que finalize y el cron.
         if (isProcessingActive(order.shopify_error)) {
           console.log(`[MP Webhook] Orden ${orderId} ya siendo procesada — saliendo`);
           return NextResponse.json({ ok: true });
         }
 
-        const preclaimOk = await claimOrderForShopify(supabase, orderId, order.shopify_error);
+        const preclaimOk = await claimOrderForFulfillment(supabase, orderId, order.shopify_error);
 
         if (!preclaimOk) {
           console.log(`[MP Webhook] Perdida la carrera por orden ${orderId} — otro proceso ya la tomó`);
@@ -223,13 +223,14 @@ export async function POST(req: NextRequest) {
             .from("orders")
             .update(camposDeResultado(resultado))
             .eq("id", orderId)
-            .is("shopify_order_id", null)
+            .is("fem_order_id", null)
+    .is("shopify_order_id", null)
             .is("sendura_order_id", null)
             .select("id")
             .maybeSingle();
 
           if (!claimed) {
-            const ref = resultado.senduraOrderId ?? resultado.shopifyOrderId;
+            const ref = resultado.senduraOrderId ?? resultado.femOrderId;
             const alertMsg = `[MP Webhook] DUPLICADO: se creó ${resultado.destino} ${ref} para la orden ${orderId}, que ya estaba despachada. Revisar y anular el duplicado.`;
             console.error(alertMsg);
             sendAlert(alertMsg).catch(() => {});

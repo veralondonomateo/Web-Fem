@@ -154,7 +154,7 @@ export function enhanceCartDrawer():void {
       if(busy||!cart)return;
       const choice=event.target.value as PaymentPreference;
       if(choice!=='cod'&&choice!=='prepaid')return;
-      // Animate immediately; checkout stays locked until Shopify confirms the save.
+      // Animate immediately; checkout stays locked until the server confirms the save.
       const confirmed=cart;
       renderPayment({...confirmed,attributes:{...confirmed.attributes,...paymentAttributes(choice)}});
       void mutate(async()=>{
@@ -204,7 +204,7 @@ export function enhanceCartDrawer():void {
     if(opener){event.preventDefault();event.stopImmediatePropagation();show();void refresh();return;}
     const external=target?.closest<HTMLAnchorElement>('a[href]');
     const destination=external?new URL(external.href,location.href):null;
-    if(destination?.hostname==='checkoutfem.com' && destination.pathname==='/checkout' && destination.searchParams.get('product')){
+    if(destination && (destination.hostname==='checkoutfem.com'||destination.origin===location.origin) && destination.pathname==='/checkout' && destination.searchParams.get('product')){
       event.preventDefault();event.stopImmediatePropagation();
       void addProduct(external!,destination.searchParams.get('product')!,destination.searchParams.get('variant'));
       return;

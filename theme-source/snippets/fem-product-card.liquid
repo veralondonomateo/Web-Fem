@@ -9,6 +9,7 @@ Product card with live Shopify prices, sale badge and responsive image.
   assign card_variant = card_product.selected_or_first_available_variant
   assign card_image = card_variant.featured_image | default: card_product.featured_image
 -%}
+{%- if card_product != blank and card_variant != blank -%}
 <article class="fem-carousel__slide {{ card_classes[0] }}">
 <div class="{{ card_classes[1] }}">
                   {%- liquid
@@ -92,3 +93,4 @@ Product card with live Shopify prices, sale badge and responsive image.
 </div>
 </a>
 </article>
+{%- endif -%}

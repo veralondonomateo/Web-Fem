@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createServerClient } from "@/lib/supabase";
 import { sendAlert } from "@/lib/alert";
-import { claimOrderForShopify, isProcessingActive } from "@/lib/order-sync";
+import { claimOrderForFulfillment, isProcessingActive } from "@/lib/order-sync";
 import {
   camposDeResultado,
   despacharPedido,
@@ -35,6 +35,7 @@ export async function GET(req: NextRequest) {
     .from("orders")
     .select("id, email, first_name, last_name, phone, address, complement, city, state, shipping, total, discount, coupon_code, payment_method, shopify_error, sendura_error")
     .eq("payment_status", "approved")
+    .is("fem_order_id", null)
     .is("shopify_order_id", null)
     // Un pedido que ya salió por Sendura no es huérfano: sin esto el cron lo
     // volvería a crear en Shopify y el cliente recibiría dos entregas.
@@ -62,11 +63,11 @@ export async function GET(req: NextRequest) {
     // Re-check inside loop in case a concurrent finalize just ran
     const { data: fresh } = await supabase
       .from("orders")
-      .select("shopify_order_id, sendura_order_id, coupon_code, discount, shopify_error")
+      .select("fem_order_id, shopify_order_id, sendura_order_id, coupon_code, discount, shopify_error")
       .eq("id", order.id)
       .single();
 
-    if (fresh?.shopify_order_id || fresh?.sendura_order_id) {
+    if (fresh?.fem_order_id || fresh?.shopify_order_id || fresh?.sendura_order_id) {
       results.push({ id: order.id, status: "ok", detail: "already_synced" });
       continue;
     }
@@ -78,7 +79,7 @@ export async function GET(req: NextRequest) {
       continue;
     }
 
-    const claimed = await claimOrderForShopify(supabase, order.id, fresh?.shopify_error ?? null);
+    const claimed = await claimOrderForFulfillment(supabase, order.id, fresh?.shopify_error ?? null);
     if (!claimed) {
       results.push({ id: order.id, status: "ok", detail: "claim_lost" });
       continue;
@@ -106,13 +107,14 @@ export async function GET(req: NextRequest) {
         .from("orders")
         .update(camposDeResultado(resultado))
         .eq("id", order.id)
-        .is("shopify_order_id", null)
+        .is("fem_order_id", null)
+    .is("shopify_order_id", null)
         .is("sendura_order_id", null)
         .select("id")
         .maybeSingle();
 
       if (!claimed) {
-        const ref = resultado.senduraOrderId ?? resultado.shopifyOrderId;
+        const ref = resultado.senduraOrderId ?? resultado.femOrderId;
         const alertMsg = `[Cron] DUPLICADO: se creó ${resultado.destino} ${ref} para la orden ${order.id}, que ya estaba despachada. Revisar y anular el duplicado.`;
         console.error(alertMsg);
         sendAlert(alertMsg).catch(() => {});
@@ -120,7 +122,7 @@ export async function GET(req: NextRequest) {
         continue;
       }
 
-      const ref = resultado.senduraOrderId ?? String(resultado.shopifyOrderId);
+      const ref = resultado.senduraOrderId ?? String(resultado.femOrderId);
       console.log(`[Cron] Rescatada ${order.id} → ${resultado.destino} ${ref}`);
       results.push({ id: order.id, status: "ok", detail: `${resultado.destino}:${ref}` });
     } catch (err) {

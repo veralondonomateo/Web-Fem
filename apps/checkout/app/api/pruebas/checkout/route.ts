@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createServerClient } from "@/lib/supabase";
-import { createShopifyOrder, getProducts } from "@/lib/shopify";
+import { getProducts } from "@/lib/commerce";
 import {
   coberturaSendura,
   provinciaSendura,
@@ -12,22 +12,8 @@ import {
   type SenduraOrderInput,
 } from "@/lib/sendura";
 
-/**
- * Checkout del entorno de pruebas de Sendura.
- *
- * Qué hace distinto al checkout real (`/api/checkout`), a propósito:
- *
- * - Escribe en `pruebas_sendura`, nunca en `orders` ni en `order_items`. Si
- *   escribiera en `orders`, el cron de rescate encontraría los pedidos de
- *   Sendura sin `shopify_order_id` y los crearía en Shopify — justo lo que
- *   esta prueba quiere evitar.
- * - No manda nada a Meta, ni a Klaviyo, ni al CRM, ni cobra por Mercado Pago.
- * - Si hay cobertura Sendura, el pedido va **solo** a Sendura. Si Sendura
- *   falla, el pedido queda marcado como error y NO cae a Shopify: en una
- *   prueba el fallo tiene que verse, no taparse.
- * - Si no hay cobertura, usa `createShopifyOrder` — la misma función de
- *   producción, para que la prueba valga — con la etiqueta `prueba-sendura`
- *   para poder filtrarlos y anularlos después.
+/** Isolated Sendura tests. Outside coverage, only record a FEM simulation.
+ * Test rows never enter orders/order_items or reserve real inventory.
  */
 
 interface ItemBody {
@@ -61,10 +47,7 @@ function idCorto(): string {
 }
 
 export async function POST(req: NextRequest) {
-  // Sin contraseña mientras duren las pruebas, para poder compartir el módulo.
-  // Ojo: cada llamada crea una guía real en Sendura o una orden real en
-  // Shopify. Para volver a cerrarlo, comprobar aquí `x-admin-password` contra
-  // `process.env.ADMIN_PASSWORD` (y en el módulo, volver a mandar la cabecera).
+  // A Sendura test can issue a real guide. Do not invoke it in automated verification.
   let body: PruebaBody;
   try {
     body = await req.json();
@@ -87,7 +70,7 @@ export async function POST(req: NextRequest) {
   const total = subtotal + shipping;
 
   const cobertura = coberturaSendura(body.state, body.city);
-  const carrier = cobertura.cubierta ? "sendura" : "shopify";
+  const carrier = cobertura.cubierta ? "sendura" : "fem";
   const nombreCompleto = `${body.firstName} ${body.lastName}`.trim();
   const referencia = `PRUEBA-${idCorto()}`;
 
@@ -122,7 +105,7 @@ export async function POST(req: NextRequest) {
     try {
       catalogo = await getProducts();
     } catch (err) {
-      console.error("[Pruebas] No se pudo leer el catálogo de Shopify:", err);
+      console.error("[Pruebas] No se pudo leer el catálogo FEM:", err);
     }
 
     const { items: resueltos, faltantes } = resolverItemsSendura(body.items, catalogo);
@@ -243,84 +226,19 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  // ── Camino B: sin cobertura → Shopify, igual que hoy ──────────────────────
-  const entradaShopify = {
-    email: body.email,
-    firstName: body.firstName,
-    lastName: body.lastName,
-    phone: body.phone,
-    address: body.address,
-    complement: body.complement ?? null,
-    city: body.city,
-    state: body.state,
-    items: body.items.map((i) => ({
-      name: i.name,
-      variant: i.variant,
-      price: i.price,
-      quantity: i.quantity,
-      shopifyVariantId: i.shopifyVariantId ?? undefined,
-    })),
-    shipping,
-    total,
-    paymentMethod: (body.paymentMethod === "contraentrega"
-      ? "contraentrega"
-      : "mercadopago") as "contraentrega" | "mercadopago",
-    femOrderId: referencia,
-    extraTags: ["prueba-sendura"],
-  };
-
+  // Outside Sendura coverage there is no carrier to contact in this module.
+  // Real registration requires an approved orders row; tests stay isolated.
+  const simulation = {...registro, reference: referencia};
   if (body.dryRun) {
-    return NextResponse.json({
-      carrier,
-      status: "dry_run",
-      cobertura: false,
-      request_payload: entradaShopify,
-    });
+    return NextResponse.json({carrier, status: "dry_run", cobertura: false, request_payload: simulation});
   }
-
-  try {
-    const shopifyId = await createShopifyOrder(entradaShopify);
-
-    const { data } = await supabase
-      .from("pruebas_sendura")
-      .insert({
-        ...registro,
-        motivo: `Sin cobertura Sendura en ${body.city} (${body.state})`,
-        status: "ok",
-        shopify_order_id: shopifyId,
-        request_payload: entradaShopify,
-        response_payload: { shopify_order_id: shopifyId },
-      })
-      .select("id")
-      .maybeSingle();
-
-    console.log(`[Pruebas] Orden ${referencia} → Shopify #${shopifyId}`);
-
-    return NextResponse.json({
-      id: data?.id,
-      carrier,
-      status: "ok",
-      shopify_order_id: shopifyId,
-      order_number: referencia,
-      request_payload: entradaShopify,
-    });
-  } catch (err) {
-    const mensaje = err instanceof Error ? err.message : String(err);
-    console.error(`[Pruebas] Shopify rechazó ${referencia}: ${mensaje}`);
-
-    await supabase.from("pruebas_sendura").insert({
-      ...registro,
-      motivo: `Sin cobertura Sendura en ${body.city} (${body.state})`,
-      status: "error",
-      error: mensaje,
-      request_payload: entradaShopify,
-    });
-
-    return NextResponse.json({
-      carrier,
-      status: "error",
-      error: mensaje,
-      request_payload: entradaShopify,
-    });
-  }
+  const {data, error} = await supabase.from("pruebas_sendura").insert({
+    ...registro,
+    motivo: "Simulación FEM, sin guía: " + body.city + " (" + body.state + ")",
+    status: "ok",
+    request_payload: simulation,
+    response_payload: {simulated: true},
+  }).select("id").maybeSingle();
+  if (error) return NextResponse.json({error: "No se pudo guardar la prueba"}, {status: 500});
+  return NextResponse.json({id: data?.id, carrier, status: "dry_run", simulated: true, request_payload: simulation});
 }

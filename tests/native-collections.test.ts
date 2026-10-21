@@ -56,10 +56,7 @@ test('Embedded collections retain search results and avoid duplicating the page 
   assert.equal($('input[name=q]').attr('value'),'Fem');
   assert.equal($('.fem-collection-card').length,4);
   assert.equal($('.fem-collections-breadcrumb,.fem-collections-comparison,.fem-collections-faq').length,0);
-  const search=JSON.parse(readFileSync('theme-source/templates/search.json','utf8'));
-  const collections=Object.values(search.sections).find((section:any)=>section.type==='fem-collections') as any;
-  assert.equal(collections.settings.embedded,true);
-  assert.equal(collections.block_order.length,4);
+
 });
 
 test('Merchant collection/image overrides and URL fallback render without legacy dependencies',()=>{

@@ -1,5 +1,5 @@
 /**
- * Decide y ejecuta el despacho de un pedido: Sendura o Shopify.
+ * Registra cada pedido en FEM y decide su preparación: Sendura o la cola FEM.
  *
  * Es el **único** sitio donde se toma esa decisión. Los tres procesos que
  * pueden despachar un pedido —`/api/checkout/finalize`, el webhook de Mercado
@@ -15,16 +15,16 @@
  * desempatar. Así que se separan los fallos por lo que se puede afirmar:
  *
  * - **Rechazo determinista** (cobertura, SKU, validación, credenciales): la
- *   guía no existe, con certeza. El pedido cae a Shopify y se despacha igual.
+ *   guía no existe, con certeza. El pedido queda pendiente en la cola FEM.
  *
  * - **Error 5xx con respuesta**: su servidor contestó con un fallo. En las
- *   pruebas del 20 de agosto uno de estos no dejó guía. Cae a Shopify, pero
+ *   pruebas del 20 de agosto uno de estos no dejó guía. Queda en la cola FEM y
  *   se registra en `sendura_error` para poder cotejarlo en su panel.
  *
  * - **Sin respuesta** (timeout o red caída): es el único caso de verdad
  *   ambiguo, porque la petición pudo llegar y perderse la respuesta. Aquí el
  *   pedido **no se despacha por ningún lado**: se marca `REVISAR:` y se queda
- *   quieto. Mandarlo a Shopify sería arriesgar un doble despacho, y reintentar
+ *   quieto. Enviarlo por otro operador arriesgaría un doble despacho, y reintentar
  *   en Sendura, dos guías. Un pedido detenido y visible es recuperable; dos
  *   despachos, no.
  *
@@ -32,7 +32,7 @@
  * buscarlos: este proyecto no tiene alertas configuradas.
  */
 
-import { createShopifyOrder, getProducts } from "@/lib/shopify";
+import { registerOwnedOrder, getProducts } from "@/lib/commerce";
 import { coberturaSendura, provinciaSendura } from "@/lib/cobertura-sendura";
 import {
   crearOrdenSendura,
@@ -47,7 +47,7 @@ export const REVISAR_PREFIX = "REVISAR";
 
 /**
  * Interruptor de emergencia. Con `SENDURA_ACTIVO` distinto de "true" todo sale
- * por Shopify, exactamente como antes de este cambio. Es una variable de
+ * a la cola FEM para preparación. Es una variable de
  * entorno y no una constante para poder apagarlo desde el panel de Vercel sin
  * volver a desplegar.
  */
@@ -82,10 +82,10 @@ export interface PedidoADespachar {
 }
 
 export interface ResultadoDespacho {
-  destino: "sendura" | "shopify";
+  destino: "sendura" | "fem";
   senduraOrderId?: string;
   senduraGuia?: string;
-  shopifyOrderId?: number;
+  femOrderId?: number;
   /** Por qué no fue a Sendura pudiendo, cuando aplica. */
   notaSendura?: string;
 }
@@ -98,89 +98,66 @@ export function camposDeResultado(r: ResultadoDespacho): Record<string, unknown>
       sendura_guia: r.senduraGuia ?? null,
       sendura_error: null,
       shopify_error: null,
+      fem_order_id: r.femOrderId,
+      fulfillment_status: "sent",
     };
   }
   return {
-    shopify_order_id: r.shopifyOrderId,
+    fem_order_id: r.femOrderId,
     shopify_error: null,
-    // Si cayó a Shopify por un fallo de Sendura, queda anotado por qué.
+    fulfillment_status: "pending",
+    // La cola propia conserva el motivo del rechazo para resolver el envío.
     ...(r.notaSendura ? { sendura_error: r.notaSendura } : {}),
   };
 }
 
-async function aShopify(
-  pedido: PedidoADespachar,
-  items: ItemPedido[],
-  mpPaymentId?: string,
+function aFEM(
+  femOrderId: number,
   notaSendura?: string
-): Promise<ResultadoDespacho> {
-  const shopifyOrderId = await createShopifyOrder({
-    email: pedido.email ?? "",
-    firstName: pedido.first_name ?? "",
-    lastName: pedido.last_name ?? "",
-    phone: pedido.phone ?? "",
-    address: pedido.address ?? "",
-    complement: pedido.complement ?? "",
-    city: pedido.city ?? "",
-    state: pedido.state ?? "",
-    items: items.map((i) => ({
-      name: i.name,
-      variant: i.variant,
-      price: i.price,
-      quantity: i.quantity,
-      shopifyVariantId: i.shopifyVariantId ?? undefined,
-    })),
-    shipping: pedido.shipping ?? 0,
-    total: pedido.total,
-    paymentMethod: pedido.payment_method,
-    ...(mpPaymentId ? { mpPaymentId } : {}),
-    femOrderId: pedido.id,
-    couponCode: pedido.coupon_code ?? null,
-    discount: pedido.discount ?? null,
-  });
-
-  return { destino: "shopify", shopifyOrderId, notaSendura };
+): ResultadoDespacho {
+  return { destino: "fem", femOrderId, notaSendura };
 }
 
 /**
  * Despacha el pedido por donde corresponda.
  *
  * Lanza `DespachoEnRevision` cuando queda en el aire, y el error original de
- * Shopify si es Shopify quien falla (ahí sí manda el manejo de siempre).
+ * registro FEM si falla la validación del inventario.
  */
 export async function despacharPedido(
   pedido: PedidoADespachar,
   items: ItemPedido[],
   opciones: { mpPaymentId?: string } = {}
 ): Promise<ResultadoDespacho> {
+  // One transaction and one stock deduction, including orders sent by Sendura.
+  // The registry is idempotent, so retries reuse the same FEM reference.
+  const femOrderId = await registerOwnedOrder(pedido.id);
   const cobertura = coberturaSendura(pedido.state ?? "", pedido.city ?? "");
 
   if (!senduraActivo() || !cobertura.cubierta || !cobertura.municipio) {
-    return aShopify(pedido, items, opciones.mpPaymentId);
+    return aFEM(femOrderId);
   }
 
   // Sendura **ignora en silencio** los SKU que no conoce: con uno solo válido
   // responde 201 y guía, y despacha el pedido incompleto. Si falta alguno, el
-  // pedido entero se va a Shopify.
+  // pedido entero queda pendiente en la cola FEM.
   let catalogo: Awaited<ReturnType<typeof getProducts>> = [];
   try {
     catalogo = await getProducts();
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
-    console.error(`[Despacho] Sin catálogo de Shopify para resolver SKU: ${msg}`);
-    return aShopify(
-      pedido,
-      items,
-      opciones.mpPaymentId,
-      `No se pudo leer el catálogo para resolver los SKU (${msg}); se despachó por Shopify.`
+    console.error(`[Despacho] Sin catálogo FEM para resolver SKU: ${msg}`);
+    return aFEM(
+      femOrderId,
+      `No se pudo leer el catálogo para resolver los SKU (${msg}); pendiente de preparación FEM.`
     );
   }
 
   const { items: resueltos, faltantes } = resolverItemsSendura(items, catalogo);
   if (faltantes.length > 0) {
-    const nota = `Sin SKU para: ${faltantes.join(", ")}. Sendura los ignoraría y despacharía incompleto, así que se despachó por Shopify.`;
+    const nota = `Sin SKU para: ${faltantes.join(", ")}. Pendiente de preparación FEM para evitar un envío incompleto.`;
     console.warn(`[Despacho] Pedido ${pedido.id}: ${nota}`);
-    return aShopify(pedido, items, opciones.mpPaymentId, nota);
+    return aFEM(femOrderId, nota);
   }
 
   // El corregimiento va en la segunda línea: la base de Sendura conoce
@@ -221,6 +198,7 @@ export async function despacharPedido(
     );
     return {
       destino: "sendura",
+      femOrderId,
       senduraOrderId: String(ok.order_id),
       senduraGuia: ok.guia_number ?? undefined,
     };
@@ -230,7 +208,7 @@ export async function despacharPedido(
     const detalle = `[${e?.motivo ?? "desconocido"}] ${mensaje}`;
 
     // Único caso ambiguo: no hubo respuesta, así que la guía puede existir.
-    // Ver la nota de arriba sobre por qué esto no cae a Shopify.
+    // No enviar por otro operador mientras la guía siga siendo incierta.
     if (e?.motivo === "transitorio" && e.httpStatus === null) {
       console.error(`[Despacho] Pedido ${pedido.id} EN REVISIÓN: ${detalle}`);
       throw new DespachoEnRevision(
@@ -238,12 +216,10 @@ export async function despacharPedido(
       );
     }
 
-    console.warn(`[Despacho] Sendura rechazó ${pedido.id}, va a Shopify: ${detalle}`);
-    return aShopify(
-      pedido,
-      items,
-      opciones.mpPaymentId,
-      `Sendura rechazó el pedido, se despachó por Shopify. ${detalle}`
+    console.warn(`[Despacho] Sendura rechazó ${pedido.id}, pendiente en FEM: ${detalle}`);
+    return aFEM(
+      femOrderId,
+      `Sendura rechazó el pedido; pendiente de preparación FEM. ${detalle}`
     );
   }
 }

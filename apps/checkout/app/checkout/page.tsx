@@ -2,14 +2,14 @@ import { headers } from "next/headers";
 import { Suspense } from "react";
 import CheckoutPageClient from "@/components/checkout/CheckoutPageClient";
 import CheckoutHeader from "@/components/checkout/CheckoutHeader";
-import { getProducts, getProductByHandle, getProductByHandleFresh, ShopifyProduct, varianteAgotada } from "@/lib/shopify";
+import { getProducts, getProductByHandle, getProductByHandleFresh, CommerceProduct, varianteAgotada } from "@/lib/commerce";
 import { CheckoutProduct } from "@/types/checkout";
 import { VARIANT_IDS, VARIANTES_CAMPANA } from "@/lib/catalog";
 import { createServerClient } from "@/lib/supabase";
 import { restaurarCarrito, CarritoRestaurado, MotivoNoDisponible } from "@/lib/restaurar-carrito";
 
 /** Reduce el producto a lo que el cliente realmente renderiza. */
-function toCheckoutProduct(p: ShopifyProduct | null): CheckoutProduct | null {
+function toCheckoutProduct(p: CommerceProduct | null): CheckoutProduct | null {
   if (!p) return null;
   return {
     id: p.id,
@@ -140,7 +140,7 @@ export default async function CheckoutPage({
 
   // Fetch all active products once, then match by handle/title — avoids
   // multiple round-trips and handles when exact handles differ from constants.
-  const allProducts = await getProducts().catch(() => [] as ShopifyProduct[]);
+  const allProducts = await getProducts().catch(() => [] as CommerceProduct[]);
 
   // Link de recuperación: el carrito sale del token y de nada más. Ni
   // `?variant=` ni `?product=` cuentan aquí, y si el carrito no se puede
@@ -163,7 +163,7 @@ export default async function CheckoutPage({
 
   // El producto principal casi siempre está en el catálogo que ya trajimos;
   // solo caemos a una segunda llamada si el handle no aparece ahí.
-  let shopifyProduct: ShopifyProduct | null = null;
+  let shopifyProduct: CommerceProduct | null = null;
   if (restaurado) {
     // Solo sirve para que el upsell no ofrezca lo que ya va en el carrito;
     // las líneas del carrito vienen de `restaurado`.
@@ -226,12 +226,12 @@ export default async function CheckoutPage({
     return <ProductoNoDisponible />;
   }
 
-  function findByTitle(pattern: RegExp): ShopifyProduct | null {
+  function findByTitle(pattern: RegExp): CommerceProduct | null {
     return allProducts.find((p) => pattern.test(p.title)) ?? null;
   }
 
   /** Busca por ID de variante — inmune a renombres y a SKUs compartidos. */
-  function findByVariantId(variantId: number): ShopifyProduct | null {
+  function findByVariantId(variantId: number): CommerceProduct | null {
     return allProducts.find((p) => p.variants.some((v) => v.id === variantId)) ?? null;
   }
 

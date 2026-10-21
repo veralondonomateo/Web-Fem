@@ -4,28 +4,23 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/build-theme.ts",
+    "build": "node scripts/build-store.ts",
+    "predev": "npm run build",
     "dev": "node --watch server/index.ts",
     "typecheck": "tsc --noEmit",
     "test": "node --test tests/*.test.ts",
-    "audit:public": "python3 scripts/audit-store.py",
+    "pretest": "npm run build",
     "audit:links": "node scripts/check-links.ts",
-    "theme:dev": "shopify theme dev --store fd668e-73.myshopify.com --path theme-dev",
-    "theme:check": "shopify theme check --path theme-dev",
+    "assets:audit": "node scripts/prune-assets.ts",
     "dev:unified": "node scripts/unified.mjs",
     "test:unified": "node --test tests/unified.test.mjs",
     "vercel-build": "npm run build && node scripts/build-vercel.mjs"
   },
   "devDependencies": {
-    "@shopify/theme-check-common": "^3.29.0",
-    "@shopify/theme-check-docs-updater": "^3.29.0",
-    "@shopify/theme-check-node": "^3.29.0",
     "@types/node": "^26.6.2",
     "esbuild": "^0.28.2",
     "happy-dom": "^20.14.5",
-    "typescript": "^7.0.2"
-  },
-  "dependencies": {
+    "typescript": "^7.0.2",
     "cheerio": "^1.2.0",
     "liquidjs": "^10.29.0"
   },

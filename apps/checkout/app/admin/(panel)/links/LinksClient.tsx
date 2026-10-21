@@ -4,18 +4,18 @@ import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { useAdminPassword } from "../AdminShell";
 
-interface ShopifyVariant {
+interface CommerceVariant {
   id: number;
   title: string;
   price: string;
   inventory_quantity?: number;
 }
 
-interface ShopifyProduct {
+interface CommerceProduct {
   id: number;
   title: string;
   handle: string;
-  variants: ShopifyVariant[];
+  variants: CommerceVariant[];
   images: { src: string }[];
 }
 
@@ -31,7 +31,7 @@ const APP_URL =
   typeof window !== "undefined" ? window.location.origin : "https://checkoutfem.com";
 
 // Detect "1 unidad" and "2 unidades" variants (compra única)
-function getQuantityLinks(product: ShopifyProduct) {
+function getQuantityLinks(product: CommerceProduct) {
   const v1 = product.variants.find((v) => /\b1\s*unidad\b/i.test(v.title));
   const v2 = product.variants.find((v) => /\b2\s*unidades?\b/i.test(v.title));
 
@@ -72,7 +72,7 @@ function getQuantityLinks(product: ShopifyProduct) {
 export default function LinksClient() {
   const clave = useAdminPassword();
 
-  const [products, setProducts] = useState<ShopifyProduct[]>([]);
+  const [products, setProducts] = useState<CommerceProduct[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState<string | null>(null);
@@ -92,13 +92,13 @@ export default function LinksClient() {
         return;
       }
       if (!res.ok) {
-        setError("Error al conectar con Shopify. Verifica las variables de entorno.");
+        setError("No se pudo leer el catálogo FEM.");
         return;
       }
       const data = await res.json();
       // Un producto sin variantes no se puede comprar: su link generaría un
       // pedido imposible de despachar. Se excluye en vez de mostrarse roto.
-      const todos: ShopifyProduct[] = data.products ?? [];
+      const todos: CommerceProduct[] = data.products ?? [];
       const vendibles = todos.filter((p) => p.variants.length > 0);
       setDescartados(todos.length - vendibles.length);
       setProducts(vendibles);
@@ -128,7 +128,7 @@ export default function LinksClient() {
         </span>
       </div>
       <p className="text-xs text-gray-400 mb-2">
-        Cada producto tiene link para 1 und y 2 und. Precios y stock desde Shopify.
+        Cada producto tiene link para 1 und y 2 und. Precios y disponibilidad del catálogo FEM.
       </p>
       <p className="text-xs text-gray-400 mb-6">
         Solo aparecen productos activos y comprables.
@@ -165,7 +165,7 @@ export default function LinksClient() {
                           solo confundiría: no es que no haya, es que no se pudo
                           preguntar. */ : products.length === 0 ? (
         <div className="bg-white rounded-lg border border-gray-200 p-12 text-center">
-          <p className="text-gray-500 text-sm">No hay productos activos en Shopify.</p>
+          <p className="text-gray-500 text-sm">No hay productos activos en el catálogo FEM.</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -211,7 +211,7 @@ export default function LinksClient() {
 
                   {sinStock && (
                     <span className="inline-block mb-2 text-[10px] font-medium text-amber-700 bg-amber-50 border border-amber-200 rounded px-1.5 py-0.5">
-                      Sin stock en Shopify
+                      Sin stock
                     </span>
                   )}
 

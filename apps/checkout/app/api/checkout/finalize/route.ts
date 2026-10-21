@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createServerClient } from "@/lib/supabase";
 import { sendAlert } from "@/lib/alert";
-import { claimOrderForShopify, estaDespachado, isProcessingActive } from "@/lib/order-sync";
+import { claimOrderForFulfillment, estaDespachado, isProcessingActive } from "@/lib/order-sync";
 import { camposDeResultado, despacharPedido, DespachoEnRevision } from "@/lib/despacho";
 
-// Crea la orden en Shopify para pedidos contraentrega, llamado desde el
+// Crea la registro de preparación FEM para pedidos contraentrega, llamado desde el
 // thank-you page tras la ventana de upsell (90 s o al cerrar la pestaña).
 export async function POST(req: NextRequest) {
   let body: { order_id: string };
@@ -31,10 +31,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Orden no encontrada" }, { status: 404 });
   }
 
-  // Idempotencia: ya salió por Shopify o por Sendura
+  // Idempotencia: ya salió por FEM o por Sendura
   if (estaDespachado(order)) {
     return NextResponse.json({
       ok: true,
+      fem_order_id: order.fem_order_id,
       shopify_order_id: order.shopify_order_id,
       sendura_order_id: order.sendura_order_id,
     });
@@ -52,7 +53,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: true, already_processing: true });
   }
 
-  const preclaimOk = await claimOrderForShopify(supabase, order_id, order.shopify_error);
+  const preclaimOk = await claimOrderForFulfillment(supabase, order_id, order.shopify_error);
 
   if (!preclaimOk) {
     console.log(`[Finalize] Perdida la carrera por orden ${order_id} — otra llamada ya la tomó`);
@@ -82,13 +83,14 @@ export async function POST(req: NextRequest) {
       .from("orders")
       .update(camposDeResultado(resultado))
       .eq("id", order_id)
-      .is("shopify_order_id", null)
+      .is("fem_order_id", null)
+    .is("shopify_order_id", null)
       .is("sendura_order_id", null)
       .select("id")
       .maybeSingle();
 
     if (!claimed) {
-      const ref = resultado.senduraOrderId ?? resultado.shopifyOrderId;
+      const ref = resultado.senduraOrderId ?? resultado.femOrderId;
       const alertMsg = `[Finalize] DUPLICADO: se creó ${resultado.destino} ${ref} para la orden ${order_id}, que ya estaba despachada. Revisar y anular el duplicado.`;
       console.error(alertMsg);
       sendAlert(alertMsg).catch(() => {});
@@ -98,7 +100,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
       ok: true,
       destino: resultado.destino,
-      shopify_order_id: resultado.shopifyOrderId,
+      fem_order_id: resultado.femOrderId,
       sendura_order_id: resultado.senduraOrderId,
     });
   } catch (err) {

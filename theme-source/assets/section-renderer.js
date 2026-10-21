@@ -35,7 +35,7 @@ class SectionRenderer {
    * @returns {Promise<string>} The rendered section HTML
    */
   async renderSection(sectionId, options) {
-    const { cache = !Shopify.designMode } = options ?? {};
+    const { cache = true } = options ?? {};
 
     this.#abortPendingMorph(sectionId);
 

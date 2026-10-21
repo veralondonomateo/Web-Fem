@@ -2,7 +2,7 @@
  * IDs de variante de Shopify conocidos, usados como último recurso cuando la
  * consulta al catálogo falla o el link no trae `?product=`.
  *
- * Por qué existe este archivo: si un item llega a `createShopifyOrder` sin
+ * Por qué existe este archivo: si un item llega a `registerOwnedOrder` sin
  * `shopifyVariantId`, Shopify lo registra como línea suelta con el título
  * "Nombre – variante". Esa línea no descuenta inventario, no suma al reporte
  * del producto y no se puede devolver contra el SKU. Entre abril y julio de

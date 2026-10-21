@@ -3,7 +3,7 @@ import {patchProductMarkup} from '../lib/product-markup.ts';
 const ready=new WeakSet<HTMLFormElement>();
 const scopeSelector='[data-fem-form-product-url]';
 const pickerSelector='[data-fem-action-type="select-variant-option"]';
-/** Native selection; Shopify remains the authority for prices, stock and conditions. */
+/** Native selection; the server resolves prices, availability and conditions. */
 export function enhancePurchaseSelection(root:ParentNode=document):void {
   const forms=[...root.querySelectorAll<HTMLFormElement>(`form${scopeSelector}`)];
   if(root instanceof HTMLFormElement && root.matches(scopeSelector))forms.unshift(root);

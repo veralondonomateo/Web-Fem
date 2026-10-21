@@ -36,7 +36,7 @@ export interface PresentacionEC {
 export const PRODUCTO_EC = {
   nombre: "Alimento con probióticos y prebióticos x 60 UND",
   imagen:
-    "https://cdn.shopify.com/s/files/1/0611/6999/1768/files/probiotico-uno.webp",
+    "/__theme/fem-owned-0b1e3f9cac6a4a433799.webp",
 };
 
 /**

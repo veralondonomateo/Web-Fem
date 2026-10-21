@@ -59,6 +59,38 @@ export const productPhotos:Record<string,{asset:string;width:number;height:numbe
       "height": 599
     }
   ],
+  "probiotico-vaginal-en-capsulas-x60-unidades": [
+    {
+      "asset": "fem-probioticos-gallery-1.webp",
+      "width": 2000,
+      "height": 2000
+    },
+    {
+      "asset": "fem-probioticos-gallery-2.webp",
+      "width": 599,
+      "height": 599
+    },
+    {
+      "asset": "fem-probioticos-gallery-3.webp",
+      "width": 599,
+      "height": 599
+    },
+    {
+      "asset": "fem-probioticos-gallery-4.webp",
+      "width": 599,
+      "height": 599
+    },
+    {
+      "asset": "fem-probioticos-gallery-5.webp",
+      "width": 599,
+      "height": 599
+    },
+    {
+      "asset": "fem-probioticos-gallery-6.webp",
+      "width": 599,
+      "height": 599
+    }
+  ],
   "gomitas-sindrome-premestrual-x60": [
     {
       "asset": "fem-gomas-gallery-1.webp",

@@ -522,7 +522,7 @@ export default function ThankYouClient() {
                       <div className="flex items-center gap-3 p-3">
                         <div className="flex-shrink-0 w-16 h-16 rounded-md overflow-hidden bg-gray-100 border border-gray-200">
                           <Image
-                            src="https://cdn.shopify.com/s/files/1/0611/6999/1768/files/Probiotico-jabon-5.jpg?v=1769877892"
+                            src="/__theme/fem-owned-a7d6287f5bd4a2c3caa2.jpg"
                             alt="Jabón Íntimo con Prebióticos"
                             width={64}
                             height={64}
