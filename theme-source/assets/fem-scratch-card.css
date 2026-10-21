@@ -52,6 +52,41 @@ html:not([data-fem-welcome-allowed]) [role="dialog"]:has(form[data-testid="klavi
 .fem-scratch:not(.fem-scratch--revealed) .fem-scratch__status,
 .fem-scratch--revealed .fem-scratch__intro { display:none; }
 .fem-scratch .fem-scratch__steps { order:5; margin:8px 0 0; font-size:10px; line-height:1.4; letter-spacing:.7px; text-transform:uppercase; }
+@media(min-width:750px) {
+  #fem-owned-welcome[data-fem-scratch-frame] { width:min(920px,calc(100vw - 48px)) !important; max-width:calc(100vw - 48px) !important; max-height:calc(100dvh - 48px) !important; box-shadow:0 24px 80px #581d1833; }
+  #fem-owned-welcome [data-fem-scratch-form] { width:100% !important; }
+  #fem-owned-welcome [data-fem-scratch-layout] { grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr); }
+  #fem-owned-welcome .fem-scratch { padding:32px 28px; }
+  #fem-owned-welcome .fem-scratch__brand { width:96px; margin-bottom:10px; }
+  #fem-owned-welcome .fem-scratch__title { font-size:32px; }
+  #fem-owned-welcome .fem-scratch__intro { max-width:270px; }
+  #fem-owned-welcome .fem-scratch__ticket { max-width:280px; }
+  #fem-owned-welcome [data-fem-scratch-details] { display:flex; flex-direction:column; justify-content:center; gap:14px; padding:44px 36px 32px !important; }
+  #fem-owned-welcome .fem-scratch-redemption { margin:0 0 4px; }
+  #fem-owned-welcome .fem-scratch-redemption h2 { max-width:360px; font-size:26px; line-height:1.25; letter-spacing:-.5px; text-wrap:pretty; }
+  #fem-owned-welcome .fem-scratch-redemption p { font-size:13px; line-height:1.6; }
+  #fem-owned-welcome [data-fem-scratch-details] > [data-testid="form-row"] { width:100%; min-width:0; margin:0; }
+  #fem-owned-welcome [data-fem-scratch-details] label { margin:0 0 8px; font-size:13px; line-height:1.5; }
+  #fem-owned-welcome [data-fem-scratch-consent] p { margin:0; }
+  #fem-owned-welcome [data-fem-scratch-consent] label { position:relative; display:block; margin:0; padding-left:23px; font-size:12px; }
+  #fem-owned-welcome [data-fem-scratch-consent] input[type="checkbox"] { position:absolute; top:2px; left:0; width:15px; height:15px; margin:0; accent-color:#c64b4b; }
+  #fem-owned-welcome [data-fem-scratch-submit] { display:block; margin:0; border:0; box-shadow:none; cursor:pointer; }
+  #fem-owned-welcome [data-fem-scratch-submit]:hover { background:#b63f3f !important; }
+  #fem-owned-welcome [data-fem-scratch-dismiss] { display:block; width:100%; min-height:32px; margin:0; padding:4px 8px !important; border:0; border-radius:8px; box-shadow:none; text-align:center; text-underline-offset:3px; cursor:pointer; }
+  #fem-owned-welcome :is([data-fem-scratch-submit],[data-fem-scratch-dismiss],.klaviyo-close-form):focus-visible { outline:2px solid #581d18; outline-offset:3px; }
+  #fem-owned-welcome [data-welcome-status] { margin:0; font-size:12px; }
+  #fem-owned-welcome [data-welcome-status]:empty { display:none; }
+  #fem-owned-welcome .klaviyo-close-form { top:12px !important; right:12px !important; margin:0 !important; }
+}
+@media(min-width:750px) and (max-height:600px) {
+  #fem-owned-welcome .fem-scratch { padding:24px; }
+  #fem-owned-welcome .fem-scratch__brand { width:84px; margin-bottom:8px; }
+  #fem-owned-welcome .fem-scratch__title { font-size:30px; }
+  #fem-owned-welcome .fem-scratch__intro { min-height:0; margin-bottom:10px; font-size:12px; }
+  #fem-owned-welcome .fem-scratch__ticket { max-width:240px; }
+  #fem-owned-welcome [data-fem-scratch-details] { gap:10px; padding:38px 28px 24px !important; }
+  #fem-owned-welcome .fem-scratch-redemption h2 { font-size:24px; }
+}
 @media(max-width:749px) {
   [data-fem-scratch-frame] { width:min(420px,calc(100vw - 16px)) !important; margin:8px !important; max-width:calc(100vw - 16px) !important; max-height:calc(100dvh - 16px) !important; overflow-x:hidden !important; }
   [data-fem-scratch-form] { width:100% !important; min-width:0 !important; }

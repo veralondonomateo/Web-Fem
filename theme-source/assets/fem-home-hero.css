@@ -20,10 +20,13 @@
 @media(max-width:749px) {
   .fem-home .fem-home-hero { padding:104px 24px 20px; }
   .fem-home-hero__inner { grid-template-columns:minmax(0,1fr); gap:12px; max-width:560px; }
+  .fem-home-hero__copy { text-align:center; }
   .fem-home .fem-home-hero__title { margin-bottom:12px; font-size:38px; letter-spacing:-.7px; }
-  .fem-home .fem-home-hero__description { font-size:14px; }
-  .fem-home-hero__actions { gap:10px; }
+  .fem-home .fem-home-hero__description { max-width:34ch; margin-inline:auto; font-size:14px; }
+  .fem-home-hero__actions { justify-content:center; gap:10px; }
   .fem-home .fem-home-hero__button { flex:1 1 auto; gap:8px; padding:12px; font-size:15px; white-space:nowrap; }
-  .fem-home .fem-home-hero__guarantees { gap:8px 14px; font-size:12px; }
+  .fem-home .fem-home-hero__guarantees { justify-content:center; gap:8px 10px; font-size:11px; }
+  .fem-home-hero__guarantees li { gap:4px; white-space:nowrap; }
+  .fem-home-hero__guarantees svg { width:12px; height:12px; }
   .fem-home .fem-home-hero__image { width:180px; }
 }
