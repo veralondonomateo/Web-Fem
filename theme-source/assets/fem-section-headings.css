@@ -139,6 +139,25 @@ body .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] :is(.i6wjNadWANL8Q7tWd,.ij5Tq
   text-wrap:balance;
   overflow-wrap:anywhere;
 }
+/* Keep product section titles on the same left edge as their supporting copy. */
+body .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-type="container"]:has(> [data-fem-type="text"] > h2) {
+  align-items:flex-start !important;
+}
+body .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-type="text"]:has(> h2) {
+  align-self:stretch !important;
+  width:100% !important;
+}
+body .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-type="container"]:has(> [data-fem-type="text"] > h2) > [data-fem-type="text"],
+body .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] [data-fem-type="text"] > h2 {
+  text-align:left !important;
+}
+/* Comparison titles use the same content width and side margins as their tables. */
+body .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] :is(.i94g3FXpVoH2URfzX,.i9Eu1wsuiHZ2P1GHy,.i5B5SJVlSUXGEWq0C,.icZHzW4OTmkiY8QRW,.iAMuKvWgncSEof5Di,.iw3bpD0cdhLrIFscs,.if4XRto9Rxk4TW4M1,.in8Yjrh45XrHLncRy,.iSPoTGpOcDObQkiF1,.iIcOLBYRvSaLQHO15,.imZQANXUgiPlG1WVf,.iUz0MbpDcbYp24WOQ,.ijXttELIotr1o8DWK,.iYzpfZiOoULcenLJj,.izXqAkV3wXsgyb5lT,.iLG1yGr5ajmmi6dle) {
+  width:1000px;
+  max-width:100%;
+  margin-left:auto;
+  margin-right:auto;
+}
 @media(max-width:749px) {
   body .fem-view[data-fem-layout="COLLECTION_TEMPLATE"] .iemoiUGRReOETq9WA {
     flex-wrap:nowrap !important;
