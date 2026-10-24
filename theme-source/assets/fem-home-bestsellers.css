@@ -60,6 +60,30 @@
   .fem-native.fem-home .fem-bestsellers__heading { width:100%; max-width:none; font-size:32px; }
   .fem-native.fem-home .fem-bestsellers__all { min-height:44px; padding:10px 16px; font-size:13px; }
   .fem-native.fem-home .fem-bestsellers__slider .fem-carousel__track > article { border-radius:24px; }
+  /* Reserve the image row before lazy photos load, including in mobile grid layouts. */
+  .fem-native.fem-home .fem-bestsellers__layout-2 {
+    display:block;
+    align-self:start;
+    position:relative;
+    width:100%;
+    height:0;
+    padding:100% 0 0;
+    aspect-ratio:auto;
+  }
+  .fem-native.fem-home .fem-bestsellers__layout-2 > .fem-bestsellers__media {
+    display:block;
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+  }
+  .fem-native.fem-home .fem-bestsellers__layout-2 > .fem-bestsellers__media img {
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+  }
 }
 @media(prefers-reduced-motion:reduce) {
   .fem-home .fem-bestsellers__section :is(a,button) { transition:none; }
