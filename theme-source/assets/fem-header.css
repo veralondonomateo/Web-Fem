@@ -2044,3 +2044,9 @@
     height:100%;
   }
 }
+
+/* Hide soda entries in both desktop and mobile product navigation. */
+.fem-native.fem-header a[href="/products/soda-probiotica-x12-unidades"],
+.fem-native.fem-header a[href="/products/combo-probiotico-soda"] {
+  display:none !important;
+}

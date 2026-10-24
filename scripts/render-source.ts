@@ -5,6 +5,7 @@ import {renderSearchCard,renderCatalogFilters,renderOwnedProductSection} from '.
 import {sectionNames} from '../server/legacy-preview.ts';
 import {transformStorefront} from '../server/transform.ts';
 import {cookiePolicy,privacyMarkup} from '../server/privacy.ts';
+import {addProductFaq} from '../server/product-faq.ts';
 const routes=JSON.parse(readFileSync(new URL('../content/routes.json',import.meta.url),'utf8')) as Record<string,string>;
 const media=JSON.parse(readFileSync(new URL('../content/media.json',import.meta.url),'utf8')) as Record<string,string>;
 const cache=new Map<string,string>();
@@ -57,6 +58,7 @@ export function renderOwnedPage(url:URL,cookie=''):string|null{
   form.find('[data-fem-cart-add],[data-fem-action-type="add-to-cart"]').attr('data-fem-disabled',String(!v.available));
   form.find('[data-fem-action-variant-id]').attr('data-fem-action-variant-id',String(v.id));
  });
+ if(product)addProductFaq($,product);
  if(url.pathname==='/search'){
   const q=url.searchParams.get('q')?.trim()??'';
   const form=$('form.search-page-input__parent');

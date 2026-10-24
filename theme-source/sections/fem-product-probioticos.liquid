@@ -142,26 +142,17 @@
               ><div data-fem-type="text" class="fem-view-rich-text iqHVkeZdiKxGihBC1"><p>4.6/5</p></div></div
             ><div data-fem-type="text" class="fem-view-rich-text idcYjy9VppnFOePFZ"
               ><h3><strong>Alimento con probióticos y prebióticos #1 en Colombia</strong></h3></div
-            >{% render 'fem-probioticos-price', variant: product.selected_or_first_available_variant %}<div class="i6nKMwtIq0cVyv51r" data-fem-type="container"
-              ><div class="i8czU2UtG8kphNgPh" data-fem-type="container"
+            >{% render 'fem-probioticos-price', variant: product.selected_or_first_available_variant %}<div class="i6nKMwtIq0cVyv51r" data-fem-type="container" role="list" aria-label="Beneficios del producto">
+              {%- assign fem_probioticos_benefits = 'Registro sanitario activo|Ayuda a mantener el equilibrio de la microbiota vaginal.|Favorece el bienestar íntimo femenino.|Contribuye al equilibrio de la microbiota intestinal.|Apoya la salud digestiva.|Aporta microorganismos beneficiosos para el organismo.' | split: '|' -%}
+              {%- for benefit in fem_probioticos_benefits -%}
+              <div class="i8czU2UtG8kphNgPh" data-fem-type="container" role="listitem"
                 ><div data-fem-type="icon" class="iglIuJfNkPRNvbrqK">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon" aria-hidden="true">
                     <title>check-circle</title><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path>
                   </svg></div
-                ><div data-fem-type="text" class="fem-view-rich-text iW6TDWGDaCI8dV0Uj"><p>Registro sanitario activo</p></div></div
-              ><div class="ijUxOgfvqhoOgfNFx" data-fem-type="container"
-                ><div data-fem-type="icon" class="iCZ4xbH1LS6Xn0ofo">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
-                    <title>check-circle</title><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path>
-                  </svg></div
-                ><div data-fem-type="text" class="fem-view-rich-text iu2WIk5qaJrp9BaUi"><p>Sin contraindicaciones</p></div></div
-              ><div class="iiaZ6yrNEAKra52wl" data-fem-type="container"
-                ><div data-fem-type="icon" class="iCgYKTQaEwhdORiwk">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="fem-view-icon">
-                    <title>check-circle</title><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path>
-                  </svg></div
-                ><div data-fem-type="text" class="fem-view-rich-text i1DEL353xlzB3aXoP"><p>Atención al cliente prioritaria</p></div></div
-              ></div
+                ><div data-fem-type="text" class="fem-view-rich-text iW6TDWGDaCI8dV0Uj"><p>{{ benefit | escape }}</p></div></div>
+              {%- endfor -%}
+              </div
             >{% render 'fem-probioticos-delivery' %}</div
           ><div class="i5Ee2vCZxwkgJqyFB" data-fem-type="container">
             <!--  -->

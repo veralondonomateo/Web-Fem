@@ -1,0 +1,50 @@
+/* Keep the FAQ presentation independent of the product template resets. */
+.fem-product-faq {
+  box-sizing:border-box;
+  width:100%;
+  padding:64px 80px;
+  background:#fff;
+  color:#581d18;
+  font:400 16px/1.6 Poppins,Arial,sans-serif;
+}
+.fem-product-faq *, .fem-product-faq *::before, .fem-product-faq *::after { box-sizing:border-box; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__layout { display:grid; grid-template-columns:minmax(0,35fr) minmax(0,60fr); align-items:start; gap:60px; width:100%; max-width:1340px; margin-inline:auto; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__intro { display:flex; flex-direction:column; align-items:flex-start; gap:14px; min-width:0; text-align:left; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__intro h2 { margin:0; color:inherit; font:700 44px/1.16 Poppins,Arial,sans-serif; letter-spacing:-.035em; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__intro h2 em { display:block; color:#c64b4b; font-family:var(--fem-font-editorial,Georgia,serif); font-size:49px; font-weight:700; letter-spacing:-.025em; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__intro h2::after { content:''; display:block; width:64px; height:4px; margin-top:22px; border-radius:999px; background:#c64b4b; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__intro h3 { margin:8px 0 0; color:inherit; font:700 18px/1.45 Poppins,Arial,sans-serif; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__intro > p { margin:0; color:#75433e; font-size:15px; line-height:1.65; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__contact { display:flex; flex-wrap:wrap; gap:12px; margin-top:8px; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__link { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; max-width:100%; padding:12px 22px; border:1px solid transparent; border-radius:999px; background:#c64b4b; color:#fff; font:600 14px/1.5 Poppins,Arial,sans-serif; text-decoration:none; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__link:hover { background:#ad3f3f; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__link--whatsapp { background:#50ce65; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__link--whatsapp:hover { background:#40b954; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__link svg { flex:0 0 18px; width:18px; height:18px; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__questions { display:grid; min-width:0; gap:16px; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__item { min-width:0; padding:4px 8px; border-radius:16px; background:#fdf1ef; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__question { display:flex; align-items:center; justify-content:space-between; gap:16px; width:100%; min-height:64px; margin:0; padding:20px 16px; border:0; border-radius:12px; background:transparent; color:inherit; font:700 14px/1.5 Poppins,Arial,sans-serif; text-align:left; cursor:pointer; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__question > span:first-child { min-width:0; overflow-wrap:anywhere; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__toggle { position:relative; flex:0 0 22px; width:22px; height:22px; color:#f17e7e; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__toggle::before, .fem-product-faq[data-fem-styles="none"] .fem-product-faq__toggle::after { content:''; position:absolute; top:10px; left:2px; width:18px; height:2px; background:currentColor; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__toggle::after { transform:rotate(90deg); }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__answer { height:0; overflow:hidden; transition:height 125ms ease-in-out; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__item[data-state="open"] .fem-product-faq__answer { height:var(--fem-accordion-content-height,auto); }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__copy { padding:24px 16px 20px; font-size:15px; line-height:1.6; overflow-wrap:anywhere; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__copy p { margin:0; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__copy strong { font-weight:700; }
+.fem-product-faq[data-fem-styles="none"] .fem-product-faq__question:focus-visible, .fem-product-faq[data-fem-styles="none"] .fem-product-faq__link:focus-visible { outline:2px solid #581d18; outline-offset:4px; }
+@media(max-width:1023px) {
+  .fem-product-faq { padding:48px 40px; }
+  .fem-product-faq[data-fem-styles="none"] .fem-product-faq__layout { grid-template-columns:minmax(0,1fr); gap:32px; }
+}
+@media(max-width:749px) {
+  .fem-product-faq { padding:36px 20px; }
+  .fem-product-faq[data-fem-styles="none"] .fem-product-faq__intro h2 { font-size:30px; }
+  .fem-product-faq[data-fem-styles="none"] .fem-product-faq__intro h2 em { font-size:34px; }
+  .fem-product-faq[data-fem-styles="none"] .fem-product-faq__intro h2::after { margin-top:18px; }
+  .fem-product-faq[data-fem-styles="none"] .fem-product-faq__intro > p, .fem-product-faq[data-fem-styles="none"] .fem-product-faq__copy { font-size:14px; }
+  .fem-product-faq[data-fem-styles="none"] .fem-product-faq__contact { gap:10px; }
+  .fem-product-faq[data-fem-styles="none"] .fem-product-faq__link { padding-inline:18px; }
+}
+@media(prefers-reduced-motion:reduce) { .fem-product-faq[data-fem-styles="none"] .fem-product-faq__answer { transition:none; } }

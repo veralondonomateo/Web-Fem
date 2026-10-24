@@ -19,6 +19,33 @@ body :is(
   min-width:0;
 }
 body :is(.iK12SR8G3QlYdas8a,.i9wqtHygNXUZTeAwE) { align-items:flex-start !important; }
+/* Article headers share the collection hero's content width and responsive gutters. */
+body .fem-view[data-fem-layout="BLOG_POST"] :is(.i6SAiQ10pVDwJaqYB,.iV7yPEUhxSquNBkar,.iAwZAQUQp7T2fyw25,.iDZBOG03H7WRnLhRF) {
+  margin-top:0 !important;
+  padding:144px 0 48px !important;
+  border:0;
+}
+body .fem-view[data-fem-layout="BLOG_POST"] :is(.ihzQ2YWf7gjR6dKLX,.ieqmBWQAF9X25qqhM,.i2YSofvCYJysBKs7O,.iYOsi1VD50ufoSPOJ) {
+  width:calc(100% - 160px);
+  max-width:1200px;
+  margin-inline:auto;
+  align-items:flex-start;
+}
+body .fem-view[data-fem-layout="BLOG_POST"] :is(.i8IkeOpbDlbqiiJzb,.i2vfCiNJA3OSTU5ZI,.iCoJoduEHWqejuCpP,.iU09mZF6GKFCMFjwn,.ioM0UErTpREBFZoFq,.itUQB1Z8QgtAOILCn,.iR3DHGK0lbSow7eDV,.injIgBYW2l8gE7GRO) {
+  width:100%;
+  max-width:none;
+  padding:0;
+  align-items:flex-start;
+}
+@media(max-width:1023px) {
+  body .fem-view[data-fem-layout="BLOG_POST"] :is(.ihzQ2YWf7gjR6dKLX,.ieqmBWQAF9X25qqhM,.i2YSofvCYJysBKs7O,.iYOsi1VD50ufoSPOJ) { width:calc(100% - 40px); }
+}
+@media(max-width:749px) {
+  body .fem-view[data-fem-layout="BLOG_POST"] :is(.i6SAiQ10pVDwJaqYB,.iV7yPEUhxSquNBkar,.iAwZAQUQp7T2fyw25,.iDZBOG03H7WRnLhRF) { padding:104px 0 32px !important; }
+}
+@media(max-width:599px) {
+  body .fem-view[data-fem-layout="BLOG_POST"] :is(.ihzQ2YWf7gjR6dKLX,.ieqmBWQAF9X25qqhM,.i2YSofvCYJysBKs7O,.iYOsi1VD50ufoSPOJ) { width:calc(100% - 56px); }
+}
 body :is(
   .fem-collections-heading,.fem-plans__hero h1,.fem-refund-policy__header h1,.fem-search-heading,.shopify-policy__title h1,
   .iHq9qSQRPOkpe9jMI,.ivRcDCgwQNRbdzHUj,.iJegbXpv1hKR2N2tF,.iLamdYOkqSIDISelb,.i0m9TIhDiQhKHbURR,
@@ -157,6 +184,16 @@ body .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] :is(.i94g3FXpVoH2URfzX,.i9Eu1
   max-width:100%;
   margin-left:auto;
   margin-right:auto;
+}
+/* Keep every product comparison aligned with the desktop section gutters. */
+@media(min-width:1025px) {
+  body .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] :is(.ivnUYNBrV4ZVLKBAY,.ieHUiBWCTlOIyRShX,.iv48sX3oGM0sZ2fTO,.id8MrxJPgZZjxVrzP,.iRUh3pwGLRRGozLvO,.iPD65Wj4MfPkbJpqt,.iWNRPf7DaAHljNMjh,.i26jMu6jGNp0zq50q,.iFdPPHDSaRbPhlq8r,.iMPEhPud4OUkcmwfN,.ifiPcfASyEW0Qoau4,.iUK6mMieOQzprpGCp,.i3ujXSFkXCImKz8Hs,.iibeUwKWOli0ntAxI,.irpBA62BOBcWgv9nW,.iMRt67MdMauFF07Gi) {
+    padding-left:80px;
+    padding-right:80px;
+  }
+  body .fem-view[data-fem-layout="PRODUCT_TEMPLATE"] :is(.ivnUYNBrV4ZVLKBAY,.ieHUiBWCTlOIyRShX,.iv48sX3oGM0sZ2fTO,.id8MrxJPgZZjxVrzP,.iRUh3pwGLRRGozLvO,.iPD65Wj4MfPkbJpqt,.iWNRPf7DaAHljNMjh,.i26jMu6jGNp0zq50q,.iFdPPHDSaRbPhlq8r,.iMPEhPud4OUkcmwfN,.ifiPcfASyEW0Qoau4,.iUK6mMieOQzprpGCp,.i3ujXSFkXCImKz8Hs,.iibeUwKWOli0ntAxI,.irpBA62BOBcWgv9nW,.iMRt67MdMauFF07Gi) > [data-fem-type="container"] {
+    width:100%;
+  }
 }
 @media(max-width:749px) {
   body .fem-view[data-fem-layout="COLLECTION_TEMPLATE"] .iemoiUGRReOETq9WA {

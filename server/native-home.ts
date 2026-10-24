@@ -110,6 +110,10 @@ export function renderProbioticosDelivery():string {
   return engine.renderFileSync('fem-probioticos-delivery');
 }
 
+export function renderProductFaq(id:string,questions:{question:string;answer:string}[]):string {
+  return engine.renderFileSync('fem-product-faq',{id,questions});
+}
+
 /** Preview-only adapter. Shopify renders all_products directly in the real theme. */
 export function productsFromStorefront(html:string|CheerioAPI):Record<string,HomeProduct> {
   const $=typeof html==='string'?load(html):html;
